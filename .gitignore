@@ -3,8 +3,6 @@
 worker/
 dist/
 
-# Sensitive (contains SMTP credentials)
-_worker.js
 
 # Dependencies
 node_modules/
