@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Send beautiful greeting cards online for free. Browse thousands of birthday, love, Christmas, and more cards. Download HD without watermark." />
+  <title>SmartCards - Beautiful Free Greeting Cards Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8f6f3;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --accent: #4a7c59;
+      --accent-light: #e8f0e4;
+      --border: #e5e5e5;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    nav {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; font-size: 0.9rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .hero {
+      text-align: center;
+      padding: 60px 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 8px; }
+    .categories {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: 16px;
+    }
+    .category-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow 0.2s;
+    }
+    .category-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .category-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .category-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+    .category-card .count { font-size: 0.85rem; color: var(--text-muted); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 16px;
+    }
+    .card-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+      gap: 16px;
+    }
+    .card-thumb {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--card-bg);
+      transition: box-shadow 0.2s;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .card-thumb:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .card-thumb img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+    .card-thumb .label { padding: 8px 12px; font-size: 0.85rem; font-weight: 500; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">SmartCards</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/categories">Categories</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>The perfect card for every moment</h1>
+  <p>Browse thousands of beautiful greeting cards. Personalize, share, and download in HD.</p>
+</div>
+
+<div class="categories">
+  <a href="/category/birthday" class="category-card">
+    <div class="icon">🎂</div>
+    <h3>Birthday</h3>
+    <div class="count" data-count="birthday">Loading...</div>
+  </a>
+  <a href="/category/love" class="category-card">
+    <div class="icon">❤️</div>
+    <h3>Love</h3>
+    <div class="count" data-count="love">Loading...</div>
+  </a>
+  <a href="/category/christmas" class="category-card">
+    <div class="icon">🎄</div>
+    <h3>Christmas</h3>
+    <div class="count" data-count="christmas">Loading...</div>
+  </a>
+  <a href="/category/thank-you" class="category-card">
+    <div class="icon">🙏</div>
+    <h3>Thank You</h3>
+    <div class="count" data-count="thank-you">Loading...</div>
+  </a>
+  <a href="/category/anniversary" class="category-card">
+    <div class="icon">💑</div>
+    <h3>Anniversary</h3>
+    <div class="count" data-count="anniversary">Loading...</div>
+  </a>
+  <a href="/category/get-well" class="category-card">
+    <div class="icon">💪</div>
+    <h3>Get Well</h3>
+    <div class="count" data-count="get-well">Loading...</div>
+  </a>
+</div>
+
+<footer>
+  <a href="/">Home</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/terms">Terms</a>
+  <p style="margin-top:12px">&copy; 2026 SmartCards. All cards crafted with care.</p>
+</footer>
+</body>
+</html>

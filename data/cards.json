@@ -1,0 +1,53 @@
+[
+  {
+    "id": "birthday-mom-funny-001",
+    "slug": "funny-birthday-card-for-mom",
+    "category": "birthday",
+    "recipient": "mom",
+    "style": "funny",
+    "title": "Funny Birthday Card for Mom",
+    "meta_desc": "Send a funny birthday card to mom with our free online greeting card. Personalize, share, and download HD.",
+    "images": {
+      "square": "https://pub-xxxxx.r2.dev/birthday-mom-funny-001-square.webp",
+      "vertical": "https://pub-xxxxx.r2.dev/birthday-mom-funny-001-vertical.webp",
+      "horizontal": "https://pub-xxxxx.r2.dev/birthday-mom-funny-001-horizontal.webp"
+    },
+    "message": "Happy Birthday Mom! You're not old, you're vintage. And everyone knows vintage is priceless. Love you!",
+    "premium": false,
+    "source": "pexels-1234567"
+  },
+  {
+    "id": "birthday-dad-funny-001",
+    "slug": "funny-birthday-card-for-dad",
+    "category": "birthday",
+    "recipient": "dad",
+    "style": "funny",
+    "title": "Funny Birthday Card for Dad",
+    "meta_desc": "Send a funny birthday card to dad for free. Personalize with your own message and download HD.",
+    "images": {
+      "square": "https://pub-xxxxx.r2.dev/birthday-dad-funny-001-square.webp",
+      "vertical": "https://pub-xxxxx.r2.dev/birthday-dad-funny-001-vertical.webp",
+      "horizontal": "https://pub-xxxxx.r2.dev/birthday-dad-funny-001-horizontal.webp"
+    },
+    "message": "Happy Birthday Dad! Thanks for teaching me everything I know. Well, almost everything. Some things YouTube taught me.",
+    "premium": false,
+    "source": "pexels-2345678"
+  },
+  {
+    "id": "love-husband-sweet-001",
+    "slug": "sweet-anniversary-card-for-husband",
+    "category": "anniversary",
+    "recipient": "husband",
+    "style": "sweet",
+    "title": "Sweet Anniversary Card for Husband",
+    "meta_desc": "Send a sweet anniversary card to your husband with our free online greeting card. Romantic, personalized, and HD.",
+    "images": {
+      "square": "https://pub-xxxxx.r2.dev/love-husband-sweet-001-square.webp",
+      "vertical": "https://pub-xxxxx.r2.dev/love-husband-sweet-001-vertical.webp",
+      "horizontal": "https://pub-xxxxx.r2.dev/love-husband-sweet-001-horizontal.webp"
+    },
+    "message": "Another year around the sun together. Thank you for every laugh, every hug, and every adventure. I love you more each day.",
+    "premium": false,
+    "source": "pexels-3456789"
+  }
+]

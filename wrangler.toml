@@ -1,0 +1,10 @@
+name = "smartcards"
+compatibility_date = "2025-01-01"
+
+[env.production]
+vars = { DOMAIN = "sendafun.com" }
+
+# R2 桶配置（上线后添加）
+# [[r2_buckets]]
+# binding = "CARDS_BUCKET"
+# bucket_name = "card-images"
