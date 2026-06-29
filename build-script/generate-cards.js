@@ -140,10 +140,17 @@ function copyWatermark(card) {
 }
 
 // ── Generate a single card HTML ──────────────────────────────────────────────
-function generateCardHtml(card, template) {
+function generateCardHtml(card, template, allCards) {
   const seo = card.seo || {};
   const ogDesc = seo.description ||
     `Send a personalised ${card.title.toLowerCase()} to someone special. Create your e-card at SendAFun.`;
+
+  // Pick 4 random cards from OTHER categories for community carousel
+  const otherCards = allCards.filter(c => c.slug !== card.slug);
+  const shuffled = [...otherCards];
+  shuffleArray(shuffled);
+  const communityCards = shuffled.slice(0, 4);
+  const relatedCards = shuffled.slice(4, 8);
 
   const replacements = {
     // ── SEO 字段（优先读 card.seo，无则降级）───
@@ -172,6 +179,10 @@ function generateCardHtml(card, template) {
     '__CARD_DEFAULT_FILTER__': card.defaultFilter || 'none',
     '__CARD_SLUG__':          card.slug,
     '__ADS_ENABLED__':        'none',  // Phase 2: change to 'block'
+
+    // ── 动态社区轮播 & 相关推荐 ──
+    '__COMMUNITY_CAROUSEL__': renderCommunityCarousel(communityCards),
+    '__RELATED_CARDS__':      renderRelatedCards(relatedCards),
   };
 
   let html = template;
@@ -254,7 +265,7 @@ function build() {
       const srcHash  = fileHash(srcPath);
 
       // Generate HTML
-      const html = generateCardHtml(card, template);
+      const html = generateCardHtml(card, template, cards);
       const outPath = writeCardHtml(card.slug, html);
 
       // Copy watermark
@@ -428,6 +439,39 @@ function renderCardTile(card) {
       <div class="card-tile-tags">${tags}</div>
     </div>
   </a>`;
+}
+
+// ── Render community carousel items (real cards from other categories) ───────
+function renderCommunityCarousel(cards) {
+  if (!cards || cards.length === 0) return '';
+  return cards.map(c => {
+    const img = c.bgImageWatermark || c.bgImage;
+    return `<div class="carousel-item">
+        <a href="/card/${c.slug}.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="carousel-item-img" style="background-image:url('${img}')"></div>
+          <div class="carousel-item-info">
+            <div class="carousel-item-text">${c.title}</div>
+            <div class="carousel-item-author">${c.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</div>
+          </div>
+        </a>
+      </div>`;
+  }).join('\n      ');
+}
+
+// ── Render related cards (real cards from other categories) ──────────────────
+function renderRelatedCards(cards) {
+  if (!cards || cards.length === 0) return '';
+  return cards.map(c => {
+    const img = c.bgImageWatermark || c.bgImage;
+    const catLabel = CATEGORY_LABELS[c.category] || c.category;
+    return `<a href="/card/${c.slug}.html" class="related-item" style="text-decoration:none;color:inherit;">
+      <div class="related-item-img" style="background-image:url('${img}')"></div>
+      <div class="related-item-info">
+        <div class="related-item-title">${c.title}</div>
+        <div class="related-item-tag">${catLabel}</div>
+      </div>
+    </a>`;
+  }).join('\n    ');
 }
 
 // ── Generate the main index page ─────────────────────────────────────────────
