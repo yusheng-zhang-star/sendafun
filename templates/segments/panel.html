@@ -1,0 +1,134 @@
+  <div class="customize-panel" id="customizePanel">
+    <div class="panel-handle" id="panelHandle">
+      <div class="panel-handle-bar"></div>
+      <div class="panel-handle-label">&#10024; Customize &mdash; it's easy &#10024;</div>
+    </div>
+    <div class="panel-scroll" id="panelScroll">
+
+      <div class="email-identify">
+        <label for="identEmail">Quick personalize &mdash; no account needed</label>
+        <div class="email-input-row">
+          <input type="email" id="identEmail" placeholder="your@email.com" autocomplete="email" inputmode="email">
+          <button class="btn btn-secondary" id="btnIdentify" style="flex-shrink:0;padding:10px 16px;">Go</button>
+        </div>
+        <p style="font-size:11px;color:var(--text-tertiary);margin-top:4px;">We&#39;ll save your edits. No spam, ever.</p>
+      </div>
+
+      <div class="preset-texts">
+        <button class="preset-btn" data-preset="Make them cry &mdash; the good kind &#128546;">&#128546; Make them cry</button>
+        <button class="preset-btn" data-preset="You're gonna laugh so hard! &#128514;">&#128514; Make them laugh</button>
+        <button class="preset-btn" data-preset="Just a little note to say I'm thinking of you &#10024;">&#10024; Short &amp; sweet</button>
+        <button class="preset-btn" data-preset="Remember that time&#8230;? Yeah, that. &#128527;">&#128527; Inside joke vibes</button>
+      </div>
+
+      <div class="text-input-wrap">
+        <label for="cardText">Your message</label>
+        <input type="text" id="cardText" placeholder="Type your message here&#8230;" value="__CARD_DEFAULT_TEXT__" maxlength="120">
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-section">
+          <div class="toolbar-label">Font</div>
+          <div class="font-row" id="fontRow">
+            <button class="font-item active" data-font="Inter" style="font-family:'Inter',sans-serif;font-weight:600">Ab</button>
+            <button class="font-item" data-font="Playfair Display" style="font-family:'Playfair Display',serif;font-weight:600">Ab</button>
+            <button class="font-item" data-font="Caveat" style="font-family:'Caveat',cursive;font-weight:600">Ab</button>
+            <button class="font-item" data-font="Dancing Script" style="font-family:'Dancing Script',cursive;font-weight:600">Ab</button>
+            <button class="font-item" data-font="Georgia" style="font-family:Georgia,serif;font-weight:600">Ab</button>
+            <button class="font-item" data-font="Arial" style="font-family:Arial,sans-serif;font-weight:600">Ab</button>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <div class="toolbar-label">Color</div>
+          <div class="color-row" id="colorRow">
+            <button class="color-swatch" data-color="#ffffff" style="background:#fff;border-color:#d2d2d7" aria-label="White"></button>
+            <button class="color-swatch" data-color="#1d1d1f" style="background:#1d1d1f" aria-label="Black"></button>
+            <button class="color-swatch" data-color="#007aff" style="background:#007aff" aria-label="Blue"></button>
+            <button class="color-swatch" data-color="#34c759" style="background:#34c759" aria-label="Green"></button>
+            <button class="color-swatch" data-color="#ff3b30" style="background:#ff3b30" aria-label="Red"></button>
+            <button class="color-swatch" data-color="#ff9500" style="background:#ff9500" aria-label="Orange"></button>
+            <button class="color-swatch" data-color="#af52de" style="background:#af52de" aria-label="Purple"></button>
+            <button class="color-swatch" data-color="#ffd60a" style="background:#ffd60a" aria-label="Yellow"></button>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <div class="toolbar-label">Position</div>
+          <div class="toggle-row" id="posRow">
+            <button class="toggle-btn" data-pos="top">Top</button>
+            <button class="toggle-btn active" data-pos="center">Center</button>
+            <button class="toggle-btn" data-pos="bottom">Bottom</button>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <div class="toolbar-label">Filter</div>
+          <div class="toggle-row" id="filterRow">
+            <button class="toggle-btn active" data-filter="none">None</button>
+            <button class="toggle-btn" data-filter="warm">Warm</button>
+            <button class="toggle-btn" data-filter="cool">Cool</button>
+            <button class="toggle-btn" data-filter="bw">B&amp;W</button>
+            <button class="toggle-btn" data-filter="vintage">Vintage</button>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <div class="toolbar-label">Text Size</div>
+          <div class="toggle-row" id="sizeRow">
+            <button class="toggle-btn" data-size="small">Small</button>
+            <button class="toggle-btn active" data-size="medium">Medium</button>
+            <button class="toggle-btn" data-size="large">Large</button>
+          </div>
+        </div>
+
+        <div class="undo-btn-wrap">
+          <button class="btn btn-ghost" id="btnUndo" style="font-size:13px;">&#8618; Undo</button>
+        </div>
+      </div>
+
+      <div class="panel-divider"></div>
+
+      <div class="delivery-options">
+        <div class="delivery-label">Send via</div>
+        <div class="delivery-row">
+          <div class="delivery-card active" data-delivery="email">
+            <div class="delivery-card-icon">&#9993;</div>
+            <div class="delivery-card-name">Email</div>
+            <div class="delivery-card-desc">Delivered instantly</div>
+          </div>
+          <div class="delivery-card" data-delivery="download">
+            <div class="delivery-card-icon">&#128228;</div>
+            <div class="delivery-card-name">Download</div>
+            <div class="delivery-card-desc">Save to device</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="pricing-row">
+          <div class="pricing-card active" data-plan="single">
+            <div class="pricing-amount">$1.99</div>
+            <div class="pricing-period">one card</div>
+          </div>
+          <div class="pricing-card" data-plan="annual">
+            <div class="pricing-badge">Save 80%</div>
+            <div class="pricing-amount">$19.99</div>
+            <div class="pricing-period">per year</div>
+            <div class="pricing-note">Unlimited cards</div>
+            <div class="pricing-cancel">Cancel anytime</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-wrap">
+        <button class="btn btn-primary checkout-btn" id="btnCheckout">Continue to Checkout</button>
+        <div class="secured-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secured by Creem
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

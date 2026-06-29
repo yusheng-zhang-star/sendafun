@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Encouragement Cards — SendAFun">
+<meta property="og:description" content="Browse our collection of encouragement e-cards. Send a personalised card for free!">
+<title>Encouragement Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.85rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.page-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a202c; }
+.page-subtitle { font-size: 1.1rem; color: #718096; margin-bottom: 2rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #a0aec0; }
+.card-tile-info { padding: 1rem; }
+.card-tile-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; color: #2d3748; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.7rem; background: #edf2f7; color: #4a5568; padding: 0.15rem 0.5rem; border-radius: 10px; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .nav-links { overflow-x: auto; width: 100%; padding-bottom: 0.5rem; }
+  .page-title { font-size: 1.8rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/thanks.html" class="nav-link">Thank You</a>
+        <a href="/category/wellness.html" class="nav-link">Get Well</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/miss-you.html" class="nav-link">Miss You</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/encouragement.html" class="nav-link active">Encouragement</a>
+    </nav>
+  </div>
+</header>
+<main class="main">
+  <h1 class="page-title">Encouragement Cards</h1>
+  <p class="page-subtitle">Find the perfect encouragement e-card to send to someone special.</p>
+  <div class="card-grid">
+    <a href="/card/cheer-up-bestie.html" class="card-tile">
+    <div class="card-tile-img"><img src="/images/watermark/cheerup-01.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+    </div>
+  </a>
+  </div>
+  
+  <h2 class="page-title" style="font-size:1.5rem;margin-top:2rem;">More Categories</h2>
+  <p class="page-subtitle">You might also like…</p>
+  <div class="card-grid">
+    <a href="/card/miss-you-grandma.html" class="card-tile">
+    <div class="card-tile-img"><img src="/images/watermark/missyou-01.webp" alt="Thinking of You Card for Grandma" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thinking of You Card for Grandma</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">family</span><span class="card-tile-tag">thinking-of-you</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-boss.html" class="card-tile">
+    <div class="card-tile-img"><img src="/images/watermark/retirement-01.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Retirement Card for Boss</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+    </div>
+  </a>
+      <a href="/card/get-well-soon.html" class="card-tile">
+    <div class="card-tile-img"><img src="/images/watermark/wellness-01.webp" alt="Get Well Soon Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Get Well Soon Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">health</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">encouragement</span></div>
+    </div>
+  </a>
+      <a href="/card/beautiful-birthday-mom.html" class="card-tile">
+    <div class="card-tile-img"><img src="/images/watermark/birthday-mom-01.webp" alt="Beautiful Birthday Card for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Birthday Card for Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mom</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">elegant</span></div>
+    </div>
+  </a>
+  </div>
+</main>
+<footer style="text-align:center;padding:2rem;color:#a0aec0;font-size:0.85rem;">
+  <p>© 2026 SendAFun — Free personalised e-cards</p>
+</footer>
+</body>
+</html>

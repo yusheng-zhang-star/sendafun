@@ -1,7 +1,6 @@
 # Cloudflare Workers
 .wrangler/
 worker/
-dist/
 
 
 # Dependencies
@@ -12,5 +11,11 @@ node_modules/
 Thumbs.db
 *.log
 
-# Output - generated pages
+# Secrets
+.env
+
+# Source images (intermediate, 1.7GB)
+source/images/
 output/cards.json
+__pycache__/
+.cards-cache.json

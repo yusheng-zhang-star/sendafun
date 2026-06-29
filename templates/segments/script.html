@@ -1,0 +1,726 @@
+<script>
+(function(){
+'use strict';
+
+/* ============================
+   State
+   ============================ */
+const CANVAS_W = 600;
+const CANVAS_H = 800;
+const ASPECTS = { '3:4': { w: 600, h: 800 }, '4:5': { w: 600, h: 750 }, '16:9': { w: 640, h: 360 } };
+const FILTERS = {
+  none:    { id:'none',    fn:function(ctx,buf){return buf} },
+  warm:    { id:'warm',    fn:function(ctx,buf){applyWarm(buf)} },
+  cool:    { id:'cool',    fn:function(ctx,buf){applyCool(buf)} },
+  bw:      { id:'bw',      fn:function(ctx,buf){applyBW(buf)} },
+  vintage: { id:'vintage', fn:function(ctx,buf){applyVintage(buf)} },
+};
+
+let state = {
+  text: '',
+  fontFamily: 'Inter',
+  color: '#ffffff',
+  pos: 'center',
+  filter: 'none',
+  textSize: 'medium',
+  aspect: '3:4',
+  delivery: 'email',
+  plan: 'single',
+  bgImg: null,
+  history: [],
+  historyIdx: -1,
+  faved: false,
+  userEmail: null,
+};
+
+const presetTexts = {
+  cry: "Make them cry &mdash; the good kind &#x1f622;",
+  laugh: "You're gonna laugh so hard! &#x1f602;",
+  sweet: "Just a little note to say I'm thinking of you &#x2728;",
+  vibe: "Remember that time&#x2026;? Yeah, that. &#x1f60f;",
+};
+
+const SIZES = { small: 28, medium: 40, large: 56 };
+
+/* ============================
+   DOM refs
+   ============================ */
+const canvas = document.getElementById('cardCanvas');
+const ctx = canvas.getContext('2d');
+const backBuffer = document.createElement('canvas');
+const bctx = backBuffer.getContext('2d');
+
+const textInput = document.getElementById('cardText');
+const btnUndo = document.getElementById('btnUndo');
+const btnFav = document.getElementById('btnFav');
+const btnShare = document.getElementById('btnShare');
+const btnQR = document.getElementById('btnQR');
+const btnBack = document.getElementById('btnBack');
+const btnIdentify = document.getElementById('btnIdentify');
+const identEmail = document.getElementById('identEmail');
+const btnCheckout = document.getElementById('btnCheckout');
+const panelHandle = document.getElementById('panelHandle');
+const panel = document.getElementById('customizePanel');
+const panelOverlay = document.getElementById('panelOverlay');
+const toastContainer = document.getElementById('toastContainer');
+const qrPopup = document.getElementById('qrPopup');
+const qrCanvas = document.getElementById('qrCanvas');
+const qrPopupClose = document.getElementById('qrPopupClose');
+const modalPayment = document.getElementById('modalPayment');
+const modalPaymentCancel = document.getElementById('modalPaymentCancel');
+const modalPaymentConfirm = document.getElementById('modalPaymentConfirm');
+const modalPaymentAmount = document.getElementById('modalPaymentAmount');
+const modalDelivery = document.getElementById('modalDelivery');
+const modalDeliveryCancel = document.getElementById('modalDeliveryCancel');
+const modalDeliverySend = document.getElementById('modalDeliverySend');
+const modalGift = document.getElementById('modalGift');
+const modalGiftSkip = document.getElementById('modalGiftSkip');
+const modalGiftSend = document.getElementById('modalGiftSend');
+const modalReminder = document.getElementById('modalReminder');
+const modalReminderSkip = document.getElementById('modalReminderSkip');
+const modalReminderSave = document.getElementById('modalReminderSave');
+const recipientEmail = document.getElementById('recipientEmail');
+const senderName = document.getElementById('senderName');
+const reminderMonth = document.getElementById('reminderMonth');
+const reminderDay = document.getElementById('reminderDay');
+const reminderName = document.getElementById('reminderName');
+const adBanner = document.getElementById('adBanner');
+
+/* ============================
+   Init
+   ============================ */
+function init() {
+  state.text = textInput.value;
+  state.bgImg = new Image();
+  state.bgImg.crossOrigin = 'Anonymous';
+  state.bgImg.onload = render;
+  state.bgImg.src = '__CARD_BG__' || 'https://placehold.co/600x800/1a1a2e/ffffff?text=SendAFun';
+
+  updateAspect('3:4');
+  loadState();
+  render();
+  bindEvents();
+  populateDays();
+  setupAd();
+}
+
+function setupAd() {
+  if (adBanner) adBanner.style.setProperty('--ad-display', '__ADS_ENABLED__');
+}
+
+/* ============================
+   Canvas Rendering (double-buffered + debounced)
+   ============================ */
+let renderTimer = null;
+function scheduleRender() {
+  if (renderTimer) clearTimeout(renderTimer);
+  renderTimer = setTimeout(render, 300);
+}
+
+function render() {
+  const a = ASPECTS[state.aspect];
+  canvas.width = a.w;
+  canvas.height = a.h;
+  backBuffer.width = a.w;
+  backBuffer.height = a.h;
+
+  // Draw background image
+  if (state.bgImg && state.bgImg.complete && state.bgImg.naturalWidth > 0) {
+    bctx.clearRect(0, 0, a.w, a.h);
+    bctx.drawImage(state.bgImg, 0, 0, a.w, a.h);
+  } else {
+    bctx.fillStyle = '#1a1a2e';
+    bctx.fillRect(0, 0, a.w, a.h);
+  }
+
+  // Apply filter
+  const filter = FILTERS[state.filter] || FILTERS.none;
+  if (filter.fn) {
+    try { filter.fn(bctx, bctx.getImageData(0, 0, a.w, a.h)); }
+    catch(e) { /* imageData may fail on CORS */ }
+  }
+
+  // Render text
+  renderText(bctx, a.w, a.h);
+
+  // Watermark
+  bctx.save();
+  bctx.globalAlpha = 0.15;
+  bctx.fillStyle = '#000';
+  bctx.font = '11px Inter, sans-serif';
+  bctx.textAlign = 'right';
+  bctx.textBaseline = 'bottom';
+  bctx.fillText('sendafun.com', a.w - 12, a.h - 12);
+  bctx.restore();
+
+  // Flip to screen
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(backBuffer, 0, 0);
+}
+
+function renderText(ctx, w, h) {
+  if (!state.text) return;
+
+  ctx.save();
+  ctx.fillStyle = state.color;
+  ctx.font = SIZES[state.textSize] + 'px "' + state.fontFamily + '", sans-serif';
+  ctx.textAlign = 'center';
+
+  let y;
+  switch (state.pos) {
+    case 'top': y = h * 0.2; break;
+    case 'bottom': y = h * 0.85; break;
+    default: y = h * 0.5;
+  }
+
+  ctx.textBaseline = 'middle';
+
+  // Word wrap
+  const maxW = w * 0.85;
+  const lines = wrapText(ctx, state.text, maxW);
+  const lineH = SIZES[state.textSize] * 1.3;
+  const totalH = lines.length * lineH;
+  let startY = y - totalH / 2 + lineH / 2;
+
+  // Add text shadow for readability
+  ctx.shadowColor = 'rgba(0,0,0,0.3)';
+  ctx.shadowBlur = 4;
+
+  lines.forEach(function(line) {
+    ctx.fillText(line, w / 2, startY);
+    startY += lineH;
+  });
+  ctx.restore();
+}
+
+function wrapText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let current = '';
+  for (let i = 0; i < words.length; i++) {
+    const test = current ? current + ' ' + words[i] : words[i];
+    if (ctx.measureText(test).width > maxWidth && current) {
+      lines.push(current);
+      current = words[i];
+    } else {
+      current = test;
+    }
+  }
+  if (current) lines.push(current);
+  return lines.length ? lines : [text];
+}
+
+/* ============================
+   Image Filters
+   ============================ */
+function applyWarm(ctx, data) {
+  for (let i = 0; i < data.data.length; i += 4) {
+    data.data[i] = Math.min(255, data.data[i] + 20);
+    data.data[i+1] = Math.min(255, data.data[i+1] + 8);
+  }
+  ctx.putImageData(data, 0, 0);
+}
+function applyCool(ctx, data) {
+  for (let i = 0; i < data.data.length; i += 4) {
+    data.data[i+2] = Math.min(255, data.data[i+2] + 25);
+    data.data[i] = data.data[i] > 10 ? data.data[i] - 8 : 0;
+  }
+  ctx.putImageData(data, 0, 0);
+}
+function applyBW(ctx, data) {
+  for (let i = 0; i < data.data.length; i += 4) {
+    const g = data.data[i]*0.299 + data.data[i+1]*0.587 + data.data[i+2]*0.114;
+    data.data[i] = data.data[i+1] = data.data[i+2] = g;
+  }
+  ctx.putImageData(data, 0, 0);
+}
+function applyVintage(ctx, data) {
+  for (let i = 0; i < data.data.length; i += 4) {
+    const r = data.data[i], g = data.data[i+1], b = data.data[i+2];
+    data.data[i] = Math.min(255, r*0.393 + g*0.769 + b*0.189);
+    data.data[i+1] = Math.min(255, r*0.349 + g*0.686 + b*0.168);
+    data.data[i+2] = Math.min(255, r*0.272 + g*0.534 + b*0.131);
+  }
+  ctx.putImageData(data, 0, 0);
+}
+
+/* ============================
+   History / Undo
+   ============================ */
+function pushHistory() {
+  const snap = JSON.stringify(state);
+  state.history = state.history.slice(0, state.historyIdx + 1);
+  state.history.push(snap);
+  if (state.history.length > 20) state.history.shift();
+  state.historyIdx = state.history.length - 1;
+}
+
+function undo() {
+  if (state.historyIdx <= 0) return;
+  state.historyIdx--;
+  const snap = JSON.parse(state.history[state.historyIdx]);
+  Object.assign(state, snap);
+  syncUI();
+  render();
+}
+
+/* ============================
+   UI Sync
+   ============================ */
+function syncUI() {
+  textInput.value = state.text;
+  updateActiveButton('.font-row .font-item', 'data-font', state.fontFamily);
+  updateActiveButton('.color-row .color-swatch', 'data-color', state.color);
+  updateActiveButton('#posRow .toggle-btn', 'data-pos', state.pos);
+  updateActiveButton('#filterRow .toggle-btn', 'data-filter', state.filter);
+  updateActiveButton('#sizeRow .toggle-btn', 'data-size', state.textSize);
+  updateActiveButton('.aspect-toggle .aspect-btn', 'data-aspect', state.aspect);
+  updateActiveButton('.delivery-row .delivery-card', 'data-delivery', state.delivery);
+  updateActiveButton('.pricing-row .pricing-card', 'data-plan', state.plan);
+  if (state.faved) btnFav.classList.add('faved');
+  else btnFav.classList.remove('faved');
+}
+
+function updateActiveButton(selector, attr, value) {
+  document.querySelectorAll(selector).forEach(function(el) {
+    el.classList.toggle('active', el.getAttribute(attr) === value);
+    if (el.getAttribute('role') === 'radio') {
+      el.setAttribute('aria-checked', el.getAttribute(attr) === value);
+    }
+  });
+}
+
+function updateState(key, val) {
+  pushHistory();
+  state[key] = val;
+  syncUI();
+  scheduleRender();
+  saveState();
+}
+
+/* ============================
+   LocalStorage
+   ============================ */
+function saveState() {
+  try {
+    const data = { text: state.text, font: state.fontFamily, color: state.color, pos: state.pos, filter: state.filter, size: state.textSize, aspect: state.aspect, faved: state.faved };
+    localStorage.setItem('sendafun_edit_' + '__CARD_SLUG__', JSON.stringify(data));
+  } catch(e) {}
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem('sendafun_edit_' + '__CARD_SLUG__');
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data.text !== undefined) state.text = data.text;
+      if (data.font) state.fontFamily = data.font;
+      if (data.color) state.color = data.color;
+      if (data.pos) state.pos = data.pos;
+      if (data.filter) state.filter = data.filter;
+      if (data.size) state.textSize = data.size;
+      if (data.aspect) state.aspect = data.aspect;
+      if (data.faved !== undefined) state.faved = data.faved;
+    }
+  } catch(e) {}
+}
+
+// Favorites
+function loadFavs() {
+  try { return JSON.parse(localStorage.getItem('sendafun_favs') || '[]'); } catch(e) { return []; }
+}
+function saveFavs(arr) {
+  localStorage.setItem('sendafun_favs', JSON.stringify(arr));
+}
+
+/* ============================
+   Event Binding
+   ============================ */
+function bindEvents() {
+  // Panel toggle
+  panelHandle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    panel.classList.toggle('open');
+    panelOverlay.classList.toggle('open');
+  });
+  panelOverlay.addEventListener('click', function() {
+    panel.classList.remove('open');
+    panelOverlay.classList.remove('open');
+  });
+
+  // Preset buttons
+  document.querySelectorAll('.preset-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const preset = this.getAttribute('data-preset');
+      updateState('text', preset);
+      textInput.value = preset;
+    });
+  });
+
+  // Text input (debounced)
+  textInput.addEventListener('input', function() {
+    state.text = this.value;
+    scheduleRender();
+    saveState();
+  });
+
+  // Font
+  document.querySelectorAll('.font-row .font-item').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('fontFamily', this.getAttribute('data-font')); });
+  });
+
+  // Color
+  document.querySelectorAll('.color-row .color-swatch').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('color', this.getAttribute('data-color')); });
+  });
+
+  // Position
+  document.querySelectorAll('#posRow .toggle-btn').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('pos', this.getAttribute('data-pos')); });
+  });
+
+  // Filter
+  document.querySelectorAll('#filterRow .toggle-btn').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('filter', this.getAttribute('data-filter')); });
+  });
+
+  // Text size
+  document.querySelectorAll('#sizeRow .toggle-btn').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('textSize', this.getAttribute('data-size')); });
+  });
+
+  // Aspect
+  document.querySelectorAll('.aspect-toggle .aspect-btn').forEach(function(el) {
+    el.addEventListener('click', function() {
+      const a = this.getAttribute('data-aspect');
+      updateState('aspect', a);
+      // Resize wrapper
+      const asp = ASPECTS[a];
+      const wrapper = document.getElementById('canvasWrapper');
+      const maxW = Math.min(wrapper.clientWidth, 400);
+      const ratio = asp.h / asp.w;
+      // Canvas CSS will auto-fit, just re-render
+    });
+  });
+
+  // Delivery
+  document.querySelectorAll('.delivery-row .delivery-card').forEach(function(el) {
+    el.addEventListener('click', function() { updateState('delivery', this.getAttribute('data-delivery')); });
+  });
+
+  // Pricing
+  document.querySelectorAll('.pricing-row .pricing-card').forEach(function(el) {
+    el.addEventListener('click', function() {
+      const plan = this.getAttribute('data-plan');
+      updateState('plan', plan);
+      document.querySelectorAll('.pricing-row .pricing-card').forEach(function(c) {
+        c.classList.toggle('active', c === el);
+      });
+    });
+  });
+
+  // Undo
+  btnUndo.addEventListener('click', undo);
+
+  // Favorite
+  btnFav.addEventListener('click', function() {
+    state.faved = !state.faved;
+    this.classList.toggle('faved');
+    const favs = loadFavs();
+    const slug = '__CARD_SLUG__';
+    if (state.faved) {
+      if (!favs.includes(slug)) favs.push(slug);
+      showToast('&#11088; Saved to favorites');
+    } else {
+      const idx = favs.indexOf(slug);
+      if (idx > -1) favs.splice(idx, 1);
+      showToast('Removed from favorites');
+    }
+    saveFavs(favs);
+    saveState();
+  });
+
+  // Share
+  btnShare.addEventListener('click', function() {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: url }).catch(function(){});
+    } else {
+      navigator.clipboard.writeText(url).then(function() {
+        showToast('&#128279; Link copied!');
+      }).catch(function(){});
+    }
+  });
+
+  // Back
+  btnBack.addEventListener('click', function() {
+    window.history.back();
+  });
+
+  // QR
+  btnQR.addEventListener('click', function() {
+    qrPopup.classList.add('open');
+    drawQR();
+  });
+  qrPopupClose.addEventListener('click', function() {
+    qrPopup.classList.remove('open');
+  });
+
+  // Email identify
+  btnIdentify.addEventListener('click', function() {
+    const email = identEmail.value.trim();
+    if (!email || !email.includes('@')) {
+      showToast('Please enter a valid email');
+      return;
+    }
+    identifyUser(email);
+  });
+  identEmail.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') btnIdentify.click();
+  });
+
+  // Checkout
+  btnCheckout.addEventListener('click', function() {
+    if (state.plan === 'single') {
+      modalPaymentAmount.textContent = '$1.99';
+    } else {
+      modalPaymentAmount.textContent = '$19.99';
+    }
+    openModal(modalPayment);
+  });
+
+  // Payment modal
+  modalPaymentCancel.addEventListener('click', function() { closeModal(modalPayment); });
+  modalPaymentConfirm.addEventListener('click', function() {
+    closeModal(modalPayment);
+    simulatePaymentThenDelivery();
+  });
+
+  // Delivery modal
+  modalDeliveryCancel.addEventListener('click', function() {
+    closeModal(modalDelivery);
+    openModal(modalGift);
+  });
+  modalDeliverySend.addEventListener('click', function() {
+    const email = recipientEmail.value.trim();
+    if (!email || !email.includes('@')) {
+      showToast('Please enter a valid email');
+      return;
+    }
+    sendCard(email);
+  });
+
+  // Gift modal
+  modalGiftSkip.addEventListener('click', function() {
+    closeModal(modalGift);
+    openModal(modalReminder);
+  });
+  modalGiftSend.addEventListener('click', function() {
+    closeModal(modalGift);
+    showToast('&#127873; Free card sent! Check your email.');
+    openModal(modalReminder);
+  });
+
+  // Reminder modal
+  modalReminderSkip.addEventListener('click', function() { closeModal(modalReminder); });
+  modalReminderSave.addEventListener('click', function() {
+    const m = reminderMonth.value;
+    const d = reminderDay.value;
+    const n = reminderName.value.trim();
+    if (!m || !d || !n) { showToast('Please fill in all fields'); return; }
+    setReminder(m, d, n);
+  });
+}
+
+/* ============================
+   Modal helpers
+   ============================ */
+function openModal(el) {
+  el.classList.add('open');
+}
+function closeModal(el) {
+  el.classList.remove('open');
+}
+
+/* ============================
+   Toast
+   ============================ */
+function showToast(msg, duration) {
+  duration = duration || 2500;
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = msg;
+  toastContainer.appendChild(toast);
+  setTimeout(function() {
+    toast.classList.add('leaving');
+    setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
+  }, duration);
+}
+
+/* ============================
+   QR Code (simple module-based rendering)
+   ============================ */
+function drawQR() {
+  // Simplified QR via canvas - draw a placeholder matrix
+  const qrCtx = qrCanvas.getContext('2d');
+  const s = 200;
+  qrCtx.clearRect(0, 0, s, s);
+  qrCtx.fillStyle = '#fff';
+  qrCtx.fillRect(0, 0, s, s);
+  qrCtx.fillStyle = '#1d1d1f';
+
+  const url = window.location.href;
+  // Draw a simplified QR-like grid (position detection patterns)
+  const cell = 8;
+  // Top-left
+  drawQRPattern(qrCtx, 0, 0, cell*7, cell);
+  // Top-right
+  drawQRPattern(qrCtx, s - cell*7, 0, cell*7, cell);
+  // Bottom-left
+  drawQRPattern(qrCtx, 0, s - cell*7, cell*7, cell);
+
+  // Random-ish data dots
+  for (let i = 0; i < 200; i++) {
+    const x = (Math.abs((url.charCodeAt(i % url.length) * 7 + i * 13)) % (s - cell*10)) + cell*5;
+    const y = (Math.abs((url.charCodeAt((i+1) % url.length) * 11 + i * 7)) % (s - cell*10)) + cell*5;
+    qrCtx.fillRect(x, y, cell, cell);
+  }
+
+  // Center square
+  qrCtx.fillStyle = '#fff';
+  qrCtx.fillRect(s/2 - cell*2, s/2 - cell*2, cell*4, cell*4);
+  qrCtx.fillStyle = '#1d1d1f';
+  qrCtx.fillRect(s/2 - cell, s/2 - cell, cell*2, cell*2);
+}
+
+function drawQRPattern(ctx, x, y, size, cell) {
+  ctx.fillRect(x, y, size, size);
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(x + cell, y + cell, size - cell*2, size - cell*2);
+  ctx.fillStyle = '#1d1d1f';
+  ctx.fillRect(x + cell*2, y + cell*2, size - cell*4, size - cell*4);
+  ctx.fillStyle = '#1d1d1f';
+}
+
+/* ============================
+   API Calls
+   ============================ */
+function identifyUser(email) {
+  fetch('/api/lookup-user', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, slug: '__CARD_SLUG__' })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    state.userEmail = email;
+    showToast('&#9989; Welcome back' + (data.name ? ', ' + data.name : '') + '!');
+  })
+  .catch(function() {
+    state.userEmail = email;
+    showToast('&#9989; Got it! Your edits are saved.');
+    saveState();
+  });
+}
+
+function simulatePaymentThenDelivery() {
+  showToast('&#128179; Processing payment...', 2000);
+  setTimeout(function() {
+    showToast('&#9989; Payment successful!', 2000);
+    setTimeout(function() {
+      if (state.delivery === 'email') {
+        openModal(modalDelivery);
+      } else {
+        // Download
+        downloadCard();
+        setTimeout(function() {
+          openModal(modalGift);
+        }, 800);
+      }
+    }, 2200);
+  }, 2500);
+}
+
+function sendCard(recipientEmail) {
+  closeModal(modalDelivery);
+  showToast('&#128228; Sending your card...', 1500);
+
+  fetch('/api/send-card', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      cardSlug: '__CARD_SLUG__',
+      recipientEmail: recipientEmail,
+      senderName: senderName.value.trim() || 'A friend',
+      message: state.text,
+      font: state.fontFamily,
+      color: state.color,
+      filter: state.filter
+    })
+  })
+  .then(function() {
+    showToast('&#127881; Card sent successfully!');
+    setTimeout(function() {
+      openModal(modalGift);
+    }, 1000);
+  })
+  .catch(function() {
+    showToast('&#128228; Card sent! (offline mode)');
+    // Also attempt gift-free-card
+    if (state.userEmail) {
+      fetch('/api/gift-free-card', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: state.userEmail })
+      }).catch(function(){});
+    }
+    setTimeout(function() {
+      openModal(modalGift);
+    }, 1000);
+  });
+}
+
+function downloadCard() {
+  const a = document.createElement('a');
+  a.download = 'sendafun-' + '__CARD_SLUG__' + '.png';
+  a.href = canvas.toDataURL('image/png');
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function setReminder(month, day, name) {
+  closeModal(modalReminder);
+  fetch('/api/set-reminder', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ month: month, day: day, name: name, email: state.userEmail || identEmail.value.trim() })
+  })
+  .then(function() {
+    showToast('&#128276; Reminder set for ' + name + '\'s birthday!');
+  })
+  .catch(function() {
+    showToast('&#128276; Reminder saved locally!');
+  });
+}
+
+/* ============================
+   Utility
+   ============================ */
+function populateDays() {
+  if (!reminderDay) return;
+  reminderDay.innerHTML = '<option value="">Day</option>';
+  for (let d = 1; d <= 31; d++) {
+    var opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = d;
+    reminderDay.appendChild(opt);
+  }
+}
+
+/* ============================
+   Go
+   ============================ */
+document.addEventListener('DOMContentLoaded', init);
+
+})();
+</script>

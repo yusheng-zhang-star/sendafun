@@ -1,0 +1,74 @@
+{
+  "creem_store_id": "sto_5CSCNwFCgLO6F2XAZ8ZJlD",
+  "creem_api_key": "creem_test_6p3vwfxN0zfseek47G99gI",
+  "products": [
+    {
+      "id": "sendafun_pay_per_send",
+      "name": "按次发送",
+      "name_en": "Pay Per Send",
+      "price": 1.99,
+      "currency": "USD",
+      "billing_cycle": "one_time",
+      "creem_product_id": "prod_4leNEXmllBEyb2nhk0uHIY",
+      "features": [
+        "发送单张贺卡",
+        "基础定时发送（7天内）",
+        "标准邮件模板",
+        "带水印预览图"
+      ],
+      "creem_fee_estimate": 0.36,
+      "net_revenue_estimate": 1.63
+    },
+    {
+      "id": "sendafun_monthly_subscription",
+      "name": "月订阅",
+      "name_en": "Monthly Subscription",
+      "price": 6.99,
+      "currency": "USD",
+      "billing_cycle": "monthly",
+      "creem_product_id": "prod_3LTMcRFoMLsP2L4xz0Zbi1",
+      "features": [
+        "无限发送贺卡",
+        "去除水印",
+        "高级定时发送（30天内）",
+        "自定义邮件模板",
+        "发送历史记录（30天）",
+        "优先客服支持"
+      ],
+      "auto_renew": true,
+      "cancel_anytime": true,
+      "creem_fee_estimate": 0.50,
+      "net_revenue_estimate": 6.49
+    },
+    {
+      "id": "sendafun_annual_subscription",
+      "name": "月订阅年付",
+      "name_en": "Annual Subscription (Monthly Billed)",
+      "price": 69,
+      "currency": "USD",
+      "billing_cycle": "yearly",
+      "creem_product_id": "prod_7R6cEVzdpnHKXTtNm67dzj",
+      "features": [
+        "包含月订阅所有功能",
+        "年付优惠（相当于1.7个月免费）",
+        "优先客服支持",
+        "发送历史记录（90天）"
+      ],
+      "auto_renew": true,
+      "cancel_anytime": true,
+      "creem_fee_estimate": 2.30,
+      "net_revenue_estimate": 66.70
+    }
+  ],
+  "creem_fee_structure": {
+    "domestic_card": "2.9% + $0.30",
+    "international_card": "3.9% + $0.30",
+    "platform_fee": "0%"
+  },
+  "subscription_policy": {
+    "auto_renew": "订阅到期自动续费",
+    "cancel_anytime": "用户可以随时取消订阅",
+    "cancel_immediate": "取消后立即生效，不退款",
+    "cancel_at_period_end": "可选：取消在当期结束时生效（推荐）"
+  }
+}
