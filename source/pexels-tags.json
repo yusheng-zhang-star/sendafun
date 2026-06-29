@@ -6,12 +6,11 @@
     "beautiful",
     "birthday",
     "colorful",
-    "celebration",
-    "balloon",
+    "gift",
     "party",
-    "special day",
-    "greeting card",
-    "send online"
+    "cheerful",
+    "personalized",
+    "customizable"
   ],
   "happy-birthday-dad": [
     "dad",
@@ -19,25 +18,25 @@
     "masculine",
     "happy",
     "birthday",
-    "balloon",
-    "birthday card",
-    "party",
-    "cheerful",
-    "send online",
-    "personalized"
+    "festive",
+    "colorful",
+    "fun",
+    "cake",
+    "milestone",
+    "personalized",
+    "greeting card"
   ],
   "love-you-honey": [
     "romantic",
     "partner",
     "valentine",
     "love",
-    "adorable",
-    "dear",
     "couple",
-    "tender",
+    "adorable",
     "sweet",
+    "romance",
     "greeting card",
-    "personalized"
+    "customizable"
   ],
   "thank-you-friend": [
     "friend",
@@ -45,7 +44,7 @@
     "casual",
     "thank",
     "you",
-    "customizable",
+    "greeting card",
     "personalized"
   ],
   "get-well-soon": [
@@ -55,19 +54,19 @@
     "get",
     "well",
     "soon",
-    "greeting card",
-    "customizable"
+    "personalized",
+    "greeting card"
   ],
   "congrats-graduation": [
     "graduation",
     "proud",
     "celebration",
     "congratulations",
+    "achievement",
     "cheer",
     "success",
-    "winner",
     "send online",
-    "customizable"
+    "personalized"
   ],
   "miss-you-grandma": [
     "grandma",
@@ -75,39 +74,43 @@
     "thinking-of-you",
     "thinking",
     "you",
-    "send online",
-    "greeting card"
+    "personalized",
+    "customizable"
   ],
   "sympathy-condolences": [
     "condolences",
     "sympathy",
     "loss",
-    "support",
     "comfort",
-    "memories",
-    "greeting card",
-    "customizable"
+    "strength",
+    "sorry for your loss",
+    "support",
+    "customizable",
+    "personalized"
   ],
   "happy-anniversary-wife": [
     "wife",
     "anniversary",
     "romantic",
     "happy",
-    "roses",
-    "couple",
     "love",
-    "greeting card",
-    "customizable"
+    "elegant",
+    "celebration",
+    "golden",
+    "memories",
+    "personalized",
+    "greeting card"
   ],
   "new-baby-boy": [
     "baby",
     "newborn",
     "boy",
     "welcome",
-    "adorable",
-    "congratulations",
-    "joy",
     "new baby",
+    "little one",
+    "family",
+    "blessing",
+    "joy",
     "greeting card",
     "personalized"
   ],
@@ -119,21 +122,23 @@
     "up",
     "best",
     "friend",
+    "keep going",
     "you can",
-    "positive",
     "cheer up",
-    "send online",
-    "customizable"
+    "strength",
+    "motivation",
+    "greeting card",
+    "personalized"
   ],
   "retirement-boss": [
     "retirement",
     "boss",
     "career",
-    "promotion",
-    "achievement",
     "accomplishment",
-    "cheer",
-    "send online",
+    "proud",
+    "graduation",
+    "celebration",
+    "customizable",
     "personalized"
   ]
 }

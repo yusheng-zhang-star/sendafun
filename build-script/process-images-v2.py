@@ -22,6 +22,7 @@ SendAFun — process-images-v2.py
 
 import os, sys, random, time, json, argparse
 from pathlib import Path
+from multiprocessing import Pool, cpu_count
 
 try:
     from PIL import Image, ImageEnhance, ImageFilter, ImageOps
@@ -283,29 +284,31 @@ class ProcessStats:
         self.errors = 0
 
 
-def process_image(src_path, cat_name, source_id, stats):
-    """对单张图片执行5层去重流水线，输出3个尺寸"""
+def process_image(src_path, cat_name, source_id, stats=None, force=False):
+    """对单张图片执行5层去重流水线，输出3个尺寸。返回 'ok'/'skip'/'error'"""
     out_dir = OUTPUT_DIR / cat_name
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # 增量：检查三个尺寸是否都已存在
-    all_exist = True
-    for size_name in SIZES:
-        out_path = out_dir / f"{cat_name}-{source_id}-{size_name}.webp"
-        if not out_path.exists() or out_path.stat().st_size == 0:
-            all_exist = False
-            break
+    # 增量：仅检查新格式三尺寸是否都存在（不兼容 -00- 老格式）
+    # 老格式意味着未经过5层流水线处理，应重新生成
+    if not force:
+        all_exist = True
+        for size_name in SIZES:
+            out_path = out_dir / f"{cat_name}-{source_id}-{size_name}.webp"
+            if not (out_path.exists() and out_path.stat().st_size > 0):
+                all_exist = False
+                break
 
-    if all_exist:
-        stats.skipped += 1
-        return
+        if all_exist:
+            if stats: stats.skipped += 1
+            return 'skip'
 
     try:
         img = Image.open(str(src_path)).convert("RGB")
     except Exception as e:
-        print(f"  ❌ 打开失败 {source_id}: {e}")
-        stats.errors += 1
-        return
+        if stats: print(f"  ❌ 打开失败 {source_id}: {e}")
+        if stats: stats.errors += 1
+        return 'error'
 
     # 5层流水线
     img = enhanced_hsl_shift(img)   # Layer 2: HSL偏移
@@ -322,11 +325,20 @@ def process_image(src_path, cat_name, source_id, stats):
         # Layer 5: 可变WebP编码
         save_webp_variable(cropped, str(out_path))
 
-    stats.processed += 1
+    if stats: stats.processed += 1
+    return 'ok'
 
 
-def process_category(src_cat, dst_cat, stats):
-    """处理单个分类的所有图片"""
+def _process_one(args):
+    """multiprocessing worker: (src_path_str, cat_name, source_id) → status"""
+    src_path_str, cat_name, source_id = args
+    # 每个子进程独立随机种子
+    random.seed(os.getpid() + int(time.time() * 1000) % 1000000)
+    return process_image(Path(src_path_str), cat_name, source_id)
+
+
+def process_category(src_cat, dst_cat, stats, force=False, workers=1):
+    """处理单个分类的所有图片。workers>1 时使用多进程并行"""
     src_cat_dir = SOURCE_DIR / src_cat
     if not src_cat_dir.is_dir():
         return
@@ -336,21 +348,41 @@ def process_category(src_cat, dst_cat, stats):
         ext = os.path.splitext(f)[1].lower()
         if ext in IMG_EXTS:
             source_id = os.path.splitext(f)[0]
-            images.append((src_cat_dir / f, source_id))
+            images.append((str(src_cat_dir / f), source_id))
 
     if not images:
         return
 
-    print(f"\n📂 {src_cat} → {dst_cat} ({len(images)} 图片)")
+    print(f"\n📂 {src_cat} → {dst_cat} ({len(images)} 图片)"
+          + (f" [并行 {workers} 进程]" if workers > 1 else ""))
 
-    for idx, (src_path, source_id) in enumerate(images, 1):
-        process_image(src_path, dst_cat, source_id, stats)
+    if workers > 1:
+        # 多进程并行
+        args_list = [(src_path, dst_cat, source_id) for src_path, source_id in images]
+        with Pool(processes=workers) as pool:
+            results = pool.imap_unordered(_process_one, args_list)
+            for i, result in enumerate(results, 1):
+                if result == 'ok':
+                    stats.processed += 1
+                elif result == 'skip':
+                    stats.skipped += 1
+                else:
+                    stats.errors += 1
 
-        if idx % 100 == 0 or idx == len(images):
-            print(f"  进度: {idx}/{len(images)} | "
-                  f"已处理: {stats.processed} | "
-                  f"跳过: {stats.skipped} | "
-                  f"错误: {stats.errors}")
+                if i % 100 == 0 or i == len(images):
+                    print(f"  进度: {i}/{len(images)} | "
+                          f"已处理: {stats.processed} | "
+                          f"跳过: {stats.skipped} | "
+                          f"错误: {stats.errors}")
+    else:
+        # 单进程顺序
+        for idx, (src_path, source_id) in enumerate(images, 1):
+            result = process_image(Path(src_path), dst_cat, source_id, stats, force)
+            if idx % 100 == 0 or idx == len(images):
+                print(f"  进度: {idx}/{len(images)} | "
+                      f"已处理: {stats.processed} | "
+                      f"跳过: {stats.skipped} | "
+                      f"错误: {stats.errors}")
 
 
 # =============================================================================
@@ -445,7 +477,13 @@ def main():
                         help='强制重新处理所有图片（忽略已存在文件）')
     parser.add_argument('--category', type=str, default=None,
                         help='只处理指定分类（如 --category=birthday）')
+    parser.add_argument('--workers', type=int, default=1,
+                        help=f'并行进程数 (默认1，推荐4-6，最大{cpu_count()})')
     args = parser.parse_args()
+
+    if args.workers > cpu_count():
+        print(f"⚠️  workers={args.workers} 超过 CPU 核数 {cpu_count()}，降为 {cpu_count()}")
+        args.workers = cpu_count()
 
     # ── 生成 Pexels 标签（总是执行） ──────────────────────────────────────
     print("🏷️  生成 pexels-tags.json...")
@@ -463,7 +501,15 @@ def main():
         return
 
     print("\n" + "=" * 60)
-    print("🎨 SendAFun 增强素材处理 (5层去重流水线)")
+    mode_parts = ["🎨 SendAFun 增强素材处理 (5层去重流水线)"]
+    if args.force:
+        mode_parts.append("[FORCE 全量重处理]")
+    else:
+        mode_parts.append("[增量模式]")
+    if args.workers > 1:
+        mode_parts.append(f"[{args.workers}进程并行]")
+    mode_label = " ".join(mode_parts)
+    print(mode_label)
     print(f"源目录: {SOURCE_DIR}")
     print(f"输出目录: {OUTPUT_DIR}")
     print("=" * 60)
@@ -491,7 +537,7 @@ def main():
         total_originals += img_count
 
         # 处理
-        process_category(src_cat, dst_cat, stats)
+        process_category(src_cat, dst_cat, stats, force=args.force, workers=args.workers)
 
     elapsed = time.time() - start_time
     print("\n" + "=" * 60)

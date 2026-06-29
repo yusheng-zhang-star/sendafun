@@ -156,7 +156,7 @@ export default {
       }
       
       // 重定向到R2图片
-      const imageUrl = `https://pub-xxxxx.r2.dev/${cardId}-horizontal.webp`;
+      const imageUrl = `https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/${cardId}-horizontal.webp`;
       return Response.redirect(imageUrl, 302);
     }
     

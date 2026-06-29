@@ -27,6 +27,7 @@ from datetime import datetime, timezone
 ROOT        = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "source" / "cards-config.json"
 SEO_PATH    = ROOT / "source" / "cards-seo.json"
+MAPPING_PATH = ROOT / "source" / "card-image-mapping.json"
 BULK_PATH   = ROOT / "source" / "cards-kv-bulk.json"
 
 # Cloudflare 配置（从 wrangler.toml）
@@ -54,6 +55,11 @@ def generate_bulk_json():
     seo_data = load_json(SEO_PATH)
     cards = config.get("cards", [])
 
+    # 读取图片映射（含真实 R2 路径）
+    img_mapping = {}
+    if MAPPING_PATH.exists():
+        img_mapping = load_json(MAPPING_PATH)
+
     if not cards:
         print("❌  No cards found in cards-config.json")
         return
@@ -68,21 +74,28 @@ def generate_bulk_json():
 
         seo = seo_data.get(slug, card.get("seo", {}))
 
+        # 从 card-image-mapping.json 获取真实 R2 路径
+        mapped = img_mapping.get(slug, {})
+        r2_paths = mapped.get("r2_paths", {})
+        actual_category = mapped.get("category", category)
+
         # 构建 KV value
         value = {
             "display_id": slug,
-            "category": category,
+            "category": actual_category,
             "card_title": card.get("title", ""),
             "upload_date": today,
             "last_replaced": None,
             "replace_count": 0,
             "version": 1,
-            # R2 图片路径（从 bgImage 推导）
+            # R2 图片路径（从 card-image-mapping.json）
             "r2_preview_paths": {
-                "horizontal": card.get("bgImage", "").replace("public/", ""),
-                "vertical": "",   # TODO: 从素材映射中获取
-                "square": "",     # TODO: 从素材映射中获取
+                "horizontal": r2_paths.get("horizontal", card.get("bgImage", "")),
+                "vertical":   r2_paths.get("vertical", card.get("bgImage", "")),
+                "square":     r2_paths.get("square", card.get("bgImage", "")),
             },
+            "img_id": mapped.get("img_id", ""),
+            "seo_name": mapped.get("seo_name", slug),
             # SEO 字段
             "seo": {
                 "title":       seo.get("title", ""),

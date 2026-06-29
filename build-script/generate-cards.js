@@ -422,7 +422,7 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
 function renderCardTile(card) {
   const tags = (card.tags || []).map(t => `<span class="card-tile-tag">${t}</span>`).join('');
   return `<a href="/card/${card.slug}.html" class="card-tile">
-    <div class="card-tile-img"><img src="/${card.bgImageWatermark || card.bgImage}" alt="${card.title}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-img"><img src="${card.bgImageWatermark || card.bgImage}" alt="${card.title}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
       <div class="card-tile-title">${card.title}</div>
       <div class="card-tile-tags">${tags}</div>
@@ -441,7 +441,7 @@ function generateIndexPage(allCards, categories) {
   const carouselSlides = heroSlides.map((c, i) => {
     const catLabel = CATEGORY_LABELS[c.category] || c.category;
     return `<div class="carousel-slide${i === 0 ? ' active' : ''}">
-      <div class="carousel-bg" style="background:url('/${c.bgImageWatermark || c.bgImage}') center/cover"></div>
+      <div class="carousel-bg" style="background:url('${c.bgImageWatermark || c.bgImage}') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
         <span class="carousel-category">${catLabel}</span>
