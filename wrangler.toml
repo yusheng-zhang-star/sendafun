@@ -1,10 +1,22 @@
-name = "smartcards"
+name = "sendafun"
+main = "worker/src/index.js"
 compatibility_date = "2025-01-01"
 
 [env.production]
-vars = { DOMAIN = "sendafun.com" }
+name = "sendafun"
+main = "worker/src/index.js"
 
-# R2 桶配置（上线后添加）
-# [[r2_buckets]]
-# binding = "CARDS_BUCKET"
-# bucket_name = "card-images"
+[env.production.vars]
+DOMAIN = "sendafun.com"
+
+[[env.production.kv_namespaces]]
+binding = "CARD_PERMISSIONS"
+id = "7cd3408c3caf4fe9948cd156f6883acb"
+
+[[env.production.r2_buckets]]
+binding = "ORIGINALS_BUCKET"
+bucket_name = "sendafun-originals"
+
+[[env.production.r2_buckets]]
+binding = "PREVIEW_BUCKET"
+bucket_name = "sendafun-preview"

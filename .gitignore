@@ -1,6 +1,5 @@
 # Cloudflare Workers
 .wrangler/
-worker/
 
 
 # Dependencies

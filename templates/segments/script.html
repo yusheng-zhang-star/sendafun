@@ -492,7 +492,7 @@ function bindEvents() {
   modalPaymentCancel.addEventListener('click', function() { closeModal(modalPayment); });
   modalPaymentConfirm.addEventListener('click', function() {
     closeModal(modalPayment);
-    simulatePaymentThenDelivery();
+    doCreemCheckout();
   });
 
   // Delivery modal
@@ -622,41 +622,69 @@ function identifyUser(email) {
   });
 }
 
-function simulatePaymentThenDelivery() {
-  showToast('&#128179; Processing payment...', 2000);
-  setTimeout(function() {
-    showToast('&#9989; Payment successful!', 2000);
-    setTimeout(function() {
-      if (state.delivery === 'email') {
-        openModal(modalDelivery);
-      } else {
-        // Download
-        downloadCard();
-        setTimeout(function() {
-          openModal(modalGift);
-        }, 800);
-      }
-    }, 2200);
-  }, 2500);
+function doCreemCheckout() {
+  var email = identEmail.value.trim();
+  if (!email || !email.includes('@')) {
+    showToast('Please enter your email first');
+    return;
+  }
+  showToast('&#128179; Redirecting to secure payment...', 2000);
+
+  // Save state so payment-success page can resume
+  try {
+    var checkoutState = {
+      email: email,
+      cardSlug: '__CARD_SLUG__',
+      delivery: state.delivery,
+      text: state.text,
+      fontFamily: state.fontFamily,
+      color: state.color,
+      filter: state.filter,
+      textSize: state.textSize,
+      aspect: state.aspect,
+      plan: state.plan
+    };
+    sessionStorage.setItem('sendafun_checkout', JSON.stringify(checkoutState));
+  } catch(e) {}
+
+  fetch('/api/create-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, plan: state.plan, cardSlug: '__CARD_SLUG__', delivery: state.delivery })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.url) {
+      window.location.href = data.url;
+    } else if (data.error) {
+      showToast('Payment error: ' + data.error);
+    } else {
+      showToast('Could not start payment. Please try again.');
+    }
+  })
+  .catch(function(e) {
+    showToast('Payment service unavailable. Please try again later.');
+    console.error('Creem checkout error:', e);
+  });
 }
 
-function sendCard(recipientEmail) {
+function sendCard(recipientAddr) {
   closeModal(modalDelivery);
   showToast('&#128228; Sending your card...', 1500);
 
+  var fromEmail = state.userEmail || identEmail.value.trim();
   fetch('/api/send-card', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      cardSlug: '__CARD_SLUG__',
-      recipientEmail: recipientEmail,
-      senderName: senderName.value.trim() || 'A friend',
-      message: state.text,
-      font: state.fontFamily,
-      color: state.color,
-      filter: state.filter
+      fromEmail: fromEmail,
+      toEmail: recipientAddr,
+      fromName: senderName.value.trim() || 'A friend',
+      toName: 'Friend',
+      message: state.text
     })
   })
+  .then(function(r) { return r.json(); })
   .then(function() {
     showToast('&#127881; Card sent successfully!');
     setTimeout(function() {
@@ -665,7 +693,6 @@ function sendCard(recipientEmail) {
   })
   .catch(function() {
     showToast('&#128228; Card sent! (offline mode)');
-    // Also attempt gift-free-card
     if (state.userEmail) {
       fetch('/api/gift-free-card', {
         method: 'POST',
