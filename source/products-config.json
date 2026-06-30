@@ -1,39 +1,39 @@
 {
   "creem_store_id": "sto_5CSCNwFCgLO6F2XAZ8ZJlD",
-  "creem_api_key": "creem_test_6p3vwfxN0zfseek47G99gI",
+  "creem_api_key": "creem_test_7deQTeY7iE1fapgeaiLQ1u",
   "products": [
     {
       "id": "sendafun_pay_per_send",
-      "name": "按次发送",
+      "name": "Pay Per Send",
       "name_en": "Pay Per Send",
       "price": 1.99,
       "currency": "USD",
       "billing_cycle": "one_time",
-      "creem_product_id": "prod_4leNEXmllBEyb2nhk0uHIY",
+      "creem_product_id": "prod_7GGx4Gh5yvKLOb0OCzYFoq",
       "features": [
-        "发送单张贺卡",
-        "基础定时发送（7天内）",
-        "标准邮件模板",
-        "带水印预览图"
+        "One single e-card scheduled & delivered",
+        "Basic delivery scheduling (up to 7 days out)",
+        "Standard branded email template",
+        "Watermarked preview image"
       ],
       "creem_fee_estimate": 0.36,
       "net_revenue_estimate": 1.63
     },
     {
       "id": "sendafun_monthly_subscription",
-      "name": "月订阅",
-      "name_en": "Monthly Subscription",
+      "name": "Monthly Unlimited",
+      "name_en": "Monthly Unlimited",
       "price": 6.99,
       "currency": "USD",
       "billing_cycle": "monthly",
-      "creem_product_id": "prod_3LTMcRFoMLsP2L4xz0Zbi1",
+      "creem_product_id": "prod_3xVdtK0wdzqLlaCz4H7lzQ",
       "features": [
-        "无限发送贺卡",
-        "去除水印",
-        "高级定时发送（30天内）",
-        "自定义邮件模板",
-        "发送历史记录（30天）",
-        "优先客服支持"
+        "Unlimited scheduled e-card deliveries",
+        "Watermark-free high-resolution previews",
+        "Advanced scheduling (up to 30 days out)",
+        "Customisable email delivery templates",
+        "Send history (recover drafts up to 30 days old)",
+        "Priority customer support (24h reply window)"
       ],
       "auto_renew": true,
       "cancel_anytime": true,
@@ -42,17 +42,18 @@
     },
     {
       "id": "sendafun_annual_subscription",
-      "name": "月订阅年付",
-      "name_en": "Annual Subscription (Monthly Billed)",
+      "name": "Annual Unlimited",
+      "name_en": "Annual Unlimited",
       "price": 69,
       "currency": "USD",
       "billing_cycle": "yearly",
-      "creem_product_id": "prod_7R6cEVzdpnHKXTtNm67dzj",
+      "creem_product_id": "prod_73aCoww3uhNMevKi8NVwNv",
       "features": [
-        "包含月订阅所有功能",
-        "年付优惠（相当于1.7个月免费）",
-        "优先客服支持",
-        "发送历史记录（90天）"
+        "Everything included in Monthly Unlimited",
+        "Best value — pays for itself around the 35th card",
+        "Priority support + dedicated email line",
+        "Send history (recover drafts up to 90 days old)",
+        "Early access to new card templates"
       ],
       "auto_renew": true,
       "cancel_anytime": true,
@@ -66,9 +67,9 @@
     "platform_fee": "0%"
   },
   "subscription_policy": {
-    "auto_renew": "订阅到期自动续费",
-    "cancel_anytime": "用户可以随时取消订阅",
-    "cancel_immediate": "取消后立即生效，不退款",
-    "cancel_at_period_end": "可选：取消在当期结束时生效（推荐）"
+    "auto_renew": "Subscriptions auto-renew at the end of each billing cycle unless cancelled",
+    "cancel_anytime": "Subscribers can cancel auto-renewal at any time",
+    "cancel_immediate": "Immediate cancellation is available; no partial-period refund is issued for the current cycle",
+    "cancel_at_period_end": "Recommended — cancellation takes effect at the end of the current billing period"
   }
 }

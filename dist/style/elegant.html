@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Elegant cards — refined typography, sophisticated design. Weddings & formal events.">
+<meta property="og:title" content="Elegant Cards — SendAFun">
+<meta property="og:description" content="Elegant cards — refined typography, sophisticated design. Weddings & formal events.">
+<link rel="canonical" href="https://sendafun.com/style/elegant.html">
+<title>Elegant Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Styles / <strong>Elegant</strong></div>
+  <h1 class="page-title">Elegant Cards<span class="count-chip">150 cards</span></h1>
+  <p class="page-subtitle">Elegant cards — refined typography, sophisticated design. Weddings & formal events.</p>
+  <div class="chip-row"><a href="/style/romantic.html" class="chip">Romantic</a>
+      <a href="/style/elegant.html" class="chip active">Elegant</a>
+      <a href="/style/cheerful.html" class="chip">Cheerful</a>
+      <a href="/style/warm.html" class="chip">Warm</a>
+      <a href="/style/classic.html" class="chip">Classic</a></div>
+  <div class="card-grid">
+    <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-romantic-for-the-couple-10319485.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-10319485-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-romantic-for-the-couple-11450799.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-11450799-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-romantic-for-the-couple-11845539.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-11845539-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-romantic-for-the-couple-12584803.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-12584803-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-romantic-for-the-couple-13045649.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-13045649-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-romantic-for-newlyweds-13156145.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-13156145-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-romantic-for-newlyweds-14457533.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-14457533-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-romantic-for-newlyweds-14608968.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-14608968-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-romantic-for-newlyweds-14703685.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-14703685-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · Romantic · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · Romantic · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-romantic-for-newlyweds-14819854.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-14819854-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-romantic-for-bride-15569229.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-15569229-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-romantic-for-bride-15569232.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-15569232-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-romantic-for-bride-15928641.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-15928641-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-romantic-for-bride-161018.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-161018-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-romantic-for-bride-16120136.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120136-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-romantic-for-groom-16120193.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120193-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-romantic-for-groom-16120200.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120200-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-romantic-for-groom-16120201.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120201-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-romantic-for-groom-16120206.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120206-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-romantic-for-groom-16120212.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120212-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-romantic-for-the-happy-pair-16120213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120213-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-romantic-for-the-happy-pair-16120229.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120229-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-romantic-for-the-happy-pair-16120230.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120230-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-romantic-for-the-happy-pair-16120231.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16120231-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-romantic-for-the-happy-pair-16601930.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16601930-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-romantic-for-mr-mrs-16743492.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16743492-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-romantic-for-mr-mrs-1677009.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-1677009-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-romantic-for-mr-mrs-16935915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16935915-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-romantic-for-mr-mrs-16935927.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-16935927-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · Romantic · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · Romantic · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-romantic-for-mr-mrs-17001741.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001741-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-romantic-for-bride-groom-17001744.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001744-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-romantic-for-bride-groom-17001746.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001746-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-romantic-for-bride-groom-17001756.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001756-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-romantic-for-bride-groom-17001760.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001760-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-romantic-for-bride-groom-17001784.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001784-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-romantic-for-their-big-day-17001818.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001818-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-romantic-for-their-big-day-17001820.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001820-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-romantic-for-their-big-day-17001825.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001825-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-romantic-for-their-big-day-17001833.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17001833-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-romantic-for-their-big-day-17023034.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17023034-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-romantic-for-best-friend-s-wedding-17023041.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17023041-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-romantic-for-best-friend-s-wedding-17023114.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17023114-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-romantic-for-best-friend-s-wedding-17023148.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17023148-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-romantic-for-best-friend-s-wedding-17109102.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17109102-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-romantic-for-best-friend-s-wedding-17109153.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17109153-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-romantic-for-sister-s-wedding-17119951.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17119951-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-romantic-for-sister-s-wedding-17206051.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17206051-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-romantic-for-sister-s-wedding-17206078.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17206078-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-romantic-for-sister-s-wedding-17206104.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17206104-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · Romantic · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · Romantic · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-romantic-for-sister-s-wedding-17206132.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17206132-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-romantic-for-brother-s-wedding-17315409.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315409-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-romantic-for-brother-s-wedding-17315411.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315411-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-romantic-for-brother-s-wedding-17315423.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315423-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-romantic-for-brother-s-wedding-17315436.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315436-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-romantic-for-brother-s-wedding-17315439.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315439-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · Romantic · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · Romantic · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-romantic-for-daughter-s-wedding-17315445.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315445-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-romantic-for-daughter-s-wedding-17315455.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17315455-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-romantic-for-daughter-s-wedding-17931466.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-17931466-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-romantic-for-daughter-s-wedding-18530977.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18530977-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-romantic-for-daughter-s-wedding-18545136.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18545136-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-romantic-for-son-s-wedding-18573153.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18573153-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-romantic-for-son-s-wedding-18777540.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18777540-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-romantic-for-son-s-wedding-18845523.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18845523-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-romantic-for-son-s-wedding-18853310.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-18853310-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-romantic-for-son-s-wedding-19024676.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-19024676-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-romantic-for-coworker-s-wedding-19024679.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-19024679-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Coworker's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · Romantic · for Coworker's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-romantic-for-coworker-s-wedding-19351563.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-19351563-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Coworker's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · Romantic · for Coworker's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-romantic-for-coworker-s-wedding-19655360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-19655360-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Coworker's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · Romantic · for Coworker's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-romantic-for-coworker-s-wedding-19986454.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-19986454-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · Romantic · for Coworker's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · Romantic · for Coworker's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-romantic-for-coworker-s-wedding-20043048.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20043048-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Coworker's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · Romantic · for Coworker's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-romantic-for-bridal-shower-20199360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20199360-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bridal Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · Romantic · for Bridal Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-romantic-for-bridal-shower-20199361.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20199361-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bridal Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · Romantic · for Bridal Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-romantic-for-bridal-shower-20199362.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20199362-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bridal Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · Romantic · for Bridal Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-romantic-for-bridal-shower-20199364.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20199364-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bridal Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · Romantic · for Bridal Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-romantic-for-bridal-shower-20199365.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-20199365-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bridal Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · Romantic · for Bridal Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-romantic-for-rehearsal-dinner-27635496.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-27635496-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Rehearsal Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · Romantic · for Rehearsal Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-romantic-for-rehearsal-dinner-28815666.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-28815666-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Rehearsal Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · Romantic · for Rehearsal Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-romantic-for-rehearsal-dinner-28815667.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-28815667-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Rehearsal Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · Romantic · for Rehearsal Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-romantic-for-rehearsal-dinner-28998231.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-28998231-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Rehearsal Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · Romantic · for Rehearsal Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-romantic-for-rehearsal-dinner-29040917.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29040917-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Rehearsal Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · Romantic · for Rehearsal Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-romantic-for-vow-renewal-29040921.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29040921-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-romantic-for-vow-renewal-29040997.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29040997-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-romantic-for-vow-renewal-29068700.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29068700-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-romantic-for-vow-renewal-29388907.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29388907-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-romantic-for-vow-renewal-29502060.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29502060-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-for-the-couple-29624008.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-29624008-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-for-the-couple-30205994.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-30205994-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-for-the-couple-30215011.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-30215011-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-for-the-couple-30666727.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-30666727-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-for-the-couple-31307953.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-31307953-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · for the Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · for the Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-for-newlyweds-31517332.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-31517332-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-for-newlyweds-32140992.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32140992-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-for-newlyweds-32142686.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32142686-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-for-newlyweds-32435240.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32435240-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-for-newlyweds-32476124.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32476124-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · for Newlyweds" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · for Newlyweds</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-for-bride-32476126.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32476126-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-for-bride-32476127.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32476127-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-for-bride-32476128.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32476128-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-for-bride-32476151.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32476151-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-for-bride-32763241.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-32763241-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · for Bride" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · for Bride</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-for-groom-33469001.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-33469001-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-for-groom-33852463.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-33852463-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-for-groom-34061566.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34061566-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-for-groom-34241942.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34241942-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-for-groom-34241943.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34241943-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · for Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · for Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-for-the-happy-pair-34241948.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34241948-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-for-the-happy-pair-34241952.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34241952-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-for-the-happy-pair-34342527.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34342527-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-for-the-happy-pair-34389342.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34389342-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-for-the-happy-pair-34631581.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-34631581-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · for the Happy Pair" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · for the Happy Pair</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-for-mr-mrs-35629336.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35629336-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-for-mr-mrs-35629391.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35629391-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-for-mr-mrs-35670059.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35670059-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-for-mr-mrs-35985201.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985201-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-for-mr-mrs-35985202.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985202-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · for Mr & Mrs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · for Mr & Mrs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-for-bride-groom-35985203.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985203-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-for-bride-groom-35985205.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985205-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-for-bride-groom-35985206.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985206-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-for-bride-groom-35985211.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985211-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-for-bride-groom-35985212.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985212-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · for Bride & Groom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · for Bride & Groom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-for-their-big-day-35985226.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985226-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-for-their-big-day-35985227.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985227-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-for-their-big-day-35985256.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-35985256-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-for-their-big-day-36154338.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-36154338-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-for-their-big-day-37653658.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37653658-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · for Their Big Day" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · for Their Big Day</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-for-best-friend-s-wedding-37828092.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828092-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-for-best-friend-s-wedding-37828096.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828096-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-for-best-friend-s-wedding-37828108.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828108-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-for-best-friend-s-wedding-37828109.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828109-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-for-best-friend-s-wedding-37828110.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828110-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · for Best Friend's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · for Best Friend's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-lifetime-of-love-begins-today-wedding-elegant-for-sister-s-wedding-37828115.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828115-vertical.webp" alt="A Lifetime of Love Begins Today — Wedding · Elegant · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Lifetime of Love Begins Today — Wedding · Elegant · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-the-new-mr-mrs-custom-greeting-card-elegant-for-sister-s-wedding-37828118.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-37828118-vertical.webp" alt="To the New Mr & Mrs — Custom Greeting Card · Elegant · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the New Mr & Mrs — Custom Greeting Card · Elegant · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-may-your-love-grow-deeper-every-day-wedding-elegant-for-sister-s-wedding-38102497.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-38102497-vertical.webp" alt="May Your Love Grow Deeper Every Day — Wedding · Elegant · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Love Grow Deeper Every Day — Wedding · Elegant · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wishing-you-a-lifetime-of-happiness-wedding-elegant-for-sister-s-wedding-38132266.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-38132266-vertical.webp" alt="Wishing You a Lifetime of Happiness — Wedding · Elegant · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a Lifetime of Happiness — Wedding · Elegant · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-today-we-celebrate-you-wedding-card-elegant-for-sister-s-wedding-38132273.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-38132273-vertical.webp" alt="Today We Celebrate You — Wedding Card · Elegant · for Sister's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Today We Celebrate You — Wedding Card · Elegant · for Sister's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-the-big-day-personalized-wedding-congratulations-elegant-for-brother-s-wedding-38167350.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-38167350-vertical.webp" alt="The Big Day — Personalized Wedding Congratulations · Elegant · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Big Day — Personalized Wedding Congratulations · Elegant · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-here-s-to-your-forever-wedding-ecard-elegant-for-brother-s-wedding-47014.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-47014-vertical.webp" alt="Here's to Your Forever — Wedding Ecard · Elegant · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to Your Forever — Wedding Ecard · Elegant · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-so-happy-together-personalized-wedding-card-elegant-for-brother-s-wedding-4717552.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-4717552-vertical.webp" alt="So Happy Together — Personalized Wedding Card · Elegant · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Happy Together — Personalized Wedding Card · Elegant · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-a-perfect-match-wedding-congratulations-ecard-elegant-for-brother-s-wedding-4717555.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-4717555-vertical.webp" alt="A Perfect Match — Wedding Congratulations Ecard · Elegant · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Perfect Match — Wedding Congratulations Ecard · Elegant · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-your-story-begins-wedding-custom-card-elegant-for-brother-s-wedding-5096282.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-5096282-vertical.webp" alt="Your Story Begins — Wedding Custom Card · Elegant · for Brother's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Your Story Begins — Wedding Custom Card · Elegant · for Brother's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-wedding-congratulations-card-happy-ever-after-elegant-for-daughter-s-wedding-5344925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-5344925-vertical.webp" alt="Wedding Congratulations Card — Happy Ever After · Elegant · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wedding Congratulations Card — Happy Ever After · Elegant · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-personalized-wedding-wishes-ecard-for-couples-elegant-for-daughter-s-wedding-7107856.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-7107856-vertical.webp" alt="Personalized Wedding Wishes Ecard for Couples · Elegant · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Wedding Wishes Ecard for Couples · Elegant · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-cheers-to-mr-mrs-custom-wedding-card-elegant-for-daughter-s-wedding-7247993.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-7247993-vertical.webp" alt="Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Mr & Mrs — Custom Wedding Card · Elegant · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-happily-ever-after-starts-now-wedding-ecard-elegant-for-daughter-s-wedding-7543707.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-7543707-vertical.webp" alt="Happily Ever After Starts Now — Wedding Ecard · Elegant · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happily Ever After Starts Now — Wedding Ecard · Elegant · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-best-wishes-on-your-wedding-day-custom-card-elegant-for-daughter-s-wedding-8395302.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-8395302-vertical.webp" alt="Best Wishes on Your Wedding Day — Custom Card · Elegant · for Daughter's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes on Your Wedding Day — Custom Card · Elegant · for Daughter's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-beautiful-wedding-day-personalized-ecard-elegant-for-son-s-wedding-9056084.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-9056084-vertical.webp" alt="Beautiful Wedding Day — Personalized Ecard · Elegant · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Wedding Day — Personalized Ecard · Elegant · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wedding</span><span class="card-tile-tag">marriage</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-to-love-to-cherish-wedding-congrats-card-elegant-for-son-s-wedding-9535813.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-9535813-vertical.webp" alt="To Love & to Cherish — Wedding Congrats Card · Elegant · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Love & to Cherish — Wedding Congrats Card · Elegant · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mr-and-mrs</span><span class="card-tile-tag">forever</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-elegant-wedding-card-for-the-newlyweds-elegant-for-son-s-wedding-95753.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-95753-vertical.webp" alt="Elegant Wedding Card for the Newlyweds · Elegant · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Wedding Card for the Newlyweds · Elegant · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">joyful</span><span class="card-tile-tag">together</span><span class="card-tile-tag">happy-ever-after</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-two-become-one-personalized-wedding-card-elegant-for-son-s-wedding-9644360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-9644360-vertical.webp" alt="Two Become One — Personalized Wedding Card · Elegant · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Two Become One — Personalized Wedding Card · Elegant · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">newlyweds</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/wedding-congratulations-newlyweds-wedding-ecard-elegant-for-son-s-wedding-9965895.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-9965895-vertical.webp" alt="Congratulations Newlyweds — Wedding Ecard · Elegant · for Son's Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Newlyweds — Wedding Ecard · Elegant · for Son's Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">soulmates</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/thanksgiving-happy-thanksgiving-rustic-warm-design-warm-for-grandma-grandpa-5604253.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5604253-vertical.webp" alt="Happy Thanksgiving — Rustic Warm Design · Warm · for Grandma & Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Thanksgiving — Rustic Warm Design · Warm · for Grandma & Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-season-s-greetings-personalized-holiday-card-festive-romantic-for-christmas-party-host-14588692.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-14588692-vertical.webp" alt="Season's Greetings — Personalized Holiday Card · Festive · Romantic · for Christmas Party Host" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Season's Greetings — Personalized Holiday Card · Festive · Romantic · for Christmas Party Host</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-spooky-cute-happy-halloween-custom-ecard-spooky-elegant-for-kids-costume-party-29002559.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-29002559-vertical.webp" alt="Spooky Cute — Happy Halloween Custom Ecard · Spooky · Elegant · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Spooky Cute — Happy Halloween Custom Ecard · Spooky · Elegant · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">pumpkin-carving</span><span class="card-tile-tag">scary-movies</span><span class="card-tile-tag">neighbor</span></div>
+    </div>
+  </a>
+      <a href="/card/love-my-heart-belongs-to-you-love-card-romantic-for-new-relationship-3194062.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-3194062-vertical.webp" alt="My Heart Belongs to You — Love Card · Romantic · for New Relationship" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Heart Belongs to You — Love Card · Romantic · for New Relationship</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soulmate</span><span class="card-tile-tag">tender</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/get-well-bright-get-well-wishes-for-a-quick-recovery-calm-elegant-for-long-illness-4467143.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-4467143-vertical.webp" alt="Bright Get Well Wishes for a Quick Recovery · Calm · Elegant · for Long Illness" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bright Get Well Wishes for a Quick Recovery · Calm · Elegant · for Long Illness</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">calm</span><span class="card-tile-tag">gentle</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-elegant-for-expecting-dad-8341859.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8341859-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-scary-movie-night-happy-halloween-custom-ecard-spooky-warm-for-adults-costume-party-5422605.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-5422605-vertical.webp" alt="Scary Movie Night — Happy Halloween Custom Ecard · Spooky · Warm · for Adults Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Scary Movie Night — Happy Halloween Custom Ecard · Spooky · Warm · for Adults Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">vintage</span><span class="card-tile-tag">scary</span><span class="card-tile-tag">playful</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-happy-retirement-time-to-relax-enjoy-classic-elegant-for-next-chapter-7938803.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-7938803-vertical.webp" alt="Happy Retirement — Time to Relax & Enjoy · Classic · Elegant · for Next Chapter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Retirement — Time to Relax & Enjoy · Classic · Elegant · for Next Chapter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

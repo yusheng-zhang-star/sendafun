@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Cards for your partner — love, birthday, anniversary & just because.">
+<meta property="og:title" content="For Partner Cards — SendAFun">
+<meta property="og:description" content="Cards for your partner — love, birthday, anniversary & just because.">
+<link rel="canonical" href="https://sendafun.com/recipient/for-partner.html">
+<title>For Partner Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Recipients / <strong>For Partner</strong></div>
+  <h1 class="page-title">For Partner Cards<span class="count-chip">30 cards</span></h1>
+  <p class="page-subtitle">Cards for your partner — love, birthday, anniversary & just because.</p>
+  <div class="chip-row"><a href="/recipient/for-best-friend.html" class="chip">For Best Friend</a>
+      <a href="/recipient/for-her.html" class="chip">For Her</a>
+      <a href="/recipient/for-him.html" class="chip">For Him</a>
+      <a href="/recipient/for-teacher.html" class="chip">For Teacher</a>
+      <a href="/recipient/for-family.html" class="chip">For Family</a>
+      <a href="/recipient/for-neighbor.html" class="chip">For Neighbor</a>
+      <a href="/recipient/for-wife.html" class="chip">For Wife</a>
+      <a href="/recipient/for-coworker.html" class="chip">For Coworker</a>
+      <a href="/recipient/for-girlfriend.html" class="chip">For Girlfriend</a>
+      <a href="/recipient/for-long-distance.html" class="chip">For Long Distance</a>
+      <a href="/recipient/for-husband.html" class="chip">For Husband</a>
+      <a href="/recipient/for-partner.html" class="chip active">For Partner</a>
+      <a href="/recipient/for-godchild.html" class="chip">For Godchild</a>
+      <a href="/recipient/for-boyfriend.html" class="chip">For Boyfriend</a>
+      <a href="/recipient/for-hostess.html" class="chip">For Hostess</a>
+      <a href="/recipient/for-mom.html" class="chip">For Mom</a>
+      <a href="/recipient/for-dad.html" class="chip">For Dad</a>
+      <a href="/recipient/for-fiancee.html" class="chip">For Fiancée</a>
+      <a href="/recipient/for-brother.html" class="chip">For Brother</a>
+      <a href="/recipient/for-sister.html" class="chip">For Sister</a></div>
+  <div class="card-grid">
+    <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-partner-5911151.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911151-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-partner-5911152.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911152-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-partner-5911154.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911154-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-partner-5911160.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911160-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-partner-5911162.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911162-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/love-beautiful-love-card-for-him-or-her-online-romantic-for-partner-2840743.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-2840743-vertical.webp" alt="Beautiful Love Card for Him or Her Online · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Love Card for Him or Her Online · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+    </div>
+  </a>
+      <a href="/card/love-from-the-heart-custom-love-note-ecard-romantic-for-partner-2862155.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-2862155-vertical.webp" alt="From the Heart — Custom Love Note Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From the Heart — Custom Love Note Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soulmate</span><span class="card-tile-tag">tender</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/love-love-you-more-than-words-ecard-romantic-for-partner-3060241.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-3060241-vertical.webp" alt="Love You More Than Words Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You More Than Words Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">dreamy</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/love-classic-romantic-card-to-send-online-romantic-for-partner-3061483.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-3061483-vertical.webp" alt="Classic Romantic Card to Send Online · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Classic Romantic Card to Send Online · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sweet</span><span class="card-tile-tag">love</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/love-warm-love-card-for-your-soulmate-romantic-for-partner-3062365.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-3062365-vertical.webp" alt="Warm Love Card for Your Soulmate · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Love Card for Your Soulmate · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-made-a-mistake-i-m-sorry-custom-ecard-soft-romantic-for-partner-20242474.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-20242474-vertical.webp" alt="I Made a Mistake — I'm Sorry — Custom Ecard · Soft · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I Made a Mistake — I'm Sorry — Custom Ecard · Soft · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sorry</span><span class="card-tile-tag">apology</span><span class="card-tile-tag">forgive-me</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-m-truly-sorry-sincere-apology-greeting-soft-romantic-for-partner-22882071.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-22882071-vertical.webp" alt="I'm Truly Sorry — Sincere Apology Greeting · Soft · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I'm Truly Sorry — Sincere Apology Greeting · Soft · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-apology-for-late-reply-custom-sorry-card-soft-romantic-for-partner-2330635.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-2330635-vertical.webp" alt="Apology for Late Reply — Custom Sorry Card · Soft · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Apology for Late Reply — Custom Sorry Card · Soft · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">make-amends</span><span class="card-tile-tag">i-love-you</span><span class="card-tile-tag">please-forgive</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sorry-i-hurt-you-sincere-amends-ecard-soft-romantic-for-partner-2525430.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-2525430-vertical.webp" alt="Sorry I Hurt You — Sincere Amends Ecard · Soft · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sorry I Hurt You — Sincere Amends Ecard · Soft · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">my-fault</span><span class="card-tile-tag">i-was-wrong</span><span class="card-tile-tag">amends</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sorry-for-missing-your-event-custom-card-soft-romantic-for-partner-267360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-267360-vertical.webp" alt="Sorry for Missing Your Event — Custom Card · Soft · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sorry for Missing Your Event — Custom Card · Soft · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hurt-feelings</span><span class="card-tile-tag">mistake-at-work</span><span class="card-tile-tag">broken-promise</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-m-sorry-card-sincere-apology-online-soft-elegant-for-partner-7155905.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-7155905-vertical.webp" alt="I'm Sorry Card — Sincere Apology Online · Soft · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I'm Sorry Card — Sincere Apology Online · Soft · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sorry</span><span class="card-tile-tag">apology</span><span class="card-tile-tag">forgive-me</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-forgive-me-heartfelt-apology-ecard-custom-soft-elegant-for-partner-7204163.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-7204163-vertical.webp" alt="Forgive Me — Heartfelt Apology Ecard Custom · Soft · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forgive Me — Heartfelt Apology Ecard Custom · Soft · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-my-apologies-i-was-wrong-custom-card-soft-elegant-for-partner-7228841.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-7228841-vertical.webp" alt="My Apologies — I Was Wrong — Custom Card · Soft · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Apologies — I Was Wrong — Custom Card · Soft · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">make-amends</span><span class="card-tile-tag">i-love-you</span><span class="card-tile-tag">please-forgive</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sorry-for-what-i-said-sincere-custom-ecard-soft-elegant-for-partner-7228842.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-7228842-vertical.webp" alt="Sorry for What I Said — Sincere Custom Ecard · Soft · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sorry for What I Said — Sincere Custom Ecard · Soft · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">my-fault</span><span class="card-tile-tag">i-was-wrong</span><span class="card-tile-tag">amends</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-please-forgive-me-heartfelt-apology-card-soft-elegant-for-partner-7531290.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-7531290-vertical.webp" alt="Please Forgive Me — Heartfelt Apology Card · Soft · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Please Forgive Me — Heartfelt Apology Card · Soft · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hurt-feelings</span><span class="card-tile-tag">mistake-at-work</span><span class="card-tile-tag">broken-promise</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-roses-are-red-personalized-valentine-card-romantic-for-partner-16159014.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-16159014-vertical.webp" alt="Roses Are Red — Personalized Valentine Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Roses Are Red — Personalized Valentine Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">valentine</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-you-me-happy-valentine-s-day-card-romantic-for-partner-16210116.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-16210116-vertical.webp" alt="You + Me = Happy Valentine's Day — Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You + Me = Happy Valentine's Day — Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hearts-day</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">cupid</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-my-heart-is-yours-custom-valentine-ecard-romantic-for-partner-16228884.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-16228884-vertical.webp" alt="My Heart is Yours — Custom Valentine Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Heart is Yours — Custom Valentine Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-from-me-to-you-on-valentine-s-day-card-romantic-for-partner-16228885.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-16228885-vertical.webp" alt="From Me to You on Valentine's Day — Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Me to You on Valentine's Day — Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-love-letter-for-valentine-s-personalized-ecard-romantic-for-partner-1820525.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-1820525-vertical.webp" alt="Love Letter for Valentine's — Personalized Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love Letter for Valentine's — Personalized Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-you-re-my-person-valentine-s-day-card-romantic-elegant-for-partner-7679708.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-7679708-vertical.webp" alt="You're My Person — Valentine's Day Card · Romantic · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're My Person — Valentine's Day Card · Romantic · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">valentine</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-all-my-love-on-valentine-s-custom-card-romantic-elegant-for-partner-7679711.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-7679711-vertical.webp" alt="All My Love on Valentine's — Custom Card · Romantic · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">All My Love on Valentine's — Custom Card · Romantic · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hearts-day</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">cupid</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-be-mine-personalized-valentine-s-ecard-romantic-elegant-for-partner-7679715.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-7679715-vertical.webp" alt="Be Mine — Personalized Valentine's Ecard · Romantic · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Mine — Personalized Valentine's Ecard · Romantic · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-to-my-forever-valentine-greeting-card-romantic-elegant-for-partner-7679769.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-7679769-vertical.webp" alt="To My Forever Valentine — Greeting Card · Romantic · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Forever Valentine — Greeting Card · Romantic · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-sweet-valentine-s-wishes-just-for-you-card-romantic-elegant-for-partner-7679914.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-7679914-vertical.webp" alt="Sweet Valentine's Wishes Just For You — Card · Romantic · Elegant · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet Valentine's Wishes Just For You — Card · Romantic · Elegant · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/sorry-i-owe-you-an-apology-sincere-ecard-soft-elegant-for-mom-6641381.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6641381-vertical.webp" alt="I Owe You an Apology — Sincere Ecard · Soft · Elegant · for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I Owe You an Apology — Sincere Ecard · Soft · Elegant · for Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">make-amends</span><span class="card-tile-tag">i-love-you</span><span class="card-tile-tag">please-forgive</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-romantic-for-twins-baby-28680638.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680638-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-playful-birthday-card-for-a-fun-celebration-warm-romantic-for-40th-birthday-31999343.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-31999343-vertical.webp" alt="Playful Birthday Card for a Fun Celebration · Warm · Romantic · for 40th Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Playful Birthday Card for a Fun Celebration · Warm · Romantic · for 40th Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">love</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-girlfriend-3937681.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-3937681-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/good-luck-good-luck-safe-travels-custom-wishes-card-cheerful-elegant-for-lottery-7084083.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/good-luck/good-luck-pexels-7084083-vertical.webp" alt="Good Luck & Safe Travels — Custom Wishes Card · Cheerful · Elegant · for Lottery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Good Luck & Safe Travels — Custom Wishes Card · Cheerful · Elegant · for Lottery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">you-got-this</span><span class="card-tile-tag">safe-travels</span><span class="card-tile-tag">proud-of-you</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-mothers-day-for-grandma-too-custom-warm-elegant-for-dog-mom-7764517.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-7764517-vertical.webp" alt="Happy Mothers Day — For Grandma Too — Custom · Warm · Elegant · for Dog Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Mothers Day — For Grandma Too — Custom · Warm · Elegant · for Dog Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mothers-day</span><span class="card-tile-tag">mom</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-i-love-you-custom-valentine-s-day-card-romantic-for-singles-awareness-5713590.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-5713590-vertical.webp" alt="I Love You — Custom Valentine's Day Card · Romantic · for Singles Awareness" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I Love You — Custom Valentine's Day Card · Romantic · for Singles Awareness</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/sympathy-holding-you-in-my-heart-sympathy-card-calm-elegant-for-loss-of-husband-36999840.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-36999840-vertical.webp" alt="Holding You in My Heart — Sympathy Card · Calm · Elegant · for Loss of Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holding You in My Heart — Sympathy Card · Calm · Elegant · for Loss of Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">calm</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

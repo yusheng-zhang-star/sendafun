@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Free blessing & greeting message generator. Generate heartfelt card messages by occasion, recipient, and tone — one click to copy.">
+<link rel="canonical" href="https://sendafun.com/message-generator.html">
+<title>Message Generator — Write Perfect Greetings | SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#f7f5f0; color:#1a202c; }
+.header { background:#fff; border-bottom:1px solid #e2e8f0; padding:0.9rem 2rem; position:sticky; top:0; z-index:10; }
+.header-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:2rem; flex-wrap:wrap; }
+.logo { text-decoration:none; color:#2d6a4f; font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; white-space:nowrap; }
+.logo span { color:#48bb78; }
+.nav-links { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.nav-link { text-decoration:none; color:#4a5568; font-size:0.82rem; padding:0.35rem 0.75rem; border-radius:20px; transition:all 0.2s; white-space:nowrap; }
+.nav-link:hover { background:#edf2f7; }
+.nav-link.active { background:#2d6a4f; color:#fff; }
+.main { max-width:1040px; margin:0 auto; padding:2rem; }
+.page-title { font-size:2.2rem; font-weight:700; margin-bottom:0.4rem; letter-spacing:-0.01em; }
+.page-subtitle { font-size:1.05rem; color:#718096; margin-bottom:2rem; max-width:720px; }
+.tool { background:#fff; border-radius:14px; padding:1.6rem 1.8rem; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:1.5rem; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+.field label { display:block; font-size:0.78rem; color:#4a5568; font-weight:500; margin-bottom:0.35rem; }
+.field input, .field select { width:100%; padding:0.6rem 0.8rem; border:1px solid #e2e8f0; border-radius:9px; font-size:0.92rem; font-family:inherit; background:#fafbfc; transition:all 0.15s; }
+.field input:focus, .field select:focus { outline:none; border-color:#2d6a4f; background:#fff; box-shadow:0 0 0 3px rgba(45,106,79,0.1); }
+.actions { display:flex; gap:0.7rem; margin:1.3rem 0 0.5rem; }
+.btn-primary { padding:0.7rem 1.3rem; background:#2d6a4f; color:#fff; border:none; border-radius:10px; font-size:0.92rem; font-weight:600; cursor:pointer; transition:all 0.15s; font-family:inherit; }
+.btn-primary:hover { background:#23553f; }
+.btn-secondary { padding:0.7rem 1.3rem; background:#edf2f7; color:#2d3748; border:none; border-radius:10px; font-size:0.92rem; font-weight:500; cursor:pointer; font-family:inherit; }
+.btn-secondary:hover { background:#dbe3ec; }
+.msg-list { display:flex; flex-direction:column; gap:0.9rem; margin-top:0.5rem; }
+.msg-card { background:#fafbfc; border:1px solid #edf2f7; border-radius:11px; padding:1.1rem 1.25rem; position:relative; transition:all 0.2s; }
+.msg-card:hover { border-color:#c8e6d3; background:#f4fbf7; }
+.msg-text { font-size:0.98rem; line-height:1.6; color:#2d3748; margin-bottom:0.7rem; white-space:pre-wrap; }
+.msg-actions { display:flex; gap:0.5rem; align-items:center; }
+.copy-btn { font-size:0.78rem; padding:0.3rem 0.8rem; background:#fff; border:1px solid #cbd5e0; border-radius:7px; cursor:pointer; color:#2d6a4f; font-weight:500; font-family:inherit; transition:all 0.15s; }
+.copy-btn:hover { background:#2d6a4f; color:#fff; border-color:#2d6a4f; }
+.copy-btn.copied { background:#2d6a4f; color:#fff; border-color:#2d6a4f; }
+.hint { font-size:0.8rem; color:#718096; margin-top:1.2rem; }
+.explore-block { margin-top:2rem; }
+@media (max-width:768px) {
+  .main { padding:1.2rem 1rem 2.5rem; }
+  .page-title { font-size:1.6rem; }
+  .grid-3 { grid-template-columns:1fr; gap:0.8rem; }
+  .tool { padding:1.2rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link active">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+</header>
+<main class="main">
+  <h1 class="page-title">✍️  Message Generator</h1>
+  <p class="page-subtitle">Stuck on what to write? Generate heartfelt, funny, or romantic greeting card messages in one click. Pick the occasion, recipient, and tone — we'll do the rest.</p>
+  <div class="tool">
+    <div class="grid-3">
+      <div class="field">
+        <label>Occasion</label>
+        <select id="occasion"><option value="birthday">🎂 Birthday</option><option value="anniversary">💍 Anniversary</option><option value="love">❤️ Love & Romance</option><option value="thanks">🙏 Thank You</option><option value="graduation">🎓 Graduation</option><option value="congratulations">🎉 Congratulations</option><option value="get-well">🤒 Get Well</option><option value="sympathy">🕯️ Sympathy</option><option value="new-baby">👶 New Baby</option><option value="generic">💌 Just Because</option></select>
+      </div>
+      <div class="field">
+        <label>Recipient's name</label>
+        <input type="text" id="name" placeholder="e.g. Sarah, Mom, John" maxlength="30" value="Sarah">
+      </div>
+      <div class="field">
+        <label>Tone</label>
+        <select id="tone"><option value="warm">Warm & Sincere</option><option value="funny">Funny & Playful</option><option value="romantic">Romantic</option><option value="short">Short & Sweet</option><option value="formal">Formal & Elegant</option></select>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn-primary" id="genBtn">✨ Generate 5 messages</button>
+      <button class="btn-secondary" id="rerollBtn">🎲 Shuffle</button>
+    </div>
+    <p class="hint">Tip: If you know how many years (wedding / work anniversary), add it in the name field like "Sarah (10 years)".</p>
+  </div>
+  <div id="output" class="msg-list"></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+<script>
+(function(){
+'use strict';
+const TEMPLATES = {"birthday":["Happy Birthday, {{name}}! 🎉 May your special day be filled with joy, laughter, and everything you love.","To the most amazing {{name}} on your birthday — wishing you a year as wonderful as you are. Love always.","Cheers to another fantastic year around the sun! Happy Birthday, {{name}}.","Happy Birthday, {{name}}! You make the world a better place just by being in it."],"anniversary":["Happy Anniversary, {{name}}! Every moment with you is a gift I cherish more with each passing day.","To my love, {{name}} — thank you for {{years}} years of laughter, adventures, and memories. Here's to many more!","Happy Anniversary! It feels like we just got started, yet I can't remember life without you. Forever yours."],"love":["I love you, {{name}}. With all my heart, today, tomorrow, and always.","Just a little note to say: you're my favorite thing in the whole world. I love you, {{name}}.","To {{name}} — every love song, every sunset, every perfect moment reminds me of you."],"thanks":["Thank you, {{name}}, for everything you do. Your kindness doesn't go unnoticed, and it means the world to me.","Dear {{name}}: I couldn't have done it without you. Thank you from the bottom of my heart.","So grateful to have you, {{name}}. Thank you for your love, support, and friendship."],"generic":["Thinking of you, {{name}}. Sending you warm wishes and a big hug from afar.","Dear {{name}} — hope this little card brightens your day as much as you brighten mine.","Just because you're you, and you're wonderful. With love, from me to {{name}}."]};
+const EXTRA = {
+  funny: [
+    "To {{name}}: I wanted to write something profound… but then I remembered we're both weirdos. Happy whatever! 🤪",
+    "{{name}} — another year of you not being the worst roommate/partner/friend. Cheers! 🍻",
+    "Dear {{name}}: You're almost as great as I tell people you are. Kidding. You're better. Don't tell anyone I said that.",
+    "Happy Birthday {{name}}! Sorry I forgot again. This card is totally from March. 🙃",
+  ],
+  short: [
+    "Love you, {{name}}.",
+    "Thinking of you today, {{name}}.",
+    "So grateful for you, {{name}}.",
+    "Happy everything, {{name}}. 💛",
+  ],
+  formal: [
+    "Dear {{name}}, please accept my warmest wishes on this special occasion.",
+    "Wishing you every happiness, {{name}}. With sincere regards.",
+    "Dear {{name}}: sending you heartfelt congratulations and best wishes for the future.",
+  ],
+  graduation: [
+    "Congratulations, {{name}}! You did the thing — all the late nights, coffee, and sheer stubbornness paid off. The world better watch out.",
+    "To the graduate {{name}} — here's to the next chapter. Can't wait to see all the incredible things you'll do. 🎓",
+  ],
+  congratulations: [
+    "🎉 Congratulations, {{name}}! You earned every bit of this. So proud of you!",
+    "Well done, {{name}}! This is just the beginning of all the great things coming your way.",
+  ],
+  'get-well': [
+    "Sending you all the love and speedy-recovery vibes, {{name}}. Take it easy — we miss you!",
+    "Get well soon, {{name}}. Rest up, drink tea, and let the healing begin. 💛",
+  ],
+  sympathy: [
+    "With deepest sympathy, {{name}}. Holding you and your family in my heart during this difficult time.",
+    "Thinking of you, {{name}}. So sorry for your loss. Sending love and strength.",
+  ],
+  'new-baby': [
+    "👶 Welcome to the world, little one! And huge congratulations {{name}} — you're going to be amazing parents.",
+    "A tiny human has arrived! Congratulations {{name}}. So much love for your growing family.",
+  ],
+};
+const $ = id => document.getElementById(id);
+const out = $('output');
+function pick(arr, n){
+  const c = [...arr];
+  const res = [];
+  while (res.length < n && c.length > 0) {
+    const i = Math.floor(Math.random()*c.length);
+    res.push(c.splice(i,1)[0]);
+  }
+  return res;
+}
+function resolve(tpl, name, years) {
+  let s = tpl.replace(/{{name}}/g, name || 'there');
+  if (years) s = s.replace(/{{years}}/g, years);
+  else s = s.replace(/{{years}}/g, 'so many wonderful');
+  return s;
+}
+function generate(){
+  const occ = $('occasion').value;
+  const name = $('name').value.trim();
+  const tone = $('tone').value;
+  const yearMatch = name.match(/((d+)s*year/i) || name.match(/(d+)s*yr/i);
+  const years = yearMatch ? yearMatch[1] : null;
+  const pureName = name.replace(/s*([^)]*)s*/g, '').trim();
+
+  // build pool
+  let pool = [];
+  // Primary: occasion-keyed
+  if (TEMPLATES[occ]) pool = pool.concat(TEMPLATES[occ]);
+  if (EXTRA[occ])     pool = pool.concat(EXTRA[occ]);
+  // Tone boosts
+  if (tone === 'funny' && EXTRA.funny)  pool = pool.concat(EXTRA.funny, EXTRA.funny);
+  if (tone === 'short' && EXTRA.short)  pool = pool.concat(EXTRA.short, TEMPLATES.generic.slice(0,2));
+  if (tone === 'formal'&& EXTRA.formal) pool = pool.concat(EXTRA.formal);
+  if (tone === 'romantic') pool = pool.concat(TEMPLATES.love, TEMPLATES.anniversary.slice(0,2));
+  if (tone === 'warm')   pool = pool.concat(TEMPLATES.generic, TEMPLATES.thanks.slice(0,2));
+  // Fallback
+  if (pool.length === 0) pool = TEMPLATES.generic.slice();
+
+  const picks = pick(pool, 5);
+  const cards = picks.map((t, i) => {
+    const text = resolve(t, pureName, years);
+    return `<div class="msg-card">
+      <div class="msg-text">${text}</div>
+      <div class="msg-actions">
+        <button class="copy-btn" data-idx="${i}">📋 Copy</button>
+      </div>
+    </div>`;
+  }).join('');
+  out.innerHTML = cards;
+  // Bind copy
+  out.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async function(){
+      const card = btn.closest('.msg-card');
+      const txt = card.querySelector('.msg-text').innerText;
+      try {
+        await navigator.clipboard.writeText(txt);
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied'); }, 1800);
+      } catch(e) {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied'); }, 1800);
+      }
+    });
+  });
+}
+$('genBtn').addEventListener('click', generate);
+$('rerollBtn').addEventListener('click', generate);
+document.addEventListener('DOMContentLoaded', generate);
+})();
+</script>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

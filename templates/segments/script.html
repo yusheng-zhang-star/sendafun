@@ -87,13 +87,38 @@ const reminderName = document.getElementById('reminderName');
 const adBanner = document.getElementById('adBanner');
 
 /* ============================
+   Aspect ratio
+   ============================ */
+function updateAspect(ratio) {
+  if (!ASPECTS[ratio]) ratio = '3:4';
+  state.aspect = ratio;
+  const a = ASPECTS[ratio];
+  const wrapper = document.getElementById('canvasWrapper');
+  if (wrapper) {
+    wrapper.style.aspectRatio = a.w + ' / ' + a.h;
+  }
+  try { syncUI(); } catch(e) {}
+  scheduleRender();
+}
+
+/* ============================
    Init
    ============================ */
 function init() {
   state.text = textInput.value;
   state.bgImg = new Image();
-  state.bgImg.crossOrigin = 'Anonymous';
   state.bgImg.onload = render;
+  state.bgImg.onerror = function() {
+    if (!state.bgImg.hasAttribute('data-retry')) {
+      state.bgImg.setAttribute('data-retry', '1');
+      const retryImg = new Image();
+      retryImg.onload = function() {
+        state.bgImg = retryImg;
+        scheduleRender();
+      };
+      retryImg.src = state.bgImg.src;
+    }
+  };
   state.bgImg.src = '__CARD_BG__' || 'https://placehold.co/600x800/1a1a2e/ffffff?text=SendAFun';
 
   updateAspect('3:4');
@@ -482,8 +507,10 @@ function bindEvents() {
   btnCheckout.addEventListener('click', function() {
     if (state.plan === 'single') {
       modalPaymentAmount.textContent = '$1.99';
+    } else if (state.plan === 'monthly') {
+      modalPaymentAmount.textContent = '$6.99/mo';
     } else {
-      modalPaymentAmount.textContent = '$19.99';
+      modalPaymentAmount.textContent = '$69/yr';
     }
     openModal(modalPayment);
   });

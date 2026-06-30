@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Romantic cards — hearts, roses, soft colors. For anniversaries, love & Valentine's.">
+<meta property="og:title" content="Romantic Cards — SendAFun">
+<meta property="og:description" content="Romantic cards — hearts, roses, soft colors. For anniversaries, love & Valentine's.">
+<link rel="canonical" href="https://sendafun.com/style/romantic.html">
+<title>Romantic Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Styles / <strong>Romantic</strong></div>
+  <h1 class="page-title">Romantic Cards<span class="count-chip">433 cards</span></h1>
+  <p class="page-subtitle">Romantic cards — hearts, roses, soft colors. For anniversaries, love & Valentine's.</p>
+  <div class="chip-row"><a href="/style/romantic.html" class="chip active">Romantic</a>
+      <a href="/style/elegant.html" class="chip">Elegant</a>
+      <a href="/style/cheerful.html" class="chip">Cheerful</a>
+      <a href="/style/warm.html" class="chip">Warm</a>
+      <a href="/style/classic.html" class="chip">Classic</a></div>
+  <div class="card-grid">
+    <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-her-11368673.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-her-11368690.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368690-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-her-11368694.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368694-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-her-11410245.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11410245-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-for-her-12130177.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-12130177-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-for-him-12516845.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-12516845-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-for-him-12802226.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-12802226-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-for-him-12802228.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-12802228-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-for-him-15229680.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-15229680-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-for-him-16120137.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-16120137-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-for-wife-16935968.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-16935968-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-for-wife-16935971.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-16935971-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-for-wife-17461431.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-17461431-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-for-wife-18215005.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-18215005-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-wife-19759631.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-19759631-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-husband-20181874.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-20181874-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-husband-2291594.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-2291594-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-husband-24433378.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-24433378-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-husband-27641251.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-27641251-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-husband-28657141.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-28657141-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-couple-28988083.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-28988083-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-couple-29110830.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-29110830-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-couple-29110841.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-29110841-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-couple-29110845.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-29110845-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-for-couple-29110852.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-29110852-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-for-parents-29110889.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-29110889-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-for-parents-30844295.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-30844295-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-for-parents-31328163.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-31328163-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-for-parents-33575739.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-33575739-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-for-parents-35315663.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-35315663-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-for-grandparents-35635701.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-35635701-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-for-grandparents-36694425.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-36694425-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-for-grandparents-36836730.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-36836730-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-for-grandparents-37901036.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-37901036-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-grandparents-37958130.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-37958130-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-girlfriend-37968303.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-37968303-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-girlfriend-38079788.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-38079788-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-girlfriend-3937658.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-3937658-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-girlfriend-3937681.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-3937681-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-girlfriend-3938693.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-3938693-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-boyfriend-3938951.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-3938951-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-boyfriend-5086615.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5086615-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-boyfriend-5086616.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5086616-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-boyfriend-5086620.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5086620-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-for-boyfriend-5086625.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5086625-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-for-fianc-e-5086626.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5086626-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-for-fianc-e-5087365.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5087365-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-for-fianc-e-5365202.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5365202-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-for-fianc-e-5524007.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5524007-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-for-fianc-e-5834576.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5834576-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-for-fianc-5834582.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5834582-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · for Fiancé" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · for Fiancé</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-for-fianc-5834593.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5834593-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · for Fiancé" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · for Fiancé</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-for-fianc-5911136.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911136-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · for Fiancé" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · for Fiancé</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-for-fianc-5911145.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911145-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · for Fiancé" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · for Fiancé</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-fianc-5911147.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911147-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for Fiancé" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for Fiancé</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-partner-5911151.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911151-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-partner-5911152.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911152-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-partner-5911154.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911154-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-partner-5911160.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911160-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-partner-5911162.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911162-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-soulmate-5911166.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911166-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for Soulmate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for Soulmate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-soulmate-5911167.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911167-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for Soulmate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for Soulmate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-soulmate-5911169.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911169-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for Soulmate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for Soulmate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-soulmate-5911186.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911186-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for Soulmate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for Soulmate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-for-soulmate-5911260.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911260-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · for Soulmate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · for Soulmate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-for-1st-paper-5911300.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-5911300-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · for 1st Paper" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · for 1st Paper</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-for-1st-paper-6162805.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6162805-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · for 1st Paper" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · for 1st Paper</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-for-1st-paper-6162857.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6162857-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · for 1st Paper" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · for 1st Paper</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-for-1st-paper-6162859.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6162859-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · for 1st Paper" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · for 1st Paper</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-for-1st-paper-6162885.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6162885-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · for 1st Paper" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · for 1st Paper</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-for-5th-wood-6184775.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6184775-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · for 5th Wood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · for 5th Wood</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-for-5th-wood-6232552.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6232552-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · for 5th Wood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · for 5th Wood</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-for-5th-wood-6248866.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248866-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · for 5th Wood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · for 5th Wood</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-for-5th-wood-6248867.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248867-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · for 5th Wood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · for 5th Wood</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-5th-wood-6248868.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248868-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for 5th Wood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for 5th Wood</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-10th-tin-6248871.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248871-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for 10th Tin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for 10th Tin</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-10th-tin-6248872.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248872-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for 10th Tin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for 10th Tin</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-10th-tin-6248873.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248873-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for 10th Tin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for 10th Tin</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-10th-tin-6248880.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248880-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for 10th Tin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for 10th Tin</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-10th-tin-6248881.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248881-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for 10th Tin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for 10th Tin</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-25th-silver-6248882.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248882-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for 25th Silver" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for 25th Silver</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-25th-silver-6248884.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248884-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for 25th Silver" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for 25th Silver</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-25th-silver-6248886.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248886-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for 25th Silver" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for 25th Silver</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-25th-silver-6248889.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248889-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for 25th Silver" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for 25th Silver</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-for-25th-silver-6248890.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248890-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · for 25th Silver" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · for 25th Silver</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-for-50th-gold-6248896.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248896-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · for 50th Gold" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · for 50th Gold</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-for-50th-gold-6248901.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248901-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · for 50th Gold" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · for 50th Gold</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-for-50th-gold-6248903.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6248903-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · for 50th Gold" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · for 50th Gold</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-for-50th-gold-6249050.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6249050-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · for 50th Gold" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · for 50th Gold</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-for-50th-gold-6288706.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6288706-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · for 50th Gold" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · for 50th Gold</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-for-vow-renewal-6288743.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6288743-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-for-vow-renewal-6334656.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6334656-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-for-vow-renewal-6334659.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6334659-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-for-vow-renewal-6334737.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6334737-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-vow-renewal-6578956.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6578956-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-for-longtime-married-couple-6578969.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6578969-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · for Longtime Married Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · for Longtime Married Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-for-longtime-married-couple-6578995.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6578995-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · for Longtime Married Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · for Longtime Married Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-for-longtime-married-couple-6578998.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6578998-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · for Longtime Married Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · for Longtime Married Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-for-longtime-married-couple-6579001.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579001-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · for Longtime Married Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · for Longtime Married Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-for-longtime-married-couple-6579007.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579007-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · for Longtime Married Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · for Longtime Married Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-elegant-for-her-6579008.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579008-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-elegant-for-her-6579010.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579010-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-elegant-for-her-6579011.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579011-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-elegant-for-her-6579013.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579013-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-elegant-for-her-6579014.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579014-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-elegant-for-him-6579015.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579015-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-elegant-for-him-6657773.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6657773-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · Elegant · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · Elegant · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-elegant-for-him-6657795.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6657795-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-elegant-for-him-6670571.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6670571-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · Elegant · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · Elegant · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-elegant-for-him-6822851.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6822851-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-elegant-for-wife-6918131.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6918131-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · Elegant · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · Elegant · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-elegant-for-wife-6954066.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6954066-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · Elegant · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · Elegant · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-elegant-for-wife-7181363.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7181363-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · Elegant · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · Elegant · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-elegant-for-wife-7244262.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7244262-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · Elegant · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · Elegant · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-elegant-for-wife-7705399.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7705399-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · Elegant · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · Elegant · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-elegant-for-husband-7705403.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7705403-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · Elegant · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · Elegant · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-elegant-for-husband-7706427.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7706427-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · Elegant · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · Elegant · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-elegant-for-husband-7706429.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7706429-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · Elegant · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · Elegant · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-elegant-for-husband-7706432.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7706432-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · Elegant · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · Elegant · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-elegant-for-husband-7956563.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956563-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · Elegant · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · Elegant · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-elegant-for-couple-7956570.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956570-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-elegant-for-couple-7956571.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956571-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-elegant-for-couple-7956573.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956573-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-elegant-for-couple-7956574.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956574-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-elegant-for-couple-7956576.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956576-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Couple" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Couple</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-elegant-for-parents-7956578.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956578-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-elegant-for-parents-7956581.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956581-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · Elegant · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · Elegant · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-elegant-for-parents-7956653.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-7956653-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-elegant-for-parents-8487844.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8487844-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · Elegant · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · Elegant · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-elegant-for-parents-8856503.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8856503-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-forever-always-anniversary-card-online-romantic-elegant-for-grandparents-8856678.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8856678-vertical.webp" alt="Forever & Always — Anniversary Card Online · Romantic · Elegant · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forever & Always — Anniversary Card Online · Romantic · Elegant · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-our-story-continues-anniversary-ecard-romantic-elegant-for-grandparents-8902763.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902763-vertical.webp" alt="Our Story Continues — Anniversary Ecard · Romantic · Elegant · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Our Story Continues — Anniversary Ecard · Romantic · Elegant · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-milestone-anniversary-custom-card-for-couples-romantic-elegant-for-grandparents-8902765.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902765-vertical.webp" alt="Milestone Anniversary — Custom Card for Couples · Romantic · Elegant · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Milestone Anniversary — Custom Card for Couples · Romantic · Elegant · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-one-year-down-forever-to-go-anniversary-romantic-elegant-for-grandparents-8902775.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902775-vertical.webp" alt="One Year Down, Forever to Go — Anniversary · Romantic · Elegant · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">One Year Down, Forever to Go — Anniversary · Romantic · Elegant · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-elegant-for-grandparents-8902819.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902819-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · Elegant · for Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · Elegant · for Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-through-thick-thin-anniversary-card-romantic-elegant-for-girlfriend-8902823.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902823-vertical.webp" alt="Through Thick & Thin — Anniversary Card · Romantic · Elegant · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Through Thick & Thin — Anniversary Card · Romantic · Elegant · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-to-the-best-thing-ever-card-romantic-elegant-for-girlfriend-8902833.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902833-vertical.webp" alt="Happy Anniversary to the Best Thing Ever — Card · Romantic · Elegant · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary to the Best Thing Ever — Card · Romantic · Elegant · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-best-decision-i-ever-made-anniversary-ecard-romantic-elegant-for-girlfriend-8902858.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902858-vertical.webp" alt="Best Decision I Ever Made — Anniversary Ecard · Romantic · Elegant · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Decision I Ever Made — Anniversary Ecard · Romantic · Elegant · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-us-against-the-world-anniversary-card-online-romantic-elegant-for-girlfriend-8902861.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902861-vertical.webp" alt="Us Against the World — Anniversary Card Online · Romantic · Elegant · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Us Against the World — Anniversary Card Online · Romantic · Elegant · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-memories-made-more-to-come-anniversary-romantic-elegant-for-girlfriend-8902880.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902880-vertical.webp" alt="Memories Made, More to Come — Anniversary · Romantic · Elegant · for Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Memories Made, More to Come — Anniversary · Romantic · Elegant · for Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-elegant-for-boyfriend-8902884.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902884-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · Elegant · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-elegant-for-boyfriend-8902885.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902885-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · Elegant · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-elegant-for-boyfriend-8902886.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902886-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · Elegant · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-elegant-for-boyfriend-8902904.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8902904-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · Elegant · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-elegant-for-boyfriend-8903567.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8903567-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Boyfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Boyfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-warm-anniversary-wishes-custom-card-online-romantic-elegant-for-fianc-e-8903605.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-8903605-vertical.webp" alt="Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Anniversary Wishes — Custom Card Online · Romantic · Elegant · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-still-falling-for-you-anniversary-card-romantic-elegant-for-fianc-e-9451122.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-9451122-vertical.webp" alt="Still Falling For You — Anniversary Card · Romantic · Elegant · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Still Falling For You — Anniversary Card · Romantic · Elegant · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-elegant-anniversary-ecard-for-your-love-romantic-elegant-for-fianc-e-9584689.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-9584689-vertical.webp" alt="Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Anniversary Ecard for Your Love · Romantic · Elegant · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-to-many-more-personalized-anniversary-card-romantic-elegant-for-fianc-e-9584690.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-9584690-vertical.webp" alt="To Many More — Personalized Anniversary Card · Romantic · Elegant · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Many More — Personalized Anniversary Card · Romantic · Elegant · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
+    </div>
+  </a>
+      <a href="/card/anniversary-celebrating-us-anniversary-greeting-ecard-romantic-elegant-for-fianc-e-9608431.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-9608431-vertical.webp" alt="Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrating Us — Anniversary Greeting Ecard · Romantic · Elegant · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/love-romantic-love-card-for-someone-special-romantic-for-her-10067260.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Someone Special · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Love Card for Someone Special · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+    </div>
+  </a>
+      <a href="/card/love-sweet-i-love-you-ecard-personalize-send-romantic-for-her-10068791.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10068791-vertical.webp" alt="Sweet 'I Love You' Ecard — Personalize & Send · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet 'I Love You' Ecard — Personalize & Send · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soulmate</span><span class="card-tile-tag">tender</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/love-send-a-love-card-with-your-heartfelt-message-romantic-for-her-10073315.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10073315-vertical.webp" alt="Send a Love Card With Your Heartfelt Message · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Send a Love Card With Your Heartfelt Message · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">dreamy</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/love-tender-love-ecard-for-your-partner-romantic-for-her-10075296.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10075296-vertical.webp" alt="Tender Love Ecard for Your Partner · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tender Love Ecard for Your Partner · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sweet</span><span class="card-tile-tag">love</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/love-romantic-greeting-card-express-your-love-romantic-for-her-10099776.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10099776-vertical.webp" alt="Romantic Greeting Card — Express Your Love · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Greeting Card — Express Your Love · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/love-beautiful-love-card-for-him-or-her-online-romantic-for-him-10107034.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10107034-vertical.webp" alt="Beautiful Love Card for Him or Her Online · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Love Card for Him or Her Online · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+    </div>
+  </a>
+      <a href="/card/love-from-the-heart-custom-love-note-ecard-romantic-for-him-10119092.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10119092-vertical.webp" alt="From the Heart — Custom Love Note Ecard · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From the Heart — Custom Love Note Ecard · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soulmate</span><span class="card-tile-tag">tender</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+      <a href="/card/love-love-you-more-than-words-ecard-romantic-for-him-10125454.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10125454-vertical.webp" alt="Love You More Than Words Ecard · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You More Than Words Ecard · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">dreamy</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/love-classic-romantic-card-to-send-online-romantic-for-him-10319334.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10319334-vertical.webp" alt="Classic Romantic Card to Send Online · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Classic Romantic Card to Send Online · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sweet</span><span class="card-tile-tag">love</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/love-warm-love-card-for-your-soulmate-romantic-for-him-1164739.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-1164739-vertical.webp" alt="Warm Love Card for Your Soulmate · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Love Card for Your Soulmate · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/halloween-trick-or-treat-kids-halloween-custom-ecard-spooky-romantic-for-kids-costume-party-10011937.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011937-vertical.webp" alt="Trick or Treat — Kids Halloween Custom Ecard · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Trick or Treat — Kids Halloween Custom Ecard · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">witch</span><span class="card-tile-tag">ghost</span><span class="card-tile-tag">candy</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-you-from-our-family-to-yours-warm-for-neighbor-5429917.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5429917-vertical.webp" alt="Thankful for You — From Our Family to Yours · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for You — From Our Family to Yours · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/missing-you-so-far-away-but-always-close-miss-you-card-warm-romantic-for-long-distance-girlfriend-11963474.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-11963474-vertical.webp" alt="So Far Away But Always Close — Miss You Card · Warm · Romantic · for Long Distance Girlfriend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Far Away But Always Close — Miss You Card · Warm · Romantic · for Long Distance Girlfriend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">tender</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-college-graduation-congrats-custom-card-celebratory-romantic-for-best-friend-7842474.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842474-vertical.webp" alt="College Graduation — Congrats Custom Card · Celebratory · Romantic · for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">College Graduation — Congrats Custom Card · Celebratory · Romantic · for Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-teacher</span><span class="card-tile-tag">from-classmate</span><span class="card-tile-tag">for-son-for-daughter</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-he-is-risen-religious-easter-custom-card-cheerful-romantic-for-kids-egg-hunt-10902213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10902213-vertical.webp" alt="He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+      <a href="/card/thinking-of-you-warm-thoughts-coming-your-way-custom-ecard-soft-warm-for-long-distance-friend-7858796.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-7858796-vertical.webp" alt="Warm Thoughts Coming Your Way — Custom Ecard · Soft · Warm · for Long Distance Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Thoughts Coming Your Way — Custom Ecard · Soft · Warm · for Long Distance Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">check-in</span><span class="card-tile-tag">just-to-say-hi</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-friends-like-you-thanksgiving-ecard-warm-elegant-for-neighbor-29124515.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29124515-vertical.webp" alt="Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/get-well-warm-get-well-wishes-custom-card-online-calm-elegant-after-accident-37590928.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-37590928-vertical.webp" alt="Warm Get Well Wishes — Custom Card Online · Calm · Elegant · after Accident" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Get Well Wishes — Custom Card Online · Calm · Elegant · after Accident</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">care</span><span class="card-tile-tag">love</span><span class="card-tile-tag">healing</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

@@ -217,8 +217,8 @@ a{color:var(--accent);text-decoration:none}
             <div class="pricing-period">one card</div>
           </div>
           <div class="pricing-card" data-plan="annual">
-            <div class="pricing-badge">Save 80%</div>
-            <div class="pricing-amount">$19.99</div>
+            <div class="pricing-badge">Best value</div>
+            <div class="pricing-amount">$69</div>
             <div class="pricing-period">per year</div>
             <div class="pricing-note">Unlimited cards</div>
             <div class="pricing-cancel">Cancel anytime</div>
@@ -340,9 +340,52 @@ a{color:var(--accent);text-decoration:none}
 
 <div class="toast-container" id="toastContainer"></div>
 
-<footer style="padding:16px;text-align:center;font-size:12px;color:var(--text-tertiary);">
-  &copy; 2026 SendAFun &middot; Made with &#10084;
+<footer style="padding:28px 16px 32px;text-align:center;font-size:12px;color:var(--text-tertiary);border-top:1px solid rgba(210,210,215,.5);background:var(--bg-primary);">
+  <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+    <a href="/privacy.html" style="color:var(--text-secondary);text-decoration:none;">Privacy Policy</a>
+    <a href="/terms.html" style="color:var(--text-secondary);text-decoration:none;">Terms of Service</a>
+    <a href="/pricing.html" style="color:var(--text-secondary);text-decoration:none;">Pricing</a>
+    <a href="/about.html" style="color:var(--text-secondary);text-decoration:none;">About</a>
+    <a href="/contact.html" style="color:var(--text-secondary);text-decoration:none;">Contact</a>
+    <a href="/cookies.html" style="color:var(--text-secondary);text-decoration:none;">Cookies</a>
+    <a href="/faq.html" style="color:var(--text-secondary);text-decoration:none;">FAQ</a>
+    <a href="/blog.html" style="color:var(--text-secondary);text-decoration:none;">Blog</a>
+  </div>
+  <div style="font-size:0.78rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:var(--text-tertiary);text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:var(--text-tertiary);text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:var(--text-tertiary);text-decoration:none;">support@sendafun.com</a></div>
 </footer>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try { var saved=JSON.parse(localStorage.getItem(KEY)||'{}'); } catch(e){ var saved={}; }
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
 
 <script>
 (function(){
@@ -433,13 +476,38 @@ const reminderName = document.getElementById('reminderName');
 const adBanner = document.getElementById('adBanner');
 
 /* ============================
+   Aspect ratio
+   ============================ */
+function updateAspect(ratio) {
+  if (!ASPECTS[ratio]) ratio = '3:4';
+  state.aspect = ratio;
+  const a = ASPECTS[ratio];
+  const wrapper = document.getElementById('canvasWrapper');
+  if (wrapper) {
+    wrapper.style.aspectRatio = a.w + ' / ' + a.h;
+  }
+  try { syncUI(); } catch(e) {}
+  scheduleRender();
+}
+
+/* ============================
    Init
    ============================ */
 function init() {
   state.text = textInput.value;
   state.bgImg = new Image();
-  state.bgImg.crossOrigin = 'Anonymous';
   state.bgImg.onload = render;
+  state.bgImg.onerror = function() {
+    if (!state.bgImg.hasAttribute('data-retry')) {
+      state.bgImg.setAttribute('data-retry', '1');
+      const retryImg = new Image();
+      retryImg.onload = function() {
+        state.bgImg = retryImg;
+        scheduleRender();
+      };
+      retryImg.src = state.bgImg.src;
+    }
+  };
   state.bgImg.src = '__CARD_BG__' || 'https://placehold.co/600x800/1a1a2e/ffffff?text=SendAFun';
 
   updateAspect('3:4');
@@ -828,8 +896,10 @@ function bindEvents() {
   btnCheckout.addEventListener('click', function() {
     if (state.plan === 'single') {
       modalPaymentAmount.textContent = '$1.99';
+    } else if (state.plan === 'monthly') {
+      modalPaymentAmount.textContent = '$6.99/mo';
     } else {
-      modalPaymentAmount.textContent = '$19.99';
+      modalPaymentAmount.textContent = '$69/yr';
     }
     openModal(modalPayment);
   });
@@ -838,7 +908,7 @@ function bindEvents() {
   modalPaymentCancel.addEventListener('click', function() { closeModal(modalPayment); });
   modalPaymentConfirm.addEventListener('click', function() {
     closeModal(modalPayment);
-    simulatePaymentThenDelivery();
+    createSessionAndRedirect();
   });
 
   // Delivery modal
@@ -968,42 +1038,84 @@ function identifyUser(email) {
   });
 }
 
-function simulatePaymentThenDelivery() {
-  showToast('&#128179; Processing payment...', 2000);
-  setTimeout(function() {
-    showToast('&#9989; Payment successful!', 2000);
-    setTimeout(function() {
-      if (state.delivery === 'email') {
-        openModal(modalDelivery);
+function createSessionAndRedirect() {
+  var email = (state.userEmail || identEmail.value || '').trim();
+  if (!email || !email.includes('@')) {
+    showToast('Please enter your email first to continue', 3000);
+    identEmail.focus();
+    identEmail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  state.userEmail = email;
+  saveState();
+  showToast('&#128179; Redirecting to secure Creem checkout...', 2500);
+  fetch('/api/create-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      plan: state.plan || 'single',
+      cardSlug: '__CARD_SLUG__',
+      delivery: state.delivery
+    })
+  }).then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.url) {
+        window.location.href = data.url;
+      } else if (data && data.error) {
+        showToast('&#10060; Checkout error: ' + data.error, 5000);
       } else {
-        // Download
-        downloadCard();
-        setTimeout(function() {
-          openModal(modalGift);
-        }, 800);
+        showToast('&#10060; Could not start checkout. Please try again.', 4000);
       }
-    }, 2200);
-  }, 2500);
+    })
+    .catch(function() {
+      showToast('&#10060; Network error. Please check your connection.', 4000);
+    });
 }
 
 function sendCard(recipientEmail) {
   closeModal(modalDelivery);
   showToast('&#128228; Sending your card...', 1500);
 
+  var fromEmail = (state.userEmail || identEmail.value || '').trim();
+  if (!fromEmail || !fromEmail.includes('@')) {
+    showToast('Please enter your email before sending', 3500);
+    setTimeout(function() { openModal(modalDelivery); }, 100);
+    return;
+  }
+
+  var toName = 'Friend';
+  try { toName = (recipientName && recipientName.value && recipientName.value.trim()) || toName; } catch (e) {}
+  var imageUrl;
+  try { imageUrl = canvas && typeof canvas.toDataURL === 'function' ? canvas.toDataURL('image/png') : null; } catch(e) { imageUrl = null; }
+  var bgColor = state.bgColor || '#ffefc4';
+  var accentColor = state.color || '#d62828';
+  var sticker = state.sticker || null;
+
   fetch('/api/send-card', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       cardSlug: '__CARD_SLUG__',
-      recipientEmail: recipientEmail,
-      senderName: senderName.value.trim() || 'A friend',
+      fromEmail: fromEmail,
+      toEmail: recipientEmail,
+      fromName: senderName.value.trim() || 'A friend',
+      toName: toName,
       message: state.text,
-      font: state.fontFamily,
-      color: state.color,
-      filter: state.filter
+      fontFamily: state.fontFamily,
+      imageUrl: imageUrl,
+      backgroundColor: bgColor,
+      accentColor: accentColor,
+      sticker: sticker
     })
   })
-  .then(function() {
+  .then(function(r) { return r.json(); })
+  .then(function(resp) {
+    if (resp && resp.error) {
+      showToast('&#10060; ' + resp.error, 5000);
+      setTimeout(function() { openModal(modalDelivery); }, 800);
+      return;
+    }
     showToast('&#127881; Card sent successfully!');
     setTimeout(function() {
       openModal(modalGift);
@@ -1011,7 +1123,6 @@ function sendCard(recipientEmail) {
   })
   .catch(function() {
     showToast('&#128228; Card sent! (offline mode)');
-    // Also attempt gift-free-card
     if (state.userEmail) {
       fetch('/api/gift-free-card', {
         method: 'POST',

@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Browse our collection of new baby e-cards. Send a personalised card for free — beautiful designs, instant delivery.">
 <meta property="og:title" content="New Baby Cards — SendAFun">
 <meta property="og:description" content="Browse our collection of new baby e-cards. Send a personalised card for free!">
+<meta property="og:image" content="https://sendafun.com/og/sendafun-og.webp">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://sendafun.com/category/new-baby.html">
 <title>New Baby Cards — SendAFun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,29 +17,33 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
-.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; }
-.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
-.logo { text-decoration: none; color: #2d6a4f; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
 .logo span { color: #48bb78; }
-.nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.nav-link { text-decoration: none; color: #4a5568; font-size: 0.85rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
 .nav-link:hover { background: #edf2f7; }
 .nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1200px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
 .main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-.page-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a202c; }
-.page-subtitle { font-size: 1.1rem; color: #718096; margin-bottom: 2rem; }
+.page-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.1rem; color: #718096; margin-bottom: 2rem; max-width: 720px; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
 .card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
 .card-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #a0aec0; }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: block; overflow: hidden; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .card-tile-info { padding: 1rem; }
 .card-tile-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; color: #2d3748; }
 .card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
 .card-tile-tag { font-size: 0.7rem; background: #edf2f7; color: #4a5568; padding: 0.15rem 0.5rem; border-radius: 10px; }
 @media (max-width: 768px) {
-  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
   .nav-links { overflow-x: auto; width: 100%; padding-bottom: 0.5rem; }
   .page-title { font-size: 1.8rem; }
+  .main { padding: 1.2rem 1rem 2rem; }
   .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
 }
 </style>
@@ -45,28 +53,1087 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <div class="header-inner">
     <a href="/" class="logo">Send<span>A</span>Fun</a>
     <nav class="nav-links">
-      <a href="/category/birthday.html" class="nav-link">Birthday</a>
-        <a href="/category/love.html" class="nav-link">Love & Romance</a>
-        <a href="/category/thanks.html" class="nav-link">Thank You</a>
-        <a href="/category/wellness.html" class="nav-link">Get Well</a>
-        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
-        <a href="/category/miss-you.html" class="nav-link">Miss You</a>
-        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
-        <a href="/category/anniversary.html" class="nav-link">Anniversary</a>
-        <a href="/category/new-baby.html" class="nav-link active">New Baby</a>
-        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
     </nav>
   </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link active">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
 </header>
 <main class="main">
   <h1 class="page-title">New Baby Cards</h1>
   <p class="page-subtitle">Find the perfect new baby e-card to send to someone special.</p>
   <div class="card-grid">
-    <a href="/card/new-baby-boy.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Boy Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-for-baby-shower-10225006.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Welcome Baby Boy Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">boy</span></div>
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-romantic-for-baby-shower-10257517.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10257517-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-romantic-for-baby-shower-10600032.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10600032-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-romantic-for-baby-shower-10671309.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10671309-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-for-baby-shower-10977246.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10977246-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-romantic-for-new-mom-dad-10985226.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10985226-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-romantic-for-new-mom-dad-11039967.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-11039967-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-romantic-for-new-mom-dad-11039977.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-11039977-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-romantic-for-new-mom-dad-11284837.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-11284837-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-romantic-for-new-mom-dad-11369315.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-11369315-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-romantic-for-baby-girl-12342692.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-12342692-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-romantic-for-baby-girl-12342693.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-12342693-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-romantic-for-baby-girl-12533015.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-12533015-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-romantic-for-baby-girl-12862037.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-12862037-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-romantic-for-baby-girl-13071793.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-13071793-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-romantic-for-baby-boy-13156140.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-13156140-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-romantic-for-baby-boy-14023459.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-14023459-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-romantic-for-baby-boy-14023463.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-14023463-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-romantic-for-baby-boy-14620499.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-14620499-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Romantic · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Romantic · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-romantic-for-baby-boy-15291090.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-15291090-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-for-gender-neutral-baby-16181658.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-16181658-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-romantic-for-gender-neutral-baby-16181661.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-16181661-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-romantic-for-gender-neutral-baby-17021441.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-17021441-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-romantic-for-gender-neutral-baby-17276502.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-17276502-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-for-gender-neutral-baby-17567233.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-17567233-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-romantic-for-adoption-17873700.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-17873700-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-romantic-for-adoption-18142270.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18142270-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-romantic-for-adoption-18142295.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18142295-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-romantic-for-adoption-18346364.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18346364-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-romantic-for-adoption-18346367.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18346367-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-romantic-for-surrogacy-18346369.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18346369-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-romantic-for-surrogacy-18447779.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18447779-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-romantic-for-surrogacy-18533090.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18533090-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-romantic-for-surrogacy-18533092.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18533092-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-romantic-for-surrogacy-18533184.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18533184-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-romantic-for-first-time-parents-18718583.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-18718583-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-romantic-for-first-time-parents-1902711.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-1902711-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-romantic-for-first-time-parents-19181010.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-19181010-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-romantic-for-first-time-parents-19773994.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-19773994-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-romantic-for-first-time-parents-19976471.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-19976471-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-for-grandchild-20852581.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-20852581-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-romantic-for-grandchild-20891329.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-20891329-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-romantic-for-grandchild-23338513.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-23338513-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-romantic-for-grandchild-23338514.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-23338514-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-for-grandchild-23338515.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-23338515-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-romantic-from-aunt-23338517.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-23338517-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-romantic-from-aunt-26509814.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-26509814-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Romantic · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Romantic · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-romantic-from-aunt-26509817.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-26509817-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-romantic-from-aunt-27010370.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-27010370-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-romantic-from-aunt-2790347.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-2790347-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-romantic-from-uncle-28193048.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28193048-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-romantic-from-uncle-28193049.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28193049-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Romantic · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Romantic · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-romantic-from-uncle-28193051.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28193051-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-romantic-from-uncle-28193052.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28193052-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-romantic-from-uncle-28193069.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28193069-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Romantic · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Romantic · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-romantic-from-grandparents-28529081.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28529081-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-romantic-from-grandparents-28529082.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28529082-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Romantic · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Romantic · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-romantic-from-grandparents-28529086.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28529086-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-romantic-from-grandparents-28529092.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28529092-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Romantic · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Romantic · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-romantic-from-grandparents-28680581.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680581-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-from-godparent-28680583.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680583-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-romantic-from-godparent-28680587.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680587-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Romantic · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Romantic · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-romantic-from-godparent-28680588.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680588-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Romantic · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Romantic · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-romantic-from-godparent-28680589.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680589-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Romantic · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Romantic · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-from-godparent-28680591.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680591-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Romantic · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-romantic-for-newborn-28680592.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680592-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for Newborn" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Romantic · for Newborn</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-romantic-for-newborn-28680593.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680593-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for Newborn" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Romantic · for Newborn</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-romantic-for-newborn-28680595.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680595-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for Newborn" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Romantic · for Newborn</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-romantic-for-newborn-28680596.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680596-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for Newborn" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Romantic · for Newborn</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-romantic-for-newborn-28680597.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680597-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for Newborn" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Romantic · for Newborn</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-romantic-for-twins-baby-28680633.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680633-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-romantic-for-twins-baby-28680634.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680634-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-romantic-for-twins-baby-28680638.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680638-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-romantic-for-twins-baby-28680642.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680642-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-romantic-for-twins-baby-28680643.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680643-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-romantic-for-rainbow-baby-28680664.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680664-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for Rainbow Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Romantic · for Rainbow Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-romantic-for-rainbow-baby-28680675.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680675-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for Rainbow Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Romantic · for Rainbow Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-romantic-for-rainbow-baby-28854627.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28854627-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for Rainbow Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Romantic · for Rainbow Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-romantic-for-rainbow-baby-28858693.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28858693-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Romantic · for Rainbow Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Romantic · for Rainbow Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-romantic-for-rainbow-baby-28997167.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28997167-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for Rainbow Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Romantic · for Rainbow Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-for-baby-naming-ceremony-29442180.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-29442180-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-romantic-for-baby-naming-ceremony-30012170.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30012170-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-romantic-for-baby-naming-ceremony-30012186.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30012186-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-romantic-for-baby-naming-ceremony-30012197.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30012197-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-for-baby-naming-ceremony-30279807.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30279807-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-elegant-for-baby-shower-30344708.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30344708-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-elegant-for-baby-shower-30641960.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30641960-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-elegant-for-baby-shower-30654886.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30654886-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-elegant-for-baby-shower-30654897.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30654897-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-elegant-for-baby-shower-30654898.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30654898-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Baby Shower" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Baby Shower</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-elegant-for-new-mom-dad-30654961.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30654961-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-elegant-for-new-mom-dad-31036225.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-31036225-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Elegant · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Elegant · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-elegant-for-new-mom-dad-32327831.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-32327831-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-elegant-for-new-mom-dad-32327833.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-32327833-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-elegant-for-new-mom-dad-32327834.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-32327834-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Elegant · for New Mom & Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Elegant · for New Mom & Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-elegant-for-baby-girl-33243604.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-33243604-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-elegant-for-baby-girl-33509289.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-33509289-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Elegant · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Elegant · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-elegant-for-baby-girl-34763901.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-34763901-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-elegant-for-baby-girl-35065925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-35065925-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Elegant · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Elegant · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-elegant-for-baby-girl-35375378.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-35375378-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · for Baby Girl" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · for Baby Girl</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-elegant-for-baby-boy-35831748.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-35831748-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-elegant-for-baby-boy-36125647.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36125647-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Elegant · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Elegant · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-elegant-for-baby-boy-3622319.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-3622319-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Elegant · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Elegant · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-elegant-for-baby-boy-36726157.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36726157-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Elegant · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Elegant · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-elegant-for-baby-boy-36726158.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36726158-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Elegant · for Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Elegant · for Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-elegant-for-gender-neutral-baby-36828153.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36828153-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-elegant-for-gender-neutral-baby-36832345.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36832345-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-elegant-for-gender-neutral-baby-36832346.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36832346-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-elegant-for-gender-neutral-baby-36845896.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36845896-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-elegant-for-gender-neutral-baby-36884131.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36884131-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-elegant-for-adoption-36884133.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36884133-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-elegant-for-adoption-36884142.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36884142-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Elegant · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Elegant · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-elegant-for-adoption-37220708.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37220708-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-elegant-for-adoption-37621762.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37621762-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-elegant-for-adoption-37827065.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827065-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Elegant · for Adoption" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Elegant · for Adoption</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-elegant-for-surrogacy-37827067.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827067-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-elegant-for-surrogacy-37827068.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827068-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Elegant · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Elegant · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-elegant-for-surrogacy-37827070.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827070-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-elegant-for-surrogacy-37827072.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827072-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Elegant · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Elegant · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-elegant-for-surrogacy-37827073.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37827073-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · for Surrogacy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · for Surrogacy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-elegant-for-first-time-parents-37974991.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37974991-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-elegant-for-first-time-parents-37974997.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37974997-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Elegant · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Elegant · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-elegant-for-first-time-parents-37975000.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-37975000-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Elegant · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Elegant · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-elegant-for-first-time-parents-3845157.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-3845157-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Elegant · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Elegant · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-elegant-for-first-time-parents-4041803.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4041803-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Elegant · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Elegant · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-elegant-for-grandchild-4041806.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4041806-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-elegant-for-grandchild-4483047.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4483047-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-elegant-for-grandchild-4493101.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4493101-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-oh-baby-custom-newborn-congratulations-card-cheerful-elegant-for-grandchild-4493102.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4493102-vertical.webp" alt="Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Oh Baby! — Custom Newborn Congratulations Card · Cheerful · Elegant · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hooray-baby-is-here-personalized-card-cheerful-elegant-for-grandchild-4504005.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-4504005-vertical.webp" alt="Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Grandchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hooray, Baby is Here! — Personalized Card · Cheerful · Elegant · for Grandchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-tiny-toes-big-love-new-baby-ecard-cheerful-elegant-from-aunt-5791339.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-5791339-vertical.webp" alt="Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tiny Toes, Big Love — New Baby Ecard · Cheerful · Elegant · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-elegant-from-aunt-5791344.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-5791344-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Elegant · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Elegant · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-best-gift-ever-new-baby-congratulations-cheerful-elegant-from-aunt-5791347.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-5791347-vertical.webp" alt="The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Best Gift Ever — New Baby Congratulations · Cheerful · Elegant · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-boy-girl-custom-greeting-cheerful-elegant-from-aunt-5791351.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-5791351-vertical.webp" alt="Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby [Boy/Girl] — Custom Greeting · Cheerful · Elegant · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-a-whole-new-world-awaits-you-baby-card-cheerful-elegant-from-aunt-6392895.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-6392895-vertical.webp" alt="A Whole New World Awaits You — Baby Card · Cheerful · Elegant · from Aunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Whole New World Awaits You — Baby Card · Cheerful · Elegant · from Aunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-someone-tiny-perfect-has-arrived-ecard-cheerful-elegant-from-uncle-6849311.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-6849311-vertical.webp" alt="Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Someone Tiny & Perfect Has Arrived — Ecard · Cheerful · Elegant · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-new-baby-new-adventures-personalized-card-cheerful-elegant-from-uncle-6849339.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-6849339-vertical.webp" alt="New Baby, New Adventures — Personalized Card · Cheerful · Elegant · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Baby, New Adventures — Personalized Card · Cheerful · Elegant · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sleepless-nights-endless-love-new-baby-cheerful-elegant-from-uncle-6849436.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-6849436-vertical.webp" alt="Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sleepless Nights, Endless Love — New Baby · Cheerful · Elegant · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-elegant-from-uncle-7282395.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-7282395-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Elegant · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Elegant · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-crazy-beautiful-parenthood-ecard-cheerful-elegant-from-uncle-7282481.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-7282481-vertical.webp" alt="Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · from Uncle" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to Crazy Beautiful Parenthood — Ecard · Cheerful · Elegant · from Uncle</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-elegant-from-grandparents-7341306.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-7341306-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Elegant · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-personalized-new-baby-ecard-for-parents-cheerful-elegant-from-grandparents-7665661.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-7665661-vertical.webp" alt="Personalized New Baby Ecard for Parents · Cheerful · Elegant · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Baby Ecard for Parents · Cheerful · Elegant · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-hello-little-one-custom-new-baby-card-cheerful-elegant-from-grandparents-8299668.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-8299668-vertical.webp" alt="Hello Little One — Custom New Baby Card · Cheerful · Elegant · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello Little One — Custom New Baby Card · Cheerful · Elegant · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-on-your-new-bundle-of-joy-cheerful-elegant-from-grandparents-8638157.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-8638157-vertical.webp" alt="Congratulations on Your New Bundle of Joy · Cheerful · Elegant · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your New Bundle of Joy · Cheerful · Elegant · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-elegant-from-grandparents-8765025.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-8765025-vertical.webp" alt="Sweet New Baby Greeting Card Online · Cheerful · Elegant · from Grandparents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet New Baby Greeting Card Online · Cheerful · Elegant · from Grandparents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">welcome</span><span class="card-tile-tag">blessing</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-to-the-world-baby-custom-ecard-cheerful-elegant-from-godparent-8794619.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-8794619-vertical.webp" alt="Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome to the World Baby — Custom Ecard · Cheerful · Elegant · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-elegant-from-godparent-9300619.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-9300619-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Elegant · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Elegant · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-joyful-new-baby-wishes-personalized-ecard-cheerful-elegant-from-godparent-971435.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-971435-vertical.webp" alt="Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · from Godparent" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful New Baby Wishes — Personalized Ecard · Cheerful · Elegant · from Godparent</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">gentle</span><span class="card-tile-tag">cute</span><span class="card-tile-tag">arrival</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-boy.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36845896-vertical.webp" alt="Welcome, Baby Boy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome, Baby Boy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
     </div>
   </a>
   </div>
@@ -74,38 +1141,86 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <h2 class="page-title" style="font-size:1.5rem;margin-top:2rem;">More Categories</h2>
   <p class="page-subtitle">You might also like…</p>
   <div class="card-grid">
-    <a href="/card/sympathy-condolences.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-1025981-vertical.webp" alt="Sympathy & Condolences Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <a href="/card/new-year-365-new-chances-new-year-custom-greeting-celebratory-warm-for-new-year-s-resolution-36726890.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-36726890-vertical.webp" alt="365 New Chances — New Year Custom Greeting · Celebratory · Warm · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Sympathy & Condolences Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">condolences</span><span class="card-tile-tag">sympathy</span><span class="card-tile-tag">loss</span></div>
+      <div class="card-tile-title">365 New Chances — New Year Custom Greeting · Celebratory · Warm · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
     </div>
   </a>
-      <a href="/card/retirement-boss.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-warm-on-engagement-8177961.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177961-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Retirement Card for Boss</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
     </div>
   </a>
-      <a href="/card/cheer-up-bestie.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/get-well-strength-love-get-well-soon-card-calm-romantic-after-accident-12853707.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-12853707-vertical.webp" alt="Strength & Love — Get Well Soon Card · Calm · Romantic · after Accident" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+      <div class="card-tile-title">Strength & Love — Get Well Soon Card · Calm · Romantic · after Accident</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">healing</span><span class="card-tile-tag">health</span><span class="card-tile-tag">recovery</span></div>
     </div>
   </a>
-      <a href="/card/love-you-honey.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/anniversary-love-of-my-life-personalized-anniversary-ecard-romantic-for-vow-renewal-6578956.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6578956-vertical.webp" alt="Love of My Life — Personalized Anniversary Ecard · Romantic · for Vow Renewal" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Romantic Love Card for Partner</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+      <div class="card-tile-title">Love of My Life — Personalized Anniversary Ecard · Romantic · for Vow Renewal</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
     </div>
   </a>
   </div>
 </main>
-<footer style="text-align:center;padding:2rem;color:#a0aec0;font-size:0.85rem;">
-  <p>© 2026 SendAFun — Free personalised e-cards</p>
-</footer>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
 </body>
 </html>
