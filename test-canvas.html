@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SendAFun Canvas Test</title>
+<style>
+body { font-family: sans-serif; padding: 20px; background: #f5f5f7; }
+h2 { margin: 20px 0 10px; }
+canvas { border: 2px solid #ccc; border-radius: 8px; margin: 10px 0; max-width: 100%; }
+img.preview { max-width: 300px; border-radius: 8px; margin: 10px 0; }
+.status { padding: 8px 16px; border-radius: 6px; margin: 10px 0; font-weight: 600; }
+.ok { background: #d4edda; color: #155724; }
+.err { background: #f8d7da; color: #721c24; }
+</style>
+</head>
+<body>
+<h1>SendAFun Canvas Rendering Test</h1>
+
+<h2>1. Image direct load (&lt;img&gt; tag)</h2>
+<img class="preview" id="imgTest" src="" alt="R2 image test" onload="showStatus('imgStatus', true, 'Image loaded via &lt;img&gt; tag')" onerror="showStatus('imgStatus', false, 'Image FAILED via &lt;img&gt; tag')">
+<div id="imgStatus" class="status">Loading...</div>
+
+<h2>2. Canvas with crossOrigin='Anonymous' + drawImage</h2>
+<canvas id="canvasTest" width="300" height="400"></canvas>
+<div id="canvasStatus" class="status">Loading...</div>
+
+<h2>3. Canvas getImageData (CORS test)</h2>
+<canvas id="canvasData" width="300" height="400"></canvas>
+<div id="dataStatus" class="status">Loading...</div>
+
+<script>
+const R2_URL = 'https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp';
+
+// Test 1: img tag
+document.getElementById('imgTest').src = R2_URL;
+
+// Test 2: Canvas drawImage
+const imgCanvas = new Image();
+imgCanvas.crossOrigin = 'Anonymous';
+imgCanvas.onload = function() {
+  const c = document.getElementById('canvasTest');
+  const ctx = c.getContext('2d');
+  // Scale maintaining aspect ratio
+  const scale = Math.min(c.width / imgCanvas.width, c.height / imgCanvas.height);
+  const w = imgCanvas.width * scale;
+  const h = imgCanvas.height * scale;
+  const x = (c.width - w) / 2;
+  const y = (c.height - h) / 2;
+  ctx.drawImage(imgCanvas, x, y, w, h);
+  showStatus('canvasStatus', true, 'Canvas drawImage OK — ' + imgCanvas.naturalWidth + 'x' + imgCanvas.naturalHeight);
+};
+imgCanvas.onerror = function(e) {
+  showStatus('canvasStatus', false, 'Canvas Image FAILED to load — CORS might be the culprit');
+};
+imgCanvas.src = R2_URL;
+
+// Test 3: getImageData
+const imgData = new Image();
+imgData.crossOrigin = 'Anonymous';
+imgData.onload = function() {
+  const c = document.getElementById('canvasData');
+  const ctx = c.getContext('2d');
+  const scale = Math.min(c.width / imgData.width, c.height / imgData.height);
+  const w = imgData.width * scale;
+  const h = imgData.height * scale;
+  const x = (c.width - w) / 2;
+  const y = (c.height - h) / 2;
+  ctx.drawImage(imgData, x, y, w, h);
+  
+  try {
+    const pixel = ctx.getImageData(150, 200, 1, 1);
+    showStatus('dataStatus', true, 'getImageData OK — pixel [' + pixel.data[0] + ',' + pixel.data[1] + ',' + pixel.data[2] + '] — CORS works!');
+  } catch (e) {
+    showStatus('dataStatus', false, 'getImageData FAILED: ' + e.message + ' — Canvas is TAINTED!');
+  }
+};
+imgData.onerror = function() {
+  showStatus('dataStatus', false, 'Image FAILED to load');
+};
+imgData.src = R2_URL;
+
+function showStatus(id, ok, msg) {
+  const el = document.getElementById(id);
+  el.className = 'status ' + (ok ? 'ok' : 'err');
+  el.textContent = (ok ? '✓ ' : '✗ ') + msg;
+}
+</script>
+</body>
+</html>

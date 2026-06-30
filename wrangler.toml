@@ -1,10 +1,46 @@
-name = "smartcards"
+name = "sendafun"
+main = "worker/src/index.js"
 compatibility_date = "2025-01-01"
 
-[env.production]
-vars = { DOMAIN = "sendafun.com" }
+# ══════════════════════════════════════════════════════════════════════════════
+# Cloudflare Worker — 与 worker/src/index.js 实际代码严格对齐
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# 部署前需完成以下步骤：
+#   1. ✅ CLOUDFLARE_ACCOUNT_ID 已填入
+#   2. ✅ KV Namespace「CARD_PERMISSIONS」已创建，ID 已填入
+#   3. 执行下面 3 条命令写入 secrets（千万不要写进这个文件！）：
+#        wrangler secret put CREEM_API_KEY          # creem_test_7deQTeY7iE1fapgeaiLQ1u
+#        wrangler secret put CREEM_WEBHOOK_SECRET   # Creem dashboard → Webhook Signing Secret
+#        wrangler secret put RESEND_API_KEY         # re_E4415y28_KngTFm6AxsSDfU1Ei24cAb32
 
-# R2 桶配置（上线后添加）
-# [[r2_buckets]]
-# binding = "CARDS_BUCKET"
-# bucket_name = "card-images"
+account_id = "dbacad9daf4c611ca4143f74fc33c2d3"
+
+# ── 运行时变量（非敏感，worker 通过 env.VAR 读取）───────────────────────────
+[vars]
+SITE_URL          = "https://sendafun.com"
+RESEND_FROM_EMAIL = "onboard@resend.dev"
+
+# ── Production env（腾讯 Cloudflare 部署平台显式要求本段，vars 写法必须为内联表）──
+[env.production]
+vars = { SITE_URL = "https://sendafun.com", RESEND_FROM_EMAIL = "onboard@resend.dev" }
+
+# ── R2 Bucket 绑定 ──────────────────────────────────────────────────────────
+[[r2_buckets]]
+binding     = "PREVIEW_BUCKET"
+bucket_name = "sendafun-preview"
+
+[[r2_buckets]]
+binding     = "ORIGINALS_BUCKET"
+bucket_name = "sendafun-originals"
+
+# ── KV Namespace 绑定 ───────────────────────────────────────────────────────
+[[kv_namespaces]]
+binding = "CARD_PERMISSIONS"
+id      = "7cd3408c3caf4fe9948cd156f6883acb"
+
+# ── Worker 路由（绑定到 sendafun.com/api/*）─────────────────────────────────
+# Zone ID: 80ab5a9c4430b4f4c3657dfb5b94ff18
+[[routes]]
+pattern = "sendafun.com/api/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Cards for coworkers — birthday, congratulations, thank-you & farewell.">
+<meta property="og:title" content="For Coworker Cards — SendAFun">
+<meta property="og:description" content="Cards for coworkers — birthday, congratulations, thank-you & farewell.">
+<link rel="canonical" href="https://sendafun.com/recipient/for-coworker.html">
+<title>For Coworker Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Recipients / <strong>For Coworker</strong></div>
+  <h1 class="page-title">For Coworker Cards<span class="count-chip">35 cards</span></h1>
+  <p class="page-subtitle">Cards for coworkers — birthday, congratulations, thank-you & farewell.</p>
+  <div class="chip-row"><a href="/recipient/for-best-friend.html" class="chip">For Best Friend</a>
+      <a href="/recipient/for-her.html" class="chip">For Her</a>
+      <a href="/recipient/for-him.html" class="chip">For Him</a>
+      <a href="/recipient/for-teacher.html" class="chip">For Teacher</a>
+      <a href="/recipient/for-family.html" class="chip">For Family</a>
+      <a href="/recipient/for-neighbor.html" class="chip">For Neighbor</a>
+      <a href="/recipient/for-wife.html" class="chip">For Wife</a>
+      <a href="/recipient/for-coworker.html" class="chip active">For Coworker</a>
+      <a href="/recipient/for-girlfriend.html" class="chip">For Girlfriend</a>
+      <a href="/recipient/for-long-distance.html" class="chip">For Long Distance</a>
+      <a href="/recipient/for-husband.html" class="chip">For Husband</a>
+      <a href="/recipient/for-partner.html" class="chip">For Partner</a>
+      <a href="/recipient/for-godchild.html" class="chip">For Godchild</a>
+      <a href="/recipient/for-boyfriend.html" class="chip">For Boyfriend</a>
+      <a href="/recipient/for-hostess.html" class="chip">For Hostess</a>
+      <a href="/recipient/for-mom.html" class="chip">For Mom</a>
+      <a href="/recipient/for-dad.html" class="chip">For Dad</a>
+      <a href="/recipient/for-fiancee.html" class="chip">For Fiancée</a>
+      <a href="/recipient/for-brother.html" class="chip">For Brother</a>
+      <a href="/recipient/for-sister.html" class="chip">For Sister</a></div>
+  <div class="card-grid">
+    <a href="/card/birthday-sweet-birthday-wishes-card-send-instantly-warm-romantic-for-coworker-1545224.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-1545224-vertical.webp" alt="Sweet Birthday Wishes Card — Send Instantly · Warm · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sweet Birthday Wishes Card — Send Instantly · Warm · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">love</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-premium-birthday-ecard-with-custom-text-warm-romantic-for-coworker-1547980.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-1547980-vertical.webp" alt="Premium Birthday Ecard With Custom Text · Warm · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Premium Birthday Ecard With Custom Text · Warm · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fun</span><span class="card-tile-tag">playful</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-joyful-birthday-card-for-any-age-warm-romantic-for-coworker-1562703.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-1562703-vertical.webp" alt="Joyful Birthday Card for Any Age · Warm · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful Birthday Card for Any Age · Warm · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">modern</span><span class="card-tile-tag">stylish</span><span class="card-tile-tag">vibrant</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-warmest-birthday-wishes-personalized-ecard-warm-romantic-for-coworker-1761634.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-1761634-vertical.webp" alt="Warmest Birthday Wishes — Personalized Ecard · Warm · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Birthday Wishes — Personalized Ecard · Warm · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">elegant</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-special-birthday-card-designed-to-surprise-warm-romantic-for-coworker-1786430.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-1786430-vertical.webp" alt="Special Birthday Card Designed to Surprise · Warm · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Special Birthday Card Designed to Surprise · Warm · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-proud-graduate-next-chapter-exciting-custom-celebratory-romantic-for-coworker-7842672.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842672-vertical.webp" alt="Proud Graduate — Next Chapter Exciting — Custom · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud Graduate — Next Chapter Exciting — Custom · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">class-of-2026</span><span class="card-tile-tag">congrats-grad</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-graduation-day-well-deserved-celebration-celebratory-romantic-for-coworker-7842695.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842695-vertical.webp" alt="Graduation Day — Well Deserved Celebration · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Graduation Day — Well Deserved Celebration · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebratory</span><span class="card-tile-tag">next-chapter</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-happy-graduation-2026-personalized-card-celebratory-romantic-for-coworker-7842704.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842704-vertical.webp" alt="Happy Graduation 2026 — Personalized Card · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Graduation 2026 — Personalized Card · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">nursing-grad</span><span class="card-tile-tag">law-school</span><span class="card-tile-tag">med-school</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-to-our-graduate-we-are-so-proud-custom-celebratory-romantic-for-coworker-7842705.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842705-vertical.webp" alt="To Our Graduate — We Are So Proud — Custom · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To Our Graduate — We Are So Proud — Custom · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">high-school</span><span class="card-tile-tag">college</span><span class="card-tile-tag">masters-phd</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-middle-school-graduation-next-step-card-celebratory-romantic-for-coworker-7842757.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842757-vertical.webp" alt="Middle School Graduation — Next Step Card · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Middle School Graduation — Next Step Card · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-teacher</span><span class="card-tile-tag">from-classmate</span><span class="card-tile-tag">for-son-for-daughter</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-happy-graduation-card-proud-custom-ecard-online-celebratory-elegant-for-coworker-8106684.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-8106684-vertical.webp" alt="Happy Graduation Card — Proud Custom Ecard Online · Celebratory · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Graduation Card — Proud Custom Ecard Online · Celebratory · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">class-of-2026</span><span class="card-tile-tag">congrats-grad</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-congratulations-graduate-personalized-custom-card-celebratory-elegant-for-coworker-8106685.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-8106685-vertical.webp" alt="Congratulations Graduate — Personalized Custom Card · Celebratory · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Graduate — Personalized Custom Card · Celebratory · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebratory</span><span class="card-tile-tag">next-chapter</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-class-of-2026-graduation-custom-celebratory-ecard-celebratory-elegant-for-coworker-8106687.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-8106687-vertical.webp" alt="Class of 2026 Graduation — Custom Celebratory Ecard · Celebratory · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Class of 2026 Graduation — Custom Celebratory Ecard · Celebratory · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">nursing-grad</span><span class="card-tile-tag">law-school</span><span class="card-tile-tag">med-school</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-high-school-graduation-proud-of-you-custom-celebratory-elegant-for-coworker-8106688.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-8106688-vertical.webp" alt="High School Graduation — Proud of You — Custom · Celebratory · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">High School Graduation — Proud of You — Custom · Celebratory · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">high-school</span><span class="card-tile-tag">college</span><span class="card-tile-tag">masters-phd</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-college-graduation-congrats-custom-card-celebratory-elegant-for-coworker-8106689.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-8106689-vertical.webp" alt="College Graduation — Congrats Custom Card · Celebratory · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">College Graduation — Congrats Custom Card · Celebratory · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-teacher</span><span class="card-tile-tag">from-classmate</span><span class="card-tile-tag">for-son-for-daughter</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-m-sorry-card-sincere-apology-online-soft-romantic-for-coworker-1460837.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-1460837-vertical.webp" alt="I'm Sorry Card — Sincere Apology Online · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I'm Sorry Card — Sincere Apology Online · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sorry</span><span class="card-tile-tag">apology</span><span class="card-tile-tag">forgive-me</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-forgive-me-heartfelt-apology-ecard-custom-soft-romantic-for-coworker-15145923.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-15145923-vertical.webp" alt="Forgive Me — Heartfelt Apology Ecard Custom · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forgive Me — Heartfelt Apology Ecard Custom · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-my-apologies-i-was-wrong-custom-card-soft-romantic-for-coworker-15497264.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-15497264-vertical.webp" alt="My Apologies — I Was Wrong — Custom Card · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Apologies — I Was Wrong — Custom Card · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">make-amends</span><span class="card-tile-tag">i-love-you</span><span class="card-tile-tag">please-forgive</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sorry-for-what-i-said-sincere-custom-ecard-soft-romantic-for-coworker-15583011.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-15583011-vertical.webp" alt="Sorry for What I Said — Sincere Custom Ecard · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sorry for What I Said — Sincere Custom Ecard · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">my-fault</span><span class="card-tile-tag">i-was-wrong</span><span class="card-tile-tag">amends</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-please-forgive-me-heartfelt-apology-card-soft-romantic-for-coworker-15626326.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-15626326-vertical.webp" alt="Please Forgive Me — Heartfelt Apology Card · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Please Forgive Me — Heartfelt Apology Card · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hurt-feelings</span><span class="card-tile-tag">mistake-at-work</span><span class="card-tile-tag">broken-promise</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-forgive-me-i-didn-t-mean-it-apology-card-soft-elegant-for-coworker-6022914.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6022914-vertical.webp" alt="Forgive Me — I Didn't Mean It — Apology Card · Soft · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forgive Me — I Didn't Mean It — Apology Card · Soft · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sorry</span><span class="card-tile-tag">apology</span><span class="card-tile-tag">forgive-me</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-m-sorry-let-me-make-it-right-custom-soft-elegant-for-coworker-6022982.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6022982-vertical.webp" alt="I'm Sorry — Let Me Make It Right — Custom · Soft · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I'm Sorry — Let Me Make It Right — Custom · Soft · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sincere-apology-from-me-to-you-card-soft-elegant-for-coworker-6188756.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6188756-vertical.webp" alt="Sincere Apology — From Me to You — Card · Soft · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sincere Apology — From Me to You — Card · Soft · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">make-amends</span><span class="card-tile-tag">i-love-you</span><span class="card-tile-tag">please-forgive</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-sorry-i-messed-up-custom-amends-ecard-soft-elegant-for-coworker-6248869.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6248869-vertical.webp" alt="Sorry — I Messed Up — Custom Amends Ecard · Soft · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sorry — I Messed Up — Custom Amends Ecard · Soft · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">my-fault</span><span class="card-tile-tag">i-was-wrong</span><span class="card-tile-tag">amends</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-my-fault-i-m-so-sorry-heartfelt-card-soft-elegant-for-coworker-6248883.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-6248883-vertical.webp" alt="My Fault — I'm So Sorry — Heartfelt Card · Soft · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Fault — I'm So Sorry — Heartfelt Card · Soft · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hurt-feelings</span><span class="card-tile-tag">mistake-at-work</span><span class="card-tile-tag">broken-promise</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-say-thanks-in-style-custom-thank-you-card-grateful-romantic-for-coworker-15626326.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-15626326-vertical.webp" alt="Say Thanks in Style — Custom Thank You Card · Grateful · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Say Thanks in Style — Custom Thank You Card · Grateful · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grateful</span><span class="card-tile-tag">thankful</span><span class="card-tile-tag">appreciation</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-appreciation-thank-you-ecard-for-colleagues-grateful-romantic-for-coworker-15626328.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-15626328-vertical.webp" alt="Appreciation Thank You Ecard for Colleagues · Grateful · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Appreciation Thank You Ecard for Colleagues · Grateful · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sincere</span><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">genuine</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-thank-you-kindly-personalized-gratitude-card-grateful-romantic-for-coworker-15626339.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-15626339-vertical.webp" alt="Thank You Kindly — Personalized Gratitude Card · Grateful · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Kindly — Personalized Gratitude Card · Grateful · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friendly</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-you-re-amazing-thank-you-ecard-online-grateful-romantic-for-coworker-15740915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-15740915-vertical.webp" alt="You're Amazing — Thank You Ecard Online · Grateful · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're Amazing — Thank You Ecard Online · Grateful · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">kindness</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-grateful-heart-thank-you-card-to-send-grateful-romantic-for-coworker-15740920.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-15740920-vertical.webp" alt="Grateful Heart — Thank You Card to Send · Grateful · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful Heart — Thank You Card to Send · Grateful · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-thank-you-card-send-a-grateful-ecard-online-grateful-elegant-for-coworker-6022845.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-6022845-vertical.webp" alt="Thank You Card — Send a Grateful Ecard Online · Grateful · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Card — Send a Grateful Ecard Online · Grateful · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grateful</span><span class="card-tile-tag">thankful</span><span class="card-tile-tag">appreciation</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-personalized-thank-you-greeting-card-grateful-elegant-for-coworker-6206347.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-6206347-vertical.webp" alt="Personalized 'Thank You' Greeting Card · Grateful · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized 'Thank You' Greeting Card · Grateful · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sincere</span><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">genuine</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-show-your-gratitude-with-a-custom-thank-you-card-grateful-elegant-for-coworker-6248869.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-6248869-vertical.webp" alt="Show Your Gratitude With a Custom Thank You Card · Grateful · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Show Your Gratitude With a Custom Thank You Card · Grateful · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friendly</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-sincere-thank-you-ecard-for-any-occasion-grateful-elegant-for-coworker-6295319.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-6295319-vertical.webp" alt="Sincere Thank You Ecard for Any Occasion · Grateful · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sincere Thank You Ecard for Any Occasion · Grateful · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">kindness</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-warm-thank-you-card-to-brighten-their-day-grateful-elegant-for-coworker-6346678.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-6346678-vertical.webp" alt="Warm Thank You Card to Brighten Their Day · Grateful · Elegant · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Thank You Card to Brighten Their Day · Grateful · Elegant · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-romantic-on-moving-house-4112713.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112713-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-mother-s-day-thank-you-custom-ecard-online-warm-elegant-for-dog-mom-7764538.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-7764538-vertical.webp" alt="Mother's Day Thank You — Custom Ecard Online · Warm · Elegant · for Dog Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mother's Day Thank You — Custom Ecard Online · Warm · Elegant · for Dog Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-congratulations-new-parents-baby-card-online-cheerful-romantic-for-twins-baby-28680634.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-28680634-vertical.webp" alt="Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Twins Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations New Parents — Baby Card Online · Cheerful · Romantic · for Twins Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
+    </div>
+  </a>
+      <a href="/card/sympathy-peaceful-sympathy-card-for-grieving-hearts-calm-elegant-for-loss-of-pet-36672883.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-36672883-vertical.webp" alt="Peaceful Sympathy Card for Grieving Hearts · Calm · Elegant · for Loss of Pet" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Peaceful Sympathy Card for Grieving Hearts · Calm · Elegant · for Loss of Pet</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">peaceful</span><span class="card-tile-tag">gentle</span><span class="card-tile-tag">comfort</span></div>
+    </div>
+  </a>
+      <a href="/card/good-luck-best-wishes-good-luck-custom-greeting-online-cheerful-elegant-for-driving-test-6413905.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/good-luck/good-luck-pexels-6413905-vertical.webp" alt="Best Wishes — Good Luck Custom Greeting Online · Cheerful · Elegant · for Driving Test" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes — Good Luck Custom Greeting Online · Cheerful · Elegant · for Driving Test</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">surgery</span><span class="card-tile-tag">sports</span><span class="card-tile-tag">performance</span></div>
+    </div>
+  </a>
+      <a href="/card/sorry-i-m-sorry-let-me-make-it-right-custom-soft-elegant-for-her-4762710.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-4762710-vertical.webp" alt="I'm Sorry — Let Me Make It Right — Custom · Soft · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I'm Sorry — Let Me Make It Right — Custom · Soft · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-simple-thank-you-personalized-greeting-card-grateful-romantic-for-hospitality-13368215.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-13368215-vertical.webp" alt="Simple Thank You — Personalized Greeting Card · Grateful · Romantic · for Hospitality" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Simple Thank You — Personalized Greeting Card · Grateful · Romantic · for Hospitality</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sincere</span><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">genuine</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-hello-new-year-custom-celebration-card-celebratory-warm-for-fresh-start-5302663.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-5302663-vertical.webp" alt="Hello New Year — Custom Celebration Card · Celebratory · Warm · for Fresh Start" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello New Year — Custom Celebration Card · Celebratory · Warm · for Fresh Start</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

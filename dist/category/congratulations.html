@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Browse our collection of congratulations e-cards. Send a personalised card for free — beautiful designs, instant delivery.">
 <meta property="og:title" content="Congratulations Cards — SendAFun">
 <meta property="og:description" content="Browse our collection of congratulations e-cards. Send a personalised card for free!">
+<meta property="og:image" content="https://sendafun.com/og/sendafun-og.webp">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://sendafun.com/category/congratulations.html">
 <title>Congratulations Cards — SendAFun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,29 +17,33 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
-.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; }
-.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
-.logo { text-decoration: none; color: #2d6a4f; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
 .logo span { color: #48bb78; }
-.nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.nav-link { text-decoration: none; color: #4a5568; font-size: 0.85rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
 .nav-link:hover { background: #edf2f7; }
 .nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1200px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
 .main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-.page-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a202c; }
-.page-subtitle { font-size: 1.1rem; color: #718096; margin-bottom: 2rem; }
+.page-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.1rem; color: #718096; margin-bottom: 2rem; max-width: 720px; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
 .card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
 .card-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #a0aec0; }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: block; overflow: hidden; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .card-tile-info { padding: 1rem; }
 .card-tile-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; color: #2d3748; }
 .card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
 .card-tile-tag { font-size: 0.7rem; background: #edf2f7; color: #4a5568; padding: 0.15rem 0.5rem; border-radius: 10px; }
 @media (max-width: 768px) {
-  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
   .nav-links { overflow-x: auto; width: 100%; padding-bottom: 0.5rem; }
   .page-title { font-size: 1.8rem; }
+  .main { padding: 1.2rem 1rem 2rem; }
   .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
 }
 </style>
@@ -45,35 +53,1220 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <div class="header-inner">
     <a href="/" class="logo">Send<span>A</span>Fun</a>
     <nav class="nav-links">
-      <a href="/category/birthday.html" class="nav-link">Birthday</a>
-        <a href="/category/love.html" class="nav-link">Love & Romance</a>
-        <a href="/category/thanks.html" class="nav-link">Thank You</a>
-        <a href="/category/wellness.html" class="nav-link">Get Well</a>
-        <a href="/category/congratulations.html" class="nav-link active">Congratulations</a>
-        <a href="/category/miss-you.html" class="nav-link">Miss You</a>
-        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
-        <a href="/category/anniversary.html" class="nav-link">Anniversary</a>
-        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
-        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
     </nav>
   </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link active">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
 </header>
 <main class="main">
   <h1 class="page-title">Congratulations Cards</h1>
   <p class="page-subtitle">Find the perfect congratulations e-card to send to someone special.</p>
   <div class="card-grid">
-    <a href="/card/congrats-graduation.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Graduation Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-promotion-10477179.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Congratulations Graduation Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebration</span></div>
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
     </div>
   </a>
-      <a href="/card/retirement-boss.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-promotion-10549490.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549490-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Retirement Card for Boss</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-promotion-10549494.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549494-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-romantic-on-promotion-15120849.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-15120849-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-romantic-on-promotion-15661565.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-15661565-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-romantic-on-new-job-16131307.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-16131307-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-romantic-on-new-job-1627935.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-1627935-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-romantic-on-new-job-17665411.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-17665411-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-romantic-on-new-job-17842579.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-17842579-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-romantic-on-new-job-19046912.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19046912-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-romantic-on-engagement-19046915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19046915-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-romantic-on-engagement-19796665.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19796665-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-romantic-on-engagement-20432237.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-20432237-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-romantic-on-engagement-25956371.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-25956371-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-romantic-on-engagement-25956373.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-25956373-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-romantic-on-wedding-25956377.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-25956377-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-romantic-on-wedding-27726876.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-27726876-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-romantic-on-wedding-28951415.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-28951415-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-romantic-on-wedding-30184618.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30184618-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-romantic-on-wedding-30682918.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30682918-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-pregnancy-30682919.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30682919-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-pregnancy-30692831.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30692831-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-pregnancy-30692832.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30692832-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-romantic-on-pregnancy-30957468.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30957468-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-romantic-on-pregnancy-3123915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3123915-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-romantic-on-new-baby-3394183.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3394183-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-romantic-on-new-baby-3394307.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3394307-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-romantic-on-new-baby-3394819.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3394819-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-romantic-on-new-baby-34311540.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311540-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-romantic-on-new-baby-34311541.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311541-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-romantic-on-graduation-34311542.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311542-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-romantic-on-graduation-34311543.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311543-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-romantic-on-graduation-34311548.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311548-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Romantic · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Romantic · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-romantic-on-graduation-34311550.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311550-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-romantic-on-graduation-34311552.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311552-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-romantic-on-retirement-34311555.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311555-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-romantic-on-retirement-34311559.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-34311559-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-romantic-on-retirement-35018683.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35018683-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-romantic-on-retirement-35370605.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35370605-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-romantic-on-retirement-35415350.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35415350-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-award-35415362.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35415362-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-award-35446455.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35446455-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-award-35446457.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35446457-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-romantic-on-award-35491074.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-35491074-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-romantic-on-award-36201463.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-36201463-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-romantic-on-milestone-36359064.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-36359064-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Romantic · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Romantic · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-romantic-on-milestone-3761076.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3761076-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-romantic-on-milestone-3767423.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-3767423-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Romantic · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Romantic · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-romantic-on-milestone-38247202.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-38247202-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Romantic · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Romantic · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-romantic-on-milestone-4112629.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112629-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-romantic-on-moving-house-4112630.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112630-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-romantic-on-moving-house-4112631.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112631-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-romantic-on-moving-house-4112632.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112632-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-romantic-on-moving-house-4112633.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112633-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-romantic-on-moving-house-4112713.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112713-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-romantic-on-new-business-4112714.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112714-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-romantic-on-new-business-4112715.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4112715-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Romantic · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Romantic · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-romantic-on-new-business-4690384.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-4690384-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-romantic-on-new-business-5096307.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5096307-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-romantic-on-new-business-5123317.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5123317-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-engagement-party-5123325.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5123325-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-engagement-party-5372794.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5372794-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-engagement-party-5380157.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5380157-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-romantic-on-engagement-party-5477524.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5477524-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-romantic-on-engagement-party-5498399.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5498399-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Romantic · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-romantic-on-anniversary-5499118.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5499118-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Romantic · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Romantic · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-romantic-on-anniversary-5706052.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5706052-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-romantic-on-anniversary-5706064.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5706064-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Romantic · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Romantic · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-romantic-on-anniversary-5715242.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5715242-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Romantic · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Romantic · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-romantic-on-anniversary-5715251.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5715251-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-romantic-on-sports-win-5715255.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5715255-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-romantic-on-sports-win-5716203.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716203-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-romantic-on-sports-win-5716213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716213-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Romantic · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Romantic · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-romantic-on-sports-win-5716258.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716258-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-romantic-on-sports-win-5716259.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716259-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Romantic · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-elegant-on-promotion-5716265.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716265-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-elegant-on-promotion-5716268.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716268-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-elegant-on-promotion-5716276.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716276-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-elegant-on-promotion-5716280.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716280-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-elegant-on-promotion-5716283.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716283-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-elegant-on-new-job-5716424.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716424-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-elegant-on-new-job-5716460.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716460-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-elegant-on-new-job-5716463.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716463-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Elegant · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Elegant · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-elegant-on-new-job-5716522.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716522-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-elegant-on-new-job-5716592.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716592-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-elegant-on-engagement-5716599.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716599-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-elegant-on-engagement-5716814.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5716814-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-elegant-on-engagement-5725975.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5725975-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Elegant · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Elegant · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-elegant-on-engagement-5725978.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5725978-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-elegant-on-engagement-5725981.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5725981-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-elegant-on-wedding-5782668.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5782668-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-elegant-on-wedding-5804888.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5804888-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-elegant-on-wedding-5804894.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5804894-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Elegant · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Elegant · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-elegant-on-wedding-5804895.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5804895-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-elegant-on-wedding-5805034.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805034-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Elegant · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Elegant · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-elegant-on-pregnancy-5805040.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805040-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-elegant-on-pregnancy-5805042.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805042-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-elegant-on-pregnancy-5805081.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805081-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-elegant-on-pregnancy-5805082.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805082-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-elegant-on-pregnancy-5805095.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805095-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Pregnancy" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Pregnancy</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-elegant-on-new-baby-5805267.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5805267-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-elegant-on-new-baby-5908239.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-5908239-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-elegant-on-new-baby-6005201.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6005201-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-elegant-on-new-baby-6184925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6184925-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-elegant-on-new-baby-6184932.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6184932-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-elegant-on-graduation-6185345.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6185345-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-elegant-on-graduation-6354023.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6354023-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-elegant-on-graduation-6463600.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6463600-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Elegant · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Elegant · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-elegant-on-graduation-6463605.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6463605-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-elegant-on-graduation-6463611.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6463611-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-elegant-on-retirement-6532372.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6532372-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-elegant-on-retirement-6532378.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6532378-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-elegant-on-retirement-6534787.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6534787-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Elegant · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Elegant · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-elegant-on-retirement-7600424.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7600424-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-elegant-on-retirement-7723715.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723715-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Elegant · on Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Elegant · on Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-elegant-on-award-7723717.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723717-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-elegant-on-award-7723718.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723718-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-elegant-on-award-7723724.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723724-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-elegant-on-award-7723744.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723744-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-elegant-on-award-7723746.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723746-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Award" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Award</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-elegant-on-milestone-7723747.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723747-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-elegant-on-milestone-7723759.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723759-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-elegant-on-milestone-7723805.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723805-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Elegant · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Elegant · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-elegant-on-milestone-7723815.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723815-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-elegant-on-milestone-7723817.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723817-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on Milestone" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on Milestone</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-elegant-on-moving-house-7723818.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723818-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-elegant-on-moving-house-7723824.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723824-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-elegant-on-moving-house-7723836.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7723836-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Elegant · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Elegant · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-elegant-on-moving-house-7842556.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842556-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-elegant-on-moving-house-7842562.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842562-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Moving House" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Moving House</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-elegant-on-new-business-7842688.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842688-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Elegant · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-elegant-on-new-business-7842689.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842689-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Elegant · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-elegant-on-new-business-7842690.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842690-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Elegant · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Elegant · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-elegant-on-new-business-7842693.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842693-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Elegant · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-elegant-on-new-business-7842706.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7842706-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Elegant · on New Business" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Elegant · on New Business</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-elegant-on-engagement-party-7944120.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-7944120-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Elegant · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-elegant-on-engagement-party-8014841.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8014841-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Elegant · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-elegant-on-engagement-party-8015139.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8015139-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Elegant · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-elegant-on-engagement-party-8015150.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8015150-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Elegant · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-elegant-on-engagement-party-8015157.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8015157-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Engagement Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Elegant · on Engagement Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-elegant-on-anniversary-8015160.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8015160-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Elegant · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-elegant-on-anniversary-8087552.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8087552-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Elegant · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-elegant-on-anniversary-8104206.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8104206-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Elegant · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Elegant · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-elegant-on-anniversary-8104209.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8104209-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-elegant-on-anniversary-8104212.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8104212-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on Anniversary" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Elegant · on Anniversary</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-elegant-on-sports-win-8104213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8104213-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Elegant · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-elegant-on-sports-win-8106652.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8106652-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Elegant · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-elegant-on-sports-win-8106660.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8106660-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Elegant · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Elegant · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-elegant-on-sports-win-8127300.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8127300-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Elegant · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-elegant-on-sports-win-8127301.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8127301-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Sports Win" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Elegant · on Sports Win</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-warm-on-promotion-8127308.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8127308-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Warm · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Warm · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-warm-on-promotion-8127310.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8127310-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Warm · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Warm · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-warm-on-promotion-8142725.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8142725-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Warm · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Warm · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-warm-on-promotion-8177924.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177924-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Warm · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Warm · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-amazing-achievement-congratulations-card-celebratory-warm-on-promotion-8177926.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177926-vertical.webp" alt="Amazing Achievement — Congratulations Card · Celebratory · Warm · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Amazing Achievement — Congratulations Card · Celebratory · Warm · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-warm-on-new-job-8177929.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177929-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Warm · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Warm · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-warm-on-new-job-8177931.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177931-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Warm · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Warm · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-warm-on-new-job-8177932.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177932-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Warm · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Warm · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-warm-on-new-job-8177933.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177933-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Warm · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Warm · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-warm-on-new-job-8177935.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177935-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Warm · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Warm · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-warm-on-engagement-8177936.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177936-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-warm-on-engagement-8177937.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177937-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-warm-on-engagement-8177940.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177940-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-warm-on-engagement-8177961.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177961-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-huge-congratulations-personalized-greeting-celebratory-warm-on-engagement-8177963.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8177963-vertical.webp" alt="Huge Congratulations — Personalized Greeting · Celebratory · Warm · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Huge Congratulations — Personalized Greeting · Celebratory · Warm · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-warm-on-wedding-8790330.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8790330-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Warm · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Warm · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-warm-on-wedding-8850801.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-8850801-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Warm · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Warm · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-warm-on-wedding-9398257.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-9398257-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Warm · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Warm · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
     </div>
   </a>
   </div>
@@ -81,38 +1274,86 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <h2 class="page-title" style="font-size:1.5rem;margin-top:2rem;">More Categories</h2>
   <p class="page-subtitle">You might also like…</p>
   <div class="card-grid">
-    <a href="/card/happy-birthday-dad.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card for Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <a href="/card/birthday-colorful-birthday-card-personalize-free-warm-elegant-for-kids-937520.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-937520-vertical.webp" alt="Colorful Birthday Card — Personalize Free · Warm · Elegant · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Birthday Card for Dad</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">dad</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">masculine</span></div>
+      <div class="card-tile-title">Colorful Birthday Card — Personalize Free · Warm · Elegant · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">love</span><span class="card-tile-tag">celebration</span></div>
     </div>
   </a>
-      <a href="/card/happy-anniversary-wife.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/new-baby-so-much-love-for-a-tiny-new-person-card-cheerful-elegant-for-gender-neutral-baby-36832345.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-36832345-vertical.webp" alt="So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Gender Neutral Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Anniversary Card for Wife</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span></div>
+      <div class="card-tile-title">So Much Love for a Tiny New Person — Card · Cheerful · Elegant · for Gender Neutral Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">parents</span><span class="card-tile-tag">family</span><span class="card-tile-tag">sweet</span></div>
     </div>
   </a>
-      <a href="/card/cheer-up-bestie.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/thank-you-grateful-heart-thank-you-card-to-send-grateful-elegant-for-gift-3922455.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-3922455-vertical.webp" alt="Grateful Heart — Thank You Card to Send · Grateful · Elegant · for Gift" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+      <div class="card-tile-title">Grateful Heart — Thank You Card to Send · Grateful · Elegant · for Gift</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">gratitude</span></div>
     </div>
   </a>
-      <a href="/card/thank-you-friend.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp" alt="Thank You Card for a Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      <a href="/card/thanksgiving-grateful-heart-thanksgiving-custom-ecard-warm-for-hostess-5422790.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5422790-vertical.webp" alt="Grateful Heart — Thanksgiving Custom Ecard · Warm · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Thank You Card for a Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">friend</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">casual</span></div>
+      <div class="card-tile-title">Grateful Heart — Thanksgiving Custom Ecard · Warm · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
     </div>
   </a>
   </div>
 </main>
-<footer style="text-align:center;padding:2rem;color:#a0aec0;font-size:0.85rem;">
-  <p>© 2026 SendAFun — Free personalised e-cards</p>
-</footer>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
 </body>
 </html>

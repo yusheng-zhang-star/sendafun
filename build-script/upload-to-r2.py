@@ -4,6 +4,11 @@
 SendAFun — upload-to-r2.py
 将素材上传到 Cloudflare R2 双桶（纯 Python 内置库，零依赖）
 
+R2 凭证通过项目根目录的 .env 文件加载（参见 .env.example）：
+  CLOUDFLARE_ACCOUNT_ID / R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY
+  R2_PUBLIC_URL / R2_PREVIEW_BUCKET / R2_ORIGINALS_BUCKET
+  R2_ORIGINALS_LOCAL_DIR
+
 用法：
   python upload-to-r2.py                     # 全量上传 preview 桶
   python upload-to-r2.py --originals          # 上传 originals 桶
@@ -20,18 +25,54 @@ from urllib.error import HTTPError, URLError
 
 ROOT = Path(__file__).resolve().parent.parent
 IMAGES_DIR = ROOT / "source" / "images"
-ORIGINALS_DIR = Path(r"E:\网站项目\素材\source")
+ENV_PATH = ROOT / ".env"
 
-# ── R2 配置 ──────────────────────────────────────────────────────────────────
-ACCOUNT_ID = "dbacad9daf4c611ca4143f74fc33c2d3"
-ENDPOINT = f"https://{ACCOUNT_ID}.r2.cloudflarestorage.com"
-ACCESS_KEY = "f69e5241221d849255f0e4c885035933"
-SECRET_KEY = "ed04d97fbb52d04780f19704e897fc7ca162a41b54afa7e35a2142a7ac184fc2"
-PUBLIC_URL = "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev"
 
-PREVIEW_BUCKET = "sendafun-preview"
-ORIGINALS_BUCKET = "sendafun-originals"
-REGION = "wnam"
+# ── 读取 .env（纯内置，零依赖，兼容 KEY=VALUE / KEY="VALUE" / 注释 / 空行）────
+def load_env(path: Path):
+    if not path.exists():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+            value = value[1:-1]
+        # 不覆盖已显式设置的环境变量（允许 export 覆盖 .env）
+        os.environ.setdefault(key, value)
+
+
+load_env(ENV_PATH)
+
+
+def _env(name: str, default: str | None = None, required: bool = False) -> str:
+    val = os.environ.get(name, default)
+    if required and (val is None or val == ""):
+        print(f"❌  Missing required env variable: {name}", file=sys.stderr)
+        print(f"    Please set it in {ENV_PATH} (see .env.example)", file=sys.stderr)
+        sys.exit(2)
+    return val if val is not None else ""
+
+
+# ── R2 配置（全部来自 .env / 环境变量，不再硬编码凭证）───────────────────────
+ACCOUNT_ID = _env("CLOUDFLARE_ACCOUNT_ID", required=True)
+ENDPOINT   = f"https://{ACCOUNT_ID}.r2.cloudflarestorage.com"
+ACCESS_KEY = _env("R2_ACCESS_KEY_ID",          required=True)
+SECRET_KEY = _env("R2_SECRET_ACCESS_KEY",      required=True)
+PUBLIC_URL = _env("R2_PUBLIC_URL",             required=True).rstrip("/")
+
+PREVIEW_BUCKET   = _env("R2_PREVIEW_BUCKET",   default="sendafun-preview")
+ORIGINALS_BUCKET = _env("R2_ORIGINALS_BUCKET", default="sendafun-originals")
+REGION           = _env("R2_REGION",           default="wnam")
+
+_default_originals_dir = r"E:\网站项目\素材\source"
+_env_originals_dir = _env("R2_ORIGINALS_LOCAL_DIR", default="").strip()
+ORIGINALS_DIR = Path(_env_originals_dir) if _env_originals_dir else Path(_default_originals_dir)
 
 # 素材目录 → R2 桶的映射
 CAT_MAP_MATERIAL = {

@@ -7,8 +7,9 @@
 <meta name="description" content="SendAFun — Create and send personalised e-cards for any occasion. Free, beautiful, instant.">
 <meta property="og:title" content="SendAFun — Free Personalised E-Cards">
 <meta property="og:description" content="Create beautiful personalised e-cards for any occasion. Free, instant, and made with love.">
-<meta property="og:image" content="https://sendafun.com/og/sendafun-og.jpg">
+<meta property="og:image" content="https://sendafun.com/og/sendafun-og.webp">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://sendafun.com/">
 <title>SendAFun — Free Personalised E-Cards for Every Occasion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,6 +63,15 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
 .see-all { display: inline-block; color: #48bb78; font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 0.5rem; margin-bottom: 2rem; }
 .see-all:hover { text-decoration: underline; }
 .style-section { margin-bottom: 2rem; }
+/* ── Top hub nav (sticky) ── */
+.top-nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(226,232,240,0.8); padding: 0.75rem 2rem; }
+.top-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.top-nav .logo { font-size: 1.05rem; }
+.top-nav-links { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.top-nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.32rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; font-weight: 500; }
+.top-nav-link:hover { background: #edf2f7; color: #2d3748; }
+.top-nav-link.cta { background: #48bb78; color: #fff; }
+.top-nav-link.cta:hover { background: #38a169; color: #fff; }
 @media (max-width: 768px) {
   .carousel { height: 50vh; min-height: 300px; }
   .carousel-content { bottom: 1.5rem; left: 1.5rem; }
@@ -72,69 +82,84 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   .quick-entry { margin-left: 1rem; margin-right: 1rem; }
   .masonry-section { padding: 0 1rem 2rem; }
   .categories { padding: 1.5rem 1rem 0; }
+  .top-nav { padding: 0.65rem 1rem; }
+  .top-nav-inner { gap: 0.8rem; }
 }
 </style>
 </head>
 <body>
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <div class="top-nav-links">
+      <a href="/trending.html" class="top-nav-link">🔥 Trending</a>
+      <a href="/latest.html" class="top-nav-link">✨ Latest</a>
+      <a href="/holidays.html" class="top-nav-link">📅 Holidays</a>
+      <a href="/message-generator.html" class="top-nav-link">✍️ Messages</a>
+      <a href="/pricing.html" class="top-nav-link">💳 Pricing</a>
+      <a href="#quick-entry" class="top-nav-link cta" onclick="document.getElementById('quick-entry').scrollIntoView({behavior:'smooth'});return false;">💌 Find a Card</a>
+    </div>
+  </div>
+</nav>
 <header class="carousel">
   <div class="carousel-slide active">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-30279807-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Anniversary</span>
-        <h2 class="carousel-title">Happy Anniversary Card for Wife</h2>
-        <p class="carousel-desc">Another year of loving you. Happy anniversary, my love! 💖</p>
-        <a href="/card/happy-anniversary-wife.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">New Baby</span>
+        <h2 class="carousel-title">Sweet New Baby Greeting Card Online · Cheerful · Romantic · for Baby Naming Ceremony</h2>
+        <p class="carousel-desc">New baby smell + tiny baby yawns + parents full of love = the best equation ever. Congratulations! 🥰👶</p>
+        <a href="/card/new-baby-sweet-new-baby-greeting-card-online-cheerful-romantic-for-baby-naming-ceremony-30279807.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
         <div class="carousel-slide">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-29366608-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Love & Romance</span>
-        <h2 class="carousel-title">Romantic Love Card for Partner</h2>
-        <p class="carousel-desc">Every love story is beautiful, but ours is my favorite. 💕</p>
-        <a href="/card/love-you-honey.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">Halloween</span>
+        <h2 class="carousel-title">Scary Movie Night — Happy Halloween Custom Ecard · Spooky · Elegant · for Family</h2>
+        <p class="carousel-desc">Halloween is proof that being a little weird is not just okay — it's celebrated. Go be weird and have the best night ever. 👻🎃✨</p>
+        <a href="/card/halloween-scary-movie-night-happy-halloween-custom-ecard-spooky-elegant-for-family-29366608.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
         <div class="carousel-slide">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-5722935-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Congratulations</span>
-        <h2 class="carousel-title">Retirement Card for Boss</h2>
-        <p class="carousel-desc">Enjoy your well-deserved retirement! Thank you for your leadership. 👔🎊</p>
-        <a href="/card/retirement-boss.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">Missing You</span>
+        <h2 class="carousel-title">Come Back Soon — Personalized I Miss You Card · Warm · Elegant · for Family Overseas</h2>
+        <p class="carousel-desc">Come back soon. My couch, my kitchen, my days, and my heart all have a 'missing you' shaped hole. 🛋️💗</p>
+        <a href="/card/missing-you-come-back-soon-personalized-i-miss-you-card-warm-elegant-for-family-overseas-5722935.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
         <div class="carousel-slide">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-19006457-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Thank You</span>
-        <h2 class="carousel-title">Thank You Card for a Friend</h2>
-        <p class="carousel-desc">Just wanted to say thank you for being you! 🌟</p>
-        <a href="/card/thank-you-friend.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">Sympathy</span>
+        <h2 class="carousel-title">You're Not Alone in Your Grief — Ecard · Calm · Romantic · for Grieving Friend</h2>
+        <p class="carousel-desc">May the love of those around you give you strength, and may memories of [name] bring you peace. 💙🕊️</p>
+        <a href="/card/sympathy-you-re-not-alone-in-your-grief-ecard-calm-romantic-for-grieving-friend-19006457.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
         <div class="carousel-slide">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-10272505-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-3973943-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Miss You</span>
-        <h2 class="carousel-title">Thinking of You Card for Grandma</h2>
-        <p class="carousel-desc">Thinking of you with love, Grandma. Can't wait to see you again! 💗</p>
-        <a href="/card/miss-you-grandma.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">Missing You</span>
+        <h2 class="carousel-title">Warm Thinking of You — Miss You Ecard · Warm · Elegant · for Long Distance Boyfriend</h2>
+        <p class="carousel-desc">Missing you isn't the hard part — it's knowing I can't hug you whenever I want that breaks my heart a little. 🤗💙</p>
+        <a href="/card/missing-you-warm-thinking-of-you-miss-you-ecard-warm-elegant-for-long-distance-boyfriend-3973943.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
         <div class="carousel-slide">
-      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp') center/cover"></div>
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-29373776-vertical.webp') center/cover"></div>
       <div class="carousel-overlay"></div>
       <div class="carousel-content">
-        <span class="carousel-category">Congratulations</span>
-        <h2 class="carousel-title">Congratulations Graduation Card</h2>
-        <p class="carousel-desc">Your hard work paid off. Congratulations graduate! 🎓🎉</p>
-        <a href="/card/congrats-graduation.html" class="carousel-cta">Customise This Card →</a>
+        <span class="carousel-category">New Year</span>
+        <h2 class="carousel-title">Happy New Year Card — Cheers to New Beginnings · Celebratory · Romantic · for Year of the Snake (2025)</h2>
+        <p class="carousel-desc">Happy New Year! May this be the year your biggest dreams come true and your hardest days become your best stories. 🎉🥂🎆</p>
+        <a href="/card/new-year-happy-new-year-card-cheers-to-new-beginnings-celebratory-romantic-for-year-of-the-snake-2025-29373776.html" class="carousel-cta">Customise This Card →</a>
       </div>
     </div>
   <div class="carousel-dots">
@@ -151,54 +176,139 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <h2 class="section-title">Browse by Category</h2>
   <p class="section-subtitle">Find the perfect card for any occasion</p>
   <div class="cat-grid">
-    <a href="/category/birthday.html" class="cat-btn">
+    <a href="/category/anniversary.html" class="cat-btn">
+      <span class="cat-icon">💍</span>
+      <span class="cat-label">Anniversary</span>
+      <span class="cat-count">151 cards</span>
+    </a>
+        <a href="/category/birthday.html" class="cat-btn">
       <span class="cat-icon">🎂</span>
       <span class="cat-label">Birthday</span>
-      <span class="cat-count">2 cards</span>
+      <span class="cat-count">265 cards</span>
     </a>
-        <a href="/category/love.html" class="cat-btn">
-      <span class="cat-icon">💕</span>
-      <span class="cat-label">Love & Romance</span>
-      <span class="cat-count">1 cards</span>
-    </a>
-        <a href="/category/thanks.html" class="cat-btn">
-      <span class="cat-icon">🙏</span>
-      <span class="cat-label">Thank You</span>
-      <span class="cat-count">1 cards</span>
-    </a>
-        <a href="/category/wellness.html" class="cat-btn">
-      <span class="cat-icon">🌿</span>
-      <span class="cat-label">Get Well</span>
-      <span class="cat-count">1 cards</span>
+        <a href="/category/christmas.html" class="cat-btn">
+      <span class="cat-icon">🎄</span>
+      <span class="cat-label">Christmas</span>
+      <span class="cat-count">197 cards</span>
     </a>
         <a href="/category/congratulations.html" class="cat-btn">
       <span class="cat-icon">🎉</span>
       <span class="cat-label">Congratulations</span>
-      <span class="cat-count">2 cards</span>
+      <span class="cat-count">168 cards</span>
+    </a>
+        <a href="/category/easter.html" class="cat-btn">
+      <span class="cat-icon">🐰</span>
+      <span class="cat-label">Easter</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/encouragement.html" class="cat-btn">
+      <span class="cat-icon">💪</span>
+      <span class="cat-label">Encouragement</span>
+      <span class="cat-count">87 cards</span>
+    </a>
+        <a href="/category/fathers-day.html" class="cat-btn">
+      <span class="cat-icon">👔</span>
+      <span class="cat-label">Father's Day</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/friendship.html" class="cat-btn">
+      <span class="cat-icon">🤝</span>
+      <span class="cat-label">Friendship</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/get-well.html" class="cat-btn">
+      <span class="cat-icon">🌿</span>
+      <span class="cat-label">Get Well</span>
+      <span class="cat-count">151 cards</span>
+    </a>
+        <a href="/category/good-luck.html" class="cat-btn">
+      <span class="cat-icon">🍀</span>
+      <span class="cat-label">Good Luck</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/graduation.html" class="cat-btn">
+      <span class="cat-icon">🎓</span>
+      <span class="cat-label">Graduation</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/halloween.html" class="cat-btn">
+      <span class="cat-icon">🎃</span>
+      <span class="cat-label">Halloween</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/love.html" class="cat-btn">
+      <span class="cat-icon">💕</span>
+      <span class="cat-label">Love & Romance</span>
+      <span class="cat-count">131 cards</span>
+    </a>
+        <a href="/category/missing-you.html" class="cat-btn">
+      <span class="cat-icon">💌</span>
+      <span class="cat-label">Missing You</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/mothers-day.html" class="cat-btn">
+      <span class="cat-icon">🌸</span>
+      <span class="cat-label">Mother's Day</span>
+      <span class="cat-count">183 cards</span>
+    </a>
+        <a href="/category/new-baby.html" class="cat-btn">
+      <span class="cat-icon">👶</span>
+      <span class="cat-label">New Baby</span>
+      <span class="cat-count">149 cards</span>
+    </a>
+        <a href="/category/new-year.html" class="cat-btn">
+      <span class="cat-icon">🎆</span>
+      <span class="cat-label">New Year</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/retirement.html" class="cat-btn">
+      <span class="cat-icon">🏖️</span>
+      <span class="cat-label">Retirement</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/sorry.html" class="cat-btn">
+      <span class="cat-icon">💐</span>
+      <span class="cat-label">Apology</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/sympathy.html" class="cat-btn">
+      <span class="cat-icon">🕊️</span>
+      <span class="cat-label">Sympathy</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/thank-you.html" class="cat-btn">
+      <span class="cat-icon">🙏</span>
+      <span class="cat-label">Thank You</span>
+      <span class="cat-count">151 cards</span>
+    </a>
+        <a href="/category/thanksgiving.html" class="cat-btn">
+      <span class="cat-icon">🦃</span>
+      <span class="cat-label">Thanksgiving</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/thinking-of-you.html" class="cat-btn">
+      <span class="cat-icon">💭</span>
+      <span class="cat-label">Thinking of You</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/valentine.html" class="cat-btn">
+      <span class="cat-icon">💘</span>
+      <span class="cat-label">Valentine</span>
+      <span class="cat-count">150 cards</span>
+    </a>
+        <a href="/category/wedding.html" class="cat-btn">
+      <span class="cat-icon">💒</span>
+      <span class="cat-label">Wedding</span>
+      <span class="cat-count">150 cards</span>
     </a>
         <a href="/category/miss-you.html" class="cat-btn">
       <span class="cat-icon">💌</span>
       <span class="cat-label">Miss You</span>
       <span class="cat-count">1 cards</span>
     </a>
-        <a href="/category/sympathy.html" class="cat-btn">
-      <span class="cat-icon">🕊️</span>
-      <span class="cat-label">Sympathy</span>
-      <span class="cat-count">1 cards</span>
-    </a>
-        <a href="/category/anniversary.html" class="cat-btn">
-      <span class="cat-icon">💍</span>
-      <span class="cat-label">Anniversary</span>
-      <span class="cat-count">1 cards</span>
-    </a>
-        <a href="/category/new-baby.html" class="cat-btn">
-      <span class="cat-icon">👶</span>
-      <span class="cat-label">New Baby</span>
-      <span class="cat-count">1 cards</span>
-    </a>
-        <a href="/category/encouragement.html" class="cat-btn">
-      <span class="cat-icon">💪</span>
-      <span class="cat-label">Encouragement</span>
+        <a href="/category/cheerup.html" class="cat-btn">
+      <span class="cat-icon">💌</span>
+      <span class="cat-label">Cheerup</span>
       <span class="cat-count">1 cards</span>
     </a>
   </div>
@@ -211,10 +321,10 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
           <a href="/category/birthday.html" class="quick-chip">👨 my Dad</a>
           <a href="/category/love.html" class="quick-chip">💑 my Partner</a>
           <a href="/category/encouragement.html" class="quick-chip">👯 my Best Friend</a>
-          <a href="/category/miss-you.html" class="quick-chip">👵 my Grandma</a>
+          <a href="/category/missing-you.html" class="quick-chip">👵 my Grandma</a>
           <a href="/category/congratulations.html" class="quick-chip">🎓 a Graduate</a>
           <a href="/category/new-baby.html" class="quick-chip">👶 a Newborn</a>
-          <a href="/category/wellness.html" class="quick-chip">🤒 Someone Sick</a>
+          <a href="/category/get-well.html" class="quick-chip">🤒 Someone Sick</a>
   </div>
 </div>
 
@@ -222,88 +332,144 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <h2 class="section-title">Explore All Cards</h2>
   <p class="section-subtitle">Hand-picked designs for every message</p>
   <div class="card-grid">
-    <a href="/card/congrats-graduation.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Graduation Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <a href="/card/graduation-college-graduation-congrats-custom-card-celebratory-romantic-for-med-school-graduate-7972719.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7972719-vertical.webp" alt="College Graduation — Congrats Custom Card · Celebratory · Romantic · for Med School Graduate" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Congratulations Graduation Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebration</span></div>
+      <div class="card-tile-title">College Graduation — Congrats Custom Card · Celebratory · Romantic · for Med School Graduate</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-teacher</span><span class="card-tile-tag">from-classmate</span><span class="card-tile-tag">for-son-for-daughter</span></div>
     </div>
   </a>
-        <a href="/card/new-baby-boy.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Boy Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/retirement-well-deserved-retirement-celebratory-card-classic-romantic-from-team-members-35126243.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-35126243-vertical.webp" alt="Well Deserved Retirement — Celebratory Card · Classic · Romantic · from Team Members" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Welcome Baby Boy Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">boy</span></div>
+      <div class="card-tile-title">Well Deserved Retirement — Celebratory Card · Classic · Romantic · from Team Members</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">congrats</span><span class="card-tile-tag">adventure</span><span class="card-tile-tag">new-beginnings</span></div>
     </div>
   </a>
-        <a href="/card/happy-anniversary-wife.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/anniversary-cheers-to-another-year-anniversary-ecard-romantic-elegant-for-her-6579014.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-6579014-vertical.webp" alt="Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Anniversary Card for Wife</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span></div>
+      <div class="card-tile-title">Cheers to Another Year — Anniversary Ecard · Romantic · Elegant · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">romance</span><span class="card-tile-tag">celebration</span></div>
     </div>
   </a>
-        <a href="/card/get-well-soon.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp" alt="Get Well Soon Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/thinking-of-you-i-miss-talking-to-you-custom-thinking-card-soft-elegant-for-just-because-37765874.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-37765874-vertical.webp" alt="I Miss Talking to You — Custom Thinking Card · Soft · Elegant · for Just Because" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Get Well Soon Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">health</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">encouragement</span></div>
+      <div class="card-tile-title">I Miss Talking to You — Custom Thinking Card · Soft · Elegant · for Just Because</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thinking-of-you</span><span class="card-tile-tag">just-because</span><span class="card-tile-tag">on-my-mind</span></div>
     </div>
   </a>
-        <a href="/card/miss-you-grandma.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-10272505-vertical.webp" alt="Thinking of You Card for Grandma" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/friendship-childhood-friend-forever-custom-ecard-cheerful-elegant-for-bestie-4451544.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/friendship/friendship-pexels-4451544-vertical.webp" alt="Childhood Friend Forever — Custom Ecard · Cheerful · Elegant · for Bestie" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Thinking of You Card for Grandma</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">family</span><span class="card-tile-tag">thinking-of-you</span></div>
+      <div class="card-tile-title">Childhood Friend Forever — Custom Ecard · Cheerful · Elegant · for Bestie</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">playful</span></div>
     </div>
   </a>
-        <a href="/card/cheer-up-bestie.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/valentine-sweet-valentine-s-wishes-just-for-you-card-romantic-for-fianc-e-15273634.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-15273634-vertical.webp" alt="Sweet Valentine's Wishes Just For You — Card · Romantic · for Fiancée" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+      <div class="card-tile-title">Sweet Valentine's Wishes Just For You — Card · Romantic · for Fiancée</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
     </div>
   </a>
-        <a href="/card/love-you-honey.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/birthday-elegant-birthday-ecard-customize-send-warm-romantic-for-70th-birthday-36704175.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-36704175-vertical.webp" alt="Elegant Birthday Ecard — Customize & Send · Warm · Romantic · for 70th Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Romantic Love Card for Partner</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+      <div class="card-tile-title">Elegant Birthday Ecard — Customize & Send · Warm · Romantic · for 70th Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">caring</span></div>
     </div>
   </a>
-        <a href="/card/beautiful-birthday-mom.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Beautiful Birthday Card for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/missing-you-wish-you-were-here-custom-miss-you-card-warm-elegant-for-deployed-spouse-6220326.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-6220326-vertical.webp" alt="Wish You Were Here — Custom Miss You Card · Warm · Elegant · for Deployed Spouse" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Beautiful Birthday Card for Mom</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">mom</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">elegant</span></div>
+      <div class="card-tile-title">Wish You Were Here — Custom Miss You Card · Warm · Elegant · for Deployed Spouse</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">gentle</span><span class="card-tile-tag">distance</span></div>
     </div>
   </a>
-        <a href="/card/sympathy-condolences.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-1025981-vertical.webp" alt="Sympathy & Condolences Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/graduation-to-our-graduate-we-are-so-proud-custom-celebratory-romantic-for-coworker-7842705.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842705-vertical.webp" alt="To Our Graduate — We Are So Proud — Custom · Celebratory · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Sympathy & Condolences Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">condolences</span><span class="card-tile-tag">sympathy</span><span class="card-tile-tag">loss</span></div>
+      <div class="card-tile-title">To Our Graduate — We Are So Proud — Custom · Celebratory · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">high-school</span><span class="card-tile-tag">college</span><span class="card-tile-tag">masters-phd</span></div>
     </div>
   </a>
-        <a href="/card/thank-you-friend.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp" alt="Thank You Card for a Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/good-luck-good-luck-driving-test-fun-custom-ecard-cheerful-elegant-for-surgery-37558915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/good-luck/good-luck-pexels-37558915-vertical.webp" alt="Good Luck Driving Test — Fun Custom Ecard · Cheerful · Elegant · for Surgery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Thank You Card for a Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">friend</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">casual</span></div>
+      <div class="card-tile-title">Good Luck Driving Test — Fun Custom Ecard · Cheerful · Elegant · for Surgery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">exam</span><span class="card-tile-tag">job-interview</span><span class="card-tile-tag">new-job</span></div>
     </div>
   </a>
-        <a href="/card/happy-birthday-dad.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card for Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/thanksgiving-happy-thanksgiving-card-grateful-custom-ecard-warm-romantic-for-hostess-10057784.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10057784-vertical.webp" alt="Happy Thanksgiving Card — Grateful Custom Ecard · Warm · Romantic · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Birthday Card for Dad</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">dad</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">masculine</span></div>
+      <div class="card-tile-title">Happy Thanksgiving Card — Grateful Custom Ecard · Warm · Romantic · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
     </div>
   </a>
-        <a href="/card/retirement-boss.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/thinking-of-you-thinking-of-you-card-just-because-custom-soft-warm-for-hospital-8801057.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-8801057-vertical.webp" alt="Thinking of You Card — Just Because — Custom · Soft · Warm · for Hospital" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Retirement Card for Boss</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+      <div class="card-tile-title">Thinking of You Card — Just Because — Custom · Soft · Warm · for Hospital</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thinking-of-you</span><span class="card-tile-tag">just-because</span><span class="card-tile-tag">on-my-mind</span></div>
+    </div>
+  </a>
+        <a href="/card/easter-easter-brunch-invitation-wishes-custom-cheerful-for-church-service-9822747.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-9822747-vertical.webp" alt="Easter Brunch Invitation / Wishes — Custom · Cheerful · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Brunch Invitation / Wishes — Custom · Cheerful · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">godchild</span><span class="card-tile-tag">grandkids</span><span class="card-tile-tag">spring</span></div>
+    </div>
+  </a>
+        <a href="/card/sorry-forgive-me-heartfelt-apology-ecard-custom-soft-romantic-for-coworker-15145923.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-15145923-vertical.webp" alt="Forgive Me — Heartfelt Apology Ecard Custom · Soft · Romantic · for Coworker" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Forgive Me — Heartfelt Apology Ecard Custom · Soft · Romantic · for Coworker</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">sincere</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+        <a href="/card/missing-you-a-little-note-to-say-i-miss-you-custom-ecard-warm-elegant-for-come-back-soon-6694111.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-6694111-vertical.webp" alt="A Little Note to Say I Miss You — Custom Ecard · Warm · Elegant · for Come Back Soon" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Little Note to Say I Miss You — Custom Ecard · Warm · Elegant · for Come Back Soon</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">friends</span><span class="card-tile-tag">thinking-of-you</span></div>
+    </div>
+  </a>
+        <a href="/card/new-year-365-new-chances-new-year-custom-greeting-celebratory-elegant-for-new-year-s-resolution-31326830.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-31326830-vertical.webp" alt="365 New Chances — New Year Custom Greeting · Celebratory · Elegant · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">365 New Chances — New Year Custom Greeting · Celebratory · Elegant · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
+    </div>
+  </a>
+        <a href="/card/retirement-well-deserved-retirement-celebratory-card-classic-romantic-for-teacher-retirement-14012234.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14012234-vertical.webp" alt="Well Deserved Retirement — Celebratory Card · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Deserved Retirement — Celebratory Card · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">congrats</span><span class="card-tile-tag">adventure</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+        <a href="/card/christmas-jingle-all-the-way-christmas-ecard-online-festive-elegant-for-godchild-34654313.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-34654313-vertical.webp" alt="Jingle All the Way — Christmas Ecard Online · Festive · Elegant · for Godchild" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Jingle All the Way — Christmas Ecard Online · Festive · Elegant · for Godchild</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+        <a href="/card/birthday-joyful-birthday-card-for-any-age-warm-elegant-for-100th-birthday-8577898.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-8577898-vertical.webp" alt="Joyful Birthday Card for Any Age · Warm · Elegant · for 100th Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joyful Birthday Card for Any Age · Warm · Elegant · for 100th Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">modern</span><span class="card-tile-tag">stylish</span><span class="card-tile-tag">vibrant</span></div>
+    </div>
+  </a>
+        <a href="/card/mothers-day-mother-s-day-blessings-custom-greeting-card-warm-romantic-for-expecting-mom-26237940.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-26237940-vertical.webp" alt="Mother's Day Blessings — Custom Greeting Card · Warm · Romantic · for Expecting Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mother's Day Blessings — Custom Greeting Card · Warm · Romantic · for Expecting Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
     </div>
   </a>
   </div>
@@ -315,18 +481,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
   <section class="style-section">
       <h2 class="section-title">Warm & Cozy</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/beautiful-birthday-mom.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Beautiful Birthday Card for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/birthday-happy-birthday-card-personalized-wishes-warm-romantic-for-1st-birthday-10165858.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card — Personalized Wishes · Warm · Romantic · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Beautiful Birthday Card for Mom</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">mom</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">elegant</span></div>
+      <div class="card-tile-title">Happy Birthday Card — Personalized Wishes · Warm · Romantic · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">love</span><span class="card-tile-tag">celebration</span></div>
     </div>
   </a>
-          <a href="/card/miss-you-grandma.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-10272505-vertical.webp" alt="Thinking of You Card for Grandma" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/birthday-beautiful-birthday-greeting-card-online-warm-romantic-for-1st-birthday-12616001.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-12616001-vertical.webp" alt="Beautiful Birthday Greeting Card Online · Warm · Romantic · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Thinking of You Card for Grandma</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">family</span><span class="card-tile-tag">thinking-of-you</span></div>
+      <div class="card-tile-title">Beautiful Birthday Greeting Card Online · Warm · Romantic · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fun</span><span class="card-tile-tag">playful</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+          <a href="/card/birthday-send-a-birthday-card-with-your-custom-message-warm-romantic-for-1st-birthday-13142788.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-13142788-vertical.webp" alt="Send a Birthday Card With Your Custom Message · Warm · Romantic · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Send a Birthday Card With Your Custom Message · Warm · Romantic · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">modern</span><span class="card-tile-tag">stylish</span><span class="card-tile-tag">vibrant</span></div>
+    </div>
+  </a>
+          <a href="/card/birthday-warm-birthday-wish-card-for-someone-special-warm-romantic-for-1st-birthday-137485.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-137485-vertical.webp" alt="Warm Birthday Wish Card for Someone Special · Warm · Romantic · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Birthday Wish Card for Someone Special · Warm · Romantic · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">elegant</span></div>
     </div>
   </a>
       </div>
@@ -335,18 +515,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
       <section class="style-section">
       <h2 class="section-title">Romantic</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/love-you-honey.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/anniversary-happy-anniversary-card-celebrate-your-love-romantic-for-her-11368673.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card — Celebrate Your Love · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Romantic Love Card for Partner</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+      <div class="card-tile-title">Happy Anniversary Card — Celebrate Your Love · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
     </div>
   </a>
-          <a href="/card/happy-anniversary-wife.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/anniversary-personalized-anniversary-ecard-for-couples-romantic-for-her-11368690.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368690-vertical.webp" alt="Personalized Anniversary Ecard for Couples · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Anniversary Card for Wife</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span></div>
+      <div class="card-tile-title">Personalized Anniversary Ecard for Couples · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">husband</span><span class="card-tile-tag">forever</span></div>
+    </div>
+  </a>
+          <a href="/card/anniversary-another-year-of-us-custom-anniversary-card-romantic-for-her-11368694.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368694-vertical.webp" alt="Another Year of Us — Custom Anniversary Card · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Another Year of Us — Custom Anniversary Card · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+          <a href="/card/anniversary-romantic-anniversary-card-for-wife-or-husband-romantic-for-her-11410245.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11410245-vertical.webp" alt="Romantic Anniversary Card for Wife or Husband · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Anniversary Card for Wife or Husband · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">couples</span><span class="card-tile-tag">wedding</span><span class="card-tile-tag">milestone</span></div>
     </div>
   </a>
       </div>
@@ -355,25 +549,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
       <section class="style-section">
       <h2 class="section-title">Cheerful</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/thank-you-friend.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp" alt="Thank You Card for a Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/easter-happy-easter-card-cheerful-custom-ecard-online-cheerful-romantic-for-kids-egg-hunt-10585007.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10585007-vertical.webp" alt="Happy Easter Card — Cheerful Custom Ecard Online · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Thank You Card for a Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">friend</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">casual</span></div>
+      <div class="card-tile-title">Happy Easter Card — Cheerful Custom Ecard Online · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter</span><span class="card-tile-tag">easter-bunny</span><span class="card-tile-tag">egg-hunt</span></div>
     </div>
   </a>
-          <a href="/card/new-baby-boy.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Boy Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/easter-easter-blessings-custom-family-greeting-card-cheerful-romantic-for-kids-egg-hunt-10902210.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10902210-vertical.webp" alt="Easter Blessings — Custom Family Greeting Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Welcome Baby Boy Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">boy</span></div>
+      <div class="card-tile-title">Easter Blessings — Custom Family Greeting Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">pastel</span><span class="card-tile-tag">cheerful</span></div>
     </div>
   </a>
-          <a href="/card/cheer-up-bestie.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/easter-he-is-risen-religious-easter-custom-card-cheerful-romantic-for-kids-egg-hunt-10902213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10902213-vertical.webp" alt="He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+      <div class="card-tile-title">He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+          <a href="/card/easter-easter-egg-hunt-cheerful-kids-easter-ecard-cheerful-romantic-for-kids-egg-hunt-10972836.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10972836-vertical.webp" alt="Easter Egg Hunt — Cheerful Kids Easter Ecard · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Egg Hunt — Cheerful Kids Easter Ecard · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
     </div>
   </a>
       </div>
@@ -382,18 +583,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
       <section class="style-section">
       <h2 class="section-title">Classic</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/happy-birthday-dad.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card for Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-from-daughter-10281132.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-10281132-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Happy Birthday Card for Dad</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">dad</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">masculine</span></div>
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
     </div>
   </a>
-          <a href="/card/retirement-boss.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-from-daughter-10903147.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-10903147-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Retirement Card for Boss</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+          <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-from-daughter-12891967.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12891967-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+          <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-from-daughter-12932337.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12932337-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
     </div>
   </a>
       </div>
@@ -402,18 +617,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
       <section class="style-section">
       <h2 class="section-title">Calm & Serene</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/get-well-soon.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp" alt="Get Well Soon Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/get-well-get-well-soon-card-send-healing-wishes-online-calm-romantic-after-surgery-10521321.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp" alt="Get Well Soon Card — Send Healing Wishes Online · Calm · Romantic · after Surgery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Get Well Soon Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">health</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">encouragement</span></div>
+      <div class="card-tile-title">Get Well Soon Card — Send Healing Wishes Online · Calm · Romantic · after Surgery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">healing</span><span class="card-tile-tag">health</span><span class="card-tile-tag">recovery</span></div>
     </div>
   </a>
-          <a href="/card/sympathy-condolences.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-1025981-vertical.webp" alt="Sympathy & Condolences Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <a href="/card/get-well-personalized-get-well-ecard-for-a-speedy-recovery-calm-romantic-after-surgery-10728465.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10728465-vertical.webp" alt="Personalized Get Well Ecard for a Speedy Recovery · Calm · Romantic · after Surgery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Sympathy & Condolences Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">condolences</span><span class="card-tile-tag">sympathy</span><span class="card-tile-tag">loss</span></div>
+      <div class="card-tile-title">Personalized Get Well Ecard for a Speedy Recovery · Calm · Romantic · after Surgery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hopeful</span><span class="card-tile-tag">strength</span><span class="card-tile-tag">comfort</span></div>
+    </div>
+  </a>
+          <a href="/card/get-well-warm-get-well-wishes-custom-card-online-calm-romantic-after-surgery-10743127.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10743127-vertical.webp" alt="Warm Get Well Wishes — Custom Card Online · Calm · Romantic · after Surgery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Get Well Wishes — Custom Card Online · Calm · Romantic · after Surgery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">care</span><span class="card-tile-tag">love</span><span class="card-tile-tag">healing</span></div>
+    </div>
+  </a>
+          <a href="/card/get-well-healing-thoughts-get-well-soon-card-calm-romantic-after-surgery-10743128.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10743128-vertical.webp" alt="Healing Thoughts — Get Well Soon Card · Calm · Romantic · after Surgery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Healing Thoughts — Get Well Soon Card · Calm · Romantic · after Surgery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">calm</span><span class="card-tile-tag">gentle</span><span class="card-tile-tag">warm</span></div>
     </div>
   </a>
       </div>
@@ -422,11 +651,32 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
       <section class="style-section">
       <h2 class="section-title">Celebratory</h2>
       <div class="card-grid card-grid--style">
-        <a href="/card/congrats-graduation.html" class="card-tile">
-    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Graduation Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-promotion-10477179.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
     <div class="card-tile-info">
-      <div class="card-tile-title">Congratulations Graduation Card</div>
-      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebration</span></div>
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+          <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-promotion-10549490.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549490-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+          <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-promotion-10549494.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549494-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+          <a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-romantic-on-promotion-15120849.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-15120849-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
     </div>
   </a>
       </div>
@@ -434,11 +684,58 @@ body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
     </section>
 </section>
 
-<footer style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:3rem 2rem;color:#718096;font-size:0.85rem;">
-  <p style="font-size:1.5rem;font-weight:700;color:#2d6a4f;margin-bottom:0.5rem;">Send<span style="color:#48bb78;">A</span>Fun</p>
-  <p>Free personalised e-cards for every occasion</p>
-  <p style="margin-top:1rem;">© 2026 SendAFun. Made with ❤️.</p>
-</footer>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
 
 <script>
 // ── Carousel auto-play ──

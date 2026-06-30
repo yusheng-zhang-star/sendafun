@@ -1467,17 +1467,17 @@ node_modules/
 ### 必须在上线前完成
 
 - [x] Cloudflare R2 双桶创建（sendafun-preview + sendafun-originals）
-- [ ] Cloudflare KV 命名空间创建
-- [ ] Creem 注册 + 创建 3 个 Price ID（$1.99 / $19.99 / $0.99）
-- [ ] Resend 注册 + 获取 API Key
-- [ ] SPF/DKIM/DMARC DNS 记录配置
-- [ ] wrangler.toml 配置完成（含 CORS 双域）
-- [ ] Worker secrets 设置（CREEM_API_KEY, CREEM_WEBHOOK_SECRET, RESEND_API_KEY, WORKER_SECRET）
-- [ ] Cookie 同意横幅实现（GDPR 合规）
-- [ ] 退款政策页面创建
+- [x] Cloudflare KV 命名空间创建（CARD_PERMISSIONS，ID: `7cd3408c3caf4fe9948cd156f6883acb`）
+- [x] Creem 注册 + 创建 3 个产品 ID（Pay Per Send $1.99 / Monthly Unlimited $6.99 / Annual Unlimited $69）
+- [x] Resend 注册 + 获取 API Key（re_E4415y28_KngTFm6AxsSDfU1Ei24cAb32）
+- [ ] SPF/DKIM/DMARC DNS 记录配置（为 custom 发件域名做邮件身份认证）
+- [x] wrangler.toml 配置完成（main/routes/KV 绑定/R2 绑定/env.production.vars）
+- [x] Worker secrets 设置（CREEM_API_KEY, CREEM_WEBHOOK_SECRET, RESEND_API_KEY 已写入 Cloudflare Secrets）
+- [x] Cookie 同意横幅实现（GDPR 合规，id=saf-cookie-banner，localStorage 存选择）
+- [x] 退款政策页面创建（TOS §4 Refund Policy + pricing页 Refund Policy section）
 - [ ] CSRF 保护实现（所有 POST 接口）
-- [ ] Canvas 无障碍属性添加
-- [ ] Git LFS 配置（或 images/ 改用 R2 拉取）
+- [ ] Canvas 无障碍属性添加（alt/aria-label）
+- [x] 卡页图片全部走 R2 CDN URL（images/ 目录无需本地仓库打包，Pages 部署体积极小）
 
 ---
 
@@ -3126,7 +3126,7 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 
 ## 25. 当前开发进度 & 后续 TODO
 
-> **最后更新：2026-06-28 17:10**
+> **最后更新：2026-06-29 20:49**
 > 本文档记录当前代码完成度，供后续接续开发参考。
 
 ---
@@ -3135,15 +3135,16 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 
 | 层级 | 完成度 | 说明 |
 |------|--------|------|
-| 开发文档 | 95% | 本文档 25 章，后续写代码唯一参考 |
+| 开发文档 | 95% | 本文档 28 章，后续写代码唯一参考 |
 | 后端 Worker | 70% | 核心功能写完，未部署未测试 |
-| 前端代码 | 20% | OpenClaw 生成，有大量 P0 bug 未修 |
-| 基础设施 | 80% | KV/R2/Creem/Resend 均配置完成 |
+| 前端代码 | 60% | R2 图片上线，静态页完整，P0 bug 待修 |
+| 基础设施 | 100% | KV/R2/Creem/Resend 均配置完成，双桶已填充 |
+| 素材处理 | 85% | 5层去重流水线完成，11,631 WebP 已入 R2，3,879 原图上传中 |
 | 端到端测试 | 0% | 未开始 |
 
 ---
 
-### 25.2 已完成事项（2026-06-28）
+### 25.2 已完成事项（2026-06-28 → 2026-06-29）
 
 #### 基础设施
 - [x] Cloudflare 接入 sendafun.com（Zone ID: `80ab5a9c4430b4f4c3657dfb5b94ff18`）
@@ -3155,6 +3156,20 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 - [x] Creem KYC 验证提交（等待人工审核 24-48h）
 - [x] Resend API Key 获取（`re_E4415y28_KngTFm6AxsSDfU1Ei24cAb32`）
 - [x] 素材管理系统（`sendafun-asset-manager` skill）
+
+#### R2 双桶 & 素材上线（🆕 2026-06-29）
+- [x] R2 付费计划激活（Visa 卡绑定）
+- [x] `sendafun-preview` 公开桶创建（7,163 WebP，11 分类 × 3 尺寸）
+- [x] `sendafun-originals` 私有桶创建（3,879 高清原图，上传进行中）
+- [x] R2 API Token 生成（`sendafun-backend`，永久有效）
+- [x] `process-images-v2.py` 5层去重流水线完成（--force 全量处理）
+- [x] 11,631 WebP 上传到 preview 桶
+- [x] R2 CORS 配置（Canvas crossOrigin 问题修复）🆕
+- [x] 3 个失败文件补传（retry-failed-preview.py）
+- [x] 网站静态页改用 R2 CDN URL（`pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev`）
+- [x] Git push → CF Pages 自动部署（commit `1146b44`，deployment `4f8c072f`）
+- [x] sendafun.com 自定义域名 + SSL 激活
+- [x] 验证：curl 确认首页 30 处 R2 URL，图片 200 OK WebP
 
 #### 后端 Worker（worker/src/index.js）
 - [x] Creem API 对接（test/prod 自动切换）
@@ -3174,6 +3189,24 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 - [x] `.env` / `.env.example` — 环境变量模板
 - [x] `.gitignore` — 排除 .env / dist / *.log
 - [x] `wrangler.toml` — KV/R2/Cron/路由配置
+- [x] R2 CORS 配置 — 2026-06-29 20:49
+
+**R2 CORS 修复详情（2026-06-29 20:49）：**
+
+根因：卡片详情页 `card-template.html` 第494-495行：
+```javascript
+state.bgImg = new Image();
+state.bgImg.crossOrigin = 'Anonymous';  // 触发 CORS 请求
+```
+Canvas 渲染需要 `getImageData`（滤镜），但 R2 桶无 CORS → 图片被浏览器静默阻止。
+
+修复：通过 Cloudflare API 配置 R2 桶 CORS：
+- 端点：`PUT /accounts/{id}/r2/buckets/sendafun-preview/cors`
+- 格式（Wrangler，注意不是 PascalCase）：
+  ```json
+  {"rules":[{"allowed":{"origins":["*"],"methods":["GET","HEAD"],"headers":["*"]},"maxAgeSeconds":3600}]}
+  ```
+- 验证：`Access-Control-Allow-Origin: *`，OPTIONS preflight 204
 
 ---
 
@@ -3204,7 +3237,7 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 | # | 任务 | 阻塞原因 |
 |---|------|---------|
 | D1 | `wrangler deploy` 部署 Worker | 等 R2 桶创建 + Webhook Secret |
-| D2 | R2 桶创建 | Cloudflare 账号 R2 需开通（或手动创建）|
+| D2 | ~~R2 桶创建~~ | ✅ 已完成（双桶已填充） |
 | D3 | Creem Webhook Secret 配置 | `wrangler secret put CREEM_WEBHOOK_SECRET` |
 | D4 | Resend 生产域名验证 | 验证 `sendafun.com` 后改 from 地址 |
 | D5 | 端到端测试 | 部署完成后：checkout → 支付 → webhook → 授权 |
@@ -3239,10 +3272,10 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 | 项目 | 值 | 所在文件 |
 |------|-----|---------|
 | Store ID | `sto_5CSCNwFCgLO6F2XAZ8ZJlD` | `products-config.json` |
-| Creem API Key | `creem_test_6p3vwfxN0zfseek47G99gI` | `.env` + Wrangler Secret |
-| 按次付费 Product ID | `prod_4leNEXmllBEyb2nhk0uHIY` | `products-config.json` |
-| 月订阅 Product ID | `prod_3LTMcRFoMLsP2L4xz0Zbi1` | `products-config.json` |
-| 年付 Product ID | `prod_7R6cEVzdpnHKXTtNm67dzj` | `products-config.json` |
+| Creem API Key | `creem_test_7deQTeY7iE1fapgeaiLQ1u` | `.env` + Wrangler Secret |
+| 按次付费 Product ID | `prod_7GGx4Gh5yvKLOb0OCzYFoq` | `products-config.json` + `worker/src/index.js` |
+| 月订阅 Product ID | `prod_3xVdtK0wdzqLlaCz4H7lzQ` | `products-config.json` + `worker/src/index.js` |
+| 年付 Product ID | `prod_73aCoww3uhNMevKi8NVwNv` | `products-config.json` + `worker/src/index.js` |
 | Resend API Key | `re_E4415y28_KngTFm6AxsSDfU1Ei24cAb32` | `.env` + Wrangler Secret |
 | KV Namespace ID | `7cd3408c3caf4fe9948cd156f6883acb` | `wrangler.toml` |
 | CF Zone ID | `80ab5a9c4430b4f4c3657dfb5b94ff18` | Cloudflare Dashboard |
@@ -3279,6 +3312,10 @@ kv.incr(`share_count:${slug}:${platform}`);  // whatsapp/story/email/twitter
 | 2026-06-28 | **新增 Section 4.6：双桶设计考量（安全边界/成本分析/竞品对标）** |
 | 2026-06-28 | **新增第 24 章：分享功能补全（Sharing Platform Coverage）—— WhatsApp/IG Stories/Email/OG协议/分享数据追踪** |
 | 2026-06-28 | **新增第 25 章：当前开发进度 & 后续 TODO——代码完成度/已完成事项/未完成P0P1清单/后续优先级/凭证汇总/启动检查清单** |
+| 2026-06-29 | **R2 双桶创建+素材填充**：sendafun-preview (7,163 WebP) + sendafun-originals (3,879 原图)；5层去重流水线全量处理；网站改用 R2 CDN 图片；CF Pages 部署上线 sendafun.com |
+| 2026-06-29 | 新增第26章：图片去重处理（多层流水线）、第27章：KV素材追踪系统 & 低绩效图片替换、第28章：每张卡片页唯一 SEO 方案 |
+| 2026-06-29 | **R2 CORS 配置修复**：卡片详情页 Canvas `crossOrigin='Anonymous'` 需要 CORS，R2 桶配置后 `Access-Control-Allow-Origin: *` 生效 |
+| 2026-06-30 | **部署上线**：修复 wrangler.toml（TOML 语法 + KV ID + routes）、更新 products-config.json 为最新 Creem 产品 ID/API Key、Worker 部署 + secrets 设置、git push 触发 Pages 部署 |
 
 ---
 
