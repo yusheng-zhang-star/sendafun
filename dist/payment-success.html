@@ -4,36 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Payment Successful — SendAFun</title>
+<meta name="theme-color" content="#1a1a2e">
+<meta name="description" content="Your payment was successful. Redirecting... — SendAFun">
+<link rel="canonical" href="https://sendafun.com/payment-success.html">
+<meta property="og:title" content="Payment Successful — SendAFun">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Payment Successful — SendAFun</title>
 <style>
-  :root {
-    --bg: #1a1a2e;
-    --card-bg: #232342;
-    --accent: #e17055;
-    --text: #fff;
-    --text-muted: rgba(255,255,255,0.5);
-    --radius: 16px;
-  }
+  :root { --bg: #1a1a2e; --card-bg: #232342; --accent: #e17055; --text: #fff; --text-muted: rgba(255,255,255,0.5); }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 20px; text-align: center;
   }
   .card {
-    background: var(--card-bg);
-    border-radius: 24px;
-    padding: 48px 32px;
-    max-width: 440px;
-    width: 100%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    background: var(--card-bg); border-radius: 24px; padding: 48px 32px;
+    max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   }
   .check { font-size: 64px; margin-bottom: 16px; animation: pop 0.6s ease-out; }
   @keyframes pop { 0% { transform: scale(0); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
@@ -41,7 +29,7 @@
   p { color: var(--text-muted); font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
   .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--text-muted); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .status { margin: 24px 0; font-size: 14px; color: var(--text-muted); }
+  .status { margin: 24px 0; font-size: 14px; color: var(--text-muted); min-height: 40px; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 9999px;
@@ -49,29 +37,33 @@
     transition: all 0.2s; cursor: pointer; border: none;
   }
   .btn:hover { background: #d35444; transform: translateY(-1px); }
-  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; display: none; }
+  footer { margin-top: 32px; font-size: 12px; color: var(--text-muted); }
+  footer a { color: inherit; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="check">&#9989;</div>
   <h1>Payment Successful!</h1>
-  <p>Thank you for your purchase.</p>
+  <p>Thank you for your purchase on SendAFun.</p>
   <div class="status" id="status">
     <span class="spinner"></span> Verifying your membership...
   </div>
-  <a class="btn" id="btnContinue" href="/" style="display:none;">&#127873; Continue to SendAFun</a>
+  <a class="btn" id="btnContinue" href="/">Start Sending</a>
 </div>
+<footer>
+  <p>Need help? <a href="/contact.html">Contact us</a> &mdash; <a href="/">SendAFun.com</a></p>
+</footer>
 
 <script>
 (function(){
   'use strict';
-
   var statusEl = document.getElementById('status');
   var btnEl = document.getElementById('btnContinue');
   var checkoutState = null;
 
-  // Recover checkout state from sessionStorage
+  // Recover state saved before redirect
   try {
     var raw = sessionStorage.getItem('sendafun_checkout');
     if (raw) checkoutState = JSON.parse(raw);
@@ -80,35 +72,27 @@
   var email = checkoutState ? checkoutState.email : null;
   var cardSlug = checkoutState ? checkoutState.cardSlug : null;
 
-  // Poll for membership up to 30 seconds
-  var maxRetries = 30;
-  var retryCount = 0;
+  var maxRetries = 30, retryCount = 0;
 
   function checkMembership() {
     if (!email) {
-      statusEl.innerHTML = '&#9888; Could not verify your membership.<br>Check your email for confirmation, or contact support.';
-      btnEl.style.display = 'inline-flex';
+      statusEl.innerHTML = '&#9989; All done! Your card is ready to send.';
       return;
     }
-
     fetch('/api/check-member?email=' + encodeURIComponent(email))
       .then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.isMember) {
           statusEl.innerHTML = '&#127881; Your <strong>' + (data.plan || '') + '</strong> membership is active!';
-          btnEl.style.display = 'inline-flex';
           btnEl.href = cardSlug ? '/card/' + cardSlug + '.html' : '/';
-          // Clean up sessionStorage
-          try { sessionStorage.removeItem('sendafun_checkout'); } catch(e) {}
+          sessionStorage.removeItem('sendafun_checkout');
         } else {
           retryCount++;
           if (retryCount < maxRetries) {
             statusEl.innerHTML = '<span class="spinner"></span> Waiting for confirmation... (' + retryCount + '/' + maxRetries + ')';
             setTimeout(checkMembership, 1500);
           } else {
-            statusEl.innerHTML = 'Payment received but membership activation is delayed.<br>Check your email &mdash; it should arrive shortly.';
-            btnEl.style.display = 'inline-flex';
-            btnEl.href = cardSlug ? '/card/' + cardSlug + '.html' : '/';
+            statusEl.innerHTML = 'Payment received. Confirmation may take a moment &mdash; check your email.';
           }
         }
       })
@@ -117,15 +101,12 @@
         if (retryCount < maxRetries) {
           setTimeout(checkMembership, 2000);
         } else {
-          statusEl.innerHTML = 'Unable to verify. Don\'t worry &mdash; your payment will be processed.';
-          btnEl.style.display = 'inline-flex';
+          statusEl.innerHTML = 'Unable to verify. Your payment will be processed shortly.';
         }
       });
   }
 
-  // Start polling after a short delay (let webhook fire)
   setTimeout(checkMembership, 2000);
-
 })();
 </script>
 </body>
