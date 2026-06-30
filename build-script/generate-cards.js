@@ -1716,6 +1716,58 @@ ${bodyMain}
 </main>
 ${buildFooter()}
 ${buildCookieConsent()}
+${p.successPage ? `
+<script>
+(function() {
+  const MAX_POLLS = 30, INTERVAL = 1500;
+  let polls = 0, done = false;
+  const url = new URL(window.location.href);
+  const sessId = url.searchParams.get('session_id');
+  const checkoutId = url.searchParams.get('checkout_id');
+  const saved = sessionStorage.getItem('sendafun_checkout');
+  let email = '';
+  if (saved) { try { email = JSON.parse(saved).email || ''; } catch(e) {} }
+  if (!email) { console.warn('No email in sessionStorage, polling via query param fallback'); }
+  const refreshBox = function(member) {
+    const box = document.getElementById('payConfBox');
+    if (!box) return;
+    if (member.isMember) {
+      box.innerHTML = '<h3 style="color:#2f855a;">&#x2705; Account activated!</h3>' +
+        '<p style="color:#4a5568;">Your ' + (member.plan||'') + ' plan is now active. ' +
+        'You can send cards for the next ' + (member.daysLeft||'') + ' days.</p>' +
+        '<p style="margin-top:0.75rem;"><a href="/" class="pay-btn primary" style="text-decoration:none;">&#x1F48C; Start sending cards</a></p>';
+      done = true;
+    } else if (polls >= MAX_POLLS) {
+      box.innerHTML = '<h3 style="color:#c05621;">Processing...</h3>' +
+        '<p style="color:#4a5568;">Payment completed but activation is taking longer than expected. ' +
+        'Your receipt will arrive in ~5 min. Once it arrives, refresh this page. ' +
+        'If still not active after 15 min, email <a href="mailto:support@sendafun.com">support@sendafun.com</a>.</p>';
+      done = true;
+    }
+  };
+  const checkMember = function() {
+    if (done) return;
+    polls++;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/check-member?email=' + encodeURIComponent(email), true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        try { refreshBox(JSON.parse(xhr.responseText)); } catch(e) {}
+      }
+    };
+    xhr.send();
+  };
+  if (email) {
+    checkMember();
+    var timer = setInterval(function() {
+      if (done) { clearInterval(timer); return; }
+      if (polls >= MAX_POLLS) { clearInterval(timer); }
+      checkMember();
+    }, INTERVAL);
+  }
+})();
+</script>
+` : ''}
 </body>
 </html>`;
 }
