@@ -1,0 +1,394 @@
+{
+  "generatedAt": "2026-07-04T02:28:26.272Z",
+  "target": "https://sendafun.com",
+  "summary": {
+    "total": 38,
+    "passed": 0,
+    "failed": 38,
+    "passRate": 0
+  },
+  "byCategory": {
+    "Static": {
+      "p": 0,
+      "f": 4
+    },
+    "Sitemap": {
+      "p": 0,
+      "f": 7
+    },
+    "API": {
+      "p": 0,
+      "f": 9
+    },
+    "StaticPage": {
+      "p": 0,
+      "f": 8
+    },
+    "LangStatic": {
+      "p": 0,
+      "f": 4
+    },
+    "SPA": {
+      "p": 0,
+      "f": 6
+    }
+  },
+  "results": [
+    {
+      "cat": "Static",
+      "name": "GET / (SPA shell)",
+      "ok": false,
+      "ms": 20095,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Static",
+      "name": "GET /styles.css",
+      "ok": false,
+      "ms": 20004,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Static",
+      "name": "GET /app.js",
+      "ok": false,
+      "ms": 20010,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Static",
+      "name": "GET /products.json",
+      "ok": false,
+      "ms": 20003,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap.xml (index)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap-en.xml (4-language per §218)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap-es.xml (4-language per §218)",
+      "ok": false,
+      "ms": 20004,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap-fr.xml (4-language per §218)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap-pt.xml (4-language per §218)",
+      "ok": false,
+      "ms": 20004,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /sitemap-cards.xml",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "Sitemap",
+      "name": "GET /robots.txt",
+      "ok": false,
+      "ms": 20005,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/health",
+      "ok": false,
+      "ms": 20389,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/geo/context",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/cards?limit=12",
+      "ok": false,
+      "ms": 20011,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/search/cards?q=birthday",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/cards/search?q=love (alias route)",
+      "ok": false,
+      "ms": 20011,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/cards/:slug (detail page)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/r2-image?url=<card preview URL>",
+      "ok": false,
+      "ms": 20010,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /pricing (hreflang injected)",
+      "ok": false,
+      "ms": 20003,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /about (hreflang injected)",
+      "ok": false,
+      "ms": 20014,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /contact (hreflang injected)",
+      "ok": false,
+      "ms": 20004,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /terms (hreflang injected)",
+      "ok": false,
+      "ms": 20010,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /privacy (hreflang injected)",
+      "ok": false,
+      "ms": 20003,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /cookies (hreflang injected)",
+      "ok": false,
+      "ms": 20005,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /payment-success (hreflang injected)",
+      "ok": false,
+      "ms": 20004,
+      "detail": "timeout"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "GET /payment-cancel (hreflang injected)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "GET /en/pricing (worker strips lang + injects hreflang)",
+      "ok": false,
+      "ms": 20015,
+      "detail": "timeout"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "GET /es/pricing (worker strips lang + injects hreflang)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "GET /fr/pricing (worker strips lang + injects hreflang)",
+      "ok": false,
+      "ms": 20018,
+      "detail": "timeout"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "GET /pt/pricing (worker strips lang + injects hreflang)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /discover -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20016,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /create -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20001,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /trending -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20011,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /latest -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /holidays -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20010,
+      "detail": "timeout"
+    },
+    {
+      "cat": "SPA",
+      "name": "GET /message-generator -> returns shell (no 404)",
+      "ok": false,
+      "ms": 20002,
+      "detail": "timeout"
+    },
+    {
+      "cat": "API",
+      "name": "POST /api/contact (valid payload, non-brittle)",
+      "ok": false,
+      "ms": 21011,
+      "detail": "connect ETIMEDOUT 2606:4700:3032::6815:407c:443"
+    },
+    {
+      "cat": "API",
+      "name": "GET /api/group/DEADBEEFNOTEXIST123/status -> 404 (new route)",
+      "ok": false,
+      "ms": 20001,
+      "detail": "timeout"
+    }
+  ],
+  "log": [
+    "=== SendAFun Production API Self-Check (remote) ===",
+    "Target: https://sendafun.com",
+    "[FAIL] Static :: GET / (SPA shell) (20095ms) -- timeout",
+    "[FAIL] Static :: GET /styles.css (20004ms) -- timeout",
+    "[FAIL] Static :: GET /app.js (20010ms) -- timeout",
+    "[FAIL] Static :: GET /products.json (20003ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap.xml (index) (20002ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap-en.xml (4-language per §218) (20002ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap-es.xml (4-language per §218) (20004ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap-fr.xml (4-language per §218) (20002ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap-pt.xml (4-language per §218) (20004ms) -- timeout",
+    "[FAIL] Sitemap :: GET /sitemap-cards.xml (20002ms) -- timeout",
+    "[FAIL] Sitemap :: GET /robots.txt (20005ms) -- timeout",
+    "[FAIL] API :: GET /api/health (20389ms) -- timeout",
+    "[FAIL] API :: GET /api/geo/context (20002ms) -- timeout",
+    "[FAIL] API :: GET /api/cards?limit=12 (20011ms) -- timeout",
+    "[FAIL] API :: GET /api/search/cards?q=birthday (20002ms) -- timeout",
+    "[FAIL] API :: GET /api/cards/search?q=love (alias route) (20011ms) -- timeout",
+    "[FAIL] API :: GET /api/cards/:slug (detail page) (20002ms) -- timeout",
+    "[FAIL] API :: GET /api/r2-image?url=<card preview URL> (20010ms) -- timeout",
+    "[FAIL] StaticPage :: GET /pricing (hreflang injected) (20003ms) -- timeout",
+    "[FAIL] StaticPage :: GET /about (hreflang injected) (20014ms) -- timeout",
+    "[FAIL] StaticPage :: GET /contact (hreflang injected) (20004ms) -- timeout",
+    "[FAIL] StaticPage :: GET /terms (hreflang injected) (20010ms) -- timeout",
+    "[FAIL] StaticPage :: GET /privacy (hreflang injected) (20003ms) -- timeout",
+    "[FAIL] StaticPage :: GET /cookies (hreflang injected) (20005ms) -- timeout",
+    "[FAIL] StaticPage :: GET /payment-success (hreflang injected) (20004ms) -- timeout",
+    "[FAIL] StaticPage :: GET /payment-cancel (hreflang injected) (20002ms) -- timeout",
+    "[FAIL] LangStatic :: GET /en/pricing (worker strips lang + injects hreflang) (20015ms) -- timeout",
+    "[FAIL] LangStatic :: GET /es/pricing (worker strips lang + injects hreflang) (20002ms) -- timeout",
+    "[FAIL] LangStatic :: GET /fr/pricing (worker strips lang + injects hreflang) (20018ms) -- timeout",
+    "[FAIL] LangStatic :: GET /pt/pricing (worker strips lang + injects hreflang) (20002ms) -- timeout",
+    "[FAIL] SPA :: GET /discover -> returns shell (no 404) (20016ms) -- timeout",
+    "[FAIL] SPA :: GET /create -> returns shell (no 404) (20001ms) -- timeout",
+    "[FAIL] SPA :: GET /trending -> returns shell (no 404) (20011ms) -- timeout",
+    "[FAIL] SPA :: GET /latest -> returns shell (no 404) (20002ms) -- timeout",
+    "[FAIL] SPA :: GET /holidays -> returns shell (no 404) (20010ms) -- timeout",
+    "[FAIL] SPA :: GET /message-generator -> returns shell (no 404) (20002ms) -- timeout",
+    "[FAIL] API :: POST /api/contact (valid payload, non-brittle) (21011ms) -- connect ETIMEDOUT 2606:4700:3032::6815:407c:443",
+    "[FAIL] API :: GET /api/group/DEADBEEFNOTEXIST123/status -> 404 (new route) (20001ms) -- timeout",
+    "\n========== SUMMARY ==========",
+    "Total: 38   Passed: 0   Failed: 38   Rate: 0.0%",
+    "\nFailed tests:",
+    "  - [Static] GET / (SPA shell) :: timeout",
+    "  - [Static] GET /styles.css :: timeout",
+    "  - [Static] GET /app.js :: timeout",
+    "  - [Static] GET /products.json :: timeout",
+    "  - [Sitemap] GET /sitemap.xml (index) :: timeout",
+    "  - [Sitemap] GET /sitemap-en.xml (4-language per §218) :: timeout",
+    "  - [Sitemap] GET /sitemap-es.xml (4-language per §218) :: timeout",
+    "  - [Sitemap] GET /sitemap-fr.xml (4-language per §218) :: timeout",
+    "  - [Sitemap] GET /sitemap-pt.xml (4-language per §218) :: timeout",
+    "  - [Sitemap] GET /sitemap-cards.xml :: timeout",
+    "  - [Sitemap] GET /robots.txt :: timeout",
+    "  - [API] GET /api/health :: timeout",
+    "  - [API] GET /api/geo/context :: timeout",
+    "  - [API] GET /api/cards?limit=12 :: timeout",
+    "  - [API] GET /api/search/cards?q=birthday :: timeout",
+    "  - [API] GET /api/cards/search?q=love (alias route) :: timeout",
+    "  - [API] GET /api/cards/:slug (detail page) :: timeout",
+    "  - [API] GET /api/r2-image?url=<card preview URL> :: timeout",
+    "  - [StaticPage] GET /pricing (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /about (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /contact (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /terms (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /privacy (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /cookies (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /payment-success (hreflang injected) :: timeout",
+    "  - [StaticPage] GET /payment-cancel (hreflang injected) :: timeout",
+    "  - [LangStatic] GET /en/pricing (worker strips lang + injects hreflang) :: timeout",
+    "  - [LangStatic] GET /es/pricing (worker strips lang + injects hreflang) :: timeout",
+    "  - [LangStatic] GET /fr/pricing (worker strips lang + injects hreflang) :: timeout",
+    "  - [LangStatic] GET /pt/pricing (worker strips lang + injects hreflang) :: timeout",
+    "  - [SPA] GET /discover -> returns shell (no 404) :: timeout",
+    "  - [SPA] GET /create -> returns shell (no 404) :: timeout",
+    "  - [SPA] GET /trending -> returns shell (no 404) :: timeout",
+    "  - [SPA] GET /latest -> returns shell (no 404) :: timeout",
+    "  - [SPA] GET /holidays -> returns shell (no 404) :: timeout",
+    "  - [SPA] GET /message-generator -> returns shell (no 404) :: timeout",
+    "  - [API] POST /api/contact (valid payload, non-brittle) :: connect ETIMEDOUT 2606:4700:3032::6815:407c:443",
+    "  - [API] GET /api/group/DEADBEEFNOTEXIST123/status -> 404 (new route) :: timeout",
+    "\nBy category:",
+    "  Static: 0 pass, 4 fail",
+    "  Sitemap: 0 pass, 7 fail",
+    "  API: 0 pass, 9 fail",
+    "  StaticPage: 0 pass, 8 fail",
+    "  LangStatic: 0 pass, 4 fail",
+    "  SPA: 0 pass, 6 fail"
+  ]
+}

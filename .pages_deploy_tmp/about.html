@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About SendAFun 2.0</title>
+<meta name="description" content="About SendAFun 2.0 — our mission, what's new in 2.0 (Intent Engine, Group Signatures, Gift-a-Month, 250+ templates), our team, and press contact.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#f3e8ff 0%,#fce7f3 50%,#e0e7ff 100%);min-height:100vh;color:#1f2937;line-height:1.6;padding:0 1rem}
+.glass{background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;box-shadow:0 8px 32px rgba(139,92,246,0.12)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#1e1b4b;margin-bottom:1rem}
+h1{font-size:2.2rem;text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.5rem;margin-top:2.2rem;color:#be185d}
+h3{font-size:1.1rem;margin-top:1.3rem}
+p{margin-bottom:1rem;color:#374151;font-size:0.98rem}
+a:hover{text-decoration:underline}
+.hero-quote{text-align:center;font-size:1.15rem;color:#6b21a8;max-width:620px;margin:0 auto 1.5rem;font-style:italic;font-family:'Playfair Display',Georgia,serif;line-height:1.55;}
+.tag{display:inline-block;padding:0.3rem 0.75rem;background:linear-gradient(135deg,rgba(167,139,250,0.18),rgba(236,72,153,0.18));border-radius:999px;font-size:0.78rem;font-weight:600;color:#6b21a8;margin:0.25rem 0.35rem 0.25rem 0}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
+.feature-card{padding:1.2rem;border-radius:14px;background:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.85);}
+.feature-card h3{margin-bottom:0.5rem;color:#5b21b6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1rem;}
+.feature-card p{margin:0;font-size:0.88rem;color:#4b5563;line-height:1.55;}
+.feature-icon{font-size:1.6rem;margin-bottom:0.5rem;}
+</style>
+</head>
+<body>
+<nav class="glass" style="padding:0.9rem 1.4rem;max-width:920px;margin:18px auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="/" style="font-family:'Playfair Display',serif;font-weight:700;color:inherit;text-decoration:none;">SendAFun 2.0</a>
+<div style="display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.86rem;">
+<a href="/#pricing" style="color:inherit;text-decoration:none;">Pricing</a>
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a>
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a>
+</div>
+      <!-- DOC §169: Top-bar permanent language selector (4 langs: EN/ES/FR/PT) -->
+      <label for="safLangPicker" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.9rem;color:#4b5563;white-space:nowrap;margin-left:0.9rem;" aria-label="Select your language">
+        <span aria-hidden="true">🌐</span>
+        <select id="safLangPicker"
+                onchange="try{window.location.href='/api/lang/set?lang='+this.value}catch(e){}"
+                style="min-height:40px;min-width:82px;padding:0.4rem 0.5rem;border-radius:0.6rem;border:1px solid rgba(148,163,184,0.5);background:rgba(255,255,255,0.9);color:#334155;font-size:0.86rem;-webkit-appearance:none;appearance:none;cursor:pointer;"
+                aria-label="Choose language">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+
+</nav>
+
+<main class="glass" style="padding:2rem 2.2rem;max-width:920px;margin:1.5rem auto;">
+<h1>About SendAFun 2.0</h1>
+<p class="hero-quote">"We believe every card should feel like a group hug from everyone who cares — built in 3 clicks, delivered with love."</p>
+
+<h2>Our Mission</h2>
+<p>SendAFun started as a small weekend project in 2024 with a simple, stubborn idea: sending a heartfelt digital card should never feel like filling out a spreadsheet. Two years, thousands of user conversations, and hundreds of millions of delivered smiles later, that same belief still anchors every product decision we make. We exist to make the act of remembering someone's birthday, a graduation, a promotion, a quiet "I miss you," or a tough "get well soon" as effortless as it is meaningful. No ads, no dark patterns, no locked features you'll never use — just a beautiful, honest tool for showing up.</p>
+<p>We're committed to celebrating the small, ordinary moments that bind families, friend groups, remote teams, and communities together. Every feature we ship is designed around the question: "Would we use this ourselves, for someone we actually love?" If the answer isn't an immediate yes, it doesn't ship. That constraint has guided us from version 1.0 to 2.0 and will continue to guide us into the future.</p>
+
+<h2>What's New in 2.0</h2>
+<p style="margin-bottom:0.5rem;">The biggest, most-requested rebuild of SendAFun ever. A few things we're especially proud of:</p>
+
+<div>
+<span class="tag">🎯 Intent Engine</span>
+<span class="tag">👥 Group Signatures</span>
+<span class="tag">🎁 Gift-a-Month</span>
+<span class="tag">✨ Glass UI</span>
+<span class="tag">🗂️ 250+ Templates</span>
+<span class="tag">⚡ R2 CDN</span>
+<span class="tag">📅 Smart Scheduling</span>
+<span class="tag">🔐 No account required</span>
+</div>
+
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Intent Engine — 3-click discovery</h3>
+<p>Tell us who it's for, the vibe, and a sentence about them. Our new recommendation engine surfaces 12 perfectly-matched templates instead of making you scroll through 250. No more decision fatigue.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">👥</div>
+<h3>Group Signatures</h3>
+<p>Collect 5, 50, or 500 signatures from the whole team, family, or class with a single shareable link. Signers can add short notes, emoji, and a doodle without creating an account. Everyone sees the full card before it sends.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎁</div>
+<h3>Gift-a-Month subscriptions</h3>
+<p>Buy a 1, 3, 6, or 12-month gift code for a friend who sends a lot of cards (or for a teacher, volunteer, or parent who deserves one less thing to think about). Redeemable anytime, no expiry.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">✨</div>
+<h3>Glass UI design system</h3>
+<p>A complete visual rebuild with soft gradients, blurred backdrops, and generous whitespace. Optimized for 5G and slow connections alike, with every template asset served from Cloudflare's R2 edge CDN in 285+ locations.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🗂️</div>
+<h3>250 templates on R2 CDN</h3>
+<p>From anniversaries to zero-waste congratulations, our in-house design team plus 40+ independent illustrators now contribute to a fully royalty-free, CC0-compatible template library. New designs every Monday.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📅</div>
+<h3>Smart scheduling &amp; delivery</h3>
+<p>Pick a date and time, we handle the rest — with timezone-aware delivery, automatic retry for bounces, and a re-send button you can actually find. You'll also get a confirmation email and a delivery receipt.</p>
+</div>
+</div>
+
+<h2>Our Team</h2>
+<p>SendAFun is built by a small, fully remote-first team of Product, Design, and Engineering humans distributed across 6 time zones. We don't have an office — we have a shared playlist, a weekly check-in on Fridays, and a very opinionated Notion. Everyone on the team sends at least 4 cards a month to friends and family; dogfooding isn't a process, it's how we know what to build next.</p>
+<p>We've been lucky to work with dozens of freelance illustrators, writers, and accessibility consultants across two years of SendAFun. If you're interested in joining our contributor pool as a template designer, copywriter, or QA volunteer, drop us a line at the press email below with a link to your portfolio.</p>
+
+<h2>Press &amp; Media</h2>
+<p>For press inquiries, interviews, fact-checks, embargoed launch information, or to request high-resolution brand assets and press kit, please email our press team directly at <strong>press@sendafun.com</strong>. We respond to all press requests within 12 business hours. Please do not send unsolicited pitches or backlink requests to this inbox; they will not receive a reply.</p>
+</main>
+
+<footer class="glass" style="padding:1.2rem 1.5rem;max-width:920px;margin:40px auto 24px;text-align:center;font-size:0.82rem;opacity:0.8;">
+© 2026 sendafun.com |
+<a href="/privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> |
+<a href="/terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> |
+<a href="/cookies.html" style="color:inherit;text-decoration:none;">Cookies</a> |
+<a href="/pricing.html" style="color:inherit;text-decoration:none;">Pricing</a> |
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a> |
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a> |
+Contact us: support@sendafun.com
+</footer>
+</body>
+</html>

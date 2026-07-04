@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact Us — SendAFun 2.0</title>
+<meta name="description" content="Contact SendAFun 2.0 support team. Email addresses for support, privacy, DMCA, enterprise, and mailing address.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#f3e8ff 0%,#fce7f3 50%,#e0e7ff 100%);min-height:100vh;color:#1f2937;line-height:1.6;padding:0 1rem}
+.glass{background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;box-shadow:0 8px 32px rgba(139,92,246,0.12)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#1e1b4b;margin-bottom:1rem}
+h1{font-size:2.2rem;text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.4rem;margin-top:0.5rem}
+h3{font-size:1.1rem}
+p{margin-bottom:1rem;color:#374151}
+a:hover{text-decoration:underline}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:1.5rem}
+@media(max-width:720px){.contact-wrap{grid-template-columns:1fr}}
+.contact-info-item{padding:0.9rem 1rem;margin-bottom:0.8rem;background:rgba(255,255,255,0.6);border-radius:12px;border-left:3px solid #a78bfa}
+.contact-info-label{font-size:0.78rem;font-weight:700;letter-spacing:0.05em;color:#7c3aed;text-transform:uppercase;margin-bottom:0.15rem}
+.contact-info-value{font-size:0.98rem;color:#1e1b4b;font-weight:500}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:0.85rem;font-weight:600;color:#374151;margin-bottom:0.35rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.65rem 0.85rem;border-radius:10px;border:1.5px solid rgba(167,139,250,0.3);background:rgba(255,255,255,0.85);font-family:inherit;font-size:0.92rem;color:#1f2937;transition:border-color .15s,box-shadow .15s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,0.15)}
+.form-group textarea{min-height:130px;resize:vertical}
+.btn{display:inline-block;padding:0.7rem 1.5rem;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;text-decoration:none;font-weight:600;border:none;cursor:pointer;font-size:0.92rem;width:100%}
+.btn:hover{opacity:0.92}
+.toast{display:none;margin-top:1rem;padding:0.8rem 1rem;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#065f46;border-radius:10px;font-size:0.9rem;text-align:center}
+</style>
+</head>
+<body>
+<nav class="glass" style="padding:0.9rem 1.4rem;max-width:920px;margin:18px auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="/" style="font-family:'Playfair Display',serif;font-weight:700;color:inherit;text-decoration:none;">SendAFun 2.0</a>
+<div style="display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.86rem;">
+<a href="/#pricing" style="color:inherit;text-decoration:none;">Pricing</a>
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a>
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a>
+</div>
+      <!-- DOC §169: Top-bar permanent language selector (4 langs: EN/ES/FR/PT) -->
+      <label for="safLangPicker" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.9rem;color:#4b5563;white-space:nowrap;margin-left:0.9rem;" aria-label="Select your language">
+        <span aria-hidden="true">🌐</span>
+        <select id="safLangPicker"
+                onchange="try{window.location.href='/api/lang/set?lang='+this.value}catch(e){}"
+                style="min-height:40px;min-width:82px;padding:0.4rem 0.5rem;border-radius:0.6rem;border:1px solid rgba(148,163,184,0.5);background:rgba(255,255,255,0.9);color:#334155;font-size:0.86rem;-webkit-appearance:none;appearance:none;cursor:pointer;"
+                aria-label="Choose language">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+
+</nav>
+
+<main class="glass" style="padding:2rem 2.2rem;max-width:920px;margin:1.5rem auto;">
+<h1>Get in Touch</h1>
+<p style="text-align:center;color:#6b7280;max-width:540px;margin:0 auto 1rem;">Our team replies within 24 business hours. For urgent delivery issues, please include your card reference number.</p>
+
+<div class="contact-wrap">
+<div>
+<h2 style="margin-bottom:1rem;">Contact Information</h2>
+
+<div class="contact-info-item">
+<div class="contact-info-label">Support &amp; Billing</div>
+<div class="contact-info-value">support@sendafun.com</div>
+</div>
+
+<div class="contact-info-item">
+<div class="contact-info-label">Privacy Requests (DSAR)</div>
+<div class="contact-info-value">privacy@sendafun.com</div>
+</div>
+
+<div class="contact-info-item">
+<div class="contact-info-label">DMCA &amp; Copyright Takedown</div>
+<div class="contact-info-value">takedown@sendafun.com</div>
+</div>
+
+<div class="contact-info-item">
+<div class="contact-info-label">Enterprise &amp; Bulk Orders</div>
+<div class="contact-info-value">enterprise@sendafun.com</div>
+</div>
+
+<div class="contact-info-item">
+<div class="contact-info-label">Press &amp; Media</div>
+<div class="contact-info-value">press@sendafun.com</div>
+</div>
+
+<div class="contact-info-item" style="border-left-color:#ec4899;">
+<div class="contact-info-label">Mailing Address</div>
+<div class="contact-info-value" style="line-height:1.45;">SendAFun Ltd.<br>8 Hill Street, Douglas<br>Isle of Man IM1 2EU</div>
+</div>
+
+<div style="margin-top:1.5rem;padding:1rem;border-radius:12px;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(236,72,153,0.08));font-size:0.88rem;color:#4b5563;">
+<strong style="color:#5b21b6;">Business hours:</strong> Monday — Friday, 09:00 – 18:00 BST. Replies may take slightly longer on weekends and Isle of Man bank holidays.
+</div>
+</div>
+
+<div>
+<h2 style="margin-bottom:1rem;">Send us a message</h2>
+<form onsubmit="event.preventDefault(); document.getElementById('contact-toast').style.display='block'; this.reset();">
+<div class="form-group">
+<label for="name">Full Name</label>
+<input id="name" type="text" placeholder="Jane Doe" required>
+</div>
+<div class="form-group">
+<label for="email">Your Email</label>
+<input id="email" type="email" placeholder="you@example.com" required>
+</div>
+<div class="form-group">
+<label for="topic">Topic</label>
+<select id="topic" required>
+<option value="">Select a topic…</option>
+<option>General question</option>
+<option>Delivery / scheduling issue</option>
+<option>Billing / refund request</option>
+<option>Group signature problem</option>
+<option>Template or design suggestion</option>
+<option>Bug report</option>
+<option>Partnership / press</option>
+<option>Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="ref">Card or order reference (if applicable)</label>
+<input id="ref" type="text" placeholder="e.g. SAD-2026-XXXXX">
+</div>
+<div class="form-group">
+<label for="msg">Your message</label>
+<textarea id="msg" placeholder="Tell us a bit more about how we can help…" required></textarea>
+</div>
+<button type="submit" class="btn">Send Message</button>
+<div id="contact-toast" class="toast">✅ Your message has been queued. We reply within 24 business hours.</div>
+</form>
+</div>
+</div>
+</main>
+
+<footer class="glass" style="padding:1.2rem 1.5rem;max-width:920px;margin:40px auto 24px;text-align:center;font-size:0.82rem;opacity:0.8;">
+© 2026 sendafun.com |
+<a href="/privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> |
+<a href="/terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> |
+<a href="/cookies.html" style="color:inherit;text-decoration:none;">Cookies</a> |
+<a href="/pricing.html" style="color:inherit;text-decoration:none;">Pricing</a> |
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a> |
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a> |
+Contact us: support@sendafun.com
+</footer>
+</body>
+</html>

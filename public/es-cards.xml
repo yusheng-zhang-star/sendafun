@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sendafun.com/es/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/discover</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/discover" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/discover" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/discover" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/discover" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/trending</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/trending" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/trending" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/trending" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/trending" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/latest</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/latest" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/latest" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/latest" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/latest" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/holidays</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/holidays" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/holidays" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/holidays" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/holidays" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/message-generator</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/message-generator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/message-generator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/message-generator" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/message-generator" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/pricing</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/pricing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/pricing" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/pricing" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/about.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/about.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/about.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/about.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/about.html" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/contact.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/contact.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/contact.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/contact.html" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/privacy.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/privacy.html" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/terms.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/terms.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/terms.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/terms.html" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/cookies.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/cookies.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/cookies.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/cookies.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/cookies.html" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/anniversary</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/anniversary" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/anniversary" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/anniversary" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/anniversary" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/birthday</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/birthday" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/birthday" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/birthday" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/birthday" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/christmas</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/christmas" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/christmas" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/christmas" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/christmas" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/congratulations</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/congratulations" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/congratulations" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/congratulations" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/congratulations" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/easter</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/easter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/easter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/easter" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/easter" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/encouragement</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/encouragement" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/encouragement" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/encouragement" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/encouragement" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/fathers-day</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/fathers-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/fathers-day" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/fathers-day" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/fathers-day" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/friendship</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/friendship" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/friendship" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/friendship" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/friendship" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/get-well</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/get-well" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/get-well" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/get-well" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/get-well" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/good-luck</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/good-luck" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/good-luck" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/good-luck" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/good-luck" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/graduation</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/graduation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/graduation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/graduation" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/graduation" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/halloween</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/halloween" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/halloween" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/halloween" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/halloween" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/love</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/love" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/love" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/love" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/love" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/missing-you</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/missing-you" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/missing-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/missing-you" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/missing-you" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/mothers-day</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/mothers-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/mothers-day" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/mothers-day" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/mothers-day" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/new-baby</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/new-baby" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/new-baby" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/new-baby" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/new-baby" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/new-year</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/new-year" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/new-year" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/new-year" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/new-year" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/retirement</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/retirement" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/retirement" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/retirement" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/retirement" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/sorry</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/sorry" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/sorry" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/sorry" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/sorry" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/sympathy</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/sympathy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/sympathy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/sympathy" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/sympathy" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/thank-you</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/thank-you" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/thank-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/thank-you" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/thank-you" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/thanksgiving</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/thanksgiving" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/thanksgiving" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/thanksgiving" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/thanksgiving" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/thinking-of-you</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/thinking-of-you" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/thinking-of-you" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/thinking-of-you" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/thinking-of-you" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/valentine</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/valentine" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/valentine" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/valentine" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/valentine" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/wedding</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/wedding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/wedding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/wedding" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/wedding" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/envelope-animation</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/envelope-animation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/envelope-animation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/envelope-animation" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/envelope-animation" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/group-collaboration</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/group-collaboration" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/group-collaboration" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/group-collaboration" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/group-collaboration" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/ai-message-generator</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/ai-message-generator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/ai-message-generator" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/ai-message-generator" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/ai-message-generator" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/gif-video</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/gif-video" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/gif-video" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/gif-video" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/gif-video" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/send-later</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/send-later" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/send-later" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/send-later" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/send-later" />
+  </url>
+  <url>
+    <loc>https://sendafun.com/es/features/b2b-bulk</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sendafun.com/features/b2b-bulk" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sendafun.com/es/features/b2b-bulk" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sendafun.com/fr/features/b2b-bulk" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sendafun.com/pt/features/b2b-bulk" />
+  </url>
+</urlset>

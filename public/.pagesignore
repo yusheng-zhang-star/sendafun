@@ -1,0 +1,25 @@
+# ⚠️ 重要说明（workbuffy 踩坑固化） ⚠️
+# Cloudflare Pages 的 .pagesignore 对 **CLI 命令 `wrangler pages deploy <dir>` 完全无效！
+# 它只对 "Git 集成自动部署"（Dashboard里连GitHub）生效。
+#
+# 本站现在的部署流程 = 先执行 `_scripts/deploy.py`：
+#   1. deploy.py 手动实现 ignore 规则（从 public/ 复制到 .pages_deploy_tmp/ 时排除以下文件）
+#   2. 再调用 `wrangler pages deploy .pages_deploy_tmp`
+# 所以：你想忽略某文件，请改 deploy.py 的 PAGES_IGNORE_RULES / PAGES_IGNORE_SUFFIX 变量，
+#      本文件仅作留档 + 若未来改回 Git 集成时兜底。
+# ============================================================================
+
+# 1) 超 Pages 25MB 单个文件限制的大文件（36MB / 120KB 两个都是 D1 同步完就不需要的本地缓存）
+cards-meta.json          # 36MB —— D1 已替代，Worker 从 DB 读卡片，不需要静态 JSON
+_category_index.json     # ~120KB —— Worker 从 sendafun-preview R2 桶实时拉，不读静态副本
+
+# 2) 常规开发相关忽略（即使未来用 Git 集成也不该传）
+*.pyc
+*.pyo
+.DS_Store
+node_modules/
+.git/
+*.log
+.idea/
+.vscode/
+__pycache__/

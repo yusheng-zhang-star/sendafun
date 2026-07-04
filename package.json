@@ -1,0 +1,17 @@
+{
+  "name": "sendafunupdate",
+  "version": "2.0.0",
+  "description": "SendAFun 2.0 — Intent-Driven Group Social E-Cards",
+  "scripts": {
+    "start": "npx serve public",
+    "deploy": "python _scripts/deploy.py both",
+    "deploy:pages": "python _scripts/deploy.py pages",
+    "deploy:worker": "python _scripts/deploy.py worker",
+    "deploy:dry": "python _scripts/deploy.py both --dry-run",
+    "_deploy:pages:legacy": "npx wrangler pages deploy .pages_deploy_tmp --project-name=sendafun",
+    "_deploy:worker:legacy": "npx wrangler deploy -c wrangler.toml"
+  },
+  "dependencies": {
+    "playwright": "^1.61.1"
+  }
+}

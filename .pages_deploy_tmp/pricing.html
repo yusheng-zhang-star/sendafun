@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pricing — SendAFun 2.0</title>
+<meta name="description" content="SendAFun 2.0 pricing plans. Free design &amp; preview, Pay per send, Monthly Unlimited $6.99, Annual Unlimited $69, Group Card Pass $4.99.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#f3e8ff 0%,#fce7f3 50%,#e0e7ff 100%);min-height:100vh;color:#1f2937;line-height:1.6;padding:0 1rem}
+.glass{background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;box-shadow:0 8px 32px rgba(139,92,246,0.12)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#1e1b4b;margin-bottom:1rem}
+h1{font-size:2.2rem;text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.6rem;margin-top:2rem}
+h3{font-size:1.25rem}
+p{margin-bottom:1rem;color:#374151}
+a:hover{text-decoration:underline}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin:2rem 0}
+.price-card{padding:1.5rem;border-radius:16px;background:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.9);position:relative;transition:transform .2s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.popular{border:2px solid #a78bfa;background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(252,231,243,0.15))}
+.price-card .badge{position:absolute;top:-10px;right:12px;background:#a78bfa;color:#fff;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:999px;font-weight:600}
+.price-name{font-size:1.1rem;font-weight:700;color:#1e1b4b;margin-bottom:0.25rem}
+.price-amount{font-size:2rem;font-weight:800;color:#7c3aed;margin-bottom:0.25rem}
+.price-period{font-size:0.82rem;color:#6b7280;margin-bottom:1rem}
+.feature-list{list-style:none;padding:0;margin:0}
+.feature-list li{padding:0.4rem 0;font-size:0.88rem;color:#374151;display:flex;align-items:flex-start;gap:0.5rem}
+.feature-list li::before{content:"✓";color:#10b981;font-weight:700;flex-shrink:0}
+.faq-section{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(139,92,246,0.15)}
+.faq-item{margin-bottom:1.2rem}
+.faq-q{font-weight:700;color:#1e1b4b;margin-bottom:0.35rem}
+.faq-a{color:#4b5563;font-size:0.92rem}
+.btn{display:inline-block;padding:0.65rem 1.4rem;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;text-decoration:none;font-weight:600;border:none;cursor:pointer;font-size:0.9rem;margin-top:1rem}
+.btn:hover{opacity:0.92;text-decoration:none}
+.btn-outline{background:transparent;color:#7c3aed;border:1.5px solid #a78bfa}
+</style>
+</head>
+<body>
+<nav class="glass" style="padding:0.9rem 1.4rem;max-width:920px;margin:18px auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="/" style="font-family:'Playfair Display',serif;font-weight:700;color:inherit;text-decoration:none;">SendAFun 2.0</a>
+<div style="display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.86rem;">
+<a href="/#pricing" style="color:inherit;text-decoration:none;">Pricing</a>
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a>
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a>
+</div>
+      <!-- DOC §169: Top-bar permanent language selector (4 langs: EN/ES/FR/PT) -->
+      <label for="safLangPicker" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.9rem;color:#4b5563;white-space:nowrap;margin-left:0.9rem;" aria-label="Select your language">
+        <span aria-hidden="true">🌐</span>
+        <select id="safLangPicker"
+                onchange="try{window.location.href='/api/lang/set?lang='+this.value}catch(e){}"
+                style="min-height:40px;min-width:82px;padding:0.4rem 0.5rem;border-radius:0.6rem;border:1px solid rgba(148,163,184,0.5);background:rgba(255,255,255,0.9);color:#334155;font-size:0.86rem;-webkit-appearance:none;appearance:none;cursor:pointer;"
+                aria-label="Choose language">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+
+</nav>
+
+<main class="glass" style="padding:2rem 2.2rem;max-width:920px;margin:1.5rem auto;">
+<h1>Pricing Plans</h1>
+<p style="text-align:center;color:#6b7280;max-width:560px;margin:0 auto 1rem;">Free to design &amp; preview forever. Pay only when you're ready to send.</p>
+
+<div class="price-grid">
+<div class="price-card">
+<div class="price-name">Free</div>
+<div class="price-amount">$0</div>
+<div class="price-period">Forever</div>
+<ul class="feature-list">
+<li>Unlimited previews &amp; saves</li>
+<li>Watermark on sent cards</li>
+<li>Basic template library</li>
+<li>No scheduling (send now only)</li>
+<li>Send history (last 3)</li>
+<li>Group signatures (max 5)</li>
+<li>Community support</li>
+<li>Email delivery</li>
+</ul>
+<button class="btn btn-outline" style="width:100%" onclick="location.href='/'">Start Free</button>
+</div>
+
+<div class="price-card">
+<div class="price-name">Pay Per Send</div>
+<div class="price-amount">$1.99</div>
+<div class="price-period">per card sent</div>
+<ul class="feature-list">
+<li>Unlimited previews &amp; saves</li>
+<li>No watermark</li>
+<li>Full template library</li>
+<li>Scheduling up to 90 days</li>
+<li>Send history (last 30)</li>
+<li>Group signatures (max 10)</li>
+<li>Email support</li>
+<li>Priority delivery</li>
+</ul>
+<button class="btn btn-outline" style="width:100%" data-plan-id="prod_7GGx4Gh5yvKLOb0OCzYFoq" data-creem-product="prod_7GGx4Gh5yvKLOb0OCzYFoq" onclick="location.href='/?plan=pay_per_send#pricing'">Send a Card</button>
+</div>
+
+<div class="price-card popular">
+<div class="badge">⭐ Popular</div>
+<div class="price-name">Monthly Unlimited</div>
+<div class="price-amount">$6.99</div>
+<div class="price-period">per month, billed monthly</div>
+<ul class="feature-list">
+<li>Unlimited previews &amp; saves</li>
+<li>No watermark</li>
+<li>Full template library (250+)</li>
+<li>Unlimited scheduling</li>
+<li>Full send history</li>
+<li>Unlimited group signatures</li>
+<li>Priority support</li>
+<li>Gift subscription feature</li>
+</ul>
+<button class="btn" style="width:100%" data-plan-id="prod_3xVdtK0wdzqLlaCz4H7lzQ" data-creem-product="prod_3xVdtK0wdzqLlaCz4H7lzQ" onclick="location.href='/?plan=monthly#pricing'">Go Monthly</button>
+</div>
+
+<div class="price-card">
+<div class="price-name">Annual Unlimited</div>
+<div class="price-amount">$69</div>
+<div class="price-period">per year (save ~18%)</div>
+<ul class="feature-list">
+<li>Unlimited previews &amp; saves</li>
+<li>No watermark</li>
+<li>Full template library (250+)</li>
+<li>Unlimited scheduling</li>
+<li>Full send history</li>
+<li>Unlimited group signatures</li>
+<li>Priority support</li>
+<li>Gift subscription feature</li>
+</ul>
+<button class="btn btn-outline" style="width:100%" data-plan-id="prod_73aCoww3uhNMevKi8NVwNv" data-creem-product="prod_73aCoww3uhNMevKi8NVwNv" onclick="location.href='/?plan=annual#pricing'">Go Annual</button>
+</div>
+
+<div class="price-card">
+<div class="price-name">Group Card Pass</div>
+<div class="price-amount">$4.99</div>
+<div class="price-period">one-time, 30 days</div>
+<ul class="feature-list">
+<li>Unlimited previews &amp; saves</li>
+<li>No watermark</li>
+<li>Full template library</li>
+<li>Scheduling included</li>
+<li>Send history (30 days)</li>
+<li>Group signatures (max 50)</li>
+<li>Email support</li>
+<li>Shareable sign-up link</li>
+</ul>
+<button class="btn btn-outline" style="width:100%" data-plan-id="prod_6FsQQfkCT71L7GaLMYANiA" data-creem-product="prod_6FsQQfkCT71L7GaLMYANiA" onclick="location.href='/?plan=group#pricing'">Buy Group Pass</button>
+</div>
+</div>
+
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-q">→ What is your refund policy?</div>
+<div class="faq-a">No partial refunds on one-time cards. Subscriptions are cancellable at the end of the current billing period per our Terms of Service §4. Pay-per-send purchases are non-refundable once the card has been delivered to the recipient. Annual plans may be eligible for a pro-rata refund within 14 days of purchase if unused.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">→ Which payment methods do you accept?</div>
+<div class="faq-a">We accept all major Credit and Debit Cards (Visa, Mastercard, Amex, Discover), Apple Pay, and Google Pay. All payments are processed securely through Creem checkout, with PCI DSS Level 1 compliance and end-to-end encryption for every transaction. No card data is stored on our servers.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">→ How do I cancel my subscription?</div>
+<div class="faq-a">You can cancel any time directly from the confirmation email sent when you subscribed, or by emailing support@sendafun.com with your order reference. Cancellation takes effect at the end of your current billing cycle, and you will retain access until that date. There are no cancellation fees or penalties.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">→ Can I gift a subscription to someone else?</div>
+<div class="faq-a">Yes! The Gift subscription feature is included in the Monthly Unlimited, Annual Unlimited, and Group Card Pass plans. You can purchase 1-month, 3-month, 6-month, or 12-month gift codes that the recipient can redeem at any time. Gift codes are delivered instantly by email.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">→ Do you offer discounts for nonprofits or education?</div>
+<div class="faq-a">We offer a 30% discount for registered 501(c)(3) nonprofits, K-12 schools, and accredited universities. Contact enterprise@sendafun.com with your organization details and we will set up a custom discount code within one business day. Bulk pricing for 100+ cards per month is also available.</div>
+</div>
+</div>
+</main>
+
+<footer class="glass" style="padding:1.2rem 1.5rem;max-width:920px;margin:40px auto 24px;text-align:center;font-size:0.82rem;opacity:0.8;">
+© 2026 sendafun.com |
+<a href="/privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> |
+<a href="/terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> |
+<a href="/cookies.html" style="color:inherit;text-decoration:none;">Cookies</a> |
+<a href="/pricing.html" style="color:inherit;text-decoration:none;">Pricing</a> |
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a> |
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a> |
+Contact us: support@sendafun.com
+</footer>
+</body>
+</html>

@@ -1,0 +1,315 @@
+name = "sendafun"
+main = "worker/src/index.js"
+compatibility_date = "2025-01-01"
+account_id = "dbacad9daf4c611ca4143f74fc33c2d3"
+
+[vars]
+SITE_URL = "https://sendafun.com"
+RESEND_FROM_EMAIL = "support@sendafun.com"
+
+[[kv_namespaces]]
+binding = "CARD_PERMISSIONS"
+id = "7cd3408c3caf4fe9948cd156f6883acb"
+
+[[r2_buckets]]
+binding = "PREVIEW_BUCKET"
+bucket_name = "sendafun-preview"
+
+[[r2_buckets]]
+binding = "ORIGINALS_BUCKET"
+bucket_name = "sendafun-originals"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sendafun-cards"
+database_id = "5c51d914-388d-4034-962a-767ff5bf633e"
+
+[[routes]]
+pattern = "sendafun.com/api/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+[[routes]]
+pattern = "sendafun.com/sitemap.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+[[routes]]
+pattern = "sendafun.com/sitemap-pages.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+[[routes]]
+pattern = "sendafun.com/sitemap-cards.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+[[routes]]
+pattern = "sendafun.com/robots.txt"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# SPA 前端路由（固定路径）：让 Worker 接管，返回 302 到 Hash 路由
+[[routes]]
+pattern = "sendafun.com/create"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/discover"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/trending"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/latest"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/holidays"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/message-generator"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# SPA 动态参数路由：/card/* /group/* /redeem/*
+[[routes]]
+pattern = "sendafun.com/card/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/group/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/redeem/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-2 Doc §218: 4 separate language-dedicated sitemaps.
+[[routes]]
+pattern = "sendafun.com/sitemap-en.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/sitemap-es.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/sitemap-fr.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/sitemap-pt.xml"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-1 Doc §13.2.1: manual language switch cookie endpoint.
+[[routes]]
+pattern = "sendafun.com/api/lang/set"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-2 hreflang: have Worker also serve the static "about/contact/pricing/terms/privacy/cookies"
+# HTML pages so it can inject bidirectional hreflang tags before </head>.
+[[routes]]
+pattern = "sendafun.com/pricing"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/about"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/contact"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/terms"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/privacy"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/cookies"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-2 Doc §218 language-prefixed static pages (/en/pricing, /es/about, ...)
+# MUST also route thru Worker so hreflang/JSON-LD/geo-headers get injected.
+[[routes]]
+pattern = "sendafun.com/en/pricing"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/about"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/contact"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/terms"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/privacy"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/cookies"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/pricing"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/about"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/contact"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/terms"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/privacy"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/cookies"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/pricing"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/about"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/contact"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/terms"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/privacy"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/cookies"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/pricing"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/about"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/contact"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/terms"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/privacy"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/cookies"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-2: lang-prefixed SPA routes (so Worker serves them with hreflang injected)
+[[routes]]
+pattern = "sendafun.com/en/create"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/discover"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/trending"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/latest"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/holidays"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/message-generator"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/create"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/discover"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/trending"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/latest"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/holidays"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/message-generator"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/create"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/discover"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/trending"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/latest"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/holidays"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/message-generator"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/create"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/discover"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/trending"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/latest"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/holidays"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/message-generator"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# Also lang-prefixed card/group/redeem wildcard routes thru Worker
+[[routes]]
+pattern = "sendafun.com/en/card/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/card/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/card/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/card/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/group/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/group/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/group/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/group/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/en/redeem/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/es/redeem/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/fr/redeem/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+[[routes]]
+pattern = "sendafun.com/pt/redeem/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-1 lang switch cookie route already exists; add /api/geo/context route explicitly
+[[routes]]
+pattern = "sendafun.com/api/geo/context"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"
+
+# B-3 CATCH-ALL (last resort).  Ensures Worker 100% handles all sendafun.com traffic
+# regardless of Pages custom-domain ordering.  Worker internally dispatches to
+# API / sitemap / static / SPA / 404 correctly on its own.
+[[routes]]
+pattern = "sendafun.com/*"
+zone_id = "80ab5a9c4430b4f4c3657dfb5b94ff18"

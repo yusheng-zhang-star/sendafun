@@ -1,0 +1,13 @@
+# Cloudflare Pages .pagesignore
+# cards-meta.json: 36MB local cache, cards now live in D1 (Worker reads DB)
+# products.json: REQUIRED static asset — app.js fetches /products.json (Creem product IDs)
+cards-meta.json
+_category_index.json
+*.pyc
+*.pyo
+.DS_Store
+node_modules/
+.git/
+*.log
+.idea/
+.vscode/

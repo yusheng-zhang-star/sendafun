@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /group/
+Disallow: /redeem/
+Sitemap: https://sendafun.com/sitemap.xml

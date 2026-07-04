@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cookies &amp; Tracking Policy — SendAFun 2.0</title>
+<meta name="description" content="SendAFun 2.0 Cookies and Tracking Policy. Essential, analytics, and advertising cookies, how to disable them, third-party domains.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#f3e8ff 0%,#fce7f3 50%,#e0e7ff 100%);min-height:100vh;color:#1f2937;line-height:1.6;padding:0 1rem}
+.glass{background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;box-shadow:0 8px 32px rgba(139,92,246,0.12)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#1e1b4b;margin-bottom:1rem}
+h1{font-size:2.2rem;text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.4rem;margin-top:2rem;color:#0369a1}
+h3{font-size:1.1rem;margin-top:1rem}
+p{margin-bottom:1rem;color:#374151}
+a:hover{text-decoration:underline}
+.updated{text-align:center;color:#6b7280;font-size:0.88rem;margin-bottom:2rem}
+.section{margin-bottom:1.8rem;padding-left:0.5rem}
+.badge-type{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;font-size:0.78rem;font-weight:700;margin-bottom:0.7rem}
+.badge-essential{background:rgba(16,185,129,0.15);color:#065f46}
+.badge-analytics{background:rgba(59,130,246,0.15);color:#1e40af}
+.badge-ad{background:rgba(245,158,11,0.18);color:#92400e}
+.cookie-table{width:100%;border-collapse:separate;border-spacing:0;margin:0.8rem 0 1.2rem;font-size:0.88rem}
+.cookie-table th{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.1));text-align:left;padding:0.7rem 0.9rem;font-weight:700;color:#5b21b6;border-top:1px solid rgba(167,139,250,0.3);border-bottom:1px solid rgba(167,139,250,0.3)}
+.cookie-table th:first-child{border-top-left-radius:10px}
+.cookie-table th:last-child{border-top-right-radius:10px}
+.cookie-table td{padding:0.6rem 0.9rem;border-bottom:1px solid rgba(139,92,246,0.12);vertical-align:top;background:rgba(255,255,255,0.45)}
+.cookie-table tr:last-child td:first-child{border-bottom-left-radius:10px}
+.cookie-table tr:last-child td:last-child{border-bottom-right-radius:10px}
+.domain-chip{display:inline-block;padding:0.2rem 0.55rem;margin:0.15rem 0.15rem;border-radius:6px;font-family:ui-monospace,Consolas,monospace;font-size:0.78rem;background:rgba(255,255,255,0.7);border:1px solid rgba(139,92,246,0.25);color:#4c1d95}
+</style>
+</head>
+<body>
+<nav class="glass" style="padding:0.9rem 1.4rem;max-width:920px;margin:18px auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="/" style="font-family:'Playfair Display',serif;font-weight:700;color:inherit;text-decoration:none;">SendAFun 2.0</a>
+<div style="display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.86rem;">
+<a href="/#pricing" style="color:inherit;text-decoration:none;">Pricing</a>
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a>
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a>
+</div>
+      <!-- DOC §169: Top-bar permanent language selector (4 langs: EN/ES/FR/PT) -->
+      <label for="safLangPicker" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.9rem;color:#4b5563;white-space:nowrap;margin-left:0.9rem;" aria-label="Select your language">
+        <span aria-hidden="true">🌐</span>
+        <select id="safLangPicker"
+                onchange="try{window.location.href='/api/lang/set?lang='+this.value}catch(e){}"
+                style="min-height:40px;min-width:82px;padding:0.4rem 0.5rem;border-radius:0.6rem;border:1px solid rgba(148,163,184,0.5);background:rgba(255,255,255,0.9);color:#334155;font-size:0.86rem;-webkit-appearance:none;appearance:none;cursor:pointer;"
+                aria-label="Choose language">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+
+</nav>
+
+<main class="glass" style="padding:2rem 2.2rem;max-width:920px;margin:1.5rem auto;">
+<h1>Cookies &amp; Tracking Policy</h1>
+<p class="updated">Last updated: June 30, 2026 · Effective: June 30, 2026</p>
+
+<div class="section">
+<h2>1. What are cookies?</h2>
+<p>Cookies are small text files that are stored on your device (computer, tablet, or smartphone) by a website you visit. They are widely used to make websites work, or work more efficiently, by remembering your actions and preferences (such as login, language, or session state) so you don't have to re-enter them every time you come back to the site or browse from one page to another. Cookies may be set by the site you are visiting ("first-party cookies") or by third-party domains that run content or services embedded on the site ("third-party cookies").</p>
+<p>In addition to cookies, we may use similar technologies such as web beacons (also called clear gifs or pixel tags), local storage / IndexedDB, and device fingerprinting signals. These technologies help us count visits, understand usage patterns, measure engagement, and detect abuse. For simplicity, we refer to all of these technologies collectively as "cookies" throughout this policy unless the context requires otherwise.</p>
+<p>When you first visit sendafun.com, you will be presented with a cookie consent banner that allows you to accept or reject non-essential categories of cookies. You can change your preferences at any time by clicking the "Cookie Preferences" link in the footer or by adjusting the settings in your browser. Your current consent choice is stored locally on your device for up to 12 months.</p>
+</div>
+
+<div class="section">
+<h2>2. Essential cookies</h2>
+<span class="badge-type badge-essential">Always active · Cannot be declined</span>
+<p>Essential cookies are strictly necessary for the basic functionality of the Service. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, filling in forms, or initiating a payment. You can set your browser to block or alert you about these cookies, but some parts of the Service will then not work properly or at all.</p>
+
+<table class="cookie-table">
+<thead>
+<tr><th style="width:22%">Cookie name</th><th style="width:20%">Provider / Domain</th><th style="width:12%">Duration</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>__cf_bm</code></td><td>Cloudflare / .sendafun.com</td><td>Session</td><td>Cloudflare Bot Management cookie to help distinguish between legitimate human visitors and automated abusive traffic. Required for the site to remain online and performant.</td></tr>
+<tr><td><code>__cfruid</code></td><td>Cloudflare / .sendafun.com</td><td>Session</td><td>Supports Cloudflare Rate Limiting to protect the site from DDoS and brute-force attacks.</td></tr>
+<tr><td><code>saf_sid</code></td><td>sendafun.com</td><td>14 days</td><td>Encrypted session identifier that maintains your signed-in state across page loads, so you don't have to re-authenticate on every request.</td></tr>
+<tr><td><code>saf_csrf</code></td><td>sendafun.com</td><td>Session</td><td>Anti-CSRF (Cross-Site Request Forgery) token that prevents third-party sites from forging requests on your behalf.</td></tr>
+<tr><td><code>saf_consent</code></td><td>sendafun.com</td><td>12 months</td><td>Remembers your cookie consent preferences (essential / analytics / advertising) so that you are not re-prompted on every visit.</td></tr>
+<tr><td><code>saf_draft_[id]</code></td><td>sendafun.com</td><td>30 days</td><td>Local storage key that saves your in-progress card customizations to prevent data loss if you navigate away before saving.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>3. Analytics (GA4, anonymized)</h2>
+<span class="badge-type badge-analytics">Off by default · Requires consent</span>
+<p>With your consent, we use Google Analytics 4 (GA4) to help us understand how visitors interact with our website and the Service. GA4 collects pseudonymous data such as the pages you visit, the links you click, how long you stay on a page, what browser and device you are using, your approximate geographic region (derived from IP address, truncated to country or city level), and your traffic source. We have configured GA4 to anonymize IP addresses of all visitors, meaning the last octet of your IP address is dropped immediately upon collection and never stored in Google's logs. We do not use any other Google advertising features in combination with GA4.</p>
+
+<table class="cookie-table">
+<thead>
+<tr><th style="width:22%">Cookie name</th><th style="width:20%">Provider / Domain</th><th style="width:12%">Duration</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_ga</code></td><td>Google / .sendafun.com</td><td>2 years</td><td>Primary GA4 identifier used to distinguish unique users. Contains a randomly generated client ID; no personal data is stored in this cookie.</td></tr>
+<tr><td><code>_ga_* (e.g. _ga_ABC123)</code></td><td>Google / .sendafun.com</td><td>2 years</td><td>Stores and updates a per-session state so GA4 can correctly attribute page views, events, and conversions within a single session.</td></tr>
+<tr><td><code>saf_ga_events</code></td><td>sendafun.com</td><td>Session</td><td>Local buffer for throttled event sends to GA4, which reduces redundant pings on poor connections.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>4. Advertising (AdSense personalized)</h2>
+<span class="badge-type badge-ad">Off by default · Requires consent</span>
+<p>With your explicit consent, we display non-intrusive Google AdSense advertisements on free-tier pages to help keep the lights on. Google may use cookies and similar technologies to personalize the ads you see based on your browsing history across the web, including interests inferred from your visits to this and other sites. This is commonly referred to as "interest-based advertising" or "personalized advertising." You can opt out of personalized advertising at any time through our consent manager or at Google Ad Settings at adssettings.google.com.</p>
+
+<table class="cookie-table">
+<thead>
+<tr><th style="width:22%">Cookie name</th><th style="width:20%">Provider / Domain</th><th style="width:12%">Duration</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_gads</code></td><td>Google / .google.com</td><td>13 months</td><td>Used by Google Ads and AdSense for conversion tracking, ad frequency capping, and to measure ad performance and attribution.</td></tr>
+<tr><td><code>_gac_*</code></td><td>Google / .sendafun.com</td><td>90 days</td><td>Contains campaign-specific campaign information for the user who clicked a Google ad to reach our site, used to attribute conversions.</td></tr>
+<tr><td><code>IDE</code></td><td>Google / .doubleclick.net</td><td>13 months</td><td>Stores whether a visitor has opted out of personalized advertising via the Ads Settings or via NAI / DAA opt-out tools.</td></tr>
+<tr><td><code>test_cookie</code></td><td>Google / .doubleclick.net</td><td>15 minutes</td><td>Checks if the user's browser supports cookies; used for ad-serving decision logic. Does not store any personal data.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>5. How to disable or manage cookies</h2>
+<p>Most modern web browsers provide settings that allow you to control cookies — you can choose to block all cookies, accept only certain categories, or delete existing cookies. The exact steps depend on your browser; please follow the links below for instructions for the most popular browsers. Please note that if you choose to block or delete essential cookies, certain features of the Service may stop working or become unreliable, and you may need to re-enter your credentials more frequently.</p>
+<p>
+<strong>Google Chrome:</strong> Settings → Privacy and security → Third-party cookies &amp; Site settings → Cookies (or visit <code>chrome://settings/cookies</code>)<br>
+<strong>Firefox:</strong> Settings → Privacy &amp; Security → Browser Privacy → Cookies and Site Data<br>
+<strong>Safari (macOS):</strong> Settings → Privacy → Cookies and website data → Manage Website Data<br>
+<strong>Safari (iOS):</strong> Settings → Safari → Block Cookies<br>
+<strong>Microsoft Edge:</strong> Settings → Privacy, search, and services → Cookies and site permissions<br>
+<strong>Brave:</strong> Settings → Shields → Cookie controls → Cookie blocking
+</p>
+<p>For Google Analytics specifically, you can install the official Google Analytics Opt-out Browser Add-on for your desktop browser at <code>tools.google.com/dlpage/gaoptout</code>, which prevents the GA4 JavaScript from sending data about your visit to Google Analytics on any website that uses it. For mobile users can also enable your browser's built-in Privacy Badging and blocking capability (e.g. Apple App Tracking Transparency on iOS).</p>
+</div>
+
+<div class="section">
+<h2>6. Third-party domains</h2>
+<p>Depending on your consent choices, some cookies and tracking requests are sent to the following third-party domains. We have signed Data Processing Addendums (DPAs) and / or rely on Standard Contractual Clauses (SCCs) with each of these providers as required by applicable data protection law for the limited purposes described above.</p>
+<p style="margin-top:0.5rem;">
+<span class="domain-chip">google-analytics.com</span>
+<span class="domain-chip">analytics.google.com</span>
+<span class="domain-chip">googlesyndication.com</span>
+<span class="domain-chip">googleads.g.doubleclick.net</span>
+<span class="domain-chip">googleadservices.com</span>
+<span class="domain-chip">pagead2.googlesyndication.com</span>
+<span class="domain-chip">cloudflareinsights.com</span>
+<span class="domain-chip">static.cloudflareinsights.com</span>
+<span class="domain-chip">cdn.creem.io</span>
+<span class="domain-chip">api.resend.com</span>
+</p>
+<p>You can review each provider's own privacy policy and opt-out mechanisms by visiting their respective domains. Note that blocking these third-party domains at the network level (via a content blocker or ad blocker) may cause some parts of the Service — particularly checkout and email-related pages — to function less reliably or fail entirely.</p>
+</div>
+
+<div class="section">
+<h2>7. Changes &amp; contact</h2>
+<p>We may update this Cookies &amp; Tracking Policy from time to time to reflect changes in the cookies we deploy, the providers we work with, or new legal requirements. Any updates will be posted on this page with a revised "Last updated" date at the top. Material changes will be announced via a notice on the website for at least 30 days prior to the change becoming effective. If we deploy a new category of third-party tracking that requires consent, we will re-present the consent banner on your next visit so you can make a fresh choice.</p>
+<p>If you have any questions about our use of cookies or tracking technologies, or if you would like to receive a machine-readable export of our cookie declarations, please contact our privacy team at <strong>privacy@sendafun.com</strong> with the subject line "Cookies Policy Inquiry". We will respond to your request within 30 calendar days.</p>
+</div>
+</main>
+
+<footer class="glass" style="padding:1.2rem 1.5rem;max-width:920px;margin:40px auto 24px;text-align:center;font-size:0.82rem;opacity:0.8;">
+© 2026 sendafun.com |
+<a href="/privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> |
+<a href="/terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> |
+<a href="/cookies.html" style="color:inherit;text-decoration:none;">Cookies</a> |
+<a href="/pricing.html" style="color:inherit;text-decoration:none;">Pricing</a> |
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a> |
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a> |
+Contact us: support@sendafun.com
+</footer>
+</body>
+</html>

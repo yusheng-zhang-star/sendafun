@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Payment Cancelled · SendAFun 2.0</title>
+<meta name="description" content="Your SendAFun 2.0 payment was cancelled. No charges were made. Your edits are saved locally.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#fef3c7 0%,#fce7f3 40%,#f3e8ff 100%);min-height:100vh;color:#1f2937;line-height:1.6;padding:0 1rem}
+.glass{background:rgba(255,255,255,0.65);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8);border-radius:18px;box-shadow:0 8px 32px rgba(245,158,11,0.12)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#1e1b4b;margin-bottom:1rem}
+h1{font-size:2.1rem;text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.25rem;color:#92400e;margin-top:1rem}
+p{margin-bottom:1rem;color:#374151}
+a:hover{text-decoration:underline}
+.cancel-wrap{text-align:center;margin:0.5rem auto;max-width:580px}
+.warn-icon{width:88px;height:88px;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fbbf24);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(245,158,11,0.35);animation:popIn .5s cubic-bezier(.26,1.6,.5,1)}
+.warn-icon span{font-size:3.1rem;color:#fff;line-height:1;font-weight:900}
+@keyframes popIn{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}}
+.note-card{margin-top:1.8rem;padding:1.3rem 1.5rem;border-radius:14px;background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(236,72,153,0.08));border:1px solid rgba(245,158,11,0.3);text-align:left;font-size:0.92rem;color:#78350f}
+.btn-row{display:flex;gap:0.9rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+.btn{display:inline-block;padding:0.7rem 1.4rem;border-radius:10px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:0.92rem;transition:opacity .15s, transform .15s}
+.btn:hover{opacity:0.9;text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(135deg,#f59e0b,#ec4899);color:#fff;box-shadow:0 6px 18px rgba(245,158,11,0.35)}
+.btn-secondary{background:rgba(255,255,255,0.85);color:#92400e;border:1.5px solid rgba(245,158,11,0.45)}
+</style>
+</head>
+<body>
+<nav class="glass" style="padding:0.9rem 1.4rem;max-width:920px;margin:18px auto;display:flex;align-items:center;justify-content:space-between;">
+<a href="/" style="font-family:'Playfair Display',serif;font-weight:700;color:inherit;text-decoration:none;">SendAFun 2.0</a>
+<div style="display:flex;gap:0.9rem;flex-wrap:wrap;font-size:0.86rem;">
+<a href="/#pricing" style="color:inherit;text-decoration:none;">Pricing</a>
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a>
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a>
+</div>
+</nav>
+
+<main class="glass" style="padding:2.5rem 2.2rem;max-width:780px;margin:1.5rem auto;">
+<div class="cancel-wrap">
+<div class="warn-icon"><span>⚠️</span></div>
+<h1>No charges were made.</h1>
+<p style="color:#6b7280;margin-bottom:0.2rem;">Your payment was cancelled before it could be processed.</p>
+</div>
+
+<div style="max-width:640px;margin:1.5rem auto 0;">
+<p>We <strong>didn't charge your payment method</strong>, and no pending authorizations were left on your card (aside from a standard $0 temporary pre-authorization that most card issuers place at the beginning of any checkout flow — this will automatically drop off your statement within 24–72 hours depending on your bank). Nothing was invoiced, nothing was billed, and nothing will appear on your next statement from us.</p>
+
+<h2>💾 Your work is saved locally</h2>
+<p>Good news: all your card edits, customisations, recipient email, message text, signatures, and scheduling choices are still saved in your browser's local storage on this device. To continue where you left off, simply <strong>pick the same template &amp; recipient again</strong> from the homepage — the editor will pick up your saved draft and pre-fill everything so you don't have to start over. Drafts are retained for 30 days from your last edit.</p>
+
+<div class="note-card">
+<p style="margin:0;color:#78350f;"><strong>Questions?</strong> If something unexpected happened during checkout — a weird error, a wrong plan, a card that kept declining — reply to our on-site chat bubble in the bottom-right corner of any page, or shoot an email any time to <a href="mailto:support@sendafun.com" style="color:#92400e;font-weight:700;">support@sendafun.com</a>. We usually answer within a few hours, even on weekends.</p>
+</div>
+
+<div class="btn-row">
+<a href="/" class="btn btn-primary" onclick="alert('Your draft card will be restored automatically.'); return true;">🎨 Finish my Card</a>
+<a href="/#discover" class="btn btn-secondary">🗂️ Browse other Templates</a>
+</div>
+</div>
+</main>
+
+<footer class="glass" style="padding:1.2rem 1.5rem;max-width:920px;margin:40px auto 24px;text-align:center;font-size:0.82rem;opacity:0.8;">
+© 2026 sendafun.com |
+<a href="/privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> |
+<a href="/terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> |
+<a href="/cookies.html" style="color:inherit;text-decoration:none;">Cookies</a> |
+<a href="/pricing.html" style="color:inherit;text-decoration:none;">Pricing</a> |
+<a href="/about.html" style="color:inherit;text-decoration:none;">About</a> |
+<a href="/contact.html" style="color:inherit;text-decoration:none;">Contact</a> |
+Contact us: support@sendafun.com
+</footer>
+</body>
+</html>

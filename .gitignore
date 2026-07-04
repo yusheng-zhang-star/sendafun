@@ -1,0 +1,40 @@
+node_modules
+.wrangler
+.env
+*.log
+dist
+.DS_Store
+.vscode
+.idea
+coverage
+*.local
+
+# ========================================
+# SendAFun Materials Pipeline (Expand)
+# ========================================
+# 绝对禁止提交的大文件目录（Pexels原图/处理后图，几十到几百GB）
+raw-originals/
+processed/
+
+# 本地日志 + 本地备份（不提交Git，只存在本地）
+_material-library/logs/
+_material-library/backups/
+
+# Python 缓存 + 虚拟环境
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.python-version
+venv/
+.venv/
+env/
+
+# 进度断点文件（跑完自动删，不提交）
+_material-library/progress-checkpoint.json
+
+# 部署临时目录
+.pages_deploy_tmp/
+_deploy_clean/
+.dbg/
+

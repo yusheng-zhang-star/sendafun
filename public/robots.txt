@@ -1,0 +1,12 @@
+﻿User-agent: *
+Allow: /
+Disallow: /payment-cancel.html
+Disallow: /redeem/
+Disallow: /group/
+Disallow: /card/
+
+Sitemap: https://sendafun.com/sitemap-index.xml
+Sitemap: https://sendafun.com/en-cards.xml
+Sitemap: https://sendafun.com/es-cards.xml
+Sitemap: https://sendafun.com/fr-cards.xml
+Sitemap: https://sendafun.com/pt-cards.xml

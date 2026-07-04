@@ -1,0 +1,335 @@
+{
+  "generatedAt": "2026-07-04T02:17:24.084Z",
+  "baseUrl": "http://localhost:3000",
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "passRate": 100,
+    "screenshots": 21
+  },
+  "byCategory": {
+    "Home": {
+      "p": 2,
+      "f": 0
+    },
+    "Home§169": {
+      "p": 1,
+      "f": 0
+    },
+    "Discover": {
+      "p": 2,
+      "f": 0
+    },
+    "Editor": {
+      "p": 2,
+      "f": 0
+    },
+    "StaticPage": {
+      "p": 8,
+      "f": 0
+    },
+    "LangStatic": {
+      "p": 2,
+      "f": 0
+    },
+    "FormContact": {
+      "p": 2,
+      "f": 0
+    },
+    "Pricing": {
+      "p": 1,
+      "f": 0
+    },
+    "SPA": {
+      "p": 4,
+      "f": 0
+    }
+  },
+  "results": [
+    {
+      "cat": "Home",
+      "name": "Render / with #app + title",
+      "ok": true,
+      "ms": 16756,
+      "detail": "title=SendAFun 2.0 · Intent-Driven Social E-Cards"
+    },
+    {
+      "cat": "Home§169",
+      "name": "Language switch dropdown exists (top-right selector #lang-switch)",
+      "ok": true,
+      "ms": 1125,
+      "detail": "{\"via_id\":0,\"via_header_select\":0,\"via_label\":1,\"via_header_cb\":0,\"via_option_match\":1}"
+    },
+    {
+      "cat": "Home",
+      "name": "Hero area has visible CTA button (start/create/discover)",
+      "ok": true,
+      "ms": 6,
+      "detail": "hero_cta_links_or_btns=2"
+    },
+    {
+      "cat": "Discover",
+      "name": "Navigate SPA /discover route",
+      "ok": true,
+      "ms": 15702,
+      "detail": "tiles~24 titleHits=7 mainImgs=24"
+    },
+    {
+      "cat": "Discover",
+      "name": "Cards have non-black / non-empty image areas (sample first 6 tiles)",
+      "ok": true,
+      "ms": 5,
+      "detail": "withVisuals=6/6"
+    },
+    {
+      "cat": "Editor",
+      "name": "Clicking first Discover tile opens card editor with preview image",
+      "ok": true,
+      "ms": 8237,
+      "detail": "faces=4 inputs=12 visuals=17 slug=apology-personalized-apology-e-card-online-in-60-seconds-warm-for-best-friend-for-best-friend-warm-7958172-v2-3356"
+    },
+    {
+      "cat": "Editor",
+      "name": "Preview card-face has background-image or <img> with real URL (not blank white)",
+      "ok": true,
+      "ms": 7,
+      "detail": "faces=2 standaloneImgs=0"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /pricing and detect keyword \"Unlimited\"",
+      "ok": true,
+      "ms": 2183,
+      "detail": "body_len=3103"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /about and detect keyword \"About\"",
+      "ok": true,
+      "ms": 2164,
+      "detail": "body_len=4109"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /contact and detect keyword \"Send us a message\"",
+      "ok": true,
+      "ms": 2043,
+      "detail": "body_len=1030"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /terms and detect keyword \"Terms\"",
+      "ok": true,
+      "ms": 3187,
+      "detail": "body_len=24553"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /privacy and detect keyword \"Privacy\"",
+      "ok": true,
+      "ms": 2893,
+      "detail": "body_len=18578"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /cookies and detect keyword \"Cookie\"",
+      "ok": true,
+      "ms": 2627,
+      "detail": "body_len=9047"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /payment-success and detect keyword \"payment\"",
+      "ok": true,
+      "ms": 2040,
+      "detail": "body_len=1385"
+    },
+    {
+      "cat": "StaticPage",
+      "name": "Open /payment-cancel and detect keyword \"cancel\"",
+      "ok": true,
+      "ms": 2028,
+      "detail": "body_len=1460"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "Open /en/pricing.html -> shell OK (Worker serves 200, local SPA fallback also 200)",
+      "ok": true,
+      "ms": 4272,
+      "detail": "status=200 hasApp=true"
+    },
+    {
+      "cat": "LangStatic",
+      "name": "Open /es/about.html -> shell OK (Worker serves 200, local SPA fallback also 200)",
+      "ok": true,
+      "ms": 4375,
+      "detail": "status=200 hasApp=true"
+    },
+    {
+      "cat": "FormContact",
+      "name": "Contact form: short name -> shows error toast, no submit",
+      "ok": true,
+      "ms": 3242,
+      "detail": "toast_before=1 toast_after=1"
+    },
+    {
+      "cat": "FormContact",
+      "name": "Contact form: short message -> shows validation error toast",
+      "ok": true,
+      "ms": 3232,
+      "detail": ""
+    },
+    {
+      "cat": "Pricing",
+      "name": "pricing page loads 4 plan tiles: Pay-per-Send / Monthly / Annual / Group Pass",
+      "ok": true,
+      "ms": 2181,
+      "detail": "keyword_hits=4/4 :: [Pay Per Send|Monthly|Annual|Group Card Pass]"
+    },
+    {
+      "cat": "SPA",
+      "name": "Navigate #trending -> shell renders keyword",
+      "ok": true,
+      "ms": 6514,
+      "detail": ""
+    },
+    {
+      "cat": "SPA",
+      "name": "Navigate #latest -> shell renders keyword",
+      "ok": true,
+      "ms": 2912,
+      "detail": ""
+    },
+    {
+      "cat": "SPA",
+      "name": "Navigate #holidays -> shell renders keyword",
+      "ok": true,
+      "ms": 2682,
+      "detail": ""
+    },
+    {
+      "cat": "SPA",
+      "name": "Navigate #message-generator -> shell renders keyword",
+      "ok": true,
+      "ms": 2768,
+      "detail": ""
+    }
+  ],
+  "log": [
+    "=== SendAFun Playwright E2E Suite ===",
+    "Base URL: http://localhost:3000",
+    "Chromium userDataDir: E:\\网站\\sendafunupdate\\playwright-browser-data",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_CLOSED",
+    "[PASS] Home :: Render / with #app + title (16756ms) title=SendAFun 2.0 · Intent-Driven Social E-Cards",
+    "  §169 dom probes: {\"via_id\":0,\"via_header_select\":0,\"via_label\":1,\"via_header_cb\":0,\"via_option_match\":1}",
+    "[PASS] Home§169 :: Language switch dropdown exists (top-right selector #lang-switch) (1125ms) {\"via_id\":0,\"via_header_select\":0,\"via_label\":1,\"via_header_cb\":0,\"via_option_match\":1}",
+    "[PASS] Home :: Hero area has visible CTA button (start/create/discover) (6ms) hero_cta_links_or_btns=2",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  Discover DOM stats: {\"tileLikeElements\":24,\"titleHits\":7,\"scrollHeight\":2961,\"mainImgs\":24}",
+    "[PASS] Discover :: Navigate SPA /discover route (15702ms) tiles~24 titleHits=7 mainImgs=24",
+    "  Discover visuals: [{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true},{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true},{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true},{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true},{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true},{\"hasImg\":true,\"bgCount\":1,\"w\":270,\"h\":360,\"anyImgHasSrc\":true}]",
+    "[PASS] Discover :: Cards have non-black / non-empty image areas (sample first 6 tiles) (5ms) withVisuals=6/6",
+    "  Sample editor slug: apology-personalized-apology-e-card-online-in-60-seconds-warm-for-best-friend-for-best-friend-warm-7958172-v2-3356",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  Editor DOM stats: {\"cardFaceCount\":4,\"flipContainerCount\":0,\"editableInputs\":12,\"editorKeywordsDetected\":true,\"mainVisualElements\":17}\n  Preview page text (first 600): \"Skip to main content\\nSendAFun · Intent\\nDiscover\\nPricing\\nAbout\\nContact\\n🌐\\nEN\\nES\\nFR\\nPT\\n💎 Member\\nSend a Free Card →\\n🔄 Open Card\\n🥺\\nPersonalized Apology E-Ca…\\nPersonalized Apology E-Card · Online in 60 Seconds · Warm · for Best Friend\\nDear Best Friend,\\nJust wanted to send you a little joy today.\\nThinking of you and sending all my love on\\nthis apology! You deserve every happiness —\\nhope this card makes you smile. 💕\\nWith love,\\nMe\\n✍️ Personalise this card\\n🥺 Apology\\n✍️ Message\\n🎨 Style\\nTo (Name)\\nTo (Email)\\nFrom (Your Name)\\nFrom (Your Email)\\nYour message\\nSend on (date)\\nAt (time)\\n🎁 Schedule & Send \"",
+    "[PASS] Editor :: Clicking first Discover tile opens card editor with preview image (8237ms) faces=4 inputs=12 visuals=17 slug=apology-personalized-apology-e-card-online-in-60-seconds-warm-for-best-friend-for-best-friend-warm-7958172-v2-3356",
+    "  Card-face visuals (standalone imgs=0): [{\"hasBg\":true,\"bg\":\"url(\\\"https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-4207550-v2-vertical.webp\\\"), linear-gradient(135deg, rgb(255, 236\",\"imgs\":[],\"w\":560,\"h\":747},{\"hasBg\":true,\"bg\":\"url(\\\"https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-4207550-v2-vertical.webp\\\"), linear-gradient(135deg, rgb(255, 236\",\"imgs\":[],\"w\":560,\"h\":747}]",
+    "[PASS] Editor :: Preview card-face has background-image or <img> with real URL (not blank white) (7ms) faces=2 standaloneImgs=0",
+    "[PASS] StaticPage :: Open /pricing and detect keyword \"Unlimited\" (2183ms) body_len=3103",
+    "[PASS] StaticPage :: Open /about and detect keyword \"About\" (2164ms) body_len=4109",
+    "[PASS] StaticPage :: Open /contact and detect keyword \"Send us a message\" (2043ms) body_len=1030",
+    "[PASS] StaticPage :: Open /terms and detect keyword \"Terms\" (3187ms) body_len=24553",
+    "[PASS] StaticPage :: Open /privacy and detect keyword \"Privacy\" (2893ms) body_len=18578",
+    "[PASS] StaticPage :: Open /cookies and detect keyword \"Cookie\" (2627ms) body_len=9047",
+    "[PASS] StaticPage :: Open /payment-success and detect keyword \"payment\" (2040ms) body_len=1385",
+    "[PASS] StaticPage :: Open /payment-cancel and detect keyword \"cancel\" (2028ms) body_len=1460",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "[PASS] LangStatic :: Open /en/pricing.html -> shell OK (Worker serves 200, local SPA fallback also 200) (4272ms) status=200 hasApp=true",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "[PASS] LangStatic :: Open /es/about.html -> shell OK (Worker serves 200, local SPA fallback also 200) (4375ms) status=200 hasApp=true",
+    "  Toast after bad submit: 1; page snippet: SendAFun 2.0\nPricing\nAbout\nContact\n🌐\nEN\nES\nFR\nPT\nGet in Touch\n\nOur team replies within 24 business hours. For urgent delivery issues, please include your card reference number.\n\nContact Information\nS",
+    "[PASS] FormContact :: Contact form: short name -> shows error toast, no submit (3242ms) toast_before=1 toast_after=1",
+    "[PASS] FormContact :: Contact form: short message -> shows validation error toast (3232ms) ",
+    "[PASS] Pricing :: pricing page loads 4 plan tiles: Pay-per-Send / Monthly / Annual / Group Pass (2181ms) keyword_hits=4/4 :: [Pay Per Send|Monthly|Annual|Group Card Pass]",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[PASS] SPA :: Navigate #trending -> shell renders keyword (6514ms) ",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[PASS] SPA :: Navigate #latest -> shell renders keyword (2912ms) ",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[PASS] SPA :: Navigate #holidays -> shell renders keyword (2682ms) ",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "  [CONSOLE:ERR] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[PASS] SPA :: Navigate #message-generator -> shell renders keyword (2768ms) ",
+    "\nTotal screenshots captured: 21  (dir=E:\\网站\\sendafunupdate\\_logs\\screenshots)",
+    "\n======================== SUMMARY ========================",
+    "Total: 24   Passed: 24   Failed: 0   PassRate: 100.0%",
+    "\nBy category:",
+    "  Home: 2 pass, 0 fail",
+    "  Home§169: 1 pass, 0 fail",
+    "  Discover: 2 pass, 0 fail",
+    "  Editor: 2 pass, 0 fail",
+    "  StaticPage: 8 pass, 0 fail",
+    "  LangStatic: 2 pass, 0 fail",
+    "  FormContact: 2 pass, 0 fail",
+    "  Pricing: 1 pass, 0 fail",
+    "  SPA: 4 pass, 0 fail",
+    "\nScreenshots dir: E:\\网站\\sendafunupdate\\_logs\\screenshots"
+  ]
+}

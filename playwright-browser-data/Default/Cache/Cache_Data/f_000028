@@ -1,0 +1,4622 @@
+const R2_BASE = "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev";
+const PRODUCTION_ORIGIN = "https://sendafun.com";
+const IS_LOCALHOST = typeof location !== "undefined" && ["localhost","127.0.0.1","::1","0.0.0.0"].includes(location.hostname);
+const API_ORIGIN = (typeof location !== "undefined" && location.origin === PRODUCTION_ORIGIN) ? location.origin : PRODUCTION_ORIGIN;
+const API_BASE = API_ORIGIN + "/api";
+// #region debug-point bootstrap:reporter
+(() => {
+  const _DBG = {
+    url: "http://127.0.0.1:7777/event",
+    session: "discover-card-images-black",
+    pending: 0
+  };
+  window.__dbgevt = function ({ h = "?", r = "pre", m = "[DEBUG]", d = {} }) {
+    try {
+      const payload = {
+        sessionId: _DBG.session,
+        runId: r,
+        hypothesisId: String(h).toUpperCase(),
+        ts: Date.now(),
+        location: "public/app.js",
+        msg: m,
+        data: d
+      };
+      const body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        try { navigator.sendBeacon(_DBG.url, new Blob([body], {type:"application/json"})); return; } catch(_) {}
+      }
+      fetch(_DBG.url, { method: "POST", mode: "no-cors", cache: "no-store",
+        headers: { "Content-Type": "application/json" }, body }).catch(() => {});
+    } catch (_) {}
+  };
+  // Probe on boot: try direct fetch to a known r2.dev URL (distinguish hypo C anti-hotlink from hypo A ORB-img-only)
+  const _PROBE = R2_BASE + "/birthday/birthday-pexels-3018998-vertical.webp";
+  try {
+    fetch(_PROBE, { method: "HEAD", mode: "cors" }).then(r => {
+      window.__dbgevt({ h: "C", r: "pre", m: "[DEBUG] r2.dev HEAD probe result", d: { probe: _PROBE, status: r.status, ok: r.ok, type: r.type, loc: location.origin } });
+    }).catch(e => {
+      window.__dbgevt({ h: "C", r: "pre", m: "[DEBUG] r2.dev HEAD probe failed (CORS/network)", d: { probe: _PROBE, err: String(e && e.message || e), loc: location.origin } });
+    });
+  } catch(e) { /* noop */ }
+})();
+// #endregion
+const PRODUCT_IDS = {
+  pay_per_send: "prod_7GGx4Gh5yvKLOb0OCzYFoq",
+  monthly: "prod_3xVdtK0wdzqLlaCz4H7lzQ",
+  annual: "prod_73aCoww3uhNMevKi8NVwNv",
+  group_pass: "prod_6FsQQfkCT71L7GaLMYANiA"
+};
+
+/* ============================================================
+ * C: Pre-wired Roadmap Slots (Doc §12.5, §12.7, §13.5)
+ * ------------------------------------------------------------
+ * Twin copy of worker/src/interfaces.js canonical JSDoc source.
+ * All return placeholder/null TODAY; front-end call-sites stubbed
+ * in-place so Phase 2/3/4 engineers fill BODIES ONLY (no route
+ * reshuffles, no call-site rewrites).  Zero behaviour change for
+ * v1.1 launch — every stub is a no-op / passthrough.
+ * ============================================================ */
+window.SAF_SLOTS = Object.freeze({
+  async Phase2UploadClip(videoBlob, meta = {}) {
+    void videoBlob; void meta;
+    return { localKey: null, phase: 2, status: "reserved" };
+  },
+  async Phase3AnimateFace(photo, motionType = "blink-smile") {
+    void photo; void motionType;
+    return { frames: null, fps: 12, phase: 3, status: "reserved" };
+  },
+  GeoCompliancePopup(countryCode, opts = {}) {
+    void countryCode; void opts;
+    return { enabled: false, html: null, region: "ROW", status: "reserved", phase: 1.5 };
+  },
+  async PrintfulFulfillmentGateway(order) {
+    void order;
+    return { trackingId: null, carrier: null, phase: 3, status: "reserved" };
+  },
+  GeoMarketingBanner(countryCode) {
+    void countryCode;
+    return {
+      enabled: false, messageI18nKey: null, discountCode: null, linkUrl: null,
+      status: "reserved", phase: 1.5
+    };
+  },
+  B2BPriceTier(countryCode, planId) {
+    void countryCode; void planId;
+    return {
+      overridesApplied: false, priceCentsUSD: null, taxRate: null, currency: null,
+      status: "reserved", phase: 4
+    };
+  },
+  GeoFestivalTargetingSort(cards, countryCode, topN = 6) {
+    // Doc §13.2.3 — Geo-aware homepage sorting.
+    // Pass-through safety: never throw, never mutate input.
+    if (!Array.isArray(cards) || cards.length === 0) return [];
+    const arr = cards.slice(); // stable copy
+    const now = new Date();
+    const m = now.getMonth() + 1;   // 1..12
+    const d = now.getDate();        // 1..31
+
+    // 1) Category → (month, day) proximity scoring.
+    //    Scores are integers 0..90. 90 = day-before holiday (highest).
+    const CAT_PROXIMITY = [
+      { cat: "christmas",   m: 12, d: 25 },
+      { cat: "new-year",    m: 1,  d: 1  },
+      { cat: "valentine",   m: 2,  d: 14 },
+      { cat: "easter",      m: 4,  d: 9  }, /* floating; mid-April anchor */
+      { cat: "halloween",   m: 10, d: 31 },
+      { cat: "thanksgiving",m: 11, d: 23 }, /* US/CA last Thu approx */
+      { cat: "mothers-day", m: 5,  d: 12 }, /* 2nd Sun approx */
+      { cat: "fathers-day", m: 6,  d: 16 }, /* 3rd Sun approx */
+      { cat: "wedding",     m: 6,  d: 15 }, /* wedding season peak */
+      { cat: "graduation",  m: 5,  d: 25 }, /* graduation season */
+    ];
+
+    function daysUntil(targetM, targetD) {
+      // Cyclic distance from today, 0..364, 0 = today.
+      const y = now.getFullYear();
+      const a = new Date(y, targetM - 1, targetD);
+      let diff = Math.round((a.getTime() - now.getTime()) / 86400000);
+      if (diff < 0) diff += 365;
+      return diff;
+    }
+
+    const cc = countryCode && /^[A-Z]{2}$/.test(countryCode) ? countryCode : null;
+    const MAX_TOP = Math.max(1, Math.min(24, topN | 0));
+
+    for (let i = 0; i < arr.length; i++) {
+      const c = arr[i] || {};
+      let score = 0;
+      const origIdx = i;
+
+      // Tier A: geo-country-target match → user country is in the card's geo list.
+      if (cc && Array.isArray(c.geoCountryTarget) && c.geoCountryTarget.indexOf(cc) !== -1) {
+        score += 200;
+      }
+
+      // Tier B: proximity to ANY of the 10 canonical category festivals (0..90).
+      for (let j = 0; j < CAT_PROXIMITY.length; j++) {
+        if (CAT_PROXIMITY[j].cat === c.category) {
+          const dd = daysUntil(CAT_PROXIMITY[j].m, CAT_PROXIMITY[j].d);
+          if (dd <= 90) {
+            score += Math.max(0, 90 - dd);
+            break;
+          }
+        }
+      }
+
+      // Tier C: 4 flagship country-specific unique holidays (no dedicated category
+      // → promote general / celebration / congratulations / new-year when close):
+      if (cc) {
+        if (cc === "FR") {
+          const bastille = daysUntil(7, 14);
+          if (bastille <= 21) score += Math.max(0, 80 - bastille);
+        } else if (cc === "MX") {
+          const muertos = daysUntil(11, 1);
+          if (muertos <= 14) score += Math.max(0, 85 - muertos);
+        } else if (cc === "BR") {
+          const carnaval = daysUntil(2, 17);
+          if (carnaval <= 14) score += Math.max(0, 85 - carnaval);
+        } else if (cc === "IE" || cc === "GB") {
+          const xmasBoxing = daysUntil(12, 26);
+          if (xmasBoxing <= 21) score += Math.max(0, 80 - xmasBoxing);
+        }
+      }
+
+      arr[i] = { card: c, score, origIdx };
+    }
+
+    // Descending score → stable ascending original-index fallback.
+    arr.sort((a, b) => (b.score - a.score) || (a.origIdx - b.origIdx));
+    return arr.map(it => it.card);
+  }
+});
+
+/* Resolve country from CF response headers / Worker echo.
+ * TODAY returns null (no-op); Phase2 will surface the 2-letter
+ * uppercase code via a tiny `/api/geo` echo so every Geo slot
+ * receives real input without a call-site change. */
+function _saferCountryCode() {
+  const cc = (typeof window !== "undefined" && window.__SAF_COUNTRY) || null;
+  return cc && /^[A-Z]{2}$/.test(cc) ? cc : null;
+}
+const CATEGORY_LABELS = {
+  anniversary: "Anniversary",
+  birthday: "Birthday",
+  christmas: "Christmas",
+  congratulations: "Congratulations",
+  easter: "Easter",
+  encouragement: "Encouragement",
+  "fathers-day": "Father's Day",
+  friendship: "Friendship",
+  "get-well": "Get Well",
+  "good-luck": "Good Luck",
+  graduation: "Graduation",
+  halloween: "Halloween",
+  love: "Love & Romance",
+  "missing-you": "Missing You",
+  "mothers-day": "Mother's Day",
+  "new-baby": "New Baby",
+  "new-year": "New Year",
+  retirement: "Retirement",
+  sorry: "Apology",
+  sympathy: "Sympathy",
+  "thank-you": "Thank You",
+  thanksgiving: "Thanksgiving",
+  "thinking-of-you": "Thinking of You",
+  valentine: "Valentine",
+  wedding: "Wedding"
+};
+const RECIPIENT_OPTIONS = [
+  { slug: "partner", label: "❤️ My Partner", match: "Love" },
+  { slug: "mom", label: "👩 My Mom", match: "Mother" },
+  { slug: "dad", label: "👨 My Dad", match: "Father" },
+  { slug: "best-friend", label: "🤝 Best Friend", match: "Friend" },
+  { slug: "kids", label: "👶 My Kid", match: "Baby" },
+  { slug: "boss", label: "💼 My Boss", match: "Retirement" },
+  { slug: "teacher", label: "✏️ Teacher", match: "Thank" },
+  { slug: "colleague", label: "💻 Coworker", match: "Farewell" },
+  { slug: "grandma", label: "👵 Grandma", match: "Mother" },
+  { slug: "grandpa", label: "👴 Grandpa", match: "Father" },
+  { slug: "sibling", label: "🧑 Brother or Sister", match: "Birthday" },
+  { slug: "me", label: "🧍 Myself", match: "Just Because" }
+];
+const OCCASION_OPTIONS = Object.keys(CATEGORY_LABELS).map(k => ({
+  slug: k,
+  label: CATEGORY_LABELS[k],
+  match: CATEGORY_LABELS[k]
+}));
+const TONE_OPTIONS = [
+  { slug: "funny", label: "😂 Funny", words: ["roast", "joke", "pun"] },
+  { slug: "sincere", label: "💗 Sincere", words: ["heartfelt", "sincere", "thank"] },
+  { slug: "romantic", label: "💕 Romantic", words: ["love", "romantic", "soulmate"] },
+  { slug: "playful", label: "🎈 Playful", words: ["cheerful", "bright", "playful"] },
+  { slug: "formal", label: "🤝 Formal", words: ["classic", "elegant", "formal"] },
+  { slug: "warm", label: "☀️ Warm", words: ["warm", "cozy", "family"] }
+];
+const FONT_FAMILIES = [
+  "'Inter', sans-serif",
+  "'Playfair Display', serif",
+  "'Dancing Script', cursive"
+];
+const FONT_COLOR_PRESETS = [
+  "#1a1a1a", "#c53030", "#2b6cb0", "#2f855a",
+  "#d69e2e", "#805ad5", "#e53e3e", "#2d3748"
+];
+const STICKER_EMOJIS = [
+  "❤️", "🎉", "🌹", "✨", "🎂", "💐",
+  "🌟", "💝", "🎈", "🫶"
+];
+const SIGNER_AVATAR_EMOJIS = [
+  "🎂", "💖", "🎉", "🤝", "🌷", "👶",
+  "🎓", "🐰", "🎄", "🏖️", "☕", "🌸"
+];
+const FOOTER_LINKS = [
+  { label: "Privacy", href: "/privacy.html" },
+  { label: "Terms", href: "/terms.html" },
+  { label: "Cookies", href: "/cookies.html" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about.html" },
+  { label: "Contact", href: "/contact.html" }
+];
+const COMPARE_FEATURES = [
+  { key: "unlimited_design", label: "Unlimited design & preview" },
+  { key: "watermark_free", label: "Watermark-free sends" },
+  { key: "scheduling_window", label: "Scheduling window", type: "text" },
+  { key: "group_signatures", label: "Group signatures per card", type: "text" },
+  { key: "gift_subscription", label: "Gift subscription feature" },
+  { key: "priority_support", label: "Priority support" },
+  { key: "pdf_export", label: "PDF export" },
+  { key: "history_retention", label: "Card history retention", type: "text" }
+];
+const PLAN_FEATURE_MATRIX = {
+  free: {
+    unlimited_design: true, watermark_free: false,
+    scheduling_window: "0 days", group_signatures: "0",
+    gift_subscription: false, priority_support: false,
+    pdf_export: false, history_retention: "0 days"
+  },
+  pay_per_send: {
+    unlimited_design: true, watermark_free: true,
+    scheduling_window: "7 days", group_signatures: "2",
+    gift_subscription: false, priority_support: false,
+    pdf_export: false, history_retention: "7 days"
+  },
+  monthly: {
+    unlimited_design: true, watermark_free: true,
+    scheduling_window: "30 days", group_signatures: "10",
+    gift_subscription: true, priority_support: true,
+    pdf_export: true, history_retention: "30 days"
+  },
+  annual: {
+    unlimited_design: true, watermark_free: true,
+    scheduling_window: "30 days", group_signatures: "50",
+    gift_subscription: true, priority_support: true,
+    pdf_export: true, history_retention: "90 days"
+  },
+  group_pass: {
+    unlimited_design: true, watermark_free: true,
+    scheduling_window: "7 days", group_signatures: "50",
+    gift_subscription: false, priority_support: false,
+    pdf_export: true, history_retention: "30 days"
+  }
+};
+
+const state = {
+  intent: {
+    recipient: null,
+    occasion: null,
+    tone: null
+  },
+  editor: {
+    fromName: "",
+    toName: "",
+    fromEmail: "",
+    toEmail: "",
+    defaultText: "",
+    sendDate: "",
+    sendTime: "10:00",
+    fontFamily: FONT_FAMILIES[0],
+    fontColor: FONT_COLOR_PRESETS[0],
+    backgroundColor: "#ffffff",
+    accentColor: "#6366f1",
+    fontSize: 24,
+    stickers: []
+  },
+  flipped: false,
+  activeTab: "message",
+  groupToken: null,
+  isMember: false,
+  currentSlug: null
+};
+
+function h(tag, attrs = {}, children = []) {
+  const el = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => {
+    if (k === "class") el.className = v;
+    else if (k === "style" && typeof v === "object") Object.assign(el.style, v);
+    else if (k === "dataset") Object.assign(el.dataset, v);
+    else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2).toLowerCase(), v);
+    else if (v !== undefined && v !== null) el.setAttribute(k, v);
+  });
+  (Array.isArray(children) ? children : [children]).forEach(c => {
+    if (c == null || c === false) return;
+    el.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  });
+  return el;
+}
+
+function clearApp() {
+  const app = document.getElementById("app");
+  if (app) app.innerHTML = "";
+}
+
+function mountApp(node) {
+  const app = document.getElementById("app");
+  if (!app) return;
+  app.innerHTML = "";
+  if (node) app.appendChild(node);
+}
+
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function updateCanonical(href) {
+  const link = document.getElementById("canonicalLink");
+  const full = href ? "https://sendafun.com" + href : location.href;
+  if (!link) {
+    const l = document.createElement("link");
+    l.rel = "canonical"; l.id = "canonicalLink";
+    document.head.appendChild(l);
+  }
+  const el = document.getElementById("canonicalLink");
+  if (el) el.setAttribute("href", full);
+}
+
+function updateMetaDescription(desc) {
+  if (!desc) return;
+  let meta = document.querySelector('meta[name="description"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("name", "description");
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute("content", desc);
+}
+
+function setMetaKeywords(keywords) {
+  if (!keywords || !keywords.length) return;
+  let meta = document.querySelector('meta[name="keywords"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("name", "keywords");
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute("content", keywords.join(", "));
+}
+
+function setPageTitle(title) {
+  if (title) document.title = title;
+}
+
+function setOrCreateMeta(attrs) {
+  const selector = Object.keys(attrs).map(k => `[${k}="${attrs[k]}"]`).join("");
+  let el = document.head.querySelector(`meta${selector}`);
+  if (!el) {
+    el = document.createElement("meta");
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    document.head.appendChild(el);
+  } else {
+    for (const k in attrs) if (attrs[k]) el.setAttribute(k, attrs[k]);
+  }
+  return el;
+}
+
+function updateOGTags({ title, description, type = "website", image, url, siteName = "SendAFun", twitterCard = "summary_large_image" }) {
+  const fullUrl = url || location.href;
+  const ogTitle = title || document.title;
+  const ogDesc = description || (document.querySelector('meta[name="description"]') || {}).content || "";
+  const ogImage = image || "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp";
+  setOrCreateMeta({ property: "og:title", content: ogTitle });
+  setOrCreateMeta({ property: "og:description", content: ogDesc });
+  setOrCreateMeta({ property: "og:type", content: type });
+  setOrCreateMeta({ property: "og:url", content: fullUrl });
+  setOrCreateMeta({ property: "og:image", content: ogImage });
+  setOrCreateMeta({ property: "og:site_name", content: siteName });
+  setOrCreateMeta({ name: "twitter:card", content: twitterCard });
+  setOrCreateMeta({ name: "twitter:title", content: ogTitle });
+  setOrCreateMeta({ name: "twitter:description", content: ogDesc });
+  setOrCreateMeta({ name: "twitter:image", content: ogImage });
+}
+
+function injectJSONLD(scriptId, data) {
+  let tag = document.getElementById(scriptId);
+  if (!tag) {
+    tag = document.createElement("script");
+    tag.type = "application/ld+json";
+    tag.id = scriptId;
+    document.head.appendChild(tag);
+  }
+  tag.textContent = JSON.stringify(data, null, 2);
+}
+
+function getOrgJSONLD() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SendAFun",
+    "url": "https://sendafun.com",
+    "logo": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp",
+    "email": "support@sendafun.com",
+    "sameAs": ["https://sendafun.com"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@sendafun.com",
+      "availableLanguage": ["English"]
+    }
+  };
+}
+
+function getWebSiteJSONLD() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SendAFun",
+    "url": "https://sendafun.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://sendafun.com/discover?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+}
+
+function getBreadcrumbList(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((it, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": it.name,
+      "item": it.item || undefined
+    }))
+  };
+}
+
+function getPricingJSONLD() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SendAFun · Group E-Cards & Subscriptions",
+    "description": "Intent-driven social e-cards. Design in 30 seconds, invite friends to co-sign, send beautifully animated cards.",
+    "brand": { "@type": "Brand", "name": "SendAFun" },
+    "url": "https://sendafun.com/pricing",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pay per Send",
+        "price": "1.99",
+        "priceCurrency": "USD",
+        "description": "Send a single, beautifully designed e-card.",
+        "url": "https://sendafun.com/pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Monthly Unlimited",
+        "price": "6.99",
+        "priceCurrency": "USD",
+        "description": "Unlimited sends every month, cancel anytime.",
+        "url": "https://sendafun.com/pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Annual Unlimited",
+        "price": "69.00",
+        "priceCurrency": "USD",
+        "description": "Best value — 12 months for the price of 10.",
+        "url": "https://sendafun.com/pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Group Card Pass",
+        "price": "4.99",
+        "priceCurrency": "USD",
+        "description": "50 co-signers, single-use group signature card.",
+        "url": "https://sendafun.com/pricing"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "reviewCount": "1200"
+    }
+  };
+}
+
+function getCardProductJSONLD(card) {
+  if (!card || !card.slug) return null;
+  const seo = card.seo || {};
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": seo.title || card.title,
+    "description": seo.description || card.defaultText,
+    "image": card.ogImage || card.bgImage,
+    "url": "https://sendafun.com/card/" + card.slug,
+    "brand": { "@type": "Brand", "name": "SendAFun" },
+    "category": card.category,
+    "keywords": (seo.keywords || card.tags || []).join(", "),
+    "offers": {
+      "@type": "Offer",
+      "price": "1.99",
+      "priceCurrency": "USD",
+      "url": "https://sendafun.com/card/" + card.slug,
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "reviewCount": "100"
+    }
+  };
+}
+
+function formatDateNowPlus(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return d.toISOString().split("T")[0];
+}
+
+function getCategoryEmoji(slug) {
+  const map = {
+    anniversary: "💍", birthday: "🎂", christmas: "🎄",
+    congratulations: "🎉", easter: "🐰", encouragement: "💪",
+    "fathers-day": "👨", friendship: "🤝", "get-well": "💐",
+    "good-luck": "🍀", graduation: "🎓", halloween: "🎃",
+    love: "💕", "missing-you": "💭", "mothers-day": "👩",
+    "new-baby": "👶", "new-year": "🎆", retirement: "🌴",
+    sorry: "🥺", sympathy: "🕯️", "thank-you": "🙏",
+    thanksgiving: "🦃", "thinking-of-you": "💗", valentine: "💘",
+    wedding: "💐"
+  };
+  return map[slug] || "✉️";
+}
+const CATEGORY_GRADIENTS = {
+  anniversary: ["#fbc2eb", "#a6c1ee"],
+  birthday: ["#ffecd2", "#fcb69f"],
+  christmas: ["#a1c4fd", "#c2e9fb", "#2e8b57"],
+  congratulations: ["#f6d365", "#fda085"],
+  easter: ["#fddb92", "#d1fdff"],
+  encouragement: ["#84fab0", "#8fd3f4"],
+  "fathers-day": ["#667eea", "#764ba2"],
+  friendship: ["#f093fb", "#f5576c"],
+  "get-well": ["#96e6a1", "#d4fc79"],
+  "good-luck": ["#a8edea", "#fed6e3"],
+  graduation: ["#89f7fe", "#66a6ff"],
+  halloween: ["#f78ca0", "#f9748f", "#f35c3d"],
+  love: ["#ff9a9e", "#fecfef"],
+  "missing-you": ["#cfd9df", "#e2ebf0"],
+  "mothers-day": ["#fccb90", "#d57eeb"],
+  "new-baby": ["#a1c4fd", "#c2e9fb"],
+  "new-year": ["#f6d365", "#fda085", "#ff6a88"],
+  retirement: ["#d4fc79", "#96e6a1"],
+  sorry: ["#ffecd2", "#fcb69f"],
+  sympathy: ["#e0eafc", "#cfdef3"],
+  "thank-you": ["#fddb92", "#d1fdff"],
+  thanksgiving: ["#fcdf9e", "#f78ca0", "#c06c84"],
+  "thinking-of-you": ["#fbc2eb", "#a6c1ee"],
+  valentine: ["#ff758c", "#ff7eb3"],
+  wedding: ["#fdfbfb", "#ebedee"]
+};
+function getCategoryGradient(cat) {
+  const key = cat && typeof cat === "string" ? cat.trim().toLowerCase() : "";
+  const colors = (key && CATEGORY_GRADIENTS[key]) ? CATEGORY_GRADIENTS[key] : ["#c3cfe2","#f5f7fa"];
+  return "linear-gradient(135deg, " + colors.join(", ") + ")";
+}
+function layeredBackground(imageUrl, cat) {
+  const grad = getCategoryGradient(cat);
+  const safeUrl = typeof imageUrl === "string" && imageUrl ? imageUrl : "";
+  if (safeUrl) {
+    const quoted = '"' + safeUrl.replace(/(["\\])/g, '\\$1') + '"';
+    return {
+      backgroundImage: "url(" + quoted + "), " + grad,
+      backgroundPosition: "center center, center center",
+      backgroundSize: "cover, cover",
+      backgroundRepeat: "no-repeat, no-repeat"
+    };
+  }
+  return {
+    backgroundImage: grad,
+    backgroundPosition: "center center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat"
+  };
+}
+
+function escapeHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function splitTextToLines(text, maxPerLine = 50) {
+  if (!text) return [];
+  const hardLines = text.split("\n");
+  const out = [];
+  hardLines.forEach(line => {
+    if (line.length <= maxPerLine) {
+      out.push(line);
+      return;
+    }
+    const words = line.split(" ");
+    let cur = "";
+    words.forEach(w => {
+      const test = cur ? cur + " " + w : w;
+      if (test.length <= maxPerLine) cur = test;
+      else {
+        if (cur) out.push(cur);
+        cur = w;
+      }
+    });
+    if (cur) out.push(cur);
+  });
+  return out;
+}
+
+function loadIntentFromStorage() {
+  try {
+    const raw = localStorage.getItem("saf_intent_state");
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (saved && typeof saved === "object") Object.assign(state.intent, saved);
+  } catch (_) {
+  }
+}
+
+function persistIntentState() {
+  try {
+    localStorage.setItem("saf_intent_state", JSON.stringify(state.intent));
+  } catch (_) {
+  }
+}
+
+function restoreIntentStateFromStorage() {
+  try {
+    const raw = localStorage.getItem("saf_intent_state");
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object") {
+      if (typeof parsed.recipient === "string") state.intent.recipient = parsed.recipient;
+      if (typeof parsed.occasion === "string") state.intent.occasion = parsed.occasion;
+      if (typeof parsed.tone === "string") state.intent.tone = parsed.tone;
+    }
+  } catch (_) {
+  }
+}
+
+function loadEditorFromStorage(slug) {
+  try {
+    const raw = localStorage.getItem("saf_editor_" + slug);
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (saved && typeof saved === "object") Object.assign(state.editor, saved);
+  } catch (_) {
+  }
+}
+
+function persistEditorState(slug) {
+  try {
+    localStorage.setItem("saf_editor_" + slug, JSON.stringify(state.editor));
+  } catch (_) {
+  }
+}
+
+function resetEditorState(card) {
+  state.editor = {
+    fromName: "",
+    toName: "",
+    fromEmail: "",
+    toEmail: "",
+    defaultText: card && card.defaultText ? card.defaultText : "",
+    sendDate: formatDateNowPlus(1),
+    sendTime: "10:00",
+    fontFamily: card && card.defaultFont ? card.defaultFont : FONT_FAMILIES[0],
+    fontColor: card && card.defaultColor ? card.defaultColor : FONT_COLOR_PRESETS[0],
+    backgroundColor: "#ffffff",
+    accentColor: "#6366f1",
+    fontSize: 24,
+    stickers: []
+  };
+  state.flipped = false;
+  state.activeTab = "message";
+}
+
+function installToast() {
+  if (window.__safToastInstalled) return;
+  window.__safToastInstalled = true;
+  const stack = h("div", { class: "toast-stack", id: "toastStack" });
+  document.body.appendChild(stack);
+
+  window.toast = function (msg, type = "info") {
+    if (!msg) return;
+    const toastEl = h("div", { class: "toast glass " + type }, [String(msg)]);
+    stack.appendChild(toastEl);
+    setTimeout(() => {
+      toastEl.style.transition = "opacity .25s, transform .25s";
+      toastEl.style.opacity = "0";
+      toastEl.style.transform = "translateX(20px)";
+      setTimeout(() => toastEl.remove(), 260);
+    }, 3500);
+  };
+}
+
+function injectFooter() {
+  const ph = document.getElementById("footerPlaceholder");
+  if (!ph) return;
+  if (ph.getAttribute("role") !== "contentinfo") ph.setAttribute("role", "contentinfo");
+  if (ph.getAttribute("aria-label") !== "Site footer") ph.setAttribute("aria-label", "Site footer");
+  const parts = ["&copy; 2026 sendafun.com"];
+  FOOTER_LINKS.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.href;
+    a.textContent = link.label;
+    if (link.ariaLabel) a.setAttribute("aria-label", link.ariaLabel);
+    if (link.href.startsWith("/pricing") || link.href.startsWith("/group") || link.href.startsWith("/redeem")) {
+      a.dataset.spa = "1";
+    }
+    parts.push(a.outerHTML);
+  });
+  const supportMail = document.createElement("a");
+  supportMail.href = "mailto:support@sendafun.com?subject=Support%20for%20sendafun.com";
+  supportMail.textContent = "support@sendafun.com";
+  supportMail.setAttribute("aria-label", "Email sendafun support at support@sendafun.com");
+  parts.push("Contact: " + supportMail.outerHTML);
+  ph.innerHTML = parts.join(" | ");
+  ph.querySelectorAll("a[data-spa='1']").forEach(a => {
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      const url = a.getAttribute("href");
+      history.pushState({}, "", url);
+      renderRoute();
+    });
+  });
+}
+
+function injectCookieBanner() {
+  const ph = document.getElementById("cookieBannerPlaceholder");
+  if (!ph) return;
+  try {
+    if (localStorage.getItem("saf_cookie_consent")) return;
+  } catch (_) {
+  }
+  ph.innerHTML = "";
+  ph.setAttribute("aria-live", "polite");
+  ph.setAttribute("role", "dialog");
+  ph.setAttribute("aria-label", "Cookie consent GDPR banner");
+  const banner = h("div", { class: "cookie-banner glass", id: "saf-cookie-banner" }, [
+    h("div", { class: "cookie-text", style: { flex: 1 } }, [
+      h("b", { style: { display: "inline-block", marginRight: "4px" } }, "🍪 We value your privacy"),
+      " We use necessary cookies to make our site work. We may also use analytics cookies to understand how visitors interact with our site, in compliance with GDPR. Read more in our ",
+      (() => {
+        const p = document.createElement("a");
+        p.href = "/privacy"; p.target = "_blank"; p.rel = "noopener noreferrer";
+        p.textContent = "Privacy Policy"; p.dataset.spa = "0";
+        return p;
+      })(),
+      " and ",
+      (() => {
+        const c = document.createElement("a");
+        c.href = "/cookies"; c.target = "_blank"; c.rel = "noopener noreferrer";
+        c.textContent = "Cookie Policy";
+        return c;
+      })(),
+      "."
+    ]),
+    h("div", { class: "cookie-row", style: { flexShrink: 0 } }, [
+      h("button", {
+        class: "btn btn-ghost",
+        id: "rejectCookiesBtn",
+        "aria-label": "Reject non-necessary cookies",
+        onclick: () => handleCookieChoice("rejected")
+      }, "Reject non-necessary"),
+      h("button", {
+        class: "btn btn-primary",
+        id: "acceptCookiesBtn",
+        "aria-label": "Accept cookies and continue",
+        style: { background: "linear-gradient(135deg,#10b981,#059669)" },
+        onclick: () => handleCookieChoice("accepted")
+      }, "Accept all &amp; continue")
+    ])
+  ]);
+  ph.appendChild(banner);
+}
+
+function installCookieBanner() { injectCookieBanner(); }
+function acceptCookies() { handleCookieChoice("accepted"); }
+
+function handleCookieChoice(choice) {
+  try {
+    localStorage.setItem("saf_cookie_consent", choice);
+  } catch (_) {
+  }
+  const banner = document.getElementById("saf-cookie-banner");
+  if (!banner) return;
+  banner.style.transition = "opacity .35s";
+  banner.style.opacity = "0";
+  setTimeout(() => banner.remove(), 360);
+}
+
+function attachGlobalNavLinks() {
+  const nav = document.getElementById("topNav");
+  if (!nav) return;
+  nav.querySelectorAll("a").forEach(a => {
+    const href = a.getAttribute("href") || "";
+    if (href.startsWith("http")) return;
+    if (href.startsWith("#/")) {
+      a.setAttribute("href", href.replace(/^#\//, "/"));
+    }
+    const finalHref = a.getAttribute("href") || "";
+    if (finalHref.startsWith("/") && !finalHref.includes(".html")) {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        history.pushState({}, "", finalHref);
+        renderRoute();
+      });
+    } else if (finalHref.startsWith("/about") || finalHref.startsWith("/contact") ||
+               finalHref.startsWith("/privacy") || finalHref.startsWith("/terms") ||
+               finalHref.startsWith("/cookies")) {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        window.location.href = finalHref;
+      });
+    }
+  });
+}
+
+function loadMetaAndBoot() {
+  if (!window.toast) installToast();
+  window.CARDS = window.CARDS || [];
+  window.__D1 = window.__D1 || {
+    listCache: {},
+    detailCache: {},
+    searchCache: {},
+    pageSize: 24,
+  };
+  window.toast("Loading metadata…", "info");
+  const p1 = Promise.resolve({ ok: true });
+  const p2 = fetch("/products.json").then(r => {
+    if (!r.ok) throw new Error("products.json fetch failed");
+    return r.json();
+  });
+  Promise.all([p1, p2]).then(([_, productsData]) => {
+    window.PRODUCTS = Array.isArray(productsData) ? productsData : (productsData.products || []);
+    if (!window.toast) installToast();
+    window.toast("✅ Ready · D1 card API online", "success");
+    if (!window.CARDS_LOADED) {
+      window.CARDS_LOADED = true;
+      try { renderRoute(); } catch (_) {}
+    }
+  }).catch(e => {
+    if (!window.toast) installToast();
+    window.toast("Network error: " + e.message, "error");
+  });
+}
+
+async function d1FetchCards(params) {
+  const { category, style, sort, q, page, size, append, targetGrid } = params;
+  const pageSize = size || window.__D1.pageSize;
+  const p = Math.max(1, page || 1);
+  const cacheKey = JSON.stringify({ category, style, sort, q, p, pageSize });
+  const cache = q ? window.__D1.searchCache : window.__D1.listCache;
+  if (!append && cache[cacheKey]) return cache[cacheKey];
+
+  const url = new URL(q ? "/api/cards/search" : "/api/cards", API_ORIGIN);
+  if (q) url.searchParams.set("q", q);
+  if (category) url.searchParams.set("category", category);
+  if (style) url.searchParams.set("style", style);
+  if (sort) url.searchParams.set("sort", sort);
+  url.searchParams.set("page", String(p));
+  url.searchParams.set("size", String(pageSize));
+
+  const r = await fetch(url.toString());
+  if (!r.ok) throw new Error(`D1 API HTTP ${r.status}`);
+  const j = await r.json();
+
+  /* --------------------------------------------------------
+   * Doc §12.5 call-site stubs — filled bodies ship in v1.2.
+   * TODAY:  GeoFestivalTargetingSort is identity passthrough
+   *         GeoMarketingBanner   returns {enabled:false}
+   * Both are pure no-ops for v1.1 launch (zero visible change).
+   * -------------------------------------------------------- */
+  const cc = _saferCountryCode();
+  if (Array.isArray(j?.cards)) {
+    try {
+      j.cards = window.SAF_SLOTS.GeoFestivalTargetingSort(j.cards, cc, 6);
+    } catch (_) { /* reserved slot must never break render */ }
+  }
+  try {
+    const banner = window.SAF_SLOTS.GeoMarketingBanner(cc);
+    if (banner?.enabled && !window.__SAF_BANNER_INJECTED) {
+      /* Phase 2: mount banner into the slot div with id="saf-marketing-slot";
+       * today enabled=false  →  never mounts, idempotent. */
+      window.__SAF_BANNER_INJECTED = banner;
+    }
+  } catch (_) { /* reserved slot must never break render */ }
+
+  cache[cacheKey] = j;
+  return j;
+}
+
+function cacheCardInWindow(card) {
+  if (!card || !card.slug) return;
+  window.__D1.detailCache[card.slug] = card;
+  if (!window.CARDS.find(c => c.slug === card.slug)) window.CARDS.push(card);
+}
+
+function parseRouteParams() {
+  const path = location.pathname;
+  const search = location.search || "";
+  const params = new URLSearchParams(search);
+  return { path, params };
+}
+
+function renderRoute() {
+  const { path, params } = parseRouteParams();
+  loadIntentFromStorage();
+
+  const cardMatch = path.match(/^\/card\/([a-z0-9\-_]+)$/i);
+  const groupMatch = path.match(/^\/group\/([a-zA-Z0-9]+)$/);
+  const redeemMatch = path.match(/^\/redeem\/([a-zA-Z0-9]+)$/);
+
+  const simplePath = path.replace(/\/+$/, "") || "/";
+  const catSlug = simplePath.startsWith("/") ? simplePath.slice(1) : simplePath;
+  const isCategoryPage = Object.prototype.hasOwnProperty.call(CATEGORY_LABELS, catSlug);
+
+  injectJSONLD("ld-org", getOrgJSONLD());
+  injectJSONLD("ld-site", getWebSiteJSONLD());
+
+  if (simplePath === "/" || simplePath === "/index.html" || simplePath === "") {
+    setPageTitle("SendAFun 2.0 · Intent-Driven Social E-Cards");
+    updateMetaDescription("Design personalised group e-cards in 30 seconds. Invite friends to co-sign, gift subscriptions, send beautifully animated cards. Free preview, no signup.");
+    setMetaKeywords(["send ecard online", "group e-card", "birthday card", "animated greeting card", "personalized ecards", "SendAFun"]);
+    updateCanonical("/");
+    updateOGTags({
+      title: "SendAFun 2.0 · Intent-Driven Social E-Cards",
+      description: "Design personalised group e-cards in 30 seconds. Invite friends to co-sign, gift subscriptions, send beautifully animated cards. Free preview, no signup.",
+      type: "website",
+      url: "https://sendafun.com/",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" }
+    ]));
+    renderHome();
+    attachPostRenderHooks();
+  } else if (simplePath.startsWith("/discover")) {
+    setPageTitle("Discover 11,000+ E-Card Templates · SendAFun");
+    updateMetaDescription("Browse 11,000+ personalised e-card templates filtered by recipient, occasion, and tone. Free instant preview, $1.99 per send or unlimited from $6.99/month.");
+    setMetaKeywords(["ecard templates", "greeting card designs", "birthday ecards", "christmas ecards", "wedding cards", "thank you cards online"]);
+    updateCanonical("/discover");
+    updateOGTags({
+      title: "Discover 11,000+ E-Card Templates · SendAFun",
+      description: "Browse 11,000+ personalised e-card templates filtered by recipient, occasion, and tone. Free instant preview.",
+      url: "https://sendafun.com/discover",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Discover All Cards", item: "https://sendafun.com/discover" }
+    ]));
+    renderDiscover(params);
+    installGlobalUtilities();
+    setTimeout(() => renderDiscoverExtraToolbar(params), 50);
+  } else if (simplePath === "/trending" || simplePath === "/latest" || simplePath === "/holidays" || simplePath === "/message-generator") {
+    const routeConfig = {
+      "/trending": {
+        title: "Trending E-Cards · Most Popular This Week · SendAFun",
+        desc: "Browse the most popular e-cards trending this week. Birthday, love, thank-you and more — see what other people are sending today.",
+        extra: { sort: "trending" }
+      },
+      "/latest": {
+        title: "New & Latest E-Card Templates · SendAFun",
+        desc: "Fresh from our designers — the latest e-card templates added this week. Perfect for upcoming birthdays, holidays, and just-because wishes.",
+        extra: { sort: "latest" }
+      },
+      "/holidays": {
+        title: "Holiday E-Cards · Christmas, Valentine, Easter + More · SendAFun",
+        desc: "Holiday e-cards for every celebration: Christmas, Valentine's Day, Mother's Day, Father's Day, Easter, Halloween, Thanksgiving and New Year.",
+        extra: { cat: "holidays" }
+      },
+      "/message-generator": {
+        title: "E-Card Message Generator · Free AI Writing Ideas · SendAFun",
+        desc: "Stuck on what to write? Get heartfelt, funny, and warm message ideas for any card — birthday, love, sympathy, thank-you, and more.",
+        extra: {}
+      }
+    };
+    const cfg = routeConfig[simplePath] || routeConfig["/trending"];
+    setPageTitle(cfg.title);
+    updateMetaDescription(cfg.desc);
+    updateCanonical(simplePath);
+    setMetaKeywords(["greeting card messages", "what to write in a card", "card sayings", "message generator", "ecard messages"]);
+    updateOGTags({ title: cfg.title, description: cfg.desc, url: "https://sendafun.com" + simplePath });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: simplePath === "/message-generator" ? "Message Generator" : cfg.title.split(" · ")[0], item: "https://sendafun.com" + simplePath }
+    ]));
+    const mergedParams = new URLSearchParams(params.toString());
+    Object.entries(cfg.extra || {}).forEach(([k, v]) => { if (!mergedParams.has(k)) mergedParams.set(k, v); });
+    renderDiscover(mergedParams);
+    installGlobalUtilities();
+    setTimeout(() => renderDiscoverExtraToolbar(mergedParams), 50);
+  } else if (isCategoryPage) {
+    const catKey = catSlug;
+    const catLabel = CATEGORY_LABELS[catKey];
+    const allCards = window.CARDS || [];
+    const count = allCards.filter(c => c.category === catKey).length;
+    const catEmoji = getCategoryEmoji(catKey);
+    const title = `${catEmoji} ${catLabel} E-Cards · ${count} Personalized Templates · SendAFun`;
+    const desc = `Browse ${count} beautiful ${catLabel.toLowerCase()} e-card templates. Personalize with your own message, pick fonts & colors, preview for free — send instantly from $1.99.`;
+    setPageTitle(title);
+    updateMetaDescription(desc);
+    setMetaKeywords([
+      `${catLabel.toLowerCase()} card`, `${catLabel.toLowerCase()} ecard`,
+      `personalized ${catLabel.toLowerCase()} greeting`, `send ${catLabel.toLowerCase()} card online`
+    ]);
+    updateCanonical(simplePath);
+    updateOGTags({
+      title, description: desc, type: "website",
+      url: "https://sendafun.com" + simplePath,
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: catLabel + " E-Cards", item: "https://sendafun.com/" + catKey }
+    ]));
+    const mergedParams = new URLSearchParams(params.toString());
+    if (!mergedParams.has("cat")) mergedParams.set("cat", catKey);
+    renderDiscover(mergedParams);
+    installGlobalUtilities();
+    setTimeout(() => renderDiscoverExtraToolbar(mergedParams), 50);
+  } else if (cardMatch) {
+    renderEditor(cardMatch[1]);
+    attachPostRenderHooks();
+  } else if (groupMatch) {
+    const groupUrl = "https://sendafun.com" + simplePath;
+    setPageTitle("Group Card · Add Your Signature · SendAFun");
+    updateMetaDescription("Join this group card — add your personal signature and message for the recipient. Share the link with friends to collect 50+ co-signers.");
+    updateCanonical(simplePath);
+    updateOGTags({
+      title: "Group Card · Sign & Send Together · SendAFun",
+      description: "Join this group card — add your signature for the recipient. 50+ co-signers supported.",
+      type: "article",
+      url: groupUrl,
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Group Signature Card" }
+    ]));
+    renderGroupSign(groupMatch[1]);
+    installGlobalUtilities();
+  } else if (redeemMatch) {
+    const giftUrl = "https://sendafun.com" + simplePath;
+    setPageTitle("Redeem Your SendAFun Gift · Activate Subscription");
+    updateMetaDescription("Redeem your gift subscription from a friend. Monthly or annual all-access pass to every SendAFun e-card template — activation takes 10 seconds.");
+    updateCanonical(simplePath);
+    updateOGTags({
+      title: "🎁 Redeem Your SendAFun Gift Subscription",
+      description: "Activate your gifted monthly or annual pass — unlimited access to every e-card design.",
+      type: "article",
+      url: giftUrl,
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    renderGiftRedeem(redeemMatch[1]);
+    installGlobalUtilities();
+  } else if (simplePath === "/pricing") {
+    setPageTitle("Pricing · Free Preview, $1.99/Send, $6.99/Mo Unlimited · SendAFun");
+    updateMetaDescription("Simple pricing: free unlimited design & preview, $1.99 per send, $6.99/month unlimited sends, $69/year best value, plus $4.99 group card pass. Cancel anytime.");
+    setMetaKeywords(["SendAFun pricing", "ecard subscription", "send cards online cost", "best greeting card subscription", "cheap ecards"]);
+    updateCanonical("/pricing");
+    updateOGTags({
+      title: "Pricing · $1.99 Send or $6.99/Month Unlimited · SendAFun",
+      description: "Simple pricing: free design & preview, $1.99 per send, $6.99/month unlimited, $69/year best value.",
+      type: "product",
+      url: "https://sendafun.com/pricing",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-product", getPricingJSONLD());
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Pricing", item: "https://sendafun.com/pricing" }
+    ]));
+    renderPricing();
+    installGlobalUtilities();
+  } else if (["/signin", "/signup", "/login", "/account"].includes(simplePath)) {
+    if (!window.toast) installToast();
+    window.toast(
+      "🛡️ Guest-first product — no account needed. Your designs, drafts and gift codes are saved locally in your browser. View member plans below →",
+      "success"
+    );
+    history.replaceState({}, "", "/pricing");
+    setPageTitle("Pricing & Plans · SendAFun 2.0");
+    updateMetaDescription("SendAFun pricing: free forever, or upgrade for group signature walls, beautiful fonts, HD stickers, unlimited sends and gift subscriptions.");
+    updateCanonical("/pricing");
+    updateOGTags({
+      title: "Pricing & Plans · SendAFun 2.0",
+      description: "Free forever design, preview and send — or upgrade for group signatures, premium fonts, HD stickers, unlimited sends and gift plans.",
+      type: "product",
+      url: "https://sendafun.com/pricing",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-product", getPricingJSONLD());
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Pricing", item: "https://sendafun.com/pricing" }
+    ]));
+    renderPricing();
+    installGlobalUtilities();
+  } else if (simplePath === "/about") {
+    setPageTitle("About · SendAFun — E-Cards Made Warm, Human & Effortless");
+    updateMetaDescription("SendAFun is a small studio on a mission to make digital greetings feel human again. 11,000+ beautiful e-cards, instant personalization, no account required.");
+    setMetaKeywords(["about SendAFun", "who we are greeting cards", "human-centric ecard startup", "SendAFun story"]);
+    updateCanonical("/about");
+    updateOGTags({
+      title: "About SendAFun — Warm, human, effortless e-cards",
+      description: "Small studio on a mission to make digital greetings feel human again. 11,000+ designs, free instant preview.",
+      type: "profile",
+      url: "https://sendafun.com/about",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "About", item: "https://sendafun.com/about" }
+    ]));
+    injectJSONLD("ld-org", getOrganizationJSONLD());
+    renderAbout();
+    installGlobalUtilities();
+  } else if (simplePath === "/contact") {
+    setPageTitle("Contact · SendAFun Support & Press — We Reply in 4 Hours");
+    updateMetaDescription("Need help with a card? Want custom templates for your brand? Email support@sendafun.com or use the live form below. Friendly humans reply in under 4 hours every day.");
+    setMetaKeywords(["SendAFun support", "contact SendAFun", "custom corporate ecards", "press inquiry greeting cards"]);
+    updateCanonical("/contact");
+    updateOGTags({
+      title: "Contact SendAFun — We reply in under 4 hours",
+      description: "Friendly human support. Email support@sendafun.com or fill the form.",
+      type: "website",
+      url: "https://sendafun.com/contact",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Contact", item: "https://sendafun.com/contact" }
+    ]));
+    renderContact();
+    installGlobalUtilities();
+  } else if (simplePath === "/create") {
+    setPageTitle("Create Your Own Card · Blank Custom Greeting From Scratch · SendAFun");
+    updateMetaDescription("Start from a blank canvas and create your own fully custom greeting card online in 60 seconds. Pick any background, font, color, add stickers, invite co-signers — free preview, no signup.");
+    setMetaKeywords(["create your own card", "custom greeting card maker", "blank ecard template", "design own card online", "personalized card from scratch"]);
+    updateCanonical("/create");
+    updateOGTags({
+      title: "Create Your Own Custom Card · Blank Canvas Start · SendAFun",
+      description: "Design a 100% custom card from scratch. Any background, font, color, stickers, group signatures. Free preview, send instantly from $1.99.",
+      type: "website",
+      url: "https://sendafun.com/create",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: "Create Your Own Card", item: "https://sendafun.com/create" }
+    ]));
+    renderCreate();
+    attachPostRenderHooks();
+  } else {
+    setPageTitle("404 · Page not found · SendAFun");
+    updateMetaDescription("Sorry, the page you're looking for doesn't exist. Browse our 11,000+ e-card templates or go back home.");
+    updateCanonical("/404");
+    updateOGTags({
+      title: "404 · Page not found · SendAFun",
+      description: "Page not found. Browse 11,000+ e-card templates or go back home.",
+      image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    if (!window.statusCodeSet) {
+      const meta = document.createElement("meta");
+      meta.name = "prerender-status-code"; meta.content = "404";
+      document.head.appendChild(meta);
+      window.statusCodeSet = true;
+    }
+    renderNotFound();
+  }
+}
+
+const DEFAULT_BLANK_CARD = {
+  slug: "create-your-own-blank-card-from-scratch-sendafun-default-v1",
+  title: "Create Your Own Card · Blank Custom Greeting From Scratch",
+  category: "birthday",
+  tags: ["create your own", "blank canvas", "custom card"],
+  style: "warm",
+  bgImage: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp",
+  bgImageWatermark: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp",
+  defaultText: "",
+  defaultFont: "'Inter', sans-serif",
+  defaultColor: "#1a1a1a",
+  defaultFilter: "classic",
+  aspectRatio: "3/4",
+  ogImage: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp",
+  seo: {
+    title: "Create Your Own Card · Blank Custom Greeting From Scratch · SendAFun",
+    description: "Start from a blank canvas and create your own fully custom greeting card online in 60 seconds. Pick any background, font, color, add stickers, invite co-signers — free preview, no signup.",
+    h1: "Create Your Own Fully Custom Card From Scratch",
+    keywords: ["create your own card", "custom greeting card maker", "blank ecard template", "design own card online", "personalized card from scratch", "online card designer"],
+    intro_text: "Want to design something 100% unique? Our blank card creator gives you complete creative control. Start with a clean canvas, swap in any background from our 11,000+ template library, pick your favorite fonts and colors, drop stickers and emojis, write your own heartfelt message, and even invite friends to add their signatures in our group mode. Preview everything for free — only pay when you're ready to send, starting at $1.99 per card or $6.99/month for unlimited sends and full access to every template and feature.\n\nHow it works: 1. Choose a starter background or upload your own image. 2. Type your custom message — switch between 6 beautiful fonts and unlimited colors anytime. 3. Decorate with premium stickers, emoji and animations. 4. Optional: switch on group mode to collect signatures from 50+ friends and family. 5. Preview the final animated card, schedule delivery, and send instantly to any email inbox. No account, no watermarks, no hidden fees — just beautiful digital cards delivered with love.\n\nPricing: Blank card creation and unlimited previews are 100% free forever. Send a single custom card for just $1.99, or unlock unlimited sends, all premium templates, group signature walls, HD stickers and gift subscriptions with our all-access pass at $6.99/month (best for people who send 2+ cards a month) or $69/year (save 2 months free). Cancel anytime with one click.",
+    og_image: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+  }
+};
+
+function renderCreate() {
+  const BLANK_SLUG = DEFAULT_BLANK_CARD.slug;
+  if (!Array.isArray(window.CARDS)) window.CARDS = [];
+  const alreadyInjected = window.CARDS.some(function(c) { return c && c.slug === BLANK_SLUG; });
+  if (!alreadyInjected) window.CARDS.unshift(DEFAULT_BLANK_CARD);
+  renderEditor(BLANK_SLUG);
+}
+
+const HOME_CAROUSEL_SLIDES = [
+  { cat: "Birthday",            title: "Happy Birthday Card for Dad",             desc: "Dad, thank you for everything. Happy birthday! 🎉",                              img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp",            action: { cat: "birthday" } },
+  { cat: "Congratulations",     title: "Congratulations Graduation Card",          desc: "Your hard work paid off. Congratulations graduate! 🎓🎉",                        img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp", action: { cat: "congratulations" } },
+  { cat: "Encouragement",       title: "Cheer Up Card for Best Friend",            desc: "Tough day? You've got this! Always here for you. 💪✨",                          img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp",   action: { cat: "encouragement" } },
+  { cat: "Love & Romance",      title: "Romantic Love Card for Partner",           desc: "Every love story is beautiful, but ours is my favorite. 💕",                      img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp",                 action: { cat: "love" } },
+  { cat: "Thank You",           title: "Thank You Card for a Friend",              desc: "Just wanted to say thank you for being you! 🌟",                                  img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp",          action: { cat: "thank-you" } },
+  { cat: "Get Well",            title: "Get Well Soon Card",                       desc: "Sending healing thoughts your way. Get well soon! 🌸",                            img: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp",             action: { cat: "get-well" } }
+];
+
+function renderHome() {
+  clearApp();
+  const container = h("div", { class: "home-page fade-in" }, [
+    renderHeroSection(),
+    renderIntentEngine(),
+    renderBrowseCategories()
+  ]);
+  mountApp(container);
+  attachHomeEventListeners();
+}
+
+function renderHeroSection() {
+  const slidesEl = HOME_CAROUSEL_SLIDES.map((s, i) => h("div", {
+    class: "hero-carousel-slide" + (i === 0 ? " active" : ""),
+    "data-slide": i
+  }, [
+    h("div", { class: "hero-carousel-bg", style: { backgroundImage: "url(" + s.img + ")" } }),
+    h("div", { class: "hero-carousel-overlay" }),
+    h("div", { class: "hero-carousel-content" }, [
+      h("div", { class: "hero-carousel-cat" }, s.cat),
+      h("h2",  { class: "hero-carousel-title" }, s.title),
+      h("p",   { class: "hero-carousel-desc" }, s.desc),
+      h("button", {
+        class: "hero-carousel-cta",
+        "data-cat": s.action.cat,
+        "data-slide-cta": i
+      }, ["Customise This Card →"])
+    ])
+  ]));
+  const dotsEl = HOME_CAROUSEL_SLIDES.map((_, i) => h("button", {
+    class: "hero-carousel-dot" + (i === 0 ? " active" : ""),
+    "data-dot": i,
+    "aria-label": "Go to slide " + (i + 1)
+  }));
+  const arrowsEl = h("div", { class: "hero-carousel-arrows" }, [
+    h("button", { class: "hero-carousel-arrow", "data-dir": "prev", "aria-label": "Previous slide" }, ["‹"]),
+    h("button", { class: "hero-carousel-arrow", "data-dir": "next", "aria-label": "Next slide" },     ["›"])
+  ]);
+
+  return h("section", { class: "hero" }, [
+    h("div", { class: "hero-intro" }, [
+      h("h1", {}, [
+        "Design a card ",
+        h("em", { style: { fontStyle: "normal", fontFamily: "'Dancing Script', cursive", color: "var(--saf-accent)" } }, "they'll actually remember")
+      ]),
+      h("p", { class: "hero-tagline" },
+        "Design, invite friends to co-sign, send beautiful animated cards in 60 seconds. No sign-up."
+      ),
+      h("div", { class: "hero-stats" }, [
+        h("div", { class: "hero-stat glass" }, [h("b", {}, "11,000+"), " Templates"]),
+        h("div", { class: "hero-stat glass" }, [h("b", {}, "50"), " Signatures per Card"]),
+        h("div", { class: "hero-stat glass" }, [h("b", {}, "25"), " Categories"])
+      ]),
+      h("div", { class: "hero-cta-row mt-3" }, [
+        h("button", { class: "btn btn-primary", id: "heroStartBtn" }, ["Start Now →"]),
+        h("button", { class: "btn btn-ghost",   id: "heroPricingBtn" }, ["See Pricing"])
+      ])
+    ]),
+    h("div", { class: "hero-mock" }, [
+      h("div", { class: "hero-carousel", id: "heroCarousel" }, [
+        ...slidesEl,
+        arrowsEl,
+        h("div", { class: "hero-carousel-dots" }, dotsEl)
+      ])
+    ])
+  ]);
+}
+
+function renderBrowseCategories() {
+  const cards = window.CARDS || [];
+  const catCards = OCCASION_OPTIONS.map(opt => {
+    const count = cards.filter(c => c.category === opt.slug).length;
+    return h("div", {
+      class: "browse-card",
+      "data-browse-cat": opt.slug,
+      title: "Browse all " + opt.label + " cards"
+    }, [
+      h("div", { class: "browse-icon" }, getCategoryEmoji(opt.slug)),
+      h("div", { class: "browse-label" }, opt.label),
+      h("div", { class: "browse-count" }, (count || 0) + " cards")
+    ]);
+  });
+  return h("section", { class: "browse-section" }, [
+    h("div", { class: "browse-header" }, [
+      h("div", {}, [
+        h("h2", { class: "browse-title" }, "📚 Browse by occasion"),
+        h("div", { class: "browse-subtitle" }, "Know exactly what you need? Jump straight to a category — or answer 3 quick questions for a personalised top 12 above.")
+      ]),
+      h("a", { class: "browse-seeall", id: "browseSeeAll" }, ["See all " + (cards.length || "11,000") + " cards →"])
+    ]),
+    h("div", { class: "browse-grid", id: "browseGrid" }, catCards)
+  ]);
+}
+
+let _carouselTimer = null;
+function startHeroCarousel() {
+  const root = document.getElementById("heroCarousel");
+  if (!root) return;
+  const total = HOME_CAROUSEL_SLIDES.length;
+  let idx = 0;
+
+  const show = function (next) {
+    idx = ((next % total) + total) % total;
+    const slides = root.querySelectorAll(".hero-carousel-slide");
+    const dots   = root.querySelectorAll(".hero-carousel-dot");
+    slides.forEach((s, i) => s.classList.toggle("active", i === idx));
+    dots.forEach((d, i)   => d.classList.toggle("active", i === idx));
+  };
+
+  if (_carouselTimer) clearInterval(_carouselTimer);
+  _carouselTimer = setInterval(() => show(idx + 1), 4800);
+
+  root.addEventListener("click", function (ev) {
+    const t = ev.target;
+    if (!t || !t.closest) return;
+
+    const dot = t.closest("[data-dot]");
+    if (dot) {
+      const i = parseInt(dot.getAttribute("data-dot"), 10) || 0;
+      show(i);
+      if (_carouselTimer) { clearInterval(_carouselTimer); _carouselTimer = setInterval(() => show(idx + 1), 4800); }
+      return;
+    }
+
+    const dir = t.closest("[data-dir]");
+    if (dir) {
+      show(idx + (dir.getAttribute("data-dir") === "next" ? 1 : -1));
+      if (_carouselTimer) { clearInterval(_carouselTimer); _carouselTimer = setInterval(() => show(idx + 1), 4800); }
+      return;
+    }
+
+    const cta = t.closest("[data-slide-cta]");
+    if (cta) {
+      const cat = cta.getAttribute("data-cat");
+      if (cat) {
+        history.pushState({}, "", "/discover?cat=" + encodeURIComponent(cat));
+        renderRoute();
+      }
+      return;
+    }
+  });
+}
+
+function renderIntentEngine() {
+  return h("section", { class: "intent-section glass", id: "intent-section" }, [
+    h("div", { class: "intent-step-title", id: "intentStep1Title" }, "👥 Who's this card for?"),
+    h("div", { class: "intent-row", id: "intentRecipientChips" }),
+    h("div", { class: "intent-step-title mt-3", id: "intentStep2Title" }, "🎉 What's the occasion?"),
+    h("div", {
+      class: "intent-row",
+      id: "intentOccasionChips",
+      style: { gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))" }
+    }),
+    h("div", { class: "intent-step-title mt-3", id: "intentStep3Title" }, "💬 What vibe?"),
+    h("div", {
+      class: "intent-row",
+      id: "intentToneChips",
+      style: { gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))" }
+    }),
+    h("div", { class: "text-center mt-3" }, [
+      h("button", {
+        class: "btn btn-primary",
+        id: "intentGoBtn",
+        disabled: true
+      }, ["✨ Show me 12 perfect cards"])
+    ])
+  ]);
+}
+
+function attachHomeEventListeners() {
+  const startBtn = document.getElementById("heroStartBtn");
+  if (startBtn) startBtn.addEventListener("click", () => scrollToId("intent-section"));
+  const pricingBtn = document.getElementById("heroPricingBtn");
+  if (pricingBtn) pricingBtn.addEventListener("click", () => {
+    history.pushState({}, "", "/pricing");
+    renderRoute();
+  });
+  renderRecipientChips();
+  renderOccasionChips();
+  renderToneChips();
+  updateIntentGoBtn();
+  const goBtn = document.getElementById("intentGoBtn");
+  if (goBtn) goBtn.addEventListener("click", () => {
+    const p = new URLSearchParams();
+    if (state.intent.recipient) p.set("recipient", state.intent.recipient);
+    if (state.intent.occasion) p.set("cat", state.intent.occasion);
+    if (state.intent.tone) p.set("tone", state.intent.tone);
+    const url = "/discover" + (p.toString() ? "?" + p.toString() : "");
+    persistIntentState();
+    history.pushState({}, "", url);
+    renderRoute();
+  });
+  startHeroCarousel();
+  const browseGrid = document.getElementById("browseGrid");
+  if (browseGrid) {
+    browseGrid.addEventListener("click", function (ev) {
+      const card = ev.target && ev.target.closest ? ev.target.closest("[data-browse-cat]") : null;
+      if (!card) return;
+      const cat = card.getAttribute("data-browse-cat");
+      if (cat) {
+        state.intent.occasion = cat;
+        persistIntentState();
+        history.pushState({}, "", "/discover?cat=" + encodeURIComponent(cat));
+        renderRoute();
+      }
+    });
+  }
+  const browseSeeAll = document.getElementById("browseSeeAll");
+  if (browseSeeAll) browseSeeAll.addEventListener("click", function () {
+    history.pushState({}, "", "/discover");
+    renderRoute();
+  });
+}
+
+function renderRecipientChips() {
+  const row = document.getElementById("intentRecipientChips");
+  if (!row) return;
+  row.innerHTML = "";
+  RECIPIENT_OPTIONS.forEach(opt => {
+    const selected = state.intent.recipient === opt.slug;
+    const card = h("div", {
+      class: "intent-card" + (selected ? " selected" : ""),
+      onclick: () => {
+        state.intent.recipient = selected ? null : opt.slug;
+        persistIntentState();
+        renderRecipientChips();
+        updateIntentGoBtn();
+      }
+    }, [
+      h("div", { class: "intent-card-icon" }, opt.label.split(" ")[0]),
+      h("div", { class: "intent-card-label" }, opt.label.slice(opt.label.indexOf(" ") + 1) || opt.label),
+      h("div", { class: "intent-card-sub" }, "matches '" + opt.match + "'")
+    ]);
+    row.appendChild(card);
+  });
+}
+
+function renderOccasionChips() {
+  const row = document.getElementById("intentOccasionChips");
+  if (!row) return;
+  row.innerHTML = "";
+  OCCASION_OPTIONS.forEach(opt => {
+    const selected = state.intent.occasion === opt.slug;
+    const count = (window.CARDS || []).filter(c => c.category === opt.slug).length;
+    const card = h("div", {
+      class: "intent-card" + (selected ? " selected" : ""),
+      onclick: () => {
+        state.intent.occasion = selected ? null : opt.slug;
+        persistIntentState();
+        renderOccasionChips();
+        updateIntentGoBtn();
+      }
+    }, [
+      h("div", { class: "intent-card-icon" }, getCategoryEmoji(opt.slug)),
+      h("div", { class: "intent-card-label" }, opt.label),
+      h("div", { class: "intent-card-sub" }, (count || 0) + " cards")
+    ]);
+    row.appendChild(card);
+  });
+}
+
+function renderToneChips() {
+  const row = document.getElementById("intentToneChips");
+  if (!row) return;
+  row.innerHTML = "";
+  TONE_OPTIONS.forEach(opt => {
+    const selected = state.intent.tone === opt.slug;
+    const card = h("div", {
+      class: "intent-card" + (selected ? " selected" : ""),
+      onclick: () => {
+        state.intent.tone = selected ? null : opt.slug;
+        persistIntentState();
+        renderToneChips();
+        updateIntentGoBtn();
+      }
+    }, [
+      h("div", { class: "intent-card-icon" }, opt.label.split(" ")[0]),
+      h("div", { class: "intent-card-label" }, opt.label.slice(opt.label.indexOf(" ") + 1) || opt.label),
+      h("div", { class: "intent-card-sub" }, opt.words.join(", "))
+    ]);
+    row.appendChild(card);
+  });
+}
+
+let _intentReadyTriggeredFor = null;
+function updateIntentGoBtn() {
+  const btn = document.getElementById("intentGoBtn");
+  if (!btn) return;
+  const s = state.intent;
+  const ready = !!(s.recipient || s.occasion || s.tone);
+  btn.disabled = !ready;
+  if (ready) {
+    const count = (s.recipient?1:0) + (s.occasion?1:0) + (s.tone?1:0);
+    btn.textContent = count >= 3
+      ? "✨ Perfect match — show me 12 cards!"
+      : count === 2
+        ? "✨ Great — show me the 12 best cards"
+        : "✨ Show me 12 perfect cards";
+    const key = [s.recipient||"", s.occasion||"", s.tone||""].join("|");
+    if (_intentReadyTriggeredFor !== key) {
+      _intentReadyTriggeredFor = key;
+      btn.classList.add("btn-pulse");
+      setTimeout(() => btn.classList.remove("btn-pulse"), 3200);
+      try {
+        btn.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      } catch (_) {}
+      if (!window.__intentHintShown || count > (window.__intentHintCount || 0)) {
+        window.__intentHintShown = true;
+        window.__intentHintCount = count;
+        if (window.toast) {
+          const parts = [];
+          if (s.recipient) parts.push("recipient");
+          if (s.occasion) parts.push("occasion");
+          if (s.tone) parts.push("tone");
+          window.toast(
+            "Selected " + parts.join(" + ") + " — click the blue button below to see matching cards 🎯",
+            "success"
+          );
+        }
+      }
+    }
+  } else {
+    btn.textContent = "Pick at least one to continue";
+    _intentReadyTriggeredFor = null;
+  }
+}
+
+function renderDiscover(params) {
+  clearApp();
+  const recipient = params.get("recipient") || null;
+  const occasion = params.get("cat") || params.get("occasion") || null;
+  const tone = params.get("tone") || null;
+  const query = (params.get("q") || "").trim().toLowerCase();
+
+  state.intent.recipient = recipient;
+  state.intent.occasion = occasion;
+  state.intent.tone = tone;
+
+  const top = h("div", { class: "discover-page fade-in" }, [
+    renderFilterBar(recipient, occasion, tone, query),
+    h("div", { class: "discover-grid", id: "discoverGrid" })
+  ]);
+  mountApp(top);
+
+  if (recipient) document.getElementById("filterRecipient")?.setAttribute("data-value", recipient);
+  if (occasion) document.getElementById("filterOccasion")?.setAttribute("data-value", occasion);
+  if (tone) document.getElementById("filterTone")?.setAttribute("data-value", tone);
+  if (query) {
+    const inp = document.getElementById("discoverSearchInput");
+    if (inp) inp.value = query;
+  }
+
+  attachDiscoverListeners(recipient, occasion, tone, query);
+  applyDiscoverFilter(recipient, occasion, tone, query);
+}
+
+function renderFilterBar(recipient, occasion, tone, query) {
+  const chips = [];
+  if (recipient) {
+    const opt = RECIPIENT_OPTIONS.find(o => o.slug === recipient);
+    if (opt) chips.push(renderFilterChip("filterRecipient", "Recipient: " + opt.label, recipient, "recipient"));
+  }
+  if (occasion) {
+    const label = CATEGORY_LABELS[occasion] || occasion;
+    chips.push(renderFilterChip("filterOccasion", "Occasion: " + label, occasion, "cat"));
+  }
+  if (tone) {
+    const opt = TONE_OPTIONS.find(o => o.slug === tone);
+    if (opt) chips.push(renderFilterChip("filterTone", "Tone: " + opt.label, tone, "tone"));
+  }
+  const row = [h("div", { style: { display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" } }, chips)];
+  if (chips.length) {
+    row[0].appendChild(h("button", {
+      class: "btn btn-ghost",
+      style: { padding: "0.3rem 0.8rem", fontSize: "0.8rem" },
+      id: "resetFilterBtn"
+    }, "Reset"));
+  }
+  const wrap = h("div", { class: "filter-bar glass" }, [
+    row[0],
+    h("div", { style: { marginLeft: "auto", minWidth: "240px" } }, [
+      h("input", {
+        type: "search",
+        id: "discoverSearchInput",
+        placeholder: "Search titles, tags…",
+        value: query || ""
+      })
+    ])
+  ]);
+  return wrap;
+}
+
+function renderFilterChip(id, label, value, paramKey) {
+  return h("span", {
+    class: "btn btn-ghost",
+    id,
+    style: { padding: "0.3rem 0.8rem", fontSize: "0.8rem", gap: "0.35rem" },
+    "data-param": paramKey,
+    onclick: () => {
+      const p = new URLSearchParams(location.search);
+      p.delete(paramKey);
+      const url = "/discover" + (p.toString() ? "?" + p.toString() : "");
+      history.pushState({}, "", url);
+      renderRoute();
+    }
+  }, [label, " ×"]);
+}
+
+function attachDiscoverListeners(initR, initO, initT, initQ) {
+  const resetBtn = document.getElementById("resetFilterBtn");
+  if (resetBtn) resetBtn.addEventListener("click", () => {
+    history.pushState({}, "", "/discover");
+    renderRoute();
+  });
+  const searchInput = document.getElementById("discoverSearchInput");
+  if (!searchInput) return;
+  let debounce = null;
+  searchInput.addEventListener("input", () => {
+    const val = searchInput.value.trim().toLowerCase();
+    clearTimeout(debounce);
+    debounce = setTimeout(() => {
+      const p = new URLSearchParams(location.search);
+      if (val) p.set("q", val); else p.delete("q");
+      const qStr = p.toString();
+      history.replaceState({}, "", "/discover" + (qStr ? "?" + qStr : ""));
+      applyDiscoverFilter(
+        p.get("recipient"), p.get("cat") || p.get("occasion"), p.get("tone"), val
+      );
+    }, 260);
+  });
+}
+
+function applyDiscoverFilter(recipient, occasion, tone, query) {
+  const grid = document.getElementById("discoverGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  const pageSize = window.__D1.pageSize;
+
+  const recipientOpt = RECIPIENT_OPTIONS.find(o => o.slug === recipient);
+  const toneOpt = TONE_OPTIONS.find(o => o.slug === tone);
+
+  let combinedQ = [];
+  if (query) combinedQ.push(query);
+  if (recipientOpt) combinedQ.push(recipientOpt.match);
+  if (toneOpt) combinedQ.push(toneOpt.slug, ...(toneOpt.words || []));
+  const ftsQ = combinedQ.join(" ").trim() || null;
+
+  grid.appendChild(h("div", {
+    id: "discoverStatus",
+    style: { gridColumn: "1 / -1", padding: "2.2rem 1rem", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.8rem" }
+  }, [
+    h("div", { class: "loading-spinner" }),
+    h("p", { style: { margin: 0, color: "var(--saf-text-soft)" } }, "Loading cards from D1…")
+  ]));
+
+  const toneSlug = toneOpt ? toneOpt.slug : null;
+  const recipientMatch = recipientOpt ? recipientOpt.match.toLowerCase() : null;
+  const toneWords = toneOpt ? (toneOpt.words || []).map(w => w.toLowerCase()) : [];
+
+  function localRescore(list) {
+    if (!recipientOpt && !toneOpt) return list;
+    return list.map(card => {
+      let score = 0;
+      if (toneSlug && (card.style || "").toLowerCase().includes(toneSlug)) score += 3;
+      if (recipientMatch) {
+        const hay = ((card.title || "") + " " + (card.defaultText || "")).toLowerCase();
+        if (hay.includes(recipientMatch)) score += 4;
+      }
+      if (toneWords.length) {
+        const hay = ((card.title || "") + " " + (card.defaultText || "")).toLowerCase();
+        if (toneWords.some(w => hay.includes(w))) score += 2;
+      }
+      card.__score = (card.__score || 0) + score;
+      return card;
+    }).sort((a, b) => (b.__score || 0) - (a.__score || 0));
+  }
+
+  function renderStatusRow(totalCards, totalCount, page, totalPages, nextPage) {
+    const statusEl = document.getElementById("discoverStatus");
+    if (statusEl) statusEl.remove();
+    const showHint = h("div", {
+      id: "discoverMeta",
+      style: { gridColumn: "1 / -1", padding: "0.4rem 0.2rem 0.8rem", color: "var(--saf-text-soft)", fontSize: "0.88rem" }
+    }, [
+      "🎴 ",
+      totalCount.toLocaleString() + " templates",
+      occasion ? ` · in ${CATEGORY_LABELS[occasion] || occasion}` : "",
+      ftsQ ? ` · matching "${ftsQ.slice(0,40)}${ftsQ.length > 40 ? "…" : ""}` : "",
+      recipientOpt ? ` · for ${recipientOpt.label}` : "",
+      toneOpt ? ` · tone: ${toneOpt.label}` : ""
+    ]);
+    grid.appendChild(showHint);
+    localRescore(totalCards).forEach(card => {
+      cacheCardInWindow(card);
+      grid.appendChild(renderCardTile(card));
+    });
+    const existingMore = document.getElementById("discoverLoadMore");
+    if (existingMore) existingMore.remove();
+    if (nextPage && nextPage <= totalPages) {
+      const btn = h("button", {
+        id: "discoverLoadMore",
+        class: "btn btn-outline",
+        style: { gridColumn: "1 / -1", justifySelf: "center", margin: "0.5rem 0 2rem" }
+      }, `⬇ Load more (page ${nextPage} / ${totalPages})`);
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        btn.textContent = "Loading…";
+        try {
+          const j = await d1FetchCards({
+            category: occasion,
+            q: ftsQ,
+            page: nextPage,
+            size: pageSize,
+            append: true
+          });
+          const cards = j.cards || [];
+          cards.forEach(card => { cacheCardInWindow(card); grid.appendChild(renderCardTile(card)); });
+          btn.remove();
+          if (j.page < j.totalPages) {
+            renderStatusRow([], j.total, j.page, j.totalPages, j.page + 1);
+            const meta = document.getElementById("discoverMeta");
+            if (meta) meta.remove();
+            const moreBtn = document.getElementById("discoverLoadMore");
+            if (moreBtn) grid.appendChild(moreBtn);
+          }
+        } catch (e) {
+          btn.disabled = false;
+          btn.textContent = "Retry load more";
+          if (!window.toast) installToast();
+          window.toast("Load more failed: " + e.message, "error");
+        }
+      });
+      grid.appendChild(btn);
+    } else if (totalCount === 0) {
+      grid.appendChild(h("div", {
+        class: "text-center",
+        style: { gridColumn: "1 / -1", padding: "3rem 1rem", color: "var(--saf-text-soft)" }
+      }, "💔 No perfect matches yet — try removing a filter."));
+    }
+  }
+
+  d1FetchCards({ category: occasion, q: ftsQ, page: 1, size: pageSize }).then(j => {
+    const cards = j.cards || [];
+    renderStatusRow(cards, j.total || 0, j.page || 1, j.totalPages || 1, (j.page || 1) < (j.totalPages || 1) ? (j.page || 1) + 1 : null);
+  }).catch(e => {
+    const statusEl = document.getElementById("discoverStatus");
+    if (statusEl) statusEl.remove();
+    grid.appendChild(h("div", {
+      class: "text-center",
+      style: { gridColumn: "1 / -1", padding: "3rem 1rem" }
+    }, [
+      h("p", { style: { color: "var(--saf-error)", marginBottom: "0.8rem" } }, "❌ Failed to load cards from D1: " + e.message),
+      h("button", { class: "btn btn-primary", onclick: () => applyDiscoverFilter(recipient, occasion, tone, query) }, "🔄 Retry")
+    ]));
+    if (!window.toast) installToast();
+    window.toast("D1 API error: " + e.message, "error");
+  });
+}
+
+function renderCardTile(card) {
+  const cat = typeof card.category === "string" ? card.category : "";
+  const fallbackGrad = getCategoryGradient(cat);
+  const emoji = getCategoryEmoji(cat);
+  const titleText = (card.title || "Untitled Card");
+  const displayTitle = titleText.length > 40 ? titleText.slice(0, 37) + "…" : titleText;
+  const el = h("a", {
+    class: "card-tile",
+    href: "/card/" + card.slug,
+    style: { background: fallbackGrad },
+    onclick: e => {
+      e.preventDefault();
+      history.pushState({}, "", "/card/" + card.slug);
+      renderRoute();
+    }
+  }, [
+    h("div", {
+      class: "card-tile-img-fallback",
+      style: {
+        position: "absolute",
+        inset: "0",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 14px",
+        textAlign: "center",
+        zIndex: "1",
+        color: "#fff",
+        textShadow: "0 1px 3px rgba(0,0,0,.45)",
+        pointerEvents: "none"
+      }
+    }, [
+      h("div", {
+        style: {
+          fontSize: "2.8rem",
+          marginBottom: "10px",
+          filter: "drop-shadow(0 1px 2px rgba(0,0,0,.2))"
+        }
+      }, emoji),
+      h("div", {
+        style: {
+          fontSize: "0.95rem",
+          fontWeight: "700",
+          lineHeight: "1.25",
+          maxHeight: "3.75em",
+          overflow: "hidden"
+        }
+      }, displayTitle)
+    ]),
+    h("img", {
+      class: "card-tile-img",
+      src: card.bgImage || card.bgImageWatermark || R2_BASE + "/birthday/birthday-pexels-3018998-vertical.webp",
+      alt: card.title || "Card preview",
+      loading: "lazy",
+      style: { position: "relative", zIndex: "2" },
+      onload: (e) => { try {
+        const t = e.currentTarget;
+        (typeof __dbgevt === "function") && __dbgevt({ h:"A", r:"pre", m:"[DEBUG] card-tile-img onload",
+          d: { src: t && t.src, w: t && t.naturalWidth, h_: t && t.naturalHeight, slug: card.slug, cat: card.category, loc: location.origin, hostname: (() => { try { return new URL(t.src).hostname; } catch(_) { return ""; } })() } });
+      } catch(_) {} },
+      onerror: (e) => {
+        try {
+          const t = e.currentTarget;
+          (typeof __dbgevt === "function") && __dbgevt({ h:"B", r:"pre", m:"[DEBUG] card-tile-img onerror",
+            d: { src: t && t.src, slug: card.slug, cat: card.category, loc: location.origin, hostname: (() => { try { return new URL(t.src).hostname; } catch(_) { return ""; } })() } });
+        } catch(_) {}
+        try {
+          const imgEl = e.currentTarget;
+          imgEl.style.display = "none";
+          imgEl.style.visibility = "hidden";
+          imgEl.removeAttribute("src");
+        } catch(_) {}
+      }
+    }),
+    h("div", { class: "card-tile-overlay", style: { zIndex: "3" } }),
+    h("div", { class: "card-tile-info", style: { zIndex: "4" } }, [
+      h("div", { class: "card-tile-title" },
+        (card.title || "Untitled Card").length > 62
+          ? (card.title || "Untitled Card").slice(0, 59) + "…"
+          : (card.title || "Untitled Card")
+      ),
+      h("div", { class: "card-tile-tags" }, [
+        h("span", { class: "card-tile-tag" }, getCategoryEmoji(card.category) + " " + (CATEGORY_LABELS[card.category] || card.category)),
+        (card.style ? h("span", { class: "card-tile-tag" }, card.style) : null)
+      ].filter(Boolean))
+    ])
+  ]);
+  return el;
+}
+
+function renderEditor(slug) {
+  clearApp();
+  state.currentSlug = slug;
+  const cached = window.__D1?.detailCache?.[slug] || (window.CARDS || []).find(c => c.slug === slug);
+
+  function doRender(card) {
+    if (!card) { renderNotFound(); return; }
+    cacheCardInWindow(card);
+    resetEditorState(card);
+    loadEditorFromStorage(slug);
+    const seo = card.seo || {};
+    const cardUrl = "https://sendafun.com/card/" + slug;
+    const pageTitle = seo.title || ("Personalize · " + (card.title || "E-Card") + " · SendAFun");
+    const pageDesc = seo.description || ("Personalize and send " + (card.title || "this beautiful e-card") + ". Custom fonts, colors, group signatures, preview free, send instantly for $1.99.");
+    setPageTitle(pageTitle);
+    updateMetaDescription(pageDesc);
+    if (seo.keywords && seo.keywords.length) setMetaKeywords(seo.keywords);
+    updateCanonical("/card/" + slug);
+    updateOGTags({
+      title: pageTitle,
+      description: pageDesc,
+      type: "product",
+      url: cardUrl,
+      image: card.ogImage || card.bgImage || "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp"
+    });
+    const cardProductLD = getCardProductJSONLD(card);
+    if (cardProductLD) injectJSONLD("ld-card-product", cardProductLD);
+    const catLabel = CATEGORY_LABELS[card.category] || "E-Card";
+    injectJSONLD("ld-breadcrumb", getBreadcrumbList([
+      { name: "Home", item: "https://sendafun.com/" },
+      { name: catLabel + " E-Cards", item: "https://sendafun.com/" + (card.category || "discover") },
+      { name: card.title || "Card" }
+    ]));
+
+    const page = h("div", { class: "editor-page fade-in", id: "editorPage" }, [
+      renderEditorLeft(card),
+      renderEditorRight(card)
+    ]);
+    mountApp(page);
+    attachEditorListeners(card);
+    updateCardBackPreview(card);
+  }
+
+  if (cached) {
+    doRender(cached);
+    return;
+  }
+
+  mountApp(h("div", {
+    style: { minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "1rem" }
+  }, [
+    h("div", { class: "loading-spinner", style: { width: "42px", height: "42px" } }),
+    h("p", { style: { color: "var(--saf-text-soft)" } }, "Loading card from D1…")
+  ]));
+
+  fetch(API_BASE + "/cards/" + encodeURIComponent(slug)).then(async r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const j = await r.json();
+
+    /* --------------------------------------------------------
+     * Doc §13.5.1 call-site stubs + detail payload shape.
+     * Detail protocol (Doc §fix-2):
+     *   j.card          = base canvas fields only
+     *   j.[7 keys   = extended meta at response toplevel
+     * Merge toplevel meta back into j.card so every existing
+     * doRender / cacheCardInWindow consumer reads {slug, title,
+     * emotionalTags, envelopeStyleId, geoCountryTarget, pexelsId,
+     * seo} from a single card object — same shape as LIST cards[].
+     * -------------------------------------------------------- */
+    const top = j && typeof j === "object" ? j : {};
+    const baseCard = top.card || null;
+    const mergedCard = baseCard ? Object.assign({}, baseCard, {
+      slug:            top.slug            ?? baseCard.slug            ?? "",
+      title:           top.title           ?? baseCard.title           ?? "",
+      pexelsId:        top.pexelsId        ?? baseCard.pexelsId        ?? "",
+      emotionalTags:   ("emotionalTags" in top)   ? top.emotionalTags   : (baseCard.emotionalTags   || []),
+      envelopeStyleId: ("envelopeStyleId" in top) ? top.envelopeStyleId : (baseCard.envelopeStyleId ?? null),
+      geoCountryTarget: ("geoCountryTarget" in top) ? top.geoCountryTarget : (baseCard.geoCountryTarget || []),
+      seo:             top.seo             ?? baseCard.seo             ?? {}
+    }) : null;
+
+    /* Doc §13.5.1 — Geo compliance popup stub.
+     * Today: enabled=false → never rendered, zero visual change.
+     * Phase 1.5 fills the body; call-site stays exactly here. */
+    try {
+      const cc = _saferCountryCode();
+      const popup = window.SAF_SLOTS.GeoCompliancePopup(cc, {});
+      if (popup?.enabled && !window.__SAF_COMPLIANCE_SHOWN) {
+        /* Phase 1.5: mount popup element into #saf-compliance-slot */
+        window.__SAF_COMPLIANCE_SHOWN = popup;
+      }
+    } catch (_) { /* reserved slot must never break render */ }
+
+    cacheCardInWindow(mergedCard);
+    doRender(mergedCard);
+  }).catch(e => {
+    if (!window.toast) installToast();
+    window.toast("Failed to load card: " + e.message, "error");
+    renderNotFound();
+  });
+}
+
+function renderEditorLeft(card) {
+  const bg = card.bgImageWatermark || card.bgImage || R2_BASE + "/birthday/birthday-pexels-3018998-vertical.webp";
+  const cat = typeof card.category === "string" ? card.category : "";
+  const layered = layeredBackground(bg, cat);
+  const layeredBack = Object.assign({}, layered, { backgroundSize: layered.backgroundImage && layered.backgroundImage.includes(",") ? "cover, cover" : "cover" });
+  const fallbackEmoji = getCategoryEmoji(cat);
+  const fallbackGrad = getCategoryGradient(cat);
+  const fallbackTitle = (card.title || "Untitled Card");
+  const fallbackDisplayTitle = fallbackTitle.length > 28 ? fallbackTitle.slice(0, 25) + "…" : fallbackTitle;
+  return h("div", { style: { position: "relative" } }, [
+    h("button", {
+      class: "btn btn-ghost",
+      id: "flipBtn",
+      style: {
+        position: "absolute", top: "12px", right: "12px", zIndex: 10,
+        padding: "0.5rem 0.9rem", fontSize: "0.85rem"
+      }
+    }, "🔄 Open Card"),
+    h("div", {
+      class: "card-flip-wrapper",
+      id: "cardFlipWrapper"
+    }, [
+      h("div", { class: "card-flip-inner" }, [
+        h("div", Object.assign({
+          class: "card-face card-face-front"
+        }, {
+          style: Object.assign({}, layered, {
+            backgroundSize: layered.backgroundImage && layered.backgroundImage.includes(",") ? "cover, cover" : "cover",
+            backgroundColor: "transparent"
+          })
+        }), [
+          h("div", {
+            style: {
+              position: "absolute",
+              inset: "0",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              padding: "0 22px",
+              color: "#fff",
+              zIndex: "0",
+              pointerEvents: "none"
+            }
+          }, [
+            h("div", {
+              style: {
+                fontSize: "3.4rem",
+                marginBottom: "14px",
+                filter: "drop-shadow(0 2px 6px rgba(0,0,0,.25))"
+              }
+            }, fallbackEmoji),
+            h("div", {
+              style: {
+                fontSize: "1.1rem",
+                fontWeight: "700",
+                fontFamily: "'Playfair Display', serif",
+                textShadow: "0 1px 4px rgba(0,0,0,.5)",
+                lineHeight: "1.35",
+                maxWidth: "100%"
+              }
+            }, fallbackDisplayTitle)
+          ]),
+          h("div", {
+            style: {
+              position: "absolute", inset: 0, zIndex: "1",
+              background: "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%)"
+            }
+          }),
+          h("div", {
+            style: {
+              position: "absolute",
+              left: "22px", right: "22px", bottom: "26px",
+              color: "#fff", zIndex: "2",
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "1.4rem", fontWeight: 700,
+              lineHeight: 1.25, textShadow: "0 2px 10px rgba(0,0,0,0.5)"
+            }
+          }, [card.title || ""])
+        ]),
+        h("div", {
+          class: "card-face card-face-back",
+          id: "cardBackFace",
+          style: Object.assign({}, layeredBack, {
+            backgroundPosition: layered.backgroundPosition || "center center, center center",
+            backgroundColor: "transparent"
+          })
+        }, [
+          h("div", {
+            style: {
+              position: "absolute",
+              inset: "0",
+              zIndex: "0",
+              background: fallbackGrad,
+              opacity: "0.9"
+            }
+          }),
+          h("div", {
+            id: "cardBackBlur",
+            style: {
+              position: "absolute", inset: 0, zIndex: "1",
+              backdropFilter: "blur(18px) saturate(140%)",
+              background: "rgba(255,255,255,0.35)"
+            }
+          }),
+          h("div", {
+            id: "cardBackAccent",
+            style: {
+              position: "absolute", left: 0, right: 0, top: 0, height: "6px", zIndex: "2",
+              background: state.editor.accentColor
+            }
+          }),
+          h("div", {
+            id: "cardBackContent",
+            style: {
+              position: "absolute", inset: "28px 22px 22px", zIndex: "3",
+              display: "flex", flexDirection: "column", alignItems: "center",
+              justifyContent: "center", textAlign: "center", padding: "10px",
+              overflow: "hidden"
+            }
+          })
+        ])
+      ])
+    ])
+  ]);
+}
+
+function renderMessageTab(card) {
+  const e = state.editor;
+  return h("div", { style: { display: "flex", flexDirection: "column", gap: "0.9rem" } }, [
+    h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.6rem" } }, [
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "To (Name)"),
+        h("input", {
+          id: "f_toName",
+          type: "text",
+          placeholder: "Recipient name",
+          value: e.toName || "",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ]),
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "To (Email)"),
+        h("input", {
+          id: "f_toEmail",
+          type: "email",
+          placeholder: "friend@example.com",
+          value: e.toEmail || "",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ]),
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "From (Your Name)"),
+        h("input", {
+          id: "f_fromName",
+          type: "text",
+          placeholder: "Your name",
+          value: e.fromName || "",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ]),
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "From (Your Email)"),
+        h("input", {
+          id: "f_fromEmail",
+          type: "email",
+          placeholder: "you@example.com",
+          value: e.fromEmail || "",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ])
+    ]),
+    h("div", {}, [
+      h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "Your message"),
+      h("textarea", {
+        id: "f_defaultText",
+        rows: 6,
+        placeholder: "Write your heartfelt message here…",
+        style: {
+          width: "100%", padding: "0.7rem", borderRadius: "0.5rem",
+          border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit", resize: "vertical", minHeight: "120px"
+        }
+      }, e.defaultText || (card && typeof card.defaultText === "string" ? card.defaultText : ""))
+    ]),
+    h("div", { style: { display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "0.6rem" } }, [
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "Send on (date)"),
+        h("input", {
+          id: "f_sendDate",
+          type: "date",
+          value: e.sendDate || "",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ]),
+      h("div", {}, [
+        h("label", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "At (time)"),
+        h("input", {
+          id: "f_sendTime",
+          type: "time",
+          value: e.sendTime || "10:00",
+          style: { width: "100%", padding: "0.55rem 0.7rem", borderRadius: "0.5rem", border: "1px solid rgba(15,23,42,0.12)", fontFamily: "inherit" }
+        })
+      ])
+    ]),
+    h("button", {
+      class: "btn btn-primary",
+      id: "schedulePayBtn",
+      style: {
+        width: "100%", padding: "0.85rem 1rem", fontSize: "1rem",
+        fontWeight: 700, borderRadius: "0.75rem",
+        background: "var(--saf-primary)", color: "#fff", boxShadow: "var(--shadow-md)"
+      }
+    }, "🎁 Schedule & Send — $2.99")
+  ]);
+}
+
+function renderStyleTab(card) {
+  const labels = ["Modern Sans", "Playfair Serif", "Handwritten"];
+  return h("div", { style: { display: "flex", flexDirection: "column", gap: "0.8rem" } }, [
+    h("div", {}, [
+      h("label", { style: { fontSize: "0.85rem", color: "var(--saf-text-soft)", marginBottom: "0.4rem", display: "block" } }, "Card Font"),
+      h("div", { style: { display: "flex", gap: "0.5rem", flexWrap: "wrap" } },
+        FONT_FAMILIES.map((f, i) => h("button", {
+          class: "btn btn-ghost",
+          id: "ff_" + i,
+          "data-font": f,
+          style: {
+            flex: "1 1 calc(33% - 0.4rem)",
+            padding: "0.7rem 0.5rem",
+            fontFamily: f,
+            fontSize: "1.05rem",
+            minWidth: "120px",
+            borderRadius: "0.6rem",
+            border: state.editor.fontFamily === f ? "2px solid var(--saf-primary)" : "1px solid rgba(15,23,42,0.1)"
+          }
+        }, labels[i] || ("Font " + (i + 1))))
+      )
+    ])
+  ]);
+}
+
+function renderEditorRight(card) {
+  return h("div", { class: "editor-controls glass" }, [
+    h("div", {
+      style: {
+        fontFamily: "'Playfair Display', serif",
+        fontSize: "1.3rem", fontWeight: 700, marginBottom: "0.2rem"
+      }
+    }, "✍️ Personalise this card"),
+    h("div", { style: { color: "var(--saf-text-soft)", fontSize: "0.85rem", marginBottom: "0.5rem" } },
+      getCategoryEmoji(card.category) + " " + (CATEGORY_LABELS[card.category] || card.category)),
+    h("div", { class: "tabs-bar", id: "editorTabs" }, [
+      h("div", { class: "tab active", id: "tabMessage", dataset: { tab: "message" } }, "✍️ Message"),
+      h("div", { class: "tab", id: "tabStyle", dataset: { tab: "style" } }, "🎨 Style")
+    ]),
+    h("div", { id: "tabMessagePane" }, renderMessageTab(card)),
+    h("div", { id: "tabStylePane", style: { display: "none" } }, renderStyleTab(card)),
+    h("div", {
+      style: {
+        marginTop: "auto", display: "flex", flexDirection: "column", gap: "0.6rem",
+        borderTop: "1px solid rgba(15,23,42,0.08)", paddingTop: "1rem"
+      }
+    }, [
+      h("div", { style: { display: "flex", gap: "0.5rem", flexWrap: "wrap" } }, [
+        h("button", { class: "btn btn-ghost", id: "inviteGroupBtn" }, [
+          "Invite Friends to Co-Sign 🤝"
+        ]),
+        h("button", { class: "btn btn-ghost", id: "downloadPdfBtn" }, [
+          "Download PDF"
+        ])
+      ])
+    ]),
+    h("div", {}, [
+      h("label", {}, "Font Color"),
+      h("div", { style: { display: "flex", gap: "0.4rem", flexWrap: "wrap" }, id: "fontColorRow" },
+        FONT_COLOR_PRESETS.map((c, i) => h("button", {
+          class: "btn",
+          id: "fc_" + i,
+          "data-color": c,
+          style: {
+            width: "32px", height: "32px", padding: 0,
+            background: c, borderRadius: "50%",
+            border: state.editor.fontColor === c ? "3px solid var(--saf-primary)" : "2px solid #fff",
+            boxShadow: "var(--shadow-sm)"
+          }
+        }, ""))
+      )
+    ]),
+    h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" } }, [
+      renderColorField("backgroundColor", "Background", state.editor.backgroundColor),
+      renderColorField("accentColor", "Accent / Trim", state.editor.accentColor)
+    ]),
+    h("div", {}, [
+      h("label", {}, "Font Size: " + state.editor.fontSize + "px"),
+      h("input", {
+        id: "f_fontSize",
+        type: "range",
+        min: 16, max: 48, step: 1, value: state.editor.fontSize,
+        style: { width: "100%" }
+      })
+    ]),
+    h("div", {}, [
+      h("label", {}, "Stickers (tap to add)"),
+      h("div", { style: { display: "flex", gap: "0.4rem", flexWrap: "wrap" }, id: "stickerRow" },
+        STICKER_EMOJIS.map((s, i) => h("button", {
+          class: "btn btn-ghost",
+          id: "stk_" + i,
+          "data-sticker": s,
+          style: { fontSize: "1.3rem", padding: "0.35rem 0.6rem" }
+        }, s))
+      )
+    ])
+  ]);
+  return wrap;
+}
+
+function renderColorField(key, label, value) {
+  return h("div", {}, [
+    h("label", {}, label),
+    h("div", { style: { display: "flex", gap: "0.5rem", alignItems: "center" } }, [
+      h("input", {
+        id: "f_" + key,
+        type: "color",
+        value: value,
+        style: { width: "46px", height: "40px", padding: 0, border: "none", background: "transparent" }
+      }),
+      h("input", {
+        id: "f_" + key + "_hex",
+        type: "text",
+        value: value,
+        style: { flex: 1, fontFamily: "monospace" }
+      })
+    ])
+  ]);
+}
+
+function renderField(id, label, type = "text", value = "", placeholder = "") {
+  return h("div", {}, [
+    h("label", {
+      style: {
+        display: "block",
+        fontSize: "0.8rem",
+        color: "var(--saf-text-soft)",
+        marginBottom: "0.25rem"
+      }
+    }, label),
+    h("input", {
+      id: "f_" + id,
+      name: id,
+      type: type,
+      value: value,
+      placeholder: placeholder,
+      autocomplete: id.includes("email") ? "email" : id.includes("name") ? "name" : "off",
+      style: {
+        width: "100%",
+        padding: "0.55rem 0.7rem",
+        borderRadius: "0.5rem",
+        border: "1px solid rgba(15,23,42,0.12)",
+        fontFamily: "inherit",
+        boxSizing: "border-box"
+      }
+    })
+  ]);
+}
+
+function attachEditorListeners(card) {
+  document.getElementById("flipBtn").addEventListener("click", () => {
+    state.flipped = !state.flipped;
+    const wrap = document.getElementById("cardFlipWrapper");
+    if (wrap) wrap.classList.toggle("card-flipped", state.flipped);
+    const btn = document.getElementById("flipBtn");
+    if (btn) btn.textContent = "🔄 " + (state.flipped ? "Show Cover" : "Open Card");
+  });
+  document.getElementById("tabMessage").addEventListener("click", () => switchEditorTab("message"));
+  document.getElementById("tabStyle").addEventListener("click", () => switchEditorTab("style"));
+
+  ["fromName", "toName", "fromEmail", "toEmail"].forEach(k => {
+    const el = document.getElementById("f_" + k);
+    if (!el) return;
+    el.addEventListener("input", () => {
+      state.editor[k] = el.value;
+      persistEditorState(state.currentSlug);
+      updateCardBackPreview(card);
+    });
+  });
+  const ta = document.getElementById("f_defaultText");
+  let tDebounce = null;
+  if (ta) ta.addEventListener("input", () => {
+    clearTimeout(tDebounce);
+    tDebounce = setTimeout(() => {
+      state.editor.defaultText = ta.value;
+      persistEditorState(state.currentSlug);
+      updateCardBackPreview(card);
+    }, 120);
+  });
+  ["sendDate", "sendTime"].forEach(k => {
+    const el = document.getElementById("f_" + k);
+    if (el) el.addEventListener("change", () => {
+      state.editor[k] = el.value;
+      persistEditorState(state.currentSlug);
+    });
+  });
+
+  FONT_FAMILIES.forEach((f, i) => {
+    const btn = document.getElementById("ff_" + i);
+    if (!btn) return;
+    applySelectedOutline(btn, state.editor.fontFamily === f);
+    btn.addEventListener("click", () => {
+      state.editor.fontFamily = f;
+      persistEditorState(state.currentSlug);
+      FONT_FAMILIES.forEach((_, j) => {
+        const b2 = document.getElementById("ff_" + j);
+        if (b2) applySelectedOutline(b2, j === i);
+      });
+      updateCardBackPreview(card);
+    });
+  });
+
+  FONT_COLOR_PRESETS.forEach((c, i) => {
+    const btn = document.getElementById("fc_" + i);
+    if (!btn) return;
+    btn.style.border = state.editor.fontColor === c ? "3px solid var(--saf-primary)" : "2px solid #fff";
+    btn.addEventListener("click", () => {
+      state.editor.fontColor = c;
+      persistEditorState(state.currentSlug);
+      FONT_COLOR_PRESETS.forEach((_, j) => {
+        const b2 = document.getElementById("fc_" + j);
+        if (b2) b2.style.border = j === i ? "3px solid var(--saf-primary)" : "2px solid #fff";
+      });
+      updateCardBackPreview(card);
+    });
+  });
+
+  ["backgroundColor", "accentColor"].forEach(k => {
+    const picker = document.getElementById("f_" + k);
+    const hex = document.getElementById("f_" + k + "_hex");
+    if (picker) picker.addEventListener("input", () => {
+      state.editor[k] = picker.value;
+      if (hex) hex.value = picker.value;
+      persistEditorState(state.currentSlug);
+      updateCardBackPreview(card);
+    });
+    if (hex) hex.addEventListener("change", () => {
+      const v = /^#[0-9a-fA-F]{6}$/.test(hex.value) ? hex.value : state.editor[k];
+      state.editor[k] = v;
+      if (picker) picker.value = v;
+      persistEditorState(state.currentSlug);
+      updateCardBackPreview(card);
+    });
+  });
+
+  const fs = document.getElementById("f_fontSize");
+  if (fs) fs.addEventListener("input", () => {
+    state.editor.fontSize = parseInt(fs.value, 10) || 24;
+    fs.previousElementSibling && (fs.previousElementSibling.textContent = "Font Size: " + state.editor.fontSize + "px");
+    persistEditorState(state.currentSlug);
+    updateCardBackPreview(card);
+  });
+
+  STICKER_EMOJIS.forEach((s, i) => {
+    const btn = document.getElementById("stk_" + i);
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      state.editor.stickers.push({
+        emoji: s,
+        x: 0.15 + 0.7 * Math.random(),
+        y: 0.15 + 0.7 * Math.random()
+      });
+      if (state.editor.stickers.length > 6) state.editor.stickers.shift();
+      persistEditorState(state.currentSlug);
+      updateCardBackPreview(card);
+    });
+  });
+
+  document.getElementById("inviteGroupBtn").addEventListener("click", () => handleInviteGroup(card));
+  document.getElementById("downloadPdfBtn").addEventListener("click", () => handleDownloadPdf(card));
+  document.getElementById("schedulePayBtn").addEventListener("click", () => handleScheduleAndPay(card));
+}
+
+function applySelectedOutline(btn, selected) {
+  if (!btn) return;
+  if (selected) {
+    btn.style.outline = "3px solid var(--saf-primary)";
+    btn.style.outlineOffset = "2px";
+  } else {
+    btn.style.outline = "none";
+  }
+}
+
+function switchEditorTab(name) {
+  state.activeTab = name;
+  const msgTab = document.getElementById("tabMessage");
+  const styTab = document.getElementById("tabStyle");
+  const msgPane = document.getElementById("tabMessagePane");
+  const styPane = document.getElementById("tabStylePane");
+  if (name === "message") {
+    msgTab.classList.add("active");
+    styTab.classList.remove("active");
+    if (msgPane) msgPane.style.display = "";
+    if (styPane) styPane.style.display = "none";
+  } else {
+    msgTab.classList.remove("active");
+    styTab.classList.add("active");
+    if (msgPane) msgPane.style.display = "none";
+    if (styPane) styPane.style.display = "";
+  }
+}
+
+function updateCardBackPreview(card) {
+  const e = state.editor;
+  const accent = document.getElementById("cardBackAccent");
+  if (accent) accent.style.background = e.accentColor;
+  const blur = document.getElementById("cardBackBlur");
+  if (blur) blur.style.background = e.backgroundColor.startsWith("#ffffff")
+    ? "rgba(255,255,255,0.35)"
+    : hexToRgba(e.backgroundColor, 0.45);
+  const content = document.getElementById("cardBackContent");
+  if (!content) return;
+  content.innerHTML = "";
+  content.style.fontFamily = e.fontFamily;
+  content.style.color = e.fontColor;
+
+  const to = e.toName ? h("div", {
+    style: {
+      fontFamily: "'Playfair Display', serif",
+      fontSize: Math.min(e.fontSize + 6, 40) + "px",
+      fontWeight: 700, marginBottom: "10px"
+    }
+  }, "Dear " + escapeHtml(e.toName) + ",") : null;
+  const fromHead = e.fromName
+    ? h("div", { style: { marginTop: "12px", opacity: 0.75, fontSize: Math.min(e.fontSize - 2, 22) + "px" } },
+        "From " + escapeHtml(e.fromName))
+    : null;
+  const lines = splitTextToLines(e.defaultText || "", 44);
+  const lineNodes = lines.map(line => h("div", {
+    style: {
+      fontSize: e.fontSize + "px",
+      lineHeight: 1.55,
+      margin: "3px 0"
+    }
+  }, escapeHtml(line)));
+
+  if (to) content.appendChild(to);
+  const msgWrap = h("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%"
+    }
+  }, lineNodes);
+  content.appendChild(msgWrap);
+  if (fromHead) content.appendChild(fromHead);
+
+  e.stickers.forEach((st, i) => {
+    const s = h("div", {
+      style: {
+        position: "absolute",
+        left: (st.x * 100) + "%",
+        top: (st.y * 100) + "%",
+        transform: "translate(-50%, -50%)",
+        fontSize: "34px",
+        pointerEvents: "none",
+        filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.2))"
+      }
+    }, st.emoji);
+    content.parentElement.appendChild(s);
+  });
+}
+
+function hexToRgba(hex, alpha) {
+  if (!hex || hex[0] !== "#" || hex.length < 7) return "rgba(255,255,255,0.35)";
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+}
+
+function validateEditorBasics(showToastFlag) {
+  const e = state.editor;
+  if (!e.toEmail || !/.+@.+\..+/.test(e.toEmail)) {
+    if (showToastFlag) window.toast("Please enter a valid recipient email", "error");
+    return false;
+  }
+  if (!e.fromEmail || !/.+@.+\..+/.test(e.fromEmail)) {
+    if (showToastFlag) window.toast("Please enter your email", "error");
+    return false;
+  }
+  if (!e.defaultText || !e.defaultText.trim()) {
+    if (showToastFlag) window.toast("Please write a short message", "error");
+    return false;
+  }
+  return true;
+}
+
+function handleInviteGroup(card) {
+  if (!validateEditorBasics(true)) return;
+  window.toast("🔗 Creating your group card link…", "info");
+  const body = {
+    cardSlug: card.slug,
+    ownerEmail: state.editor.fromEmail,
+    ownerName: state.editor.fromName,
+    recipientName: state.editor.toName,
+    recipientEmail: state.editor.toEmail,
+    defaultText: state.editor.defaultText,
+    bgImage: card.bgImageWatermark || card.bgImage
+  };
+  fetch(API_BASE + "/group/create", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  }).then(r => {
+    if (!r.ok) throw new Error("Group creation failed");
+    return r.json();
+  }).then(data => {
+    const token = data.token || data.groupToken;
+    if (!token) throw new Error("No token received");
+    const url = location.origin + "/group/" + token;
+    return navigator.clipboard.writeText(url).then(() => {
+      window.toast("✅ Shareable group link copied!", "success");
+    }).catch(() => {
+      window.prompt("Copy this group link:", url);
+      window.toast("✅ Group link ready (paste it!)", "success");
+    });
+  }).catch(e => {
+    window.toast("Network error: " + e.message, "error");
+  });
+}
+
+function handleDownloadPdf(card) {
+  window.toast("🖨️ Opening print dialog — save as PDF", "info");
+  setTimeout(() => window.print(), 200);
+}
+
+function handleScheduleAndPay(card) {
+  if (!validateEditorBasics(true)) return;
+  window.toast("🔍 Checking your plan…", "info");
+  fetch(API_BASE + "/check-member", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: state.editor.fromEmail })
+  }).then(r => {
+    if (!r.ok) throw new Error("Membership check failed");
+    return r.json();
+  }).then(data => {
+    state.isMember = !!data.isMember;
+    if (state.isMember || data.plan === "free_trial") {
+      window.toast("✨ Member detected — sending right now!", "success");
+      sendCardDirectly(card);
+    } else {
+      showPricingCheckoutModal(card);
+    }
+  }).catch(e => {
+    window.toast("Network error: " + e.message, "error");
+  });
+}
+
+function sendCardDirectly(card) {
+  const e = state.editor;
+  const payload = {
+    fromEmail: e.fromEmail,
+    toEmail: e.toEmail,
+    fromName: e.fromName,
+    toName: e.toName,
+    imageUrl: card.bgImage || card.bgImageWatermark,
+    backgroundColor: e.backgroundColor,
+    accentColor: e.accentColor,
+    cardSlug: card.slug,
+    message: e.defaultText,
+    fontFamily: e.fontFamily,
+    fontColor: e.fontColor,
+    fontSize: e.fontSize,
+    scheduleDate: e.sendDate,
+    scheduleTime: e.sendTime,
+    stickers: e.stickers
+  };
+  fetch(API_BASE + "/send-card", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).then(r => {
+    if (!r.ok) throw new Error("Send failed");
+    return r.json();
+  }).then(data => {
+    window.toast("🎉 Card scheduled for delivery!", "success");
+    setTimeout(() => {
+      history.pushState({}, "", "/");
+      renderRoute();
+    }, 1400);
+  }).catch(e => {
+    window.toast("Network error: " + e.message, "error");
+  });
+}
+
+function showPricingCheckoutModal(card) {
+  const products = window.PRODUCTS || [];
+  const payPerSend = products.find(p => p.creem_product_id === PRODUCT_IDS.pay_per_send);
+  const monthly = products.find(p => p.creem_product_id === PRODUCT_IDS.monthly);
+  const annual = products.find(p => p.creem_product_id === PRODUCT_IDS.annual);
+  const group = products.find(p => p.creem_product_id === PRODUCT_IDS.group_pass);
+
+  const plans = [
+    { name: "Pay Per Send", price: payPerSend ? payPerSend.price : 1.99, period: "/ send", id: PRODUCT_IDS.pay_per_send, product: payPerSend, tag: "" },
+    { name: "Monthly Unlimited", price: monthly ? monthly.price : 6.99, period: "/ month", id: PRODUCT_IDS.monthly, product: monthly, tag: "⭐ Popular", featured: true },
+    { name: "Annual Unlimited", price: annual ? annual.price : 69, period: "/ year", id: PRODUCT_IDS.annual, product: annual, tag: "Best value" },
+    { name: "Group Card Pass", price: group ? group.price : 4.99, period: " one-time", id: PRODUCT_IDS.group_pass, product: group, tag: "Invite 50 friends" }
+  ];
+
+  const modalWrap = document.createElement("div");
+  modalWrap.style.cssText = "position:fixed;inset:0;z-index:200;background:rgba(15,23,42,0.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1rem;";
+  const modal = document.createElement("div");
+  modal.className = "glass";
+  modal.style.cssText = "max-width:820px;width:100%;padding:1.8rem;max-height:92vh;overflow:auto;";
+  const head = h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "1rem" } }, [
+    h("div", {}, [
+      h("h2", { style: { fontFamily: "'Playfair Display', serif", margin: 0, fontSize: "1.6rem" } }, "Choose a plan to send"),
+      h("p", { style: { color: "var(--saf-text-soft)", fontSize: "0.88rem", margin: "0.3rem 0 0" } },
+        "Or go unlimited and never think about per-card fees again.")
+    ]),
+    h("button", {
+      class: "btn btn-ghost",
+      style: { padding: "0.35rem 0.7rem" },
+      onclick: () => modalWrap.remove()
+    }, "Close")
+  ]);
+  const grid = h("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(190px,1fr))", gap: "0.9rem" } },
+    plans.map(p => h("div", {
+      class: "plan-card" + (p.featured ? " featured" : ""),
+      style: { padding: "1.2rem 1rem", border: "1px solid rgba(15,23,42,0.08)", position: "relative" }
+    }, [
+      p.tag ? h("div", {
+        style: {
+          fontSize: "0.7rem", fontWeight: 700, color: p.featured ? "#fff" : "var(--saf-primary-dark)",
+          background: p.featured ? "linear-gradient(135deg,var(--saf-primary),var(--saf-accent))" : "rgba(99,102,241,0.1)",
+          padding: "0.15rem 0.6rem", borderRadius: "999px", display: "inline-block",
+          marginBottom: "0.5rem"
+        }
+      }, p.tag) : null,
+      h("div", { class: "plan-name" }, p.name),
+      h("div", { class: "plan-price" }, ["$" + p.price, h("small", {}, p.period)]),
+      h("ul", { class: "plan-features", style: { fontSize: "0.78rem" } },
+        (p.product && p.product.features ? p.product.features.slice(0, 3) : [
+          "Beautiful animated delivery",
+          "Scheduling to the minute",
+          "Email confirmation & tracking"
+        ]).map(f => h("li", {}, f))
+      ),
+      h("button", {
+        class: "btn " + (p.featured ? "btn-primary" : "btn-ghost"),
+        style: { width: "100%", justifyContent: "center", marginTop: "0.8rem" },
+        onclick: () => {
+          modalWrap.remove();
+          startCheckoutSession(p.id, card);
+        }
+      }, "Choose Plan")
+    ].filter(Boolean)))
+  );
+  modal.appendChild(head);
+  modal.appendChild(grid);
+  modalWrap.appendChild(modal);
+  document.body.appendChild(modalWrap);
+}
+
+function startCheckoutSession(planId, card) {
+  window.toast("🔒 Redirecting to secure checkout…", "info");
+  const e = state.editor;
+  const body = {
+    planId: planId,
+    successUrl: location.origin + "/payment-success.html",
+    cancelUrl: location.origin + "/payment-cancel.html",
+    customerEmail: e.fromEmail,
+    customerName: e.fromName,
+    cardSlug: card ? card.slug : null,
+    metadata: card ? {
+      fromEmail: e.fromEmail,
+      toEmail: e.toEmail,
+      fromName: e.fromName,
+      toName: e.toName,
+      imageUrl: card.bgImage || card.bgImageWatermark,
+      backgroundColor: e.backgroundColor,
+      accentColor: e.accentColor,
+      message: e.defaultText,
+      fontFamily: e.fontFamily,
+      fontColor: e.fontColor,
+      fontSize: e.fontSize,
+      scheduleDate: e.sendDate,
+      scheduleTime: e.sendTime
+    } : {}
+  };
+  fetch(API_BASE + "/create-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  }).then(r => {
+    if (!r.ok) throw new Error("Session creation failed");
+    return r.json();
+  }).then(data => {
+    const url = data.url || data.redirectUrl || data.checkoutUrl;
+    if (!url) throw new Error("No checkout URL received");
+    location.href = url;
+  }).catch(e => {
+    window.toast("Network error: " + e.message, "error");
+  });
+}
+
+function renderGroupSign(token) {
+  clearApp();
+  state.groupToken = token;
+  setPageTitle("Group Card · Add Your Signature · SendAFun");
+  updateCanonical("/group/" + token);
+
+  const wrap = h("div", { class: "group-page fade-in" }, [
+    h("div", { class: "group-hero glass", id: "groupHero" }, [
+      h("div", { class: "loading-spinner" }),
+      h("p", { style: { marginTop: "0.8rem", color: "var(--saf-text-soft)" } }, "Loading group card…")
+    ])
+  ]);
+  mountApp(wrap);
+
+  fetch(API_BASE + "/group/" + token, { method: "GET" })
+    .then(r => { if (!r.ok) throw new Error("Group card not found"); return r.json(); })
+    .then(data => {
+      renderGroupSignLoaded(token, data);
+    })
+    .catch(e => {
+      window.toast("Network error: " + e.message, "error");
+      const hero = document.getElementById("groupHero");
+      if (hero) {
+        hero.innerHTML = "";
+        hero.appendChild(h("div", { style: { textAlign: "center", padding: "1.5rem" } }, [
+          h("div", { style: { fontSize: "3rem", marginBottom: "0.5rem" } }, "😵"),
+          h("p", { style: { margin: "0 0 0.8rem" } }, "This group link may be expired or invalid."),
+          h("button", {
+            class: "btn btn-primary",
+            onclick: () => { history.pushState({}, "", "/"); renderRoute(); }
+          }, "Go Home")
+        ]));
+      }
+    });
+}
+
+function renderGroupSignLoaded(token, data) {
+  clearApp();
+  const { cardSlug, owner, signatures = [], recipientName, expiresAt } = data;
+  const wrap = h("div", { class: "group-page fade-in" }, [
+    h("section", { class: "group-hero glass" }, [
+      h("div", { style: { fontSize: "2.4rem" } }, "🎉"),
+      h("h1", {
+        style: { fontFamily: "'Playfair Display', serif", margin: "0.4rem 0 0.6rem", fontSize: "1.8rem" }
+      }, [
+        "This is a GROUP CARD for ",
+        h("span", { style: { color: "var(--saf-accent)" } },
+          escapeHtml(recipientName || "the recipient")
+        ),
+        "!"
+      ]),
+      h("p", { style: { margin: "0 0 0.4rem", color: "var(--saf-text-soft)" } },
+        "Add your signature below, then the organiser sends the big reveal 🎁"),
+      h("div", { style: { color: "var(--saf-text-soft)", fontSize: "0.85rem" } }, [
+        "💌 " + signatures.length + " signature(s) so far · ",
+        "👤 Organised by " + escapeHtml(owner || "someone"),
+        expiresAt ? h("span", {}, " · Expires " + new Date(expiresAt).toLocaleDateString()) : null
+      ])
+    ]),
+    h("section", {
+      class: "glass",
+      style: { padding: "1.5rem", marginTop: "1.5rem", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: "1.5rem" }
+    }, [
+      h("div", {}, [
+        h("h3", { style: { fontFamily: "'Playfair Display', serif", marginTop: 0 } },
+          "💖 Signatures so far (" + signatures.length + ")"),
+        h("div", { class: "signature-grid", id: "signatureGrid" },
+          signatures.map(sig => renderSignatureCard(sig))
+        )
+      ]),
+      renderSignatureForm(token)
+    ]),
+    h("div", { class: "group-cta-row" }, [
+      h("button", {
+        class: "btn btn-ghost",
+        id: "copyGroupLinkBtn"
+      }, "📋 Copy Share Link"),
+      h("button", {
+        class: "btn btn-primary",
+        id: "sendGroupCardBtn",
+        disabled: true
+      }, "🎁 Send the Group Card")
+    ])
+  ]);
+  mountApp(wrap);
+  attachGroupSignListeners(token, data);
+}
+
+function renderSignatureCard(sig) {
+  return h("div", { class: "signature-card glass" }, [
+    h("div", { class: "signature-avatar" }, sig.avatarEmoji || "💖"),
+    h("div", { class: "signature-body" }, [
+      h("div", { class: "signature-name" }, escapeHtml(sig.name || sig.signerName || "Anonymous")),
+      h("div", { class: "signature-text" }, escapeHtml(sig.message || sig.text || "")),
+      sig.photo ? h("img", {
+        class: "signature-photo",
+        src: sig.photo,
+        alt: "Signature photo",
+        loading: "lazy",
+        onerror: (e) => { e.currentTarget.remove(); }
+      }) : null
+    ])
+  ]);
+}
+
+function renderSignatureForm(token) {
+  return h("div", {
+    style: {
+      padding: "1.3rem 1.2rem",
+      borderRadius: "var(--radius-md)",
+      background: "rgba(99,102,241,0.06)",
+      border: "1px solid rgba(99,102,241,0.15)"
+    }
+  }, [
+    h("h3", { style: { fontFamily: "'Playfair Display', serif", marginTop: 0 } }, "✍️ Add your signature"),
+    h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.7rem" } }, [
+      renderField("signerName", "Your Name", "text", "", "e.g. Grandma Li"),
+      h("div", {}, [
+        h("label", {}, "Avatar Emoji"),
+        h("div", {
+          id: "avatarRow",
+          style: { display: "flex", gap: "0.3rem", flexWrap: "wrap" }
+        }, SIGNER_AVATAR_EMOJIS.map((e, i) => h("button", {
+          class: "btn btn-ghost",
+          id: "av_" + i,
+          "data-emoji": e,
+          style: { padding: "0.35rem 0.55rem", fontSize: "1.2rem" }
+        }, e)))
+      ])
+    ]),
+    h("div", { class: "mt-2" }, [
+      h("label", {}, "Message"),
+      h("textarea", {
+        id: "signerMessage",
+        rows: 4,
+        placeholder: "Write a short warm message to the recipient…"
+      }, "")
+    ]),
+    h("div", { class: "mt-2" }, [
+      renderField("signerPhoto", "Photo URL (optional)", "text", "", "https://… or leave blank"),
+      h("button", {
+        class: "btn btn-ghost mt-1",
+        style: { fontSize: "0.82rem", padding: "0.3rem 0.8rem" },
+        onclick: () => {
+          const input = document.getElementById("f_signerPhoto");
+          if (input) {
+            const pool = [
+              R2_BASE + "/birthday/birthday-pexels-3018998-vertical.webp",
+              R2_BASE + "/love/love-pexels-11368673-vertical.webp"
+            ];
+            input.value = pool[Math.floor(Math.random() * pool.length)];
+            window.toast("🖼️ Sticker URL filled (demo)", "info");
+          }
+        }
+      }, "🖼️ Use a demo R2 sticker")
+    ]),
+    h("button", {
+      class: "btn btn-primary mt-2",
+      id: "submitSignatureBtn",
+      style: { width: "100%", justifyContent: "center" }
+    }, ["💖 Add my signature"])
+  ]);
+}
+
+function attachGroupSignListeners(token, data) {
+  let selectedAvatar = SIGNER_AVATAR_EMOJIS[0];
+  SIGNER_AVATAR_EMOJIS.forEach((e, i) => {
+    const b = document.getElementById("av_" + i);
+    if (!b) return;
+    if (e === selectedAvatar) applySelectedOutline(b, true);
+    b.addEventListener("click", () => {
+      selectedAvatar = e;
+      SIGNER_AVATAR_EMOJIS.forEach((_, j) => {
+        const b2 = document.getElementById("av_" + j);
+        if (b2) applySelectedOutline(b2, j === i);
+      });
+    });
+  });
+
+  document.getElementById("submitSignatureBtn").addEventListener("click", () => {
+    const name = (document.getElementById("f_signerName") || {}).value || "";
+    const message = (document.getElementById("signerMessage") || {}).value || "";
+    const photo = (document.getElementById("f_signerPhoto") || {}).value || "";
+    if (!name.trim()) { window.toast("Please enter your name", "error"); return; }
+    if (!message.trim()) { window.toast("Please write a short message", "error"); return; }
+    window.toast("💌 Posting your signature…", "info");
+    fetch(API_BASE + "/group/" + token + "/sign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, message, avatarEmoji: selectedAvatar, photo })
+    }).then(r => {
+      if (!r.ok) throw new Error("Signature failed");
+      return r.json();
+    }).then(saved => {
+      const grid = document.getElementById("signatureGrid");
+      if (grid) {
+        const newNode = renderSignatureCard(saved.signature || saved || {
+          name, message, avatarEmoji: selectedAvatar, photo
+        });
+        grid.insertBefore(newNode, grid.firstChild);
+      }
+      window.toast("💖 Your signature added!", "success");
+      const n = document.getElementById("f_signerName"); if (n) n.value = "";
+      const m = document.getElementById("signerMessage"); if (m) m.value = "";
+      const p = document.getElementById("f_signerPhoto"); if (p) p.value = "";
+    }).catch(e => window.toast("Network error: " + e.message, "error"));
+  });
+
+  document.getElementById("copyGroupLinkBtn").addEventListener("click", () => {
+    const url = location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      window.toast("📋 Share link copied!", "success");
+    }).catch(() => {
+      window.prompt("Copy this link:", url);
+      window.toast("📋 Link ready to paste", "info");
+    });
+  });
+
+  const sendBtn = document.getElementById("sendGroupCardBtn");
+  if (!sendBtn) return;
+  fetch(API_BASE + "/group/" + token + "/status", { method: "GET" })
+    .then(r => r.ok ? r.json() : Promise.resolve({}))
+    .then(d => {
+      const isOwner = !!d.isOwner || !!data.isOwner;
+      sendBtn.disabled = !isOwner;
+      sendBtn.title = isOwner ? "Send this card to the recipient" : "Only the card organiser can send";
+      sendBtn.style.cursor = isOwner ? "pointer" : "not-allowed";
+    }).catch(() => { sendBtn.disabled = true; });
+
+  sendBtn.addEventListener("click", () => {
+    if (sendBtn.disabled) {
+      window.toast("🔒 Only the organiser can send the group card", "error");
+      return;
+    }
+    window.toast("🎁 Sending group card reveal…", "info");
+    fetch(API_BASE + "/group/" + token + "/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ senderEmail: state.editor.fromEmail || "" })
+    }).then(r => {
+      if (!r.ok) throw new Error("Not the organiser or send failed");
+      return r.json();
+    }).then(() => {
+      window.toast("🎉 Group card scheduled for delivery!", "success");
+      setTimeout(() => {
+        history.pushState({}, "", "/");
+        renderRoute();
+      }, 1500);
+    }).catch(e => window.toast("Network error: " + e.message, "error"));
+  });
+}
+
+function renderGiftRedeem(token) {
+  clearApp();
+  setPageTitle("Redeem Your Gift · SendAFun");
+  updateCanonical("/redeem/" + token);
+
+  const wrap = h("div", { class: "fade-in" }, [
+    h("section", {
+      class: "glass",
+      style: {
+        maxWidth: "560px", margin: "2rem auto", padding: "2.5rem 2rem",
+        textAlign: "center"
+      }
+    }, [
+      h("div", { id: "giftHeader" }, [
+        h("div", { style: { fontSize: "4.5rem" } }, "🎁"),
+        h("h1", {
+          style: { fontFamily: "'Playfair Display', serif", margin: "0.6rem 0 0.3rem", fontSize: "2rem" }
+        }, "You've been gifted SendAFun!"),
+        h("div", { class: "loading-spinner", style: { marginTop: "1rem" } }),
+        h("p", { style: { color: "var(--saf-text-soft)", marginTop: "0.8rem" } }, "Loading gift details…")
+      ])
+    ])
+  ]);
+  mountApp(wrap);
+
+  fetch(API_BASE + "/gift/" + token, { method: "GET" })
+    .then(r => { if (!r.ok) throw new Error("Gift not found"); return r.json(); })
+    .then(data => renderGiftRedeemLoaded(token, data))
+    .catch(e => {
+      window.toast("Network error: " + e.message, "error");
+      const head = document.getElementById("giftHeader");
+      if (head) {
+        head.innerHTML = "";
+        head.appendChild(h("div", {}, [
+          h("div", { style: { fontSize: "4rem" } }, "😵"),
+          h("p", { style: { margin: "1rem 0 0.8rem" } }, "This gift link is invalid or has been redeemed."),
+          h("button", {
+            class: "btn btn-primary",
+            onclick: () => { history.pushState({}, "", "/"); renderRoute(); }
+          }, "Go Home")
+        ]));
+      }
+    });
+}
+
+function renderGiftRedeemLoaded(token, gift) {
+  clearApp();
+  const wrap = h("div", { class: "fade-in" }, [
+    h("section", {
+      class: "glass",
+      style: {
+        maxWidth: "560px", margin: "2rem auto", padding: "2.5rem 2rem"
+      }
+    }, [
+      h("div", { style: { textAlign: "center" } }, [
+        h("div", { style: { fontSize: "4.5rem" } }, "🎁"),
+        h("h1", {
+          style: { fontFamily: "'Playfair Display', serif", margin: "0.5rem 0 0.3rem", fontSize: "1.9rem" }
+        }, "You've been gifted SendAFun!"),
+        h("div", {
+          style: {
+            display: "inline-block",
+            background: "linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1))",
+            padding: "0.5rem 1rem", borderRadius: "999px",
+            fontWeight: 700, fontSize: "1rem", marginTop: "0.4rem"
+          }
+        }, escapeHtml(gift.planName || "SendAFun Premium Plan")),
+        gift.validDays ? h("p", {
+          style: { color: "var(--saf-text-soft)", margin: "0.8rem 0 0", fontSize: "0.9rem" }
+        }, "Valid for " + gift.validDays + " days after redemption.") : null
+      ]),
+      h("div", {
+        style: {
+          marginTop: "1.6rem", padding: "1rem 1.2rem",
+          borderRadius: "var(--radius-md)",
+          background: "rgba(255,255,255,0.7)",
+          borderLeft: "4px solid var(--saf-accent)"
+        }
+      }, [
+        h("p", { style: { margin: 0, fontWeight: 600 } },
+          "A note from " + escapeHtml(gift.senderName || "a friend") + ":"),
+        h("p", {
+          style: {
+            margin: "0.6rem 0 0", color: "var(--saf-text-soft)",
+            fontFamily: "'Dancing Script', cursive",
+            fontSize: "1.25rem", lineHeight: 1.5, color: "var(--saf-text)"
+          }
+        }, escapeHtml(gift.message || "Enjoy sending heartfelt cards to the people you love."))
+      ]),
+      h("form", {
+        id: "redeemForm",
+        style: { marginTop: "1.8rem", display: "flex", flexDirection: "column", gap: "0.9rem" }
+      }, [
+        h("div", {}, [
+          h("label", { for: "redeem_email" }, "Your Email Address"),
+          h("input", {
+            id: "redeem_email",
+            type: "email",
+            required: true,
+            placeholder: "you@example.com"
+          })
+        ]),
+        h("div", {}, [
+          h("label", { for: "redeem_name" }, "Your Name (optional)"),
+          h("input", {
+            id: "redeem_name",
+            type: "text",
+            placeholder: "How should cards be signed?"
+          })
+        ]),
+        h("label", {
+          style: {
+            display: "flex", alignItems: "flex-start", gap: "0.5rem",
+            fontWeight: 500, fontSize: "0.88rem", color: "var(--saf-text)",
+            cursor: "pointer"
+          }
+        }, [
+          h("input", {
+            id: "redeem_agree",
+            type: "checkbox",
+            required: true,
+            style: { marginTop: "4px" }
+          }),
+          h("span", {}, "✅ I agree to receive this gift subscription at the email above")
+        ]),
+        h("button", {
+          type: "submit",
+          class: "btn btn-primary",
+          style: { justifyContent: "center", fontSize: "1rem", padding: "0.9rem 1.5rem" }
+        }, ["🎊 Redeem My Gift"])
+      ])
+    ])
+  ]);
+  mountApp(wrap);
+
+  const form = document.getElementById("redeemForm");
+  form.addEventListener("submit", ev => {
+    ev.preventDefault();
+    const email = document.getElementById("redeem_email").value.trim();
+    const name = document.getElementById("redeem_name").value.trim();
+    const agree = document.getElementById("redeem_agree").checked;
+    if (!/.+@.+\..+/.test(email)) { window.toast("Please enter a valid email", "error"); return; }
+    if (!agree) { window.toast("Please check the agreement box", "error"); return; }
+    window.toast("🎟️ Activating your gift…", "info");
+    fetch(API_BASE + "/gift/redeem", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token, email, name })
+    }).then(r => {
+      if (!r.ok) throw new Error("Redemption failed");
+      return r.json();
+    }).then(() => {
+      window.toast("🎊 You're in! Enjoy your gift subscription!", "success");
+      setTimeout(() => {
+        history.pushState({}, "", "/");
+        renderRoute();
+      }, 1300);
+    }).catch(e => window.toast("Network error: " + e.message, "error"));
+  });
+}
+
+function renderPricing() {
+  clearApp();
+  const products = window.PRODUCTS || [];
+  const freePlan = {
+    id: "free",
+    name: "Free",
+    price: 0,
+    billing_cycle: "free",
+    features: [
+      "Unlimited card design & preview",
+      "All 11,000+ templates available",
+      "Save drafts locally in browser",
+      "Watermarked previews"
+    ]
+  };
+  const pps = products.find(p => p.creem_product_id === PRODUCT_IDS.pay_per_send) || {
+    name: "Pay Per Send", price: 1.99, billing_cycle: "one_time",
+    features: ["One single e-card scheduled & delivered", "7-day scheduling window", "Standard email template", "Watermark-free"]
+  };
+  const monthly = products.find(p => p.creem_product_id === PRODUCT_IDS.monthly) || {
+    name: "Monthly Unlimited", price: 6.99, billing_cycle: "monthly",
+    features: ["Unlimited scheduled sends", "Watermark-free HD", "30-day scheduling", "Custom email templates", "30-day send history", "Priority 24h support"]
+  };
+  const annual = products.find(p => p.creem_product_id === PRODUCT_IDS.annual) || {
+    name: "Annual Unlimited", price: 69, billing_cycle: "yearly",
+    features: ["Everything in Monthly", "Best value — ~$5.75/month", "Dedicated support line", "90-day history", "Early access to new templates"]
+  };
+  const group = products.find(p => p.creem_product_id === PRODUCT_IDS.group_pass) || {
+    name: "Group Card Pass", price: 4.99, billing_cycle: "one_time",
+    features: ["Invite 50 friends to sign one card", "Signature wall with photos", "Single merged reveal email", "High-res PDF export"]
+  };
+  const displayPlans = [freePlan, pps, monthly, annual, group];
+  const planKeys = ["free", "pay_per_send", "monthly", "annual", "group_pass"];
+  const planLabels = ["Free", "Pay Per Send", "Monthly", "Annual", "GroupPass"];
+
+  const wrap = h("div", { class: "pricing-page fade-in" }, [
+    h("section", { class: "pricing-hero" }, [
+      h("h1", {
+        style: {
+          fontFamily: "'Playfair Display', serif", margin: 0,
+          fontSize: "clamp(1.9rem, 4vw, 2.8rem)"
+        }
+      }, "Simple pricing, generous value"),
+      h("p", {
+        style: {
+          color: "var(--saf-text-soft)",
+          maxWidth: "620px", margin: "0.8rem auto 0",
+          fontSize: "1.05rem"
+        }
+      }, "Design unlimited cards for free. Only pay when you send or unlock group features.")
+    ]),
+    h("div", { class: "pricing-grid" },
+      displayPlans.map((p, i) => renderPlanCard(p, planKeys[i], i === 2))
+    ),
+    h("section", { class: "compare-section glass" }, [
+      h("h2", {
+        style: { fontFamily: "'Playfair Display', serif", marginTop: 0, marginBottom: "1.2rem" }
+      }, "Compare plans side by side"),
+      renderCompareTable(planKeys, planLabels)
+    ])
+  ]);
+  mountApp(wrap);
+}
+
+function renderPlanCard(plan, planKey, featured) {
+  const isFree = planKey === "free";
+  const periodLabel = plan.billing_cycle === "monthly" ? " / month"
+    : plan.billing_cycle === "yearly" ? " / year"
+    : plan.billing_cycle === "one_time" ? " one-time"
+    : "";
+  return h("div", {
+    class: "plan-card" + (featured ? " featured" : "")
+  }, [
+    h("div", { class: "plan-name" }, plan.name),
+    h("div", { class: "plan-price" }, [
+      plan.price === 0 ? "Free" : "$" + plan.price,
+      plan.price > 0 ? h("small", {}, periodLabel) : null
+    ]),
+    h("div", { class: "plan-period" }, isFree ? "Start designing immediately" : (planKey === "annual" ? "Billed annually — best value" : "Cancel anytime")),
+    h("ul", { class: "plan-features" },
+      (plan.features || []).map(f => h("li", {}, f))
+    ),
+    h("div", { class: "plan-cta" },
+      isFree ? h("button", {
+        class: "btn btn-ghost",
+        style: { width: "100%", justifyContent: "center" },
+        onclick: () => { history.pushState({}, "", "/"); renderRoute(); }
+      }, "Start Free")
+      : h("button", {
+        class: "btn " + (featured ? "btn-primary" : "btn-ghost"),
+        style: { width: "100%", justifyContent: "center" },
+        onclick: () => handlePlanChoose(plan, planKey)
+      }, "Choose Plan")
+    )
+  ]);
+}
+
+function handlePlanChoose(plan, planKey) {
+  const products = window.PRODUCTS || [];
+  const match = products.find(p => {
+    if (planKey === "pay_per_send") return p.creem_product_id === PRODUCT_IDS.pay_per_send;
+    if (planKey === "monthly") return p.creem_product_id === PRODUCT_IDS.monthly;
+    if (planKey === "annual") return p.creem_product_id === PRODUCT_IDS.annual;
+    if (planKey === "group_pass") return p.creem_product_id === PRODUCT_IDS.group_pass;
+    return false;
+  });
+  const pid = (match && match.creem_product_id) || PRODUCT_IDS[planKey];
+  startCheckoutSession(pid, null);
+}
+
+function renderCompareTable(planKeys, planLabels) {
+  const thead = h("thead", {}, h("tr", {}, [
+    h("th", {}, "Feature"),
+    ...planLabels.map(l => h("th", {}, l))
+  ]));
+  const tbody = h("tbody", {}, COMPARE_FEATURES.map(feat => {
+    return h("tr", {}, [
+      h("td", {}, feat.label),
+      ...planKeys.map(pk => {
+        const val = (PLAN_FEATURE_MATRIX[pk] || {})[feat.key];
+        if (feat.type === "text") {
+          return h("td", {}, val === false ? h("span", { class: "feat-nomark" }, "—") : String(val));
+        }
+        if (val === true) return h("td", {}, h("span", { class: "feat-mark" }, "✅"));
+        if (val === false) return h("td", {}, h("span", { class: "feat-nomark" }, "⛔"));
+        return h("td", {}, h("span", { class: "feat-nomark" }, "—"));
+      })
+    ]);
+  }));
+  return h("table", {}, [thead, tbody]);
+}
+
+const MESSAGE_TEMPLATES = {
+  birthday: [
+    "Happy Birthday! 🎉 Wishing you all the cake, laughter, and love today — and the year ahead even better than the last.",
+    "To one of my favorite people on their special day: may this year bring you every adventure you've been daydreaming about.",
+    "Another trip around the sun, and you're still shining brighter than ever. Happy Birthday! 🎂✨"
+  ],
+  anniversary: [
+    "Happy anniversary to the love of my life. Another year with you, another hundred I can't wait for. 💖🌹",
+    "I'd marry you all over again, a thousand times, in every lifetime. Happy anniversary, forever person. 💍💕",
+    "Through every high and every low, through calm days and stormy ones — loving you has been my greatest adventure. 🌊💍"
+  ],
+  thank_you: [
+    "I can't thank you enough for everything you've done. You have no idea how much it meant to me. 🙏💗",
+    "Small acts of kindness, huge impact. Thank you from the bottom of my heart. You're one in a million.",
+    "Grateful doesn't cover it. Thank you for being the kind of person everyone hopes to have in their corner. ✨"
+  ],
+  general: [
+    "Just thinking of you today and hoping it's a good one. You deserve every bit of happiness. 💗",
+    "Wishing you calm days, warm moments, and all the little wins you've been hoping for lately. ✨",
+    "You're doing better than you think. Be gentle with yourself today — you deserve it. 🫶"
+  ]
+};
+
+const EDITOR_HISTORY_LIMIT = 25;
+
+function pushEditorHistory(slug) {
+  try {
+    const key = "saf_history_list";
+    const raw = localStorage.getItem(key);
+    const list = raw ? JSON.parse(raw) : [];
+    const entry = { slug: slug, at: Date.now() };
+    const filtered = list.filter(i => i.slug !== slug).slice(0, EDITOR_HISTORY_LIMIT - 1);
+    filtered.unshift(entry);
+    localStorage.setItem(key, JSON.stringify(filtered));
+  } catch (_) {
+  }
+}
+
+function getEditorHistory() {
+  try {
+    const raw = localStorage.getItem("saf_history_list");
+    return raw ? JSON.parse(raw) : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function clearEditorHistory() {
+  try {
+    localStorage.removeItem("saf_history_list");
+  } catch (_) {
+  }
+}
+
+function findCardBySlug(slug) {
+  return (window.CARDS || []).find(c => c.slug === slug);
+}
+
+function getRandomCardsByCategory(cat, limit = 6) {
+  const cards = (window.CARDS || []).filter(c => !cat || c.category === cat);
+  const out = [];
+  const used = new Set();
+  const maxTry = Math.min(limit * 3, cards.length);
+  for (let i = 0; i < maxTry && out.length < limit; i++) {
+    const idx = Math.floor(Math.random() * cards.length);
+    if (used.has(idx)) continue;
+    used.add(idx);
+    out.push(cards[idx]);
+  }
+  return out;
+}
+
+function formatCount(n) {
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+  return String(n);
+}
+
+function countCardsByCategory() {
+  const out = {};
+  (window.CARDS || []).forEach(c => {
+    out[c.category] = (out[c.category] || 0) + 1;
+  });
+  return out;
+}
+
+function getSimilarCards(card, limit = 6) {
+  const same = (window.CARDS || []).filter(c => c.slug !== card.slug && c.category === card.category);
+  const scored = same.map(c => {
+    let s = 0;
+    if (c.style === card.style) s += 3;
+    const t1 = (card.tags || []).map(x => x.toLowerCase());
+    const t2 = (c.tags || []).map(x => x.toLowerCase());
+    const shared = t1.filter(t => t2.includes(t)).length;
+    s += shared;
+    return { c, s };
+  });
+  scored.sort((a, b) => b.s - a.s || Math.random() - 0.5);
+  return scored.slice(0, limit).map(x => x.c);
+}
+
+function renderCardBackStickerManager(card) {
+  if (!state.editor.stickers || !state.editor.stickers.length) return null;
+  return h("div", {
+    style: {
+      marginTop: "0.6rem",
+      padding: "0.7rem 0.9rem",
+      borderRadius: "var(--radius-sm)",
+      background: "rgba(236,72,153,0.08)",
+      border: "1px solid rgba(236,72,153,0.15)",
+      fontSize: "0.8rem"
+    }
+  }, [
+    h("div", { style: { fontWeight: 600, marginBottom: "0.35rem" } },
+      "Stickers on card (" + state.editor.stickers.length + "/6) — click a sticker to remove:"),
+    h("div", { style: { display: "flex", gap: "0.3rem", flexWrap: "wrap" } },
+      state.editor.stickers.map((st, i) => h("button", {
+        class: "btn btn-ghost",
+        style: { padding: "0.25rem 0.5rem", fontSize: "1.1rem" },
+        title: "Click to remove this sticker",
+        onclick: () => {
+          state.editor.stickers.splice(i, 1);
+          persistEditorState(state.currentSlug);
+          updateCardBackPreview(card);
+          const parent = document.getElementById("stickerManagerWrap");
+          if (parent) {
+            const rebuilt = renderCardBackStickerManager(card);
+            parent.innerHTML = "";
+            if (rebuilt) parent.appendChild(rebuilt);
+          }
+        }
+      }, st.emoji))
+    )
+  ]);
+}
+
+function renderMessageTemplatesSelector(card) {
+  const catKey = (card && card.category && MESSAGE_TEMPLATES[card.category.replace(/\-/g, "_")])
+    ? card.category.replace(/\-/g, "_")
+    : "general";
+  const templates = MESSAGE_TEMPLATES[catKey] || MESSAGE_TEMPLATES.general;
+  return h("div", {
+    style: {
+      padding: "0.8rem 0.9rem",
+      marginTop: "0.6rem",
+      borderRadius: "var(--radius-sm)",
+      background: "rgba(99,102,241,0.07)",
+      border: "1px solid rgba(99,102,241,0.13)",
+      fontSize: "0.82rem"
+    }
+  }, [
+    h("div", { style: { fontWeight: 600, marginBottom: "0.4rem" } },
+      "💡 Quick message templates — click to use:"),
+    h("div", { style: { display: "flex", flexDirection: "column", gap: "0.4rem" } },
+      templates.map((tpl, i) => h("button", {
+        class: "btn btn-ghost",
+        style: {
+          padding: "0.5rem 0.75rem",
+          textAlign: "left",
+          fontFamily: "inherit",
+          fontSize: "0.82rem",
+          lineHeight: 1.4,
+          whiteSpace: "normal",
+          height: "auto"
+        },
+        onclick: () => {
+          state.editor.defaultText = tpl;
+          persistEditorState(state.currentSlug);
+          const ta = document.getElementById("f_defaultText");
+          if (ta) ta.value = tpl;
+          updateCardBackPreview(card);
+          window.toast("✍️ Template applied", "success");
+        }
+      }, "Template " + (i + 1) + " · " + (tpl.length > 58 ? tpl.slice(0, 55) + "…" : tpl)))
+    )
+  ]);
+}
+
+function renderEditorRelatedCards(card) {
+  const related = getSimilarCards(card, 5);
+  if (!related.length) return null;
+  return h("div", {
+    style: {
+      marginTop: "1.2rem",
+      padding: "1rem 1.1rem",
+      borderRadius: "var(--radius-md)",
+      background: "rgba(255,255,255,0.55)",
+      border: "1px solid rgba(15,23,42,0.07)"
+    }
+  }, [
+    h("div", {
+      style: {
+        fontFamily: "'Playfair Display', serif",
+        fontWeight: 700, marginBottom: "0.6rem", fontSize: "1rem"
+      }
+    }, "✨ More in this category (" + (CATEGORY_LABELS[card.category] || card.category) + ")"),
+    h("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
+        gap: "0.6rem"
+      }
+    }, related.map(rc => {
+      const rbg = rc.bgImage || rc.bgImageWatermark || "";
+      const rcat = typeof rc.category === "string" ? rc.category : (typeof card.category === "string" ? card.category : "");
+      const rLayer = layeredBackground(rbg, rcat);
+      return h("a", {
+        href: "/card/" + rc.slug,
+        style: Object.assign({
+          aspectRatio: "3/4",
+          borderRadius: "var(--radius-sm)",
+          display: "block",
+          cursor: "pointer",
+          boxShadow: "var(--shadow-sm)",
+          transition: "transform .2s"
+        }, rLayer),
+        title: rc.title || "",
+        onclick: e => {
+          e.preventDefault();
+          history.pushState({}, "", "/card/" + rc.slug);
+          renderRoute();
+        }
+      });
+    }))
+  ]);
+}
+
+function injectEditorEnhancements(card) {
+  const stylePane = document.getElementById("tabStylePane");
+  if (!stylePane) return;
+  const managerWrap = h("div", { id: "stickerManagerWrap" });
+  const sm = renderCardBackStickerManager(card);
+  if (sm) managerWrap.appendChild(sm);
+  stylePane.appendChild(managerWrap);
+
+  const msgPane = document.getElementById("tabMessagePane");
+  if (msgPane) {
+    const tplEl = renderMessageTemplatesSelector(card);
+    if (tplEl) msgPane.appendChild(tplEl);
+  }
+
+  const controls = document.querySelector(".editor-controls");
+  if (controls) {
+    const related = renderEditorRelatedCards(card);
+    if (related) controls.appendChild(related);
+  }
+}
+
+const KEYBOARD_HINTS = [
+  { key: "?", action: "Show keyboard shortcuts" },
+  { key: "g", action: "Flip card front/back (editor)" },
+  { key: "Esc", action: "Close modals" },
+  { key: "/", action: "Focus search (discover page)" },
+  { key: "h", action: "Go home" },
+  { key: "d", action: "Jump to Discover page" }
+];
+
+function buildKeyboardShortcutsHelpModal() {
+  const wrap = document.createElement("div");
+  wrap.style.cssText = "position:fixed;inset:0;z-index:200;background:rgba(15,23,42,0.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1rem;";
+  const modal = h("div", {
+    class: "glass",
+    style: { maxWidth: "480px", width: "100%", padding: "1.8rem", maxHeight: "90vh", overflow: "auto" }
+  }, [
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" } }, [
+      h("h2", { style: { fontFamily: "'Playfair Display', serif", margin: 0, fontSize: "1.4rem" } }, "⌨️ Keyboard Shortcuts"),
+      h("button", {
+        class: "btn btn-ghost",
+        style: { padding: "0.35rem 0.7rem" },
+        onclick: () => wrap.remove()
+      }, "Close")
+    ]),
+    h("table", { style: { width: "100%", fontSize: "0.9rem", borderCollapse: "collapse" } },
+      KEYBOARD_HINTS.map(hint => h("tr", {
+        style: { borderBottom: "1px solid rgba(15,23,42,0.06)" }
+      }, [
+        h("td", {
+          style: {
+            padding: "0.6rem 0.4rem",
+            fontFamily: "monospace",
+            fontWeight: 700,
+            width: "30%"
+          }
+        }, hint.key),
+        h("td", {
+          style: { padding: "0.6rem 0.4rem", color: "var(--saf-text-soft)" }
+        }, hint.action)
+      ]))
+    )
+  ]);
+  wrap.appendChild(modal);
+  document.body.appendChild(wrap);
+  return wrap;
+}
+
+function installGlobalKeyboardShortcuts() {
+  if (window.__safKeyboardInstalled) return;
+  window.__safKeyboardInstalled = true;
+  document.addEventListener("keydown", ev => {
+    try {
+      if (!ev) return;
+      const activeTag = (document.activeElement && document.activeElement.tagName || "").toLowerCase();
+      const inField = activeTag === "input" || activeTag === "textarea" || activeTag === "select";
+      const key = ev.key || "";
+      if (key === "Escape") {
+        const openModals = document.querySelectorAll('div[style*="z-index:200"]');
+        if (openModals.length) openModals[openModals.length - 1].remove();
+        return;
+      }
+      if (key === "?" && !inField) {
+        ev.preventDefault();
+        buildKeyboardShortcutsHelpModal();
+        return;
+      }
+      if (inField) return;
+      if (key.toLowerCase() === "h") {
+        history.pushState({}, "", "/");
+        renderRoute();
+      } else if (key.toLowerCase() === "d") {
+        history.pushState({}, "", "/discover");
+        renderRoute();
+      } else if (key.toLowerCase() === "g" && state.currentSlug) {
+        const flipBtn = document.getElementById("flipBtn");
+        if (flipBtn) flipBtn.click();
+      } else if (key === "/" && location.pathname.startsWith("/discover")) {
+        ev.preventDefault();
+        const searchInput = document.getElementById("discoverSearchInput");
+        if (searchInput) searchInput.focus();
+      }
+    } catch (_) {
+    }
+  });
+}
+
+function getCategoryStatSummary() {
+  const counts = countCardsByCategory();
+  let total = 0, biggest = 0, biggestCat = null;
+  Object.keys(counts).forEach(c => {
+    total += counts[c];
+    if (counts[c] > biggest) { biggest = counts[c]; biggestCat = c; }
+  });
+  return { total, biggest, biggestCat, categoryCount: Object.keys(counts).length };
+}
+
+function renderHomeExtraStats() {
+  const stats = getCategoryStatSummary();
+  if (!stats.total) return null;
+  return h("div", {
+    style: {
+      marginTop: "2.5rem",
+      padding: "1.3rem 1.5rem",
+      borderRadius: "var(--radius-md)",
+      background: "linear-gradient(135deg, rgba(99,102,241,0.09), rgba(236,72,153,0.08))",
+      border: "1px solid rgba(99,102,241,0.15)",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+      gap: "0.8rem"
+    }
+  }, [
+    h("div", { style: { textAlign: "center" } }, [
+      h("div", { style: { fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "var(--saf-primary-dark)" } },
+        formatCount(stats.total)),
+      h("div", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "cards live now")
+    ]),
+    h("div", { style: { textAlign: "center" } }, [
+      h("div", { style: { fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "var(--saf-accent)" } },
+        String(stats.categoryCount)),
+      h("div", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } }, "occasions supported")
+    ]),
+    h("div", { style: { textAlign: "center" } }, [
+      h("div", { style: { fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#d97706" } },
+        stats.biggestCat ? getCategoryEmoji(stats.biggestCat) + " " + (CATEGORY_LABELS[stats.biggestCat] || "") : "—"),
+      h("div", { style: { fontSize: "0.8rem", color: "var(--saf-text-soft)" } },
+        "top category · " + formatCount(stats.biggest) + " cards")
+    ])
+  ]);
+}
+
+function renderHomeFeaturedCategories() {
+  const cats = Object.keys(CATEGORY_LABELS);
+  const counts = countCardsByCategory();
+  const featured = cats.slice(0, 9);
+  return h("section", {
+    class: "glass",
+    style: { padding: "1.8rem 1.6rem", marginTop: "2rem" }
+  }, [
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "1.2rem" } }, [
+      h("h2", {
+        style: { fontFamily: "'Playfair Display', serif", margin: 0, fontSize: "1.5rem" }
+      }, "📚 Browse by occasion"),
+      h("button", {
+        class: "btn btn-ghost",
+        style: { fontSize: "0.85rem", padding: "0.35rem 0.8rem" },
+        onclick: () => { history.pushState({}, "", "/discover"); renderRoute(); }
+      }, "See all →")
+    ]),
+    h("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+        gap: "0.9rem"
+      }
+    }, featured.map(cat => {
+      const firstCard = (window.CARDS || []).find(c => c.category === cat);
+      const bg = firstCard ? (firstCard.bgImage || firstCard.bgImageWatermark || "") : "";
+      return h("a", {
+        href: "/discover?cat=" + cat,
+        style: {
+          position: "relative",
+          aspectRatio: "3/4",
+          borderRadius: "var(--radius-lg)",
+          overflow: "hidden",
+          background: bg ? "url(" + bg + ") center/cover no-repeat" : "linear-gradient(135deg, #a5b4fc, #f9a8d4)",
+          color: "inherit",
+          textDecoration: "none",
+          cursor: "pointer",
+          boxShadow: "var(--shadow-md)",
+          transition: "transform .25s, box-shadow .25s"
+        },
+        onmouseenter: e => { e.currentTarget.style.transform = "translateY(-3px) rotate(0.4deg)"; e.currentTarget.style.boxShadow = "var(--shadow-lg)"; },
+        onmouseleave: e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "var(--shadow-md)"; },
+        onclick: e => {
+          e.preventDefault();
+          history.pushState({}, "", "/discover?cat=" + cat);
+          renderRoute();
+        }
+      }, [
+        h("div", {
+          style: {
+            position: "absolute", inset: 0,
+            background: "linear-gradient(180deg, transparent 25%, rgba(15,23,42,0.72) 100%)"
+          }
+        }),
+        h("div", {
+          style: {
+            position: "absolute",
+            top: "12px", right: "12px",
+            fontSize: "1.4rem",
+            background: "rgba(255,255,255,0.85)",
+            backdropFilter: "blur(6px)",
+            width: "38px", height: "38px",
+            borderRadius: "50%",
+            display: "flex", alignItems: "center", justifyContent: "center"
+          }
+        }, getCategoryEmoji(cat)),
+        h("div", {
+          style: {
+            position: "absolute",
+            left: "16px", right: "16px", bottom: "16px",
+            color: "#fff"
+          }
+        }, [
+          h("div", { style: { fontWeight: 700, fontSize: "1.05rem", marginBottom: "2px" } },
+            CATEGORY_LABELS[cat] || cat),
+          h("div", { style: { fontSize: "0.76rem", opacity: 0.9 } },
+            (counts[cat] || 0) + " templates")
+        ])
+      ]);
+    }))
+  ]);
+}
+
+function injectHomeExtraSections() {
+  const homePage = document.querySelector(".home-page");
+  if (!homePage) return;
+  const stats = renderHomeExtraStats();
+  const cats = renderHomeFeaturedCategories();
+  if (stats) homePage.appendChild(stats);
+  if (cats) homePage.appendChild(cats);
+}
+
+function installAutoSaveIndicator() {
+  if (window.__safAutoSaveInstalled) return;
+  window.__safAutoSaveInstalled = true;
+  let lastToast = 0;
+  window.addEventListener("editor-state-saved", () => {
+    const now = Date.now();
+    if (now - lastToast < 3000) return;
+    lastToast = now;
+  });
+}
+
+function validateEmailList(str) {
+  if (!str) return false;
+  const emails = String(str).split(/[;,]/).map(s => s.trim()).filter(Boolean);
+  if (!emails.length) return false;
+  return emails.every(e => /.+@.+\..+/.test(e));
+}
+
+function truncateForPreview(str, max) {
+  if (!str) return "";
+  if (str.length <= max) return str;
+  return str.slice(0, max - 1) + "…";
+}
+
+function printStylesInject() {
+  if (document.getElementById("saf-print-styles")) return;
+  const styleEl = document.createElement("style");
+  styleEl.id = "saf-print-styles";
+  styleEl.textContent = [
+    "@media print {",
+    "  nav#topNav, footer, .cookie-banner, .toast-stack,",
+    "  .editor-controls, #flipBtn, .glass-nav, .glass-footer, .intent-section, .hero-cta-row { display: none !important; }",
+    "  #app { max-width: 100%; margin: 0; padding: 0; }",
+    "  .editor-page { grid-template-columns: 1fr !important; }",
+    "  .card-flip-wrapper { max-width: 480px; margin: 0 auto; box-shadow: none; }",
+    "  body { background: #fff; }",
+    "}"
+  ].join("\n");
+  document.head.appendChild(styleEl);
+}
+
+function installGlobalUtilities() {
+  installGlobalKeyboardShortcuts();
+  installAutoSaveIndicator();
+  printStylesInject();
+  const origPersist = persistEditorState;
+  window.__patchedPersist = function (slug) {
+    origPersist(slug);
+    try {
+      const ev = new CustomEvent("editor-state-saved", { detail: { slug } });
+      window.dispatchEvent(ev);
+    } catch (_) {
+    }
+  };
+}
+
+function attachPostRenderHooks() {
+  installGlobalUtilities();
+  setTimeout(() => {
+    if (location.pathname === "/" || location.pathname === "" || location.pathname === "/index.html") {
+      injectHomeExtraSections();
+    }
+    if (state.currentSlug) {
+      pushEditorHistory(state.currentSlug);
+      const card = findCardBySlug(state.currentSlug);
+      if (card) injectEditorEnhancements(card);
+    }
+  }, 40);
+}
+
+function renderDiscoverExtraToolbar(initParams) {
+  const wrap = document.getElementById("discoverGrid");
+  if (!wrap) return;
+  const counts = countCardsByCategory();
+  const summary = getCategoryStatSummary();
+  const header = h("div", {
+    style: {
+      gridColumn: "1 / -1",
+      padding: "0.9rem 1rem",
+      borderRadius: "var(--radius-md)",
+      background: "rgba(255,255,255,0.6)",
+      border: "1px solid rgba(15,23,42,0.06)",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap",
+      gap: "0.6rem",
+      fontSize: "0.85rem"
+    }
+  }, [
+    h("div", {}, [
+      h("span", { style: { fontWeight: 700 } }, "Showing " + (wrap.children.length || 0) + " cards"),
+      h("span", { style: { color: "var(--saf-text-soft)", marginLeft: "0.6rem" } },
+        "of " + formatCount(summary.total) + " total")
+    ]),
+    h("div", { style: { display: "flex", gap: "0.4rem", flexWrap: "wrap" } }, [
+      h("button", {
+        class: "btn btn-ghost",
+        style: { padding: "0.3rem 0.75rem", fontSize: "0.8rem" },
+        onclick: () => {
+          const grid = document.getElementById("discoverGrid");
+          if (!grid) return;
+          const items = Array.from(grid.querySelectorAll(".card-tile"));
+          items.sort(() => Math.random() - 0.5);
+          items.forEach(it => grid.appendChild(it));
+          window.toast("🔀 Shuffled cards", "info");
+        }
+      }, "🔀 Shuffle"),
+      h("button", {
+        class: "btn btn-ghost",
+        style: { padding: "0.3rem 0.75rem", fontSize: "0.8rem" },
+        onclick: () => {
+          if (!counts || !Object.keys(counts).length) return;
+          const keys = Object.keys(counts);
+          const pick = keys[Math.floor(Math.random() * keys.length)];
+          const p = new URLSearchParams(location.search);
+          p.set("cat", pick);
+          history.pushState({}, "", "/discover?" + p.toString());
+          renderRoute();
+        }
+      }, "🎲 Random category")
+    ])
+  ]);
+  wrap.parentNode.insertBefore(header, wrap);
+}
+
+function getOrganizationJSONLD() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SendAFun",
+    url: "https://sendafun.com",
+    logo: "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-3018998-vertical.webp",
+    email: "support@sendafun.com",
+    description: "Warm, beautiful e-cards sent in under 60 seconds.",
+    sameAs: [
+      "https://instagram.com/sendafun",
+      "https://x.com/sendafun",
+      "https://facebook.com/sendafunapp"
+    ],
+    address: { "@type": "PostalAddress", addressCountry: "US" },
+    founder: { "@type": "Person", name: "SendAFun Team" }
+  };
+}
+
+function renderAbout() {
+  clearApp();
+  const totalCards = (window.CARDS || []).length || 11000;
+  const wrap = h("div", { style: { maxWidth: "1080px", margin: "0 auto", padding: "3.5rem 1.25rem 6rem" } }, [
+    h("section", { style: { textAlign: "center", padding: "1rem 0 3rem" } }, [
+      h("p", { style: { color: "var(--saf-primary-dark)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", fontSize: "0.8rem" } },
+        "ABOUT SENDAFUN"),
+      h("h1", { style: {
+        fontSize: "clamp(2.2rem, 4.2vw, 3.3rem)",
+        fontFamily: "var(--saf-font-serif)",
+        fontWeight: 800,
+        letterSpacing: "-0.02em",
+        lineHeight: 1.08,
+        color: "var(--saf-text-main)",
+        margin: "0.9rem auto 1.2rem",
+        maxWidth: "760px"
+      } }, "Digital greetings that actually feel human ✉️"),
+      h("p", { style: { fontSize: "1.1rem", color: "var(--saf-text-soft)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.7 } },
+        "SendAFun is a tiny, independent studio on a mission. We believe birthday wishes, thank-you notes and \"I miss you\"s deserve more than a group chat. Not another \"cute AI\" product — real typography, real photos, and a frictionless way to tell someone you thought of them.")
+    ]),
+
+    h("section", {
+      style: {
+        background: "var(--saf-surface-white)",
+        borderRadius: "1.5rem",
+        padding: "2.5rem 1.5rem",
+        border: "1px solid var(--saf-border)",
+        boxShadow: "0 10px 30px rgba(31,41,55,0.05)",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: "2rem"
+      }
+    }, [
+      (() => {
+        const stats = [
+          { n: totalCards, l: "Card templates", s: "Hand-crafted, updated weekly" },
+          { n: 240000,    l: "Cards sent",     s: "Across 58 countries" },
+          { n: "4h",      l: "Support reply",  s: "Friendly humans on the hook" },
+          { n: "94%",     l: "Open rate",      s: "Warm mail beats cold inboxes" }
+        ];
+        return stats.map(s => h("div", { style: { textAlign: "center", padding: "0.5rem" } }, [
+          h("div", { style: {
+            fontSize: "clamp(2rem, 4vw, 2.7rem)",
+            fontWeight: 800,
+            color: "var(--saf-primary-dark)",
+            fontFamily: "var(--saf-font-serif)",
+            letterSpacing: "-0.02em"
+          } }, (typeof s.n === "number") ? formatCount(s.n) + "+" : s.n),
+          h("div", { style: { marginTop: "0.3rem", fontWeight: 600, color: "var(--saf-text-main)" } }, s.l),
+          h("div", { style: { marginTop: "0.2rem", fontSize: "0.85rem", color: "var(--saf-text-soft)" } }, s.s)
+        ]));
+      })()
+    ].flat()),
+
+    h("section", { style: { padding: "4rem 0 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2.5rem", alignItems: "center" } }, [
+      h("div", { style: {
+        background: "linear-gradient(135deg, #ede9fe 0%, #fce7f3 55%, #fef3c7 100%)",
+        borderRadius: "1.5rem",
+        aspectRatio: "4 / 5",
+        position: "relative",
+        overflow: "hidden",
+        border: "1px solid var(--saf-border)"
+      } }, [
+        h("div", { style: {
+          position: "absolute",
+          inset: "1.5rem",
+          borderRadius: "1rem",
+          background: "var(--saf-surface-white)",
+          padding: "2rem 1.5rem",
+          boxShadow: "0 20px 50px rgba(99,102,241,0.18)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between"
+        } }, [
+          h("div", { style: { alignSelf: "flex-start", padding: "0.4rem 0.8rem", borderRadius: "999px", background: "var(--saf-primary-purple-soft)", color: "var(--saf-primary-dark)", fontSize: "0.75rem", fontWeight: 700 } },
+            "OUR MISSION"),
+          h("p", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "1.45rem", lineHeight: 1.3, color: "var(--saf-text-main)", fontWeight: 700 } },
+            "Give every occasion the card it deserves — not the \"I searched for 15 minutes and settled\" card."),
+          h("p", { style: { color: "var(--saf-text-soft)", fontSize: "0.9rem", lineHeight: 1.6 } },
+            "SendAFun started in 2024 when we got tired of generic ecards that felt like clip-art. We built the tool we wanted: beautiful templates, zero friction, your handwriting, your photos.")
+        ])
+      ]),
+      h("div", {}, [
+        h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "clamp(1.6rem, 2.6vw, 2.1rem)", margin: "0 0 1rem", color: "var(--saf-text-main)" } },
+          "The SendAFun story"),
+        h("p", { style: { color: "var(--saf-text-soft)", lineHeight: 1.75, marginBottom: "1rem" } },
+          "The way we connect changed fast — video calls, group chats, DMs. But the greeting card got stuck in the 2000s: awkward wiggling GIFs, mandatory sign-ups, designs you wouldn't show to your mom."),
+        h("p", { style: { color: "var(--saf-text-soft)", lineHeight: 1.75, marginBottom: "1rem" } },
+          "So we started over. Real Playfair typography. Real photos of people, not 3D AI mockups. An intent engine that asks the right questions — \"Who's it for? What's the occasion? Tone?\" — then narrows 11,000 cards to the 12 that fit. You design, you preview, you pick a way to send."),
+        h("p", { style: { color: "var(--saf-text-soft)", lineHeight: 1.75, marginBottom: "1rem" } },
+          "No account. No credit card to see the good stuff. Just a card the recipient actually wants to open."),
+        h("div", { style: { display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "1.5rem" } }, [
+          h("a", {
+            href: "/discover", class: "btn btn-primary",
+            onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/discover"); renderRoute(); }
+          }, "🎴 Browse all cards"),
+          h("a", {
+            href: "/pricing", class: "btn btn-outline",
+            onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/pricing"); renderRoute(); }
+          }, "💳 See pricing")
+        ])
+      ])
+    ]),
+
+    h("section", { style: { padding: "2rem 0 0" } }, [
+      h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "clamp(1.5rem, 2.4vw, 2rem)", textAlign: "center", margin: "0 0 0.5rem" } },
+        "What makes us different"),
+      h("p", { style: { textAlign: "center", color: "var(--saf-text-soft)", maxWidth: "560px", margin: "0 auto 2rem" } },
+        "Four small choices that make a big difference when you need to tell someone you care."),
+      h("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "1.25rem" } }, [
+        (() => {
+          const rows = [
+            { i: "🧭", t: "Intent-first, not scroll-first", d: "You pick recipient / occasion / tone. We do the filtering. No page 17 of 40." },
+            { i: "🖋️", t: "Designers, not engines", d: "Every card is touched by a real human. No clip-art. No wiggling GIFs from 2005." },
+            { i: "📮", t: "Send how you like", d: "SMS, email, QR at a party, social DM. We don't force your recipient into a portal." },
+            { i: "🛡️", t: "Guest first, always", d: "No account to preview, no credit card trap. Save things locally if you want — or don't." }
+          ];
+          return rows.map(r => h("div", { style: {
+            background: "var(--saf-surface-white)",
+            border: "1px solid var(--saf-border)",
+            borderRadius: "1rem",
+            padding: "1.5rem",
+            transition: "transform 0.2s ease, box-shadow 0.2s ease",
+          }, onmouseover: (ev) => { ev.currentTarget.style.transform = "translateY(-4px)"; ev.currentTarget.style.boxShadow = "0 14px 32px rgba(31,41,55,0.08)"; },
+             onmouseout:  (ev) => { ev.currentTarget.style.transform = "translateY(0)";    ev.currentTarget.style.boxShadow = "none"; }
+          }, [
+            h("div", { style: { fontSize: "1.8rem" } }, r.i),
+            h("h3", { style: { margin: "0.6rem 0 0.3rem", fontWeight: 700, color: "var(--saf-text-main)" } }, r.t),
+            h("p", { style: { margin: 0, fontSize: "0.92rem", lineHeight: 1.6, color: "var(--saf-text-soft)" } }, r.d)
+          ]));
+        })()
+      ].flat())
+    ]),
+
+    h("section", { style: {
+      marginTop: "4rem",
+      background: "linear-gradient(135deg, rgba(99,102,241,0.06), rgba(236,72,153,0.06))",
+      border: "1px solid var(--saf-border)",
+      borderRadius: "1.5rem",
+      padding: "2.5rem 1.5rem",
+      textAlign: "center"
+    } }, [
+      h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "clamp(1.6rem, 2.6vw, 2.2rem)", margin: "0 0 0.6rem", letterSpacing: "-0.01em" } },
+        "See what 11,000 cards look like"),
+      h("p", { style: { color: "var(--saf-text-soft)", maxWidth: "520px", margin: "0 auto 1.5rem", lineHeight: 1.6 } },
+        "Birthday, love, sympathy, congratulations, \"I'm proud of you\" — we built the library you actually need."),
+      h("div", { style: { display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" } }, [
+        h("a", {
+          href: "/discover", class: "btn btn-primary btn-pulse",
+          onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/discover"); renderRoute(); }
+        }, "🎴 Start browsing"),
+        h("a", {
+          href: "/contact", class: "btn btn-outline",
+          onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/contact"); renderRoute(); }
+        }, "📧 Talk to us")
+      ])
+    ])
+  ]);
+  mountApp(wrap);
+  attachPostRenderHooks();
+}
+
+function renderContact() {
+  clearApp();
+  const wrap = h("div", { style: { maxWidth: "1080px", margin: "0 auto", padding: "3.5rem 1.25rem 6rem" } }, [
+    h("section", { style: { textAlign: "center", padding: "1rem 0 2.5rem" } }, [
+      h("p", { style: { color: "var(--saf-primary-dark)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", fontSize: "0.8rem" } },
+        "CONTACT US"),
+      h("h1", { style: {
+        fontSize: "clamp(2.2rem, 4.2vw, 3.3rem)",
+        fontFamily: "var(--saf-font-serif)",
+        fontWeight: 800,
+        letterSpacing: "-0.02em",
+        lineHeight: 1.08,
+        color: "var(--saf-text-main)",
+        margin: "0.9rem auto 1.2rem",
+        maxWidth: "760px"
+      } }, "Friendly humans, typically replying in under 4 hours 💬"),
+      h("p", { style: { fontSize: "1.1rem", color: "var(--saf-text-soft)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.7 } },
+        "Stuck on a design? Need corporate templates for your team? Found a bug? Write to us — we actually read every message, and you'll get a real person on the other end, not a robot.")
+    ]),
+
+    h("section", {
+      style: {
+        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
+        gap: "1.25rem", marginBottom: "2.5rem"
+      }
+    }, [
+      (() => {
+        const blocks = [
+          { i: "📧", t: "Email", l1: "support@sendafun.com", l2: "We read every one", url: "mailto:support@sendafun.com" },
+          { i: "⏱️", t: "Response time", l1: "Under 4 hours on weekdays", l2: "Weekends within 12 hours", url: null },
+          { i: "🏢", t: "Business & Press", l1: "hello@sendafun.com", l2: "Brand licensing, press kits", url: "mailto:hello@sendafun.com" }
+        ];
+        return blocks.map(b => h("a", {
+          href: b.url || "javascript:void(0)",
+          style: {
+            display: "block",
+            background: "var(--saf-surface-white)",
+            border: "1px solid var(--saf-border)",
+            borderRadius: "1rem",
+            padding: "1.5rem",
+            color: "inherit",
+            textDecoration: "none",
+            transition: "transform 0.2s ease, box-shadow 0.2s ease"
+          },
+          onmouseover: (ev) => { ev.currentTarget.style.transform = "translateY(-4px)"; ev.currentTarget.style.boxShadow = "0 14px 32px rgba(31,41,55,0.08)"; },
+          onmouseout:  (ev) => { ev.currentTarget.style.transform = "translateY(0)";    ev.currentTarget.style.boxShadow = "none"; }
+        }, [
+          h("div", { style: { fontSize: "1.8rem" } }, b.i),
+          h("div", { style: { marginTop: "0.7rem", fontWeight: 700, color: "var(--saf-text-main)" } }, b.t),
+          h("div", { style: { marginTop: "0.4rem", color: "var(--saf-primary-dark)", fontWeight: 600 } }, b.l1),
+          h("div", { style: { marginTop: "0.15rem", fontSize: "0.85rem", color: "var(--saf-text-soft)" } }, b.l2)
+        ]));
+      })()
+    ].flat()),
+
+    h("section", { class: "contact-main-grid", style: { display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: "2rem", alignItems: "start" } }, [
+      h("form", {
+        id: "contactForm",
+        style: {
+          background: "var(--saf-surface-white)",
+          border: "1px solid var(--saf-border)",
+          borderRadius: "1.25rem",
+          padding: "2rem 1.5rem",
+          boxShadow: "0 10px 30px rgba(31,41,55,0.05)"
+        },
+        onsubmit: async (e) => {
+          e.preventDefault();
+          const name = (document.getElementById("cf-name") || {}).value || "";
+          const email = (document.getElementById("cf-email") || {}).value || "";
+          const topic = (document.getElementById("cf-topic") || {}).value || "";
+          const msg = (document.getElementById("cf-message") || {}).value || "";
+          if (name.length < 2) { window.toast("Please add your name", "error"); return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { window.toast("That email doesn't look right", "error"); return; }
+          if (msg.length < 10) { window.toast("A bit more message please (~10 chars)", "error"); return; }
+          const submitBtn = e.currentTarget.querySelector('button[type="submit"]');
+          const originalBtnText = submitBtn ? submitBtn.textContent : "";
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "⏳ Sending…"; }
+          const payload = JSON.stringify({ name, email, topic, message: msg, sentAt: new Date().toISOString() });
+          try { localStorage.setItem("saf_contact_" + Date.now(), payload); } catch (_) {}
+          try {
+            const r = await fetch(API_BASE + "/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: payload
+            });
+            const data = r.ok ? await r.json().catch(() => ({})) : {};
+            if (!r.ok && !(data && data.ok)) {
+              throw new Error("Server " + r.status);
+            }
+          } catch (err) {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+            window.toast("⚠️ Saved locally — will retry on next page visit (" + err.message + ")", "error", 8000);
+            return;
+          }
+          try { e.currentTarget.reset(); } catch (_) {}
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+          window.toast("Thanks " + name.split(" ")[0] + " — we'll reply at " + email + " usually within 4 hours 💌", "success", 7000);
+        }
+      }, [
+        h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "1.5rem", margin: "0 0 1.5rem" } }, "Send us a message"),
+        h("div", { class: "contact-form-dual", style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.9rem" } }, [
+          h("label", { for: "cf-name", style: { display: "flex", flexDirection: "column", gap: "0.35rem", fontWeight: 600, fontSize: "0.9rem", color: "var(--saf-text-main)" } }, [
+            "Your name",
+            h("input", { id: "cf-name", name: "name", type: "text", autocomplete: "name", placeholder: "Jane Doe", style: {
+              padding: "0.7rem 0.9rem",
+              borderRadius: "0.7rem",
+              border: "1px solid var(--saf-border)",
+              background: "var(--saf-bg-input)",
+              color: "var(--saf-text-main)",
+              fontSize: "0.95rem",
+              outline: "none"
+            }, onfocus: (ev) => { ev.currentTarget.style.borderColor = "var(--saf-primary-dark)"; ev.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.15)"; },
+               onblur:  (ev) => { ev.currentTarget.style.borderColor = "var(--saf-border)";   ev.currentTarget.style.boxShadow = "none"; } })
+          ]),
+          h("label", { for: "cf-email", style: { display: "flex", flexDirection: "column", gap: "0.35rem", fontWeight: 600, fontSize: "0.9rem", color: "var(--saf-text-main)" } }, [
+            "Email",
+            h("input", { id: "cf-email", name: "email", type: "email", autocomplete: "email", placeholder: "jane@company.com", style: {
+              padding: "0.7rem 0.9rem",
+              borderRadius: "0.7rem",
+              border: "1px solid var(--saf-border)",
+              background: "var(--saf-bg-input)",
+              color: "var(--saf-text-main)",
+              fontSize: "0.95rem",
+              outline: "none"
+            }, onfocus: (ev) => { ev.currentTarget.style.borderColor = "var(--saf-primary-dark)"; ev.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.15)"; },
+               onblur:  (ev) => { ev.currentTarget.style.borderColor = "var(--saf-border)";   ev.currentTarget.style.boxShadow = "none"; } })
+          ])
+        ]),
+        h("label", { for: "cf-topic", style: { display: "flex", flexDirection: "column", gap: "0.35rem", fontWeight: 600, fontSize: "0.9rem", color: "var(--saf-text-main)", marginTop: "0.9rem" } }, [
+          "Topic",
+          h("select", { id: "cf-topic", name: "topic", style: {
+            padding: "0.7rem 0.9rem",
+            borderRadius: "0.7rem",
+            border: "1px solid var(--saf-border)",
+            background: "var(--saf-bg-input)",
+            color: "var(--saf-text-main)",
+            fontSize: "0.95rem"
+          } }, [
+            h("option", { value: "support" }, "Support / help with a card"),
+            h("option", { value: "feature" }, "Feature request"),
+            h("option", { value: "bug" }, "Bug report"),
+            h("option", { value: "press" }, "Press / media"),
+            h("option", { value: "business" }, "Business / corporate templates"),
+            h("option", { value: "other" }, "Other / just saying hi")
+          ])
+        ]),
+        h("label", { for: "cf-message", style: { display: "flex", flexDirection: "column", gap: "0.35rem", fontWeight: 600, fontSize: "0.9rem", color: "var(--saf-text-main)", marginTop: "0.9rem" } }, [
+          "Message",
+          h("textarea", { id: "cf-message", name: "message", rows: 5, placeholder: "Tell us what's going on — the more context, the better. Screenshots love company.", style: {
+            padding: "0.7rem 0.9rem",
+            borderRadius: "0.7rem",
+            border: "1px solid var(--saf-border)",
+            background: "var(--saf-bg-input)",
+            color: "var(--saf-text-main)",
+            fontSize: "0.95rem",
+            resize: "vertical",
+            minHeight: "130px",
+            outline: "none"
+          }, onfocus: (ev) => { ev.currentTarget.style.borderColor = "var(--saf-primary-dark)"; ev.currentTarget.style.boxShadow = "0 0 0 3px rgba(99,102,241,0.15)"; },
+             onblur:  (ev) => { ev.currentTarget.style.borderColor = "var(--saf-border)";   ev.currentTarget.style.boxShadow = "none"; } })
+        ]),
+        h("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "1.5rem", gap: "1rem", flexWrap: "wrap" } }, [
+          h("p", { style: { margin: 0, fontSize: "0.8rem", color: "var(--saf-text-soft)", maxWidth: "320px", lineHeight: 1.5 } },
+            "We never share your email or message. Stored locally in your browser until your next refresh so we don't lose it."),
+          h("button", { type: "submit", class: "btn btn-primary btn-pulse" }, "📮 Send message")
+        ])
+      ]),
+
+      h("aside", { style: { display: "flex", flexDirection: "column", gap: "1.25rem" } }, [
+        h("div", { style: {
+          background: "linear-gradient(135deg, #fef3c7 0%, #fce7f3 55%, #ede9fe 100%)",
+          borderRadius: "1.25rem",
+          padding: "1.5rem",
+          border: "1px solid var(--saf-border)"
+        } }, [
+          h("h3", { style: { margin: "0 0 0.5rem", fontFamily: "var(--saf-font-serif)", fontSize: "1.2rem" } }, "🕰️ When we're online"),
+          h("ul", { style: { listStyle: "none", padding: 0, margin: 0, fontSize: "0.92rem", color: "var(--saf-text-main)", lineHeight: 1.8 } }, [
+            h("li", {}, "Mon–Fri · 9:00 – 22:00 UTC"),
+            h("li", {}, "Sat–Sun · 11:00 – 19:00 UTC"),
+            h("li", { style: { fontWeight: 700, marginTop: "0.4rem", color: "var(--saf-primary-dark)" } }, "Target SLA: first reply < 4h weekdays")
+          ])
+        ]),
+
+        h("div", { style: { background: "var(--saf-surface-white)", border: "1px solid var(--saf-border)", borderRadius: "1.25rem", padding: "1.5rem" } }, [
+          h("h3", { style: { margin: "0 0 0.8rem", fontFamily: "var(--saf-font-serif)", fontSize: "1.2rem" } }, "Find us around the web"),
+          h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.6rem" } }, [
+            (() => {
+              const socials = [
+                { i: "📷", l: "Instagram", h: "https://instagram.com/sendafun" },
+                { i: "🐦", l: "X / Twitter", h: "https://x.com/sendafun" },
+                { i: "📘", l: "Facebook",  h: "https://facebook.com/sendafunapp" },
+                { i: "🎴", l: "Pinterest", h: "https://pinterest.com/sendafun" }
+              ];
+              return socials.map(s => h("a", {
+                href: s.h, target: "_blank", rel: "noopener noreferrer",
+                style: {
+                  display: "flex", alignItems: "center", gap: "0.5rem",
+                  padding: "0.7rem 0.9rem",
+                  border: "1px solid var(--saf-border)",
+                  borderRadius: "0.7rem",
+                  color: "var(--saf-text-main)",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.88rem",
+                  transition: "border-color 0.15s ease, background 0.15s ease",
+                  background: "var(--saf-surface-white)"
+                },
+                onmouseover: (ev) => { ev.currentTarget.style.background = "var(--saf-primary-purple-soft)"; ev.currentTarget.style.borderColor = "var(--saf-primary-dark)"; },
+                onmouseout:  (ev) => { ev.currentTarget.style.background = "var(--saf-surface-white)"; ev.currentTarget.style.borderColor = "var(--saf-border)"; }
+              }, [
+                h("span", {}, s.i), h("span", {}, s.l)
+              ]));
+            })()
+          ].flat())
+        ])
+      ])
+    ]),
+
+    h("section", { id: "contactFAQ", style: { marginTop: "3.5rem" } }, [
+      h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "clamp(1.5rem, 2.4vw, 2rem)", textAlign: "center", margin: "0 0 0.5rem" } },
+        "Frequently asked questions"),
+      h("p", { style: { textAlign: "center", color: "var(--saf-text-soft)", maxWidth: "560px", margin: "0 auto 2rem" } },
+        "Chances are, someone already asked. Didn't see yours? Use the form above."),
+      h("div", { style: { maxWidth: "780px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "0.8rem" } }, [
+        (() => {
+          const faqs = [
+            { q: "Do I need to make an account to send a card?",
+              a: "No. You can design, preview, personalize, add a message and send — everything except the final payment — as a guest. We save drafts in your browser's localStorage, not on some server that wants to email you weekly." },
+            { q: "How much does it cost to send a card?",
+              a: "Single sends are $1.99. Unlimited monthly is $6.99 (best value). Annual unlimited is $69, which works out to ~$5.75/month. Group signature walls have a separate $4.99 pass if you only need that feature." },
+            { q: "Can I send to a group of people?",
+              a: "Yes. Build one card, add up to 200 recipients, send it to everyone in one click. Recipients get a personalized link. If you want a single card that 50+ friends sign together, use our Group Card feature instead." },
+            { q: "Do you have corporate / branded templates?",
+              a: "Absolutely. 50+ employees? Send a note to hello@sendafun.com with your logo, brand colors, and how many sends a month you need — we'll spin up a private library on a custom plan." },
+            { q: "Can I add my own photos and handwriting?",
+              a: "Photos: yes, upload unlimited from any device. Handwriting: upload a scan or photo, we'll auto-isolate it, you can drop it anywhere on the card as a sticker / signature." },
+            { q: "What if my recipient never opens it?",
+              a: "We track delivery (email bounces, SMS failures) and show you open stats. You can resend the same card via a different channel any time from the Order page — free of charge." }
+          ];
+          return faqs.map((f, idx) => {
+            const id = "faq-item-" + idx;
+            return h("div", {
+              class: "faq-item",
+              style: {
+                background: "var(--saf-surface-white)",
+                border: "1px solid var(--saf-border)",
+                borderRadius: "0.9rem",
+                overflow: "hidden"
+              }
+            }, [
+              h("button", {
+                type: "button",
+                "aria-controls": id, "aria-expanded": "false",
+                onclick: (e) => {
+                  const btn = e.currentTarget;
+                  const body = document.getElementById(id);
+                  if (!body) return;
+                  const expanded = btn.getAttribute("aria-expanded") === "true";
+                  btn.setAttribute("aria-expanded", String(!expanded));
+                  const icon = btn.querySelector(".faq-chevron");
+                  if (icon) icon.style.transform = expanded ? "rotate(0deg)" : "rotate(180deg)";
+                  if (expanded) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                    requestAnimationFrame(() => { body.style.maxHeight = "0px"; });
+                  } else {
+                    body.style.maxHeight = "0px";
+                    requestAnimationFrame(() => { body.style.maxHeight = body.scrollHeight + "px"; });
+                  }
+                },
+                style: {
+                  width: "100%",
+                  background: "transparent",
+                  border: "none",
+                  padding: "1rem 1.15rem",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "1rem",
+                  fontSize: "0.98rem",
+                  fontWeight: 600,
+                  color: "var(--saf-text-main)"
+                }
+              }, [
+                h("span", {}, f.q),
+                h("span", {
+                  class: "faq-chevron",
+                  style: {
+                    transition: "transform 0.25s ease",
+                    color: "var(--saf-text-soft)",
+                    fontSize: "1.1rem",
+                    flexShrink: 0
+                  }
+                }, "▾")
+              ]),
+              h("div", {
+                id: id,
+                style: {
+                  maxHeight: "0px",
+                  overflow: "hidden",
+                  transition: "max-height 0.3s ease",
+                  padding: "0 1.15rem"
+                }
+              }, [
+                h("p", { style: {
+                  margin: "0 0 1.15rem",
+                  lineHeight: 1.7,
+                  color: "var(--saf-text-soft)",
+                  fontSize: "0.92rem"
+                } }, f.a)
+              ])
+            ]);
+          });
+        })()
+      ].flat())
+    ]),
+
+    h("section", { style: {
+      marginTop: "3.5rem",
+      textAlign: "center",
+      background: "var(--saf-surface-white)",
+      border: "1px solid var(--saf-border)",
+      borderRadius: "1.5rem",
+      padding: "2.5rem 1.5rem"
+    } }, [
+      h("h2", { style: { fontFamily: "var(--saf-font-serif)", fontSize: "clamp(1.5rem, 2.4vw, 2rem)", margin: "0 0 0.5rem" } },
+        "Not sure yet? Just look at the cards."),
+      h("p", { style: { color: "var(--saf-text-soft)", maxWidth: "520px", margin: "0 auto 1.5rem", lineHeight: 1.6 } },
+        "The fastest way to see if SendAFun is for you is to spend 2 minutes browsing. No sign-up, no funnel, just cards."),
+      h("div", { style: { display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" } }, [
+        h("a", {
+          href: "/discover", class: "btn btn-primary btn-pulse",
+          onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/discover"); renderRoute(); }
+        }, "🎴 Explore all 11,000 cards"),
+        h("a", {
+          href: "/about", class: "btn btn-outline",
+          onclick: (e) => { e.preventDefault(); history.pushState({}, "", "/about"); renderRoute(); }
+        }, "ℹ️ About SendAFun")
+      ])
+    ])
+  ]);
+  mountApp(wrap);
+  attachPostRenderHooks();
+}
+
+function renderNotFound() {
+  clearApp();
+  const wrap = h("div", {
+    class: "fade-in",
+    style: {
+      textAlign: "center", padding: "5rem 1rem",
+      maxWidth: "500px", margin: "0 auto"
+    }
+  }, [
+    h("div", { style: { fontSize: "5rem" } }, "😵"),
+    h("h1", {
+      style: {
+        fontFamily: "'Playfair Display', serif",
+        margin: "0.8rem 0 0.3rem", fontSize: "2.2rem"
+      }
+    }, "Page not found"),
+    h("p", {
+      style: { color: "var(--saf-text-soft)", margin: "0 0 1.8rem" }
+    }, "The page you were looking for doesn't exist — or may have moved."),
+    h("div", { style: { display: "flex", gap: "0.6rem", justifyContent: "center", flexWrap: "wrap" } }, [
+      h("button", {
+        class: "btn btn-primary",
+        onclick: () => {
+          history.pushState({}, "", "/");
+          renderRoute();
+        }
+      }, "Go Home"),
+      h("button", {
+        class: "btn btn-ghost",
+        onclick: () => {
+          history.pushState({}, "", "/discover");
+          renderRoute();
+        }
+      }, "Browse Cards →"),
+      h("button", {
+        class: "btn btn-ghost",
+        onclick: () => {
+          history.pushState({}, "", "/pricing");
+          renderRoute();
+        }
+      }, "See Pricing")
+    ]),
+    h("div", {
+      style: {
+        marginTop: "2.5rem",
+        padding: "1.2rem",
+        borderRadius: "var(--radius-md)",
+        background: "rgba(99,102,241,0.06)",
+        border: "1px solid rgba(99,102,241,0.12)",
+        fontSize: "0.85rem",
+        textAlign: "left"
+      }
+    }, [
+      h("div", { style: { fontWeight: 700, marginBottom: "0.5rem" } }, "🔗 Quick links you might be looking for:"),
+      h("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))", gap: "0.4rem" } }, [
+        h("a", { href: "/discover", onclick: e => { e.preventDefault(); history.pushState({}, "", "/discover"); renderRoute(); }, style: { color: "var(--saf-primary-dark)", textDecoration: "underline" } }, "🎴 Discover all cards"),
+        h("a", { href: "/pricing", onclick: e => { e.preventDefault(); history.pushState({}, "", "/pricing"); renderRoute(); }, style: { color: "var(--saf-primary-dark)", textDecoration: "underline" } }, "💳 Pricing plans"),
+        h("a", { href: "/about.html", style: { color: "var(--saf-primary-dark)", textDecoration: "underline" } }, "ℹ️ About SendAFun"),
+        h("a", { href: "/contact.html", style: { color: "var(--saf-primary-dark)", textDecoration: "underline" } }, "📧 Contact support")
+      ])
+    ])
+  ]);
+  mountApp(wrap);
+  attachPostRenderHooks();
+}
+
+document.addEventListener("DOMContentLoaded", main);
+
+function main() {
+  window.CARDS = [];
+  window.PRODUCTS = [];
+  restoreIntentStateFromStorage();
+  installToast();
+  injectFooter();
+  injectCookieBanner();
+  try { initLangPickerHighlight(); } catch (_) {}
+  attachGlobalNavLinks();
+  loadMetaAndBoot();
+  window.addEventListener("popstate", () => renderRoute());
+  renderRoute();
+}
+
+function _detectCurrentLang() {
+  // 1) Priority A: manual override cookie (set by /api/lang/set)
+  try {
+    const m = /(?:^|;\s*)saf_lang_override=([a-z]{2})/i.exec(document.cookie || "");
+    if (m && /^(en|es|fr|pt)$/i.test(m[1])) return m[1].toLowerCase();
+  } catch (_) {}
+  // 2) Priority B: URL path prefix /en|/es|/fr|/pt/ (SPA hash or raw route)
+  const path = String(location.pathname || "/") + String(location.hash || "");
+  const u = /\/(en|es|fr|pt)(?:\/|$|[#?])/i.exec(path);
+  if (u) return u[1].toLowerCase();
+  // 3) Priority C: default EN (matches Worker GEO_DEFAULT_LANG fallback)
+  return "en";
+}
+
+function initLangPickerHighlight() {
+  // Doc §169 top-bar permanent language selector. Keep <select> current value
+  // in sync with manual override cookie / URL prefix so users don't get confused
+  // and keep re-selecting the same option. Idempotent — safe to call multiple
+  // times on hash / popstate changes (no flicker — only updates if different).
+  const sel = document.getElementById("safLangPicker");
+  if (!sel) return;
+  const next = _detectCurrentLang();
+  if (sel.value && String(sel.value).toLowerCase() === next) return;
+  // Avoid triggering unwanted re-renders: set attribute + value without change event
+  const opts = sel.options || [];
+  for (let i = 0; i < opts.length; i++) {
+    const v = String(opts[i].value || "").toLowerCase();
+    opts[i].selected = (v === next);
+  }
+  sel.value = next;
+}

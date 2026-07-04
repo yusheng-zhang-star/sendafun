@@ -1,0 +1,1851 @@
+{
+  "schema_version": 2,
+  "generated_at_utc": "2026-07-04T07:52:48Z",
+  "bucket": "sendafun-originals",
+  "total_masters": 250,
+  "total_categories": 25,
+  "by_category": {
+    "anniversary": {
+      "master_count": 10,
+      "pexels_ids": [
+        5705991,
+        5706029,
+        5725879,
+        8014883,
+        8014934,
+        8014935,
+        8015238,
+        8015616,
+        33629667,
+        33629668
+      ],
+      "masters": [
+        {
+          "key": "anniversary/pexels-5705991.png",
+          "pexels_id": 5705991,
+          "size": 554035
+        },
+        {
+          "key": "anniversary/pexels-5706029.png",
+          "pexels_id": 5706029,
+          "size": 1457556
+        },
+        {
+          "key": "anniversary/pexels-5725879.png",
+          "pexels_id": 5725879,
+          "size": 309876
+        },
+        {
+          "key": "anniversary/pexels-8014883.png",
+          "pexels_id": 8014883,
+          "size": 621300
+        },
+        {
+          "key": "anniversary/pexels-8014934.png",
+          "pexels_id": 8014934,
+          "size": 505286
+        },
+        {
+          "key": "anniversary/pexels-8014935.png",
+          "pexels_id": 8014935,
+          "size": 80345
+        },
+        {
+          "key": "anniversary/pexels-8015238.png",
+          "pexels_id": 8015238,
+          "size": 514684
+        },
+        {
+          "key": "anniversary/pexels-8015616.png",
+          "pexels_id": 8015616,
+          "size": 419419
+        },
+        {
+          "key": "anniversary/pexels-33629667.png",
+          "pexels_id": 33629667,
+          "size": 1824289
+        },
+        {
+          "key": "anniversary/pexels-33629668.png",
+          "pexels_id": 33629668,
+          "size": 2076987
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/anniversary/pexels-{pexels_id}.png"
+    },
+    "birthday": {
+      "master_count": 10,
+      "pexels_ids": [
+        8014697,
+        8014703,
+        8014709,
+        8014713,
+        8014829,
+        8014830,
+        8014831,
+        8014837,
+        8014874,
+        8014876
+      ],
+      "masters": [
+        {
+          "key": "birthday/pexels-8014697.png",
+          "pexels_id": 8014697,
+          "size": 1280333
+        },
+        {
+          "key": "birthday/pexels-8014703.png",
+          "pexels_id": 8014703,
+          "size": 1124095
+        },
+        {
+          "key": "birthday/pexels-8014709.png",
+          "pexels_id": 8014709,
+          "size": 947484
+        },
+        {
+          "key": "birthday/pexels-8014713.png",
+          "pexels_id": 8014713,
+          "size": 543624
+        },
+        {
+          "key": "birthday/pexels-8014829.png",
+          "pexels_id": 8014829,
+          "size": 1215919
+        },
+        {
+          "key": "birthday/pexels-8014830.png",
+          "pexels_id": 8014830,
+          "size": 1075348
+        },
+        {
+          "key": "birthday/pexels-8014831.png",
+          "pexels_id": 8014831,
+          "size": 696240
+        },
+        {
+          "key": "birthday/pexels-8014837.png",
+          "pexels_id": 8014837,
+          "size": 482248
+        },
+        {
+          "key": "birthday/pexels-8014874.png",
+          "pexels_id": 8014874,
+          "size": 71215
+        },
+        {
+          "key": "birthday/pexels-8014876.png",
+          "pexels_id": 8014876,
+          "size": 529088
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/birthday/pexels-{pexels_id}.png"
+    },
+    "christmas": {
+      "master_count": 10,
+      "pexels_ids": [
+        10226187,
+        14543391,
+        14545423,
+        14681480,
+        19208322,
+        19551026,
+        19551029,
+        29666240,
+        32795870,
+        35217786
+      ],
+      "masters": [
+        {
+          "key": "christmas/pexels-10226187.png",
+          "pexels_id": 10226187,
+          "size": 572921
+        },
+        {
+          "key": "christmas/pexels-14543391.png",
+          "pexels_id": 14543391,
+          "size": 1423262
+        },
+        {
+          "key": "christmas/pexels-14545423.png",
+          "pexels_id": 14545423,
+          "size": 723467
+        },
+        {
+          "key": "christmas/pexels-14681480.png",
+          "pexels_id": 14681480,
+          "size": 486599
+        },
+        {
+          "key": "christmas/pexels-19208322.png",
+          "pexels_id": 19208322,
+          "size": 793111
+        },
+        {
+          "key": "christmas/pexels-19551026.png",
+          "pexels_id": 19551026,
+          "size": 3678292
+        },
+        {
+          "key": "christmas/pexels-19551029.png",
+          "pexels_id": 19551029,
+          "size": 2870123
+        },
+        {
+          "key": "christmas/pexels-29666240.png",
+          "pexels_id": 29666240,
+          "size": 1898789
+        },
+        {
+          "key": "christmas/pexels-32795870.png",
+          "pexels_id": 32795870,
+          "size": 1117560
+        },
+        {
+          "key": "christmas/pexels-35217786.png",
+          "pexels_id": 35217786,
+          "size": 745389
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/christmas/pexels-{pexels_id}.png"
+    },
+    "congratulations": {
+      "master_count": 10,
+      "pexels_ids": [
+        4439442,
+        5478209,
+        5705959,
+        5706039,
+        7723812,
+        7723816,
+        7842828,
+        8177957,
+        28461106,
+        37845926
+      ],
+      "masters": [
+        {
+          "key": "congratulations/pexels-4439442.png",
+          "pexels_id": 4439442,
+          "size": 978700
+        },
+        {
+          "key": "congratulations/pexels-5478209.png",
+          "pexels_id": 5478209,
+          "size": 587466
+        },
+        {
+          "key": "congratulations/pexels-5705959.png",
+          "pexels_id": 5705959,
+          "size": 648587
+        },
+        {
+          "key": "congratulations/pexels-5706039.png",
+          "pexels_id": 5706039,
+          "size": 418512
+        },
+        {
+          "key": "congratulations/pexels-7723812.png",
+          "pexels_id": 7723812,
+          "size": 106287
+        },
+        {
+          "key": "congratulations/pexels-7723816.png",
+          "pexels_id": 7723816,
+          "size": 264711
+        },
+        {
+          "key": "congratulations/pexels-7842828.png",
+          "pexels_id": 7842828,
+          "size": 2099199
+        },
+        {
+          "key": "congratulations/pexels-8177957.png",
+          "pexels_id": 8177957,
+          "size": 1031151
+        },
+        {
+          "key": "congratulations/pexels-28461106.png",
+          "pexels_id": 28461106,
+          "size": 885370
+        },
+        {
+          "key": "congratulations/pexels-37845926.png",
+          "pexels_id": 37845926,
+          "size": 475346
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/congratulations/pexels-{pexels_id}.png"
+    },
+    "easter": {
+      "master_count": 10,
+      "pexels_ids": [
+        6990553,
+        6990555,
+        6990620,
+        6990621,
+        6990622,
+        6990626,
+        6990627,
+        6990672,
+        6990733,
+        6990735
+      ],
+      "masters": [
+        {
+          "key": "easter/pexels-6990553.png",
+          "pexels_id": 6990553,
+          "size": 492920
+        },
+        {
+          "key": "easter/pexels-6990555.png",
+          "pexels_id": 6990555,
+          "size": 910137
+        },
+        {
+          "key": "easter/pexels-6990620.png",
+          "pexels_id": 6990620,
+          "size": 1628747
+        },
+        {
+          "key": "easter/pexels-6990621.png",
+          "pexels_id": 6990621,
+          "size": 2687496
+        },
+        {
+          "key": "easter/pexels-6990622.png",
+          "pexels_id": 6990622,
+          "size": 1580642
+        },
+        {
+          "key": "easter/pexels-6990626.png",
+          "pexels_id": 6990626,
+          "size": 1281868
+        },
+        {
+          "key": "easter/pexels-6990627.png",
+          "pexels_id": 6990627,
+          "size": 1193560
+        },
+        {
+          "key": "easter/pexels-6990672.png",
+          "pexels_id": 6990672,
+          "size": 227295
+        },
+        {
+          "key": "easter/pexels-6990733.png",
+          "pexels_id": 6990733,
+          "size": 562300
+        },
+        {
+          "key": "easter/pexels-6990735.png",
+          "pexels_id": 6990735,
+          "size": 599661
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/easter/pexels-{pexels_id}.png"
+    },
+    "encouragement": {
+      "master_count": 10,
+      "pexels_ids": [
+        4466104,
+        5420988,
+        5981366,
+        5993294,
+        6532589,
+        8015243,
+        8361432,
+        8383666,
+        12268292,
+        19652318
+      ],
+      "masters": [
+        {
+          "key": "encouragement/pexels-4466104.png",
+          "pexels_id": 4466104,
+          "size": 352098
+        },
+        {
+          "key": "encouragement/pexels-5420988.png",
+          "pexels_id": 5420988,
+          "size": 905062
+        },
+        {
+          "key": "encouragement/pexels-5981366.png",
+          "pexels_id": 5981366,
+          "size": 78754
+        },
+        {
+          "key": "encouragement/pexels-5993294.png",
+          "pexels_id": 5993294,
+          "size": 1959180
+        },
+        {
+          "key": "encouragement/pexels-6532589.png",
+          "pexels_id": 6532589,
+          "size": 1208873
+        },
+        {
+          "key": "encouragement/pexels-8015243.png",
+          "pexels_id": 8015243,
+          "size": 1524213
+        },
+        {
+          "key": "encouragement/pexels-8361432.png",
+          "pexels_id": 8361432,
+          "size": 343041
+        },
+        {
+          "key": "encouragement/pexels-8383666.png",
+          "pexels_id": 8383666,
+          "size": 471073
+        },
+        {
+          "key": "encouragement/pexels-12268292.png",
+          "pexels_id": 12268292,
+          "size": 755680
+        },
+        {
+          "key": "encouragement/pexels-19652318.png",
+          "pexels_id": 19652318,
+          "size": 345532
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/encouragement/pexels-{pexels_id}.png"
+    },
+    "fathers-day": {
+      "master_count": 10,
+      "pexels_ids": [
+        4260097,
+        8015532,
+        17385395,
+        18296227,
+        28589300,
+        33428408,
+        33769345,
+        35281486,
+        37936229,
+        38165283
+      ],
+      "masters": [
+        {
+          "key": "fathers-day/pexels-4260097.png",
+          "pexels_id": 4260097,
+          "size": 1996685
+        },
+        {
+          "key": "fathers-day/pexels-8015532.png",
+          "pexels_id": 8015532,
+          "size": 917791
+        },
+        {
+          "key": "fathers-day/pexels-17385395.png",
+          "pexels_id": 17385395,
+          "size": 543906
+        },
+        {
+          "key": "fathers-day/pexels-18296227.png",
+          "pexels_id": 18296227,
+          "size": 297017
+        },
+        {
+          "key": "fathers-day/pexels-28589300.png",
+          "pexels_id": 28589300,
+          "size": 3080227
+        },
+        {
+          "key": "fathers-day/pexels-33428408.png",
+          "pexels_id": 33428408,
+          "size": 249737
+        },
+        {
+          "key": "fathers-day/pexels-33769345.png",
+          "pexels_id": 33769345,
+          "size": 588047
+        },
+        {
+          "key": "fathers-day/pexels-35281486.png",
+          "pexels_id": 35281486,
+          "size": 2112360
+        },
+        {
+          "key": "fathers-day/pexels-37936229.png",
+          "pexels_id": 37936229,
+          "size": 2003587
+        },
+        {
+          "key": "fathers-day/pexels-38165283.png",
+          "pexels_id": 38165283,
+          "size": 1377584
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/fathers-day/pexels-{pexels_id}.png"
+    },
+    "friendship": {
+      "master_count": 10,
+      "pexels_ids": [
+        4207550,
+        5477588,
+        5478209,
+        5491834,
+        5706029,
+        5706039,
+        5706056,
+        5713665,
+        7679771,
+        14545423
+      ],
+      "masters": [
+        {
+          "key": "friendship/pexels-4207550.png",
+          "pexels_id": 4207550,
+          "size": 171219
+        },
+        {
+          "key": "friendship/pexels-5477588.png",
+          "pexels_id": 5477588,
+          "size": 1329853
+        },
+        {
+          "key": "friendship/pexels-5478209.png",
+          "pexels_id": 5478209,
+          "size": 611002
+        },
+        {
+          "key": "friendship/pexels-5491834.png",
+          "pexels_id": 5491834,
+          "size": 515589
+        },
+        {
+          "key": "friendship/pexels-5706029.png",
+          "pexels_id": 5706029,
+          "size": 1526005
+        },
+        {
+          "key": "friendship/pexels-5706039.png",
+          "pexels_id": 5706039,
+          "size": 452524
+        },
+        {
+          "key": "friendship/pexels-5706056.png",
+          "pexels_id": 5706056,
+          "size": 524819
+        },
+        {
+          "key": "friendship/pexels-5713665.png",
+          "pexels_id": 5713665,
+          "size": 271871
+        },
+        {
+          "key": "friendship/pexels-7679771.png",
+          "pexels_id": 7679771,
+          "size": 1011586
+        },
+        {
+          "key": "friendship/pexels-14545423.png",
+          "pexels_id": 14545423,
+          "size": 724088
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/friendship/friendship-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/friendship/pexels-{pexels_id}.png"
+    },
+    "get-well": {
+      "master_count": 10,
+      "pexels_ids": [
+        5706031,
+        8015505,
+        8015517,
+        8015529,
+        8015532,
+        8015576,
+        8015637,
+        18028975,
+        18456265,
+        37182441
+      ],
+      "masters": [
+        {
+          "key": "get-well/pexels-5706031.png",
+          "pexels_id": 5706031,
+          "size": 303486
+        },
+        {
+          "key": "get-well/pexels-8015505.png",
+          "pexels_id": 8015505,
+          "size": 1172213
+        },
+        {
+          "key": "get-well/pexels-8015517.png",
+          "pexels_id": 8015517,
+          "size": 2608755
+        },
+        {
+          "key": "get-well/pexels-8015529.png",
+          "pexels_id": 8015529,
+          "size": 1409810
+        },
+        {
+          "key": "get-well/pexels-8015532.png",
+          "pexels_id": 8015532,
+          "size": 907247
+        },
+        {
+          "key": "get-well/pexels-8015576.png",
+          "pexels_id": 8015576,
+          "size": 708316
+        },
+        {
+          "key": "get-well/pexels-8015637.png",
+          "pexels_id": 8015637,
+          "size": 492606
+        },
+        {
+          "key": "get-well/pexels-18028975.png",
+          "pexels_id": 18028975,
+          "size": 2423754
+        },
+        {
+          "key": "get-well/pexels-18456265.png",
+          "pexels_id": 18456265,
+          "size": 1956836
+        },
+        {
+          "key": "get-well/pexels-37182441.png",
+          "pexels_id": 37182441,
+          "size": 405769
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/get-well/pexels-{pexels_id}.png"
+    },
+    "good-luck": {
+      "master_count": 10,
+      "pexels_ids": [
+        7661289,
+        13817351,
+        15104338,
+        18684950,
+        25949528,
+        27259375,
+        30125650,
+        30125651,
+        30191155,
+        37513752
+      ],
+      "masters": [
+        {
+          "key": "good-luck/pexels-7661289.png",
+          "pexels_id": 7661289,
+          "size": 282139
+        },
+        {
+          "key": "good-luck/pexels-13817351.png",
+          "pexels_id": 13817351,
+          "size": 1315725
+        },
+        {
+          "key": "good-luck/pexels-15104338.png",
+          "pexels_id": 15104338,
+          "size": 1534834
+        },
+        {
+          "key": "good-luck/pexels-18684950.png",
+          "pexels_id": 18684950,
+          "size": 440115
+        },
+        {
+          "key": "good-luck/pexels-25949528.png",
+          "pexels_id": 25949528,
+          "size": 1431606
+        },
+        {
+          "key": "good-luck/pexels-27259375.png",
+          "pexels_id": 27259375,
+          "size": 189466
+        },
+        {
+          "key": "good-luck/pexels-30125650.png",
+          "pexels_id": 30125650,
+          "size": 785620
+        },
+        {
+          "key": "good-luck/pexels-30125651.png",
+          "pexels_id": 30125651,
+          "size": 1178262
+        },
+        {
+          "key": "good-luck/pexels-30191155.png",
+          "pexels_id": 30191155,
+          "size": 2931139
+        },
+        {
+          "key": "good-luck/pexels-37513752.png",
+          "pexels_id": 37513752,
+          "size": 3045284
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/good-luck/good-luck-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/good-luck/pexels-{pexels_id}.png"
+    },
+    "graduation": {
+      "master_count": 10,
+      "pexels_ids": [
+        9829305,
+        9829309,
+        9829315,
+        9829319,
+        9829478,
+        9829489,
+        9829490,
+        9829492,
+        17778852,
+        23490155
+      ],
+      "masters": [
+        {
+          "key": "graduation/pexels-9829305.png",
+          "pexels_id": 9829305,
+          "size": 1105376
+        },
+        {
+          "key": "graduation/pexels-9829309.png",
+          "pexels_id": 9829309,
+          "size": 1270547
+        },
+        {
+          "key": "graduation/pexels-9829315.png",
+          "pexels_id": 9829315,
+          "size": 906368
+        },
+        {
+          "key": "graduation/pexels-9829319.png",
+          "pexels_id": 9829319,
+          "size": 1501050
+        },
+        {
+          "key": "graduation/pexels-9829478.png",
+          "pexels_id": 9829478,
+          "size": 936332
+        },
+        {
+          "key": "graduation/pexels-9829489.png",
+          "pexels_id": 9829489,
+          "size": 745536
+        },
+        {
+          "key": "graduation/pexels-9829490.png",
+          "pexels_id": 9829490,
+          "size": 935505
+        },
+        {
+          "key": "graduation/pexels-9829492.png",
+          "pexels_id": 9829492,
+          "size": 807229
+        },
+        {
+          "key": "graduation/pexels-17778852.png",
+          "pexels_id": 17778852,
+          "size": 1756076
+        },
+        {
+          "key": "graduation/pexels-23490155.png",
+          "pexels_id": 23490155,
+          "size": 2114597
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/graduation/pexels-{pexels_id}.png"
+    },
+    "halloween": {
+      "master_count": 10,
+      "pexels_ids": [
+        5689143,
+        9966403,
+        9966421,
+        9966441,
+        9966446,
+        9966450,
+        9966468,
+        9966471,
+        9966478,
+        34880804
+      ],
+      "masters": [
+        {
+          "key": "halloween/pexels-5689143.png",
+          "pexels_id": 5689143,
+          "size": 1378999
+        },
+        {
+          "key": "halloween/pexels-9966403.png",
+          "pexels_id": 9966403,
+          "size": 785685
+        },
+        {
+          "key": "halloween/pexels-9966421.png",
+          "pexels_id": 9966421,
+          "size": 767777
+        },
+        {
+          "key": "halloween/pexels-9966441.png",
+          "pexels_id": 9966441,
+          "size": 525349
+        },
+        {
+          "key": "halloween/pexels-9966446.png",
+          "pexels_id": 9966446,
+          "size": 373172
+        },
+        {
+          "key": "halloween/pexels-9966450.png",
+          "pexels_id": 9966450,
+          "size": 1023551
+        },
+        {
+          "key": "halloween/pexels-9966468.png",
+          "pexels_id": 9966468,
+          "size": 637507
+        },
+        {
+          "key": "halloween/pexels-9966471.png",
+          "pexels_id": 9966471,
+          "size": 468683
+        },
+        {
+          "key": "halloween/pexels-9966478.png",
+          "pexels_id": 9966478,
+          "size": 405160
+        },
+        {
+          "key": "halloween/pexels-34880804.png",
+          "pexels_id": 34880804,
+          "size": 555814
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/halloween/pexels-{pexels_id}.png"
+    },
+    "love": {
+      "master_count": 10,
+      "pexels_ids": [
+        7679697,
+        7679698,
+        7679701,
+        7679760,
+        7679771,
+        7680031,
+        11133249,
+        13786308,
+        20122621,
+        30269722
+      ],
+      "masters": [
+        {
+          "key": "love/pexels-7679697.png",
+          "pexels_id": 7679697,
+          "size": 1076091
+        },
+        {
+          "key": "love/pexels-7679698.png",
+          "pexels_id": 7679698,
+          "size": 4028830
+        },
+        {
+          "key": "love/pexels-7679701.png",
+          "pexels_id": 7679701,
+          "size": 61843
+        },
+        {
+          "key": "love/pexels-7679760.png",
+          "pexels_id": 7679760,
+          "size": 518076
+        },
+        {
+          "key": "love/pexels-7679771.png",
+          "pexels_id": 7679771,
+          "size": 1017010
+        },
+        {
+          "key": "love/pexels-7680031.png",
+          "pexels_id": 7680031,
+          "size": 466305
+        },
+        {
+          "key": "love/pexels-11133249.png",
+          "pexels_id": 11133249,
+          "size": 334453
+        },
+        {
+          "key": "love/pexels-13786308.png",
+          "pexels_id": 13786308,
+          "size": 443946
+        },
+        {
+          "key": "love/pexels-20122621.png",
+          "pexels_id": 20122621,
+          "size": 546249
+        },
+        {
+          "key": "love/pexels-30269722.png",
+          "pexels_id": 30269722,
+          "size": 2131892
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/love/pexels-{pexels_id}.png"
+    },
+    "missing-you": {
+      "master_count": 10,
+      "pexels_ids": [
+        5706039,
+        5713665,
+        6633082,
+        8015505,
+        8015521,
+        8015616,
+        8015637,
+        13817351,
+        19582311,
+        32170901
+      ],
+      "masters": [
+        {
+          "key": "missing-you/pexels-5706039.png",
+          "pexels_id": 5706039,
+          "size": 453901
+        },
+        {
+          "key": "missing-you/pexels-5713665.png",
+          "pexels_id": 5713665,
+          "size": 271541
+        },
+        {
+          "key": "missing-you/pexels-6633082.png",
+          "pexels_id": 6633082,
+          "size": 877818
+        },
+        {
+          "key": "missing-you/pexels-8015505.png",
+          "pexels_id": 8015505,
+          "size": 1179811
+        },
+        {
+          "key": "missing-you/pexels-8015521.png",
+          "pexels_id": 8015521,
+          "size": 1023193
+        },
+        {
+          "key": "missing-you/pexels-8015616.png",
+          "pexels_id": 8015616,
+          "size": 418792
+        },
+        {
+          "key": "missing-you/pexels-8015637.png",
+          "pexels_id": 8015637,
+          "size": 492802
+        },
+        {
+          "key": "missing-you/pexels-13817351.png",
+          "pexels_id": 13817351,
+          "size": 1302304
+        },
+        {
+          "key": "missing-you/pexels-19582311.png",
+          "pexels_id": 19582311,
+          "size": 279071
+        },
+        {
+          "key": "missing-you/pexels-32170901.png",
+          "pexels_id": 32170901,
+          "size": 545884
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/missing-you/pexels-{pexels_id}.png"
+    },
+    "mothers-day": {
+      "master_count": 10,
+      "pexels_ids": [
+        7763899,
+        7763933,
+        7763964,
+        7764024,
+        7764074,
+        7764415,
+        7764419,
+        7764510,
+        7764526,
+        8015521
+      ],
+      "masters": [
+        {
+          "key": "mothers-day/pexels-7763899.png",
+          "pexels_id": 7763899,
+          "size": 792922
+        },
+        {
+          "key": "mothers-day/pexels-7763933.png",
+          "pexels_id": 7763933,
+          "size": 1370301
+        },
+        {
+          "key": "mothers-day/pexels-7763964.png",
+          "pexels_id": 7763964,
+          "size": 1276253
+        },
+        {
+          "key": "mothers-day/pexels-7764024.png",
+          "pexels_id": 7764024,
+          "size": 1105219
+        },
+        {
+          "key": "mothers-day/pexels-7764074.png",
+          "pexels_id": 7764074,
+          "size": 915350
+        },
+        {
+          "key": "mothers-day/pexels-7764415.png",
+          "pexels_id": 7764415,
+          "size": 1314567
+        },
+        {
+          "key": "mothers-day/pexels-7764419.png",
+          "pexels_id": 7764419,
+          "size": 551008
+        },
+        {
+          "key": "mothers-day/pexels-7764510.png",
+          "pexels_id": 7764510,
+          "size": 1002342
+        },
+        {
+          "key": "mothers-day/pexels-7764526.png",
+          "pexels_id": 7764526,
+          "size": 562989
+        },
+        {
+          "key": "mothers-day/pexels-8015521.png",
+          "pexels_id": 8015521,
+          "size": 1029910
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/mothers-day/pexels-{pexels_id}.png"
+    },
+    "new-baby": {
+      "master_count": 10,
+      "pexels_ids": [
+        5420895,
+        7701430,
+        8015568,
+        28925003,
+        32341323,
+        32838207,
+        34291551,
+        34625449,
+        35245312,
+        37182441
+      ],
+      "masters": [
+        {
+          "key": "new-baby/pexels-5420895.png",
+          "pexels_id": 5420895,
+          "size": 865099
+        },
+        {
+          "key": "new-baby/pexels-7701430.png",
+          "pexels_id": 7701430,
+          "size": 976718
+        },
+        {
+          "key": "new-baby/pexels-8015568.png",
+          "pexels_id": 8015568,
+          "size": 426045
+        },
+        {
+          "key": "new-baby/pexels-28925003.png",
+          "pexels_id": 28925003,
+          "size": 491139
+        },
+        {
+          "key": "new-baby/pexels-32341323.png",
+          "pexels_id": 32341323,
+          "size": 1260087
+        },
+        {
+          "key": "new-baby/pexels-32838207.png",
+          "pexels_id": 32838207,
+          "size": 779641
+        },
+        {
+          "key": "new-baby/pexels-34291551.png",
+          "pexels_id": 34291551,
+          "size": 361448
+        },
+        {
+          "key": "new-baby/pexels-34625449.png",
+          "pexels_id": 34625449,
+          "size": 1564370
+        },
+        {
+          "key": "new-baby/pexels-35245312.png",
+          "pexels_id": 35245312,
+          "size": 631946
+        },
+        {
+          "key": "new-baby/pexels-37182441.png",
+          "pexels_id": 37182441,
+          "size": 401158
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/new-baby/pexels-{pexels_id}.png"
+    },
+    "new-year": {
+      "master_count": 10,
+      "pexels_ids": [
+        5473343,
+        5485043,
+        14543391,
+        19287466,
+        19287471,
+        29878372,
+        29997004,
+        32718648,
+        34539522,
+        34654310
+      ],
+      "masters": [
+        {
+          "key": "new-year/pexels-5473343.png",
+          "pexels_id": 5473343,
+          "size": 420126
+        },
+        {
+          "key": "new-year/pexels-5485043.png",
+          "pexels_id": 5485043,
+          "size": 855541
+        },
+        {
+          "key": "new-year/pexels-14543391.png",
+          "pexels_id": 14543391,
+          "size": 1427226
+        },
+        {
+          "key": "new-year/pexels-19287466.png",
+          "pexels_id": 19287466,
+          "size": 668271
+        },
+        {
+          "key": "new-year/pexels-19287471.png",
+          "pexels_id": 19287471,
+          "size": 852106
+        },
+        {
+          "key": "new-year/pexels-29878372.png",
+          "pexels_id": 29878372,
+          "size": 890239
+        },
+        {
+          "key": "new-year/pexels-29997004.png",
+          "pexels_id": 29997004,
+          "size": 735018
+        },
+        {
+          "key": "new-year/pexels-32718648.png",
+          "pexels_id": 32718648,
+          "size": 315379
+        },
+        {
+          "key": "new-year/pexels-34539522.png",
+          "pexels_id": 34539522,
+          "size": 31945
+        },
+        {
+          "key": "new-year/pexels-34654310.png",
+          "pexels_id": 34654310,
+          "size": 542411
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/new-year/pexels-{pexels_id}.png"
+    },
+    "retirement": {
+      "master_count": 10,
+      "pexels_ids": [
+        4207550,
+        4464371,
+        4466052,
+        4668380,
+        5478230,
+        5705991,
+        8015568,
+        16598003,
+        27196519,
+        33428408
+      ],
+      "masters": [
+        {
+          "key": "retirement/pexels-4207550.png",
+          "pexels_id": 4207550,
+          "size": 171472
+        },
+        {
+          "key": "retirement/pexels-4464371.png",
+          "pexels_id": 4464371,
+          "size": 2033735
+        },
+        {
+          "key": "retirement/pexels-4466052.png",
+          "pexels_id": 4466052,
+          "size": 276530
+        },
+        {
+          "key": "retirement/pexels-4668380.png",
+          "pexels_id": 4668380,
+          "size": 630439
+        },
+        {
+          "key": "retirement/pexels-5478230.png",
+          "pexels_id": 5478230,
+          "size": 555834
+        },
+        {
+          "key": "retirement/pexels-5705991.png",
+          "pexels_id": 5705991,
+          "size": 552179
+        },
+        {
+          "key": "retirement/pexels-8015568.png",
+          "pexels_id": 8015568,
+          "size": 426682
+        },
+        {
+          "key": "retirement/pexels-16598003.png",
+          "pexels_id": 16598003,
+          "size": 643967
+        },
+        {
+          "key": "retirement/pexels-27196519.png",
+          "pexels_id": 27196519,
+          "size": 1167518
+        },
+        {
+          "key": "retirement/pexels-33428408.png",
+          "pexels_id": 33428408,
+          "size": 250411
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/retirement/pexels-{pexels_id}.png"
+    },
+    "sorry": {
+      "master_count": 10,
+      "pexels_ids": [
+        4207550,
+        5478209,
+        5706039,
+        6633016,
+        6633040,
+        6633047,
+        6633050,
+        8015505,
+        8015568,
+        8015616
+      ],
+      "masters": [
+        {
+          "key": "sorry/pexels-4207550.png",
+          "pexels_id": 4207550,
+          "size": 171055
+        },
+        {
+          "key": "sorry/pexels-5478209.png",
+          "pexels_id": 5478209,
+          "size": 576611
+        },
+        {
+          "key": "sorry/pexels-5706039.png",
+          "pexels_id": 5706039,
+          "size": 415991
+        },
+        {
+          "key": "sorry/pexels-6633016.png",
+          "pexels_id": 6633016,
+          "size": 672106
+        },
+        {
+          "key": "sorry/pexels-6633040.png",
+          "pexels_id": 6633040,
+          "size": 1216341
+        },
+        {
+          "key": "sorry/pexels-6633047.png",
+          "pexels_id": 6633047,
+          "size": 666340
+        },
+        {
+          "key": "sorry/pexels-6633050.png",
+          "pexels_id": 6633050,
+          "size": 681922
+        },
+        {
+          "key": "sorry/pexels-8015505.png",
+          "pexels_id": 8015505,
+          "size": 1121169
+        },
+        {
+          "key": "sorry/pexels-8015568.png",
+          "pexels_id": 8015568,
+          "size": 426914
+        },
+        {
+          "key": "sorry/pexels-8015616.png",
+          "pexels_id": 8015616,
+          "size": 417176
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sorry/sorry-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/sorry/pexels-{pexels_id}.png"
+    },
+    "sympathy": {
+      "master_count": 10,
+      "pexels_ids": [
+        8015513,
+        8015516,
+        8015522,
+        8015574,
+        8015626,
+        8015627,
+        8015629,
+        8015633,
+        8015637,
+        8015642
+      ],
+      "masters": [
+        {
+          "key": "sympathy/pexels-8015513.png",
+          "pexels_id": 8015513,
+          "size": 490357
+        },
+        {
+          "key": "sympathy/pexels-8015516.png",
+          "pexels_id": 8015516,
+          "size": 309849
+        },
+        {
+          "key": "sympathy/pexels-8015522.png",
+          "pexels_id": 8015522,
+          "size": 2110405
+        },
+        {
+          "key": "sympathy/pexels-8015574.png",
+          "pexels_id": 8015574,
+          "size": 582734
+        },
+        {
+          "key": "sympathy/pexels-8015626.png",
+          "pexels_id": 8015626,
+          "size": 549683
+        },
+        {
+          "key": "sympathy/pexels-8015627.png",
+          "pexels_id": 8015627,
+          "size": 1228605
+        },
+        {
+          "key": "sympathy/pexels-8015629.png",
+          "pexels_id": 8015629,
+          "size": 1182733
+        },
+        {
+          "key": "sympathy/pexels-8015633.png",
+          "pexels_id": 8015633,
+          "size": 953910
+        },
+        {
+          "key": "sympathy/pexels-8015637.png",
+          "pexels_id": 8015637,
+          "size": 495168
+        },
+        {
+          "key": "sympathy/pexels-8015642.png",
+          "pexels_id": 8015642,
+          "size": 1588806
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/sympathy/pexels-{pexels_id}.png"
+    },
+    "thank-you": {
+      "master_count": 10,
+      "pexels_ids": [
+        4386503,
+        4386516,
+        6432585,
+        7661213,
+        7661629,
+        8014830,
+        8015521,
+        8058870,
+        19582311,
+        29494716
+      ],
+      "masters": [
+        {
+          "key": "thank-you/pexels-4386503.png",
+          "pexels_id": 4386503,
+          "size": 1010766
+        },
+        {
+          "key": "thank-you/pexels-4386516.png",
+          "pexels_id": 4386516,
+          "size": 1958200
+        },
+        {
+          "key": "thank-you/pexels-6432585.png",
+          "pexels_id": 6432585,
+          "size": 1293230
+        },
+        {
+          "key": "thank-you/pexels-7661213.png",
+          "pexels_id": 7661213,
+          "size": 324258
+        },
+        {
+          "key": "thank-you/pexels-7661629.png",
+          "pexels_id": 7661629,
+          "size": 1483101
+        },
+        {
+          "key": "thank-you/pexels-8014830.png",
+          "pexels_id": 8014830,
+          "size": 1071461
+        },
+        {
+          "key": "thank-you/pexels-8015521.png",
+          "pexels_id": 8015521,
+          "size": 1031821
+        },
+        {
+          "key": "thank-you/pexels-8058870.png",
+          "pexels_id": 8058870,
+          "size": 740151
+        },
+        {
+          "key": "thank-you/pexels-19582311.png",
+          "pexels_id": 19582311,
+          "size": 278092
+        },
+        {
+          "key": "thank-you/pexels-29494716.png",
+          "pexels_id": 29494716,
+          "size": 143604
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/thank-you/pexels-{pexels_id}.png"
+    },
+    "thanksgiving": {
+      "master_count": 10,
+      "pexels_ids": [
+        14238943,
+        18852526,
+        18852529,
+        18852537,
+        18852539,
+        18852541,
+        18939831,
+        18939833,
+        29021636,
+        31638765
+      ],
+      "masters": [
+        {
+          "key": "thanksgiving/pexels-14238943.png",
+          "pexels_id": 14238943,
+          "size": 1718887
+        },
+        {
+          "key": "thanksgiving/pexels-18852526.png",
+          "pexels_id": 18852526,
+          "size": 1830549
+        },
+        {
+          "key": "thanksgiving/pexels-18852529.png",
+          "pexels_id": 18852529,
+          "size": 2059559
+        },
+        {
+          "key": "thanksgiving/pexels-18852537.png",
+          "pexels_id": 18852537,
+          "size": 1535805
+        },
+        {
+          "key": "thanksgiving/pexels-18852539.png",
+          "pexels_id": 18852539,
+          "size": 2563297
+        },
+        {
+          "key": "thanksgiving/pexels-18852541.png",
+          "pexels_id": 18852541,
+          "size": 1852566
+        },
+        {
+          "key": "thanksgiving/pexels-18939831.png",
+          "pexels_id": 18939831,
+          "size": 586773
+        },
+        {
+          "key": "thanksgiving/pexels-18939833.png",
+          "pexels_id": 18939833,
+          "size": 1496158
+        },
+        {
+          "key": "thanksgiving/pexels-29021636.png",
+          "pexels_id": 29021636,
+          "size": 51126
+        },
+        {
+          "key": "thanksgiving/pexels-31638765.png",
+          "pexels_id": 31638765,
+          "size": 1748501
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/thanksgiving/pexels-{pexels_id}.png"
+    },
+    "thinking-of-you": {
+      "master_count": 10,
+      "pexels_ids": [
+        4207550,
+        5420902,
+        5478209,
+        5706029,
+        7291601,
+        8015505,
+        8015568,
+        8361431,
+        10202989,
+        19582311
+      ],
+      "masters": [
+        {
+          "key": "thinking-of-you/pexels-4207550.png",
+          "pexels_id": 4207550,
+          "size": 170709
+        },
+        {
+          "key": "thinking-of-you/pexels-5420902.png",
+          "pexels_id": 5420902,
+          "size": 717079
+        },
+        {
+          "key": "thinking-of-you/pexels-5478209.png",
+          "pexels_id": 5478209,
+          "size": 569125
+        },
+        {
+          "key": "thinking-of-you/pexels-5706029.png",
+          "pexels_id": 5706029,
+          "size": 1529308
+        },
+        {
+          "key": "thinking-of-you/pexels-7291601.png",
+          "pexels_id": 7291601,
+          "size": 730423
+        },
+        {
+          "key": "thinking-of-you/pexels-8015505.png",
+          "pexels_id": 8015505,
+          "size": 1124028
+        },
+        {
+          "key": "thinking-of-you/pexels-8015568.png",
+          "pexels_id": 8015568,
+          "size": 425918
+        },
+        {
+          "key": "thinking-of-you/pexels-8361431.png",
+          "pexels_id": 8361431,
+          "size": 642902
+        },
+        {
+          "key": "thinking-of-you/pexels-10202989.png",
+          "pexels_id": 10202989,
+          "size": 324505
+        },
+        {
+          "key": "thinking-of-you/pexels-19582311.png",
+          "pexels_id": 19582311,
+          "size": 273707
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/thinking-of-you/pexels-{pexels_id}.png"
+    },
+    "valentine": {
+      "master_count": 10,
+      "pexels_ids": [
+        7679697,
+        7679698,
+        7679701,
+        7679771,
+        7679911,
+        7680024,
+        7680031,
+        13786308,
+        20122621,
+        30269722
+      ],
+      "masters": [
+        {
+          "key": "valentine/pexels-7679697.png",
+          "pexels_id": 7679697,
+          "size": 1111455
+        },
+        {
+          "key": "valentine/pexels-7679698.png",
+          "pexels_id": 7679698,
+          "size": 4029168
+        },
+        {
+          "key": "valentine/pexels-7679701.png",
+          "pexels_id": 7679701,
+          "size": 61942
+        },
+        {
+          "key": "valentine/pexels-7679771.png",
+          "pexels_id": 7679771,
+          "size": 1048338
+        },
+        {
+          "key": "valentine/pexels-7679911.png",
+          "pexels_id": 7679911,
+          "size": 757438
+        },
+        {
+          "key": "valentine/pexels-7680024.png",
+          "pexels_id": 7680024,
+          "size": 641361
+        },
+        {
+          "key": "valentine/pexels-7680031.png",
+          "pexels_id": 7680031,
+          "size": 458239
+        },
+        {
+          "key": "valentine/pexels-13786308.png",
+          "pexels_id": 13786308,
+          "size": 443417
+        },
+        {
+          "key": "valentine/pexels-20122621.png",
+          "pexels_id": 20122621,
+          "size": 536312
+        },
+        {
+          "key": "valentine/pexels-30269722.png",
+          "pexels_id": 30269722,
+          "size": 2144001
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/valentine/pexels-{pexels_id}.png"
+    },
+    "wedding": {
+      "master_count": 10,
+      "pexels_ids": [
+        8015507,
+        8015516,
+        8015568,
+        8015574,
+        8015616,
+        8015629,
+        8015632,
+        8059957,
+        14794078,
+        30191213
+      ],
+      "masters": [
+        {
+          "key": "wedding/pexels-8015507.png",
+          "pexels_id": 8015507,
+          "size": 886951
+        },
+        {
+          "key": "wedding/pexels-8015516.png",
+          "pexels_id": 8015516,
+          "size": 309307
+        },
+        {
+          "key": "wedding/pexels-8015568.png",
+          "pexels_id": 8015568,
+          "size": 427257
+        },
+        {
+          "key": "wedding/pexels-8015574.png",
+          "pexels_id": 8015574,
+          "size": 583060
+        },
+        {
+          "key": "wedding/pexels-8015616.png",
+          "pexels_id": 8015616,
+          "size": 417070
+        },
+        {
+          "key": "wedding/pexels-8015629.png",
+          "pexels_id": 8015629,
+          "size": 1191856
+        },
+        {
+          "key": "wedding/pexels-8015632.png",
+          "pexels_id": 8015632,
+          "size": 911257
+        },
+        {
+          "key": "wedding/pexels-8059957.png",
+          "pexels_id": 8059957,
+          "size": 1337372
+        },
+        {
+          "key": "wedding/pexels-14794078.png",
+          "pexels_id": 14794078,
+          "size": 1357220
+        },
+        {
+          "key": "wedding/pexels-30191213.png",
+          "pexels_id": 30191213,
+          "size": 1053663
+        }
+      ],
+      "preview_url_template": "https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/wedding/wedding-pexels-{pexels_id}-v2-vertical.webp",
+      "original_url_template": "/api/r2-image/originals/wedding/pexels-{pexels_id}.png"
+    }
+  },
+  "category_aliases": {
+    "apology": "sorry",
+    "apologies": "sorry",
+    "forgive": "sorry",
+    "dad": "fathers-day",
+    "dads": "fathers-day",
+    "daddy": "fathers-day",
+    "father": "fathers-day",
+    "papa": "fathers-day",
+    "fathers": "fathers-day",
+    "dad-day": "fathers-day",
+    "mom": "mothers-day",
+    "moms": "mothers-day",
+    "mum": "mothers-day",
+    "mothers": "mothers-day",
+    "mother": "mothers-day",
+    "mum-day": "mothers-day",
+    "mom-day": "mothers-day",
+    "valentines": "valentine",
+    "valentines-day": "valentine",
+    "saint-valentine": "valentine",
+    "new-years": "new-year",
+    "new-years-eve": "new-year",
+    "nye": "new-year",
+    "congrats": "congratulations",
+    "thanks": "thank-you",
+    "appreciation": "thank-you",
+    "gratitude": "thank-you",
+    "thankyou": "thank-you",
+    "encourage": "encouragement",
+    "motivational": "encouragement",
+    "support": "encouragement",
+    "recovery": "get-well",
+    "healing": "get-well",
+    "feelbetter": "get-well",
+    "wellness": "get-well",
+    "funeral": "sympathy",
+    "condolence": "sympathy",
+    "condolences": "sympathy",
+    "loss": "sympathy",
+    "grief": "sympathy",
+    "bereavement": "sympathy",
+    "rip": "sympathy",
+    "graduate": "graduation",
+    "grad": "graduation",
+    "diploma": "graduation",
+    "bday": "birthday",
+    "happybirthday": "birthday",
+    "marry": "wedding",
+    "marriage": "wedding",
+    "engagement": "love",
+    "bridal": "wedding",
+    "bestfriend": "friendship",
+    "bff": "friendship",
+    "squad": "friendship",
+    "friend": "friendship",
+    "romantic": "love",
+    "romance": "love",
+    "i-love-you": "love",
+    "for-her": "love",
+    "for-him": "love",
+    "miss-you": "missing-you",
+    "missyou": "missing-you",
+    "retire": "retirement",
+    "retired": "retirement",
+    "newborn": "new-baby",
+    "babyshower": "new-baby",
+    "baby-shower": "new-baby",
+    "pregnancy": "new-baby",
+    "welcome-baby": "new-baby",
+    "its-a-boy": "new-baby",
+    "its-a-girl": "new-baby",
+    "xmas": "christmas",
+    "noel": "christmas",
+    "yule": "christmas",
+    "christmas-day": "christmas",
+    "thankful": "thanksgiving",
+    "turkey": "thanksgiving",
+    "fall-holiday": "thanksgiving",
+    "spooky": "halloween",
+    "trick-or-treat": "halloween",
+    "happy-easter": "easter",
+    "spring": "easter",
+    "luck": "good-luck",
+    "best-of-luck": "good-luck",
+    "fortune": "good-luck",
+    "thinkofyou": "thinking-of-you",
+    "thoughtofyou": "thinking-of-you",
+    "wedding-anniversary": "anniversary"
+  },
+  "category_keys": [
+    "anniversary",
+    "birthday",
+    "christmas",
+    "congratulations",
+    "easter",
+    "encouragement",
+    "fathers-day",
+    "friendship",
+    "get-well",
+    "good-luck",
+    "graduation",
+    "halloween",
+    "love",
+    "missing-you",
+    "mothers-day",
+    "new-baby",
+    "new-year",
+    "retirement",
+    "sorry",
+    "sympathy",
+    "thank-you",
+    "thanksgiving",
+    "thinking-of-you",
+    "valentine",
+    "wedding"
+  ]
+}

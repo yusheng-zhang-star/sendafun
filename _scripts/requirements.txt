@@ -1,0 +1,23 @@
+# =============================================
+# SendAFun 素材增量脚本依赖清单 (expand-materials.py)
+# 一键安装命令（Windows PowerShell 执行）：
+#   cd e:\网站\sendafunupdate
+#   python -m pip install --upgrade pip
+#   python -m pip install -r _scripts/requirements.txt
+# =============================================
+
+# ===== 核心依赖 =====
+Pillow>=10.0.0        # 图片处理核心：HSL偏移、裁剪、暗角、噪点、水印叠加、WebP编码
+numpy>=1.24.0         # 矩阵运算加速：随机噪点生成、HSL矩阵变换、Pillow操作提速
+
+# ===== 网络 & 云存储 =====
+requests>=2.31.0      # 通用 HTTP 请求：Pexels/Pixabay API、下载原图、CF 清缓存、R2 HEAD 检查
+urllib3>=2.0.0        # requests 底层库，显式锁版本避免 Windows 下 SSL 问题
+boto3>=1.34.0         # Cloudflare R2 S3 兼容接口：批量上传图片到 R2 桶
+
+# ===== 体验 & 运维 =====
+tqdm>=4.66.0          # 进度条：所有批量步骤（下载/处理/上传/生成元数据）显示实时进度
+python-dotenv>=1.0.0  # 加载 .env 环境变量：避免把密钥硬编码到脚本里（安全第一！）
+
+# ===== 可选依赖（防雷同验收用，没装也不影响主流程） =====
+imagehash>=4.3.1 ; python_version >= "3.9"  # pHash 感知哈希：批量验证新图与老图相似度（防雷同验收用）

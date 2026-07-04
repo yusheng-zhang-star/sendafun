@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6366f1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>SendAFun 2.0 · Intent-Driven Social E-Cards</title>
+  <meta name="description" content="Design personalised group e-cards in 30 seconds. Invite friends to co-sign, gift subscriptions, send beautifully animated cards. Free preview, no signup required.">
+  <meta name="keywords" content="send ecard online, group e-card, birthday card, animated greeting card, personalized ecards, signature card, SendAFun">
+  <meta name="author" content="SendAFun">
+  <meta property="og:title" content="SendAFun 2.0 · Intent-Driven Social E-Cards">
+  <meta property="og:description" content="Design personalised group e-cards in 30 seconds. Invite friends to co-sign, gift subscriptions, send beautifully animated cards. Free preview, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sendafun.com/">
+  <meta property="og:image" content="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-8014697-v2-vertical.webp">
+  <meta property="og:site_name" content="SendAFun">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SendAFun 2.0 · Intent-Driven Social E-Cards">
+  <meta name="twitter:description" content="Design personalised group e-cards in 30 seconds. Invite friends to co-sign, gift subscriptions, send beautifully animated cards.">
+  <meta name="twitter:image" content="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-8014697-v2-vertical.webp">
+  <link rel="canonical" id="canonicalLink" href="https://sendafun.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E" aria-label="SendAFun logo envelope heart icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#app" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to main content</a>
+  <div class="blob-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <nav id="topNav" class="glass glass-nav" role="navigation" aria-label="Main navigation">
+    <a href="#/" class="logo" aria-label="SendAFun — go to home page">SendAFun · Intent</a>
+    <div class="nav-links" role="menubar">
+      <a href="#/discover" class="nav-link" role="menuitem" aria-label="Browse all e-card templates">Discover</a>
+      <a href="#/pricing" class="nav-link" role="menuitem" aria-label="See SendAFun pricing plans">Pricing</a>
+      <a href="#/about" class="nav-link" role="menuitem" aria-label="About SendAFun">About</a>
+      <a href="#/contact" class="nav-link" role="menuitem" aria-label="Contact SendAFun support">Contact</a>
+    </div>
+    <div style="display:flex; gap:0.6rem; align-items:center;">
+      <!-- DOC §169: Top-bar permanent language selector (4 langs: EN/ES/FR/PT)
+           - Purely static HTML + oneliner onchange. Does NOT touch app.js or any
+           existing editor code (DOC §233: existing mature editor code never modified).
+           - User picks a language → 302 with Set-Cookie saf_lang_override=xx,
+             then the Worker skips all future Geo auto-redirects for the session. -->
+      <label for="safLangPicker" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.9rem;color:#4b5563;white-space:nowrap;" aria-label="Select your language">
+        <span aria-hidden="true">🌐</span>
+        <select id="safLangPicker"
+                onchange="try{window.location.href='/api/lang/set?lang='+this.value}catch(e){}"
+                style="min-height:44px;min-width:86px;padding:0.45rem 0.5rem;border-radius:0.6rem;border:1px solid rgba(148,163,184,0.5);background:rgba(255,255,255,0.75);color:#334155;font-size:0.9rem;-webkit-appearance:none;appearance:none;cursor:pointer;"
+                aria-label="Choose language">
+          <option value="en" selected>EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+      <a href="#/pricing" class="nav-link" role="menuitem" aria-label="Explore SendAFun member plans, orders and gift redemptions — no account required today">💎 Member</a>
+      <a href="#/create" class="nav-link nav-cta" role="button" aria-label="Send a free e-card now — no signup required">Send a Free Card &rarr;</a>
+    </div>
+  </nav>
+  <main id="app" role="main" aria-label="Primary page content" tabindex="-1"></main>
+  <footer id="footerPlaceholder" class="glass glass-footer"></footer>
+  <div id="cookieBannerPlaceholder" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
