@@ -4366,7 +4366,6 @@ function renderEditorRight(card) {
       )
     ])
   ]);
-  return wrap;
 }
 
 function renderColorField(key, label, value) {
