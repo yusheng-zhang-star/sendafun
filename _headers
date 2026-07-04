@@ -1,0 +1,42 @@
+# SendAFun — Cloudflare Pages Headers
+# Cache & Security policy
+
+# HTML pages — short CDN cache, browser revalidate
+/*.html
+  Cache-Control: public, max-age=0, stale-while-revalidate=3600
+  CDN-Cache-Control: public, max-age=43200
+
+# Clean URLs (category/*, card/*)
+/category/*
+  Cache-Control: public, max-age=0, stale-while-revalidate=3600
+  CDN-Cache-Control: public, max-age=43200
+/card/*
+  Cache-Control: public, max-age=0, stale-while-revalidate=3600
+  CDN-Cache-Control: public, max-age=43200
+
+# Images — long cache (immutable, versioned by filename)
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+  Access-Control-Allow-Origin: *
+
+# OG images
+/og/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+# JS & CSS
+/*.js
+  Cache-Control: public, max-age=604800, immutable
+/*.css
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# SEO files
+/sitemap.xml
+  Cache-Control: public, max-age=1800
+/robots.txt
+  Cache-Control: public, max-age=1800
+
+# 404 — never cache
+/404.html
+  Cache-Control: no-cache, no-store
+  CDN-Cache-Control: no-store

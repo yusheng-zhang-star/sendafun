@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="2026 Holiday Calendar — every card-worthy date of the year with ready-made templates.">
+<meta property="og:title" content="📅 2026 Holiday Calendar Cards — SendAFun">
+<meta property="og:description" content="2026 Holiday Calendar — every card-worthy date of the year with ready-made templates.">
+<link rel="canonical" href="https://sendafun.com/holidays.html">
+<title>📅 2026 Holiday Calendar Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link active">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / Hub / <strong>Holiday Calendar</strong></div>
+  <h1 class="page-title">📅 2026 Holiday Calendar Cards<span class="count-chip">180 cards</span></h1>
+  <p class="page-subtitle">2026 Holiday Calendar — every card-worthy date of the year with ready-made templates.</p>
+  <div class="extra-section"><h2 style="font-size:1.35rem;margin-bottom:0.6rem;color:#1a202c;">Upcoming holidays this year</h2><p class="page-subtitle" style="margin-bottom:1.2rem;">Never miss a date — click any holiday to jump straight to ready-made card templates.</p><div class="holiday-grid">
+    <div class="holiday-card">
+      <div class="holiday-date">January 1</div>
+      <div class="holiday-name">New Year's Day</div>
+      <a class="holiday-btn" href="/category/new-year.html">Browse New Year cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">February 14</div>
+      <div class="holiday-name">Valentine's Day</div>
+      <a class="holiday-btn" href="/category/valentine.html">Browse Valentine cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">March 17</div>
+      <div class="holiday-name">St. Patrick's Day</div>
+      <a class="holiday-btn" href="/category/congratulations.html">Browse Congratulations cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">April 12</div>
+      <div class="holiday-name">Easter 2026</div>
+      <a class="holiday-btn" href="/category/easter.html">Browse Easter cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">May 10</div>
+      <div class="holiday-name">Mother's Day 2026</div>
+      <a class="holiday-btn" href="/category/mothers-day.html">Browse Mother's Day cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">June 21</div>
+      <div class="holiday-name">Father's Day 2026</div>
+      <a class="holiday-btn" href="/category/fathers-day.html">Browse Father's Day cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">October 31</div>
+      <div class="holiday-name">Halloween</div>
+      <a class="holiday-btn" href="/category/halloween.html">Browse Halloween cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">November 26</div>
+      <div class="holiday-name">Thanksgiving 2026</div>
+      <a class="holiday-btn" href="/category/thanksgiving.html">Browse Thanksgiving cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">December 25</div>
+      <div class="holiday-name">Christmas Day</div>
+      <a class="holiday-btn" href="/category/christmas.html">Browse Christmas cards →</a>
+    </div>
+    <div class="holiday-card">
+      <div class="holiday-date">December 31</div>
+      <div class="holiday-name">New Year's Eve</div>
+      <a class="holiday-btn" href="/category/new-year.html">Browse New Year cards →</a>
+    </div>
+  </div></div>
+  <div class="card-grid">
+    <a href="/card/thanksgiving-happy-thanksgiving-warm-family-card-online-warm-romantic-for-hostess-10057795.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10057795-vertical.webp" alt="Happy Thanksgiving — Warm Family Card Online · Warm · Romantic · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Thanksgiving — Warm Family Card Online · Warm · Romantic · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-here-s-to-2026-custom-new-year-card-celebratory-romantic-for-family-new-year-14123882.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-14123882-vertical.webp" alt="Here's to 2026 — Custom New Year Card · Celebratory · Romantic · for Family New Year" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Here's to 2026 — Custom New Year Card · Celebratory · Romantic · for Family New Year</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">2026</span><span class="card-tile-tag">fresh-start</span><span class="card-tile-tag">cheers</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-bunny-hugs-easter-love-custom-ecard-cheerful-romantic-for-church-service-31280762.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31280762-vertical.webp" alt="Bunny Hugs & Easter Love — Custom Ecard · Cheerful · Romantic · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bunny Hugs & Easter Love — Custom Ecard · Cheerful · Romantic · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">godchild</span><span class="card-tile-tag">grandkids</span><span class="card-tile-tag">spring</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-romantic-from-wife-19317957.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-19317957-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-from-daughter-10281132.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-10281132-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-friends-like-you-thanksgiving-ecard-warm-romantic-for-family-dinner-10443173.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10443173-vertical.webp" alt="Thankful for Friends Like You — Thanksgiving Ecard · Warm · Romantic · for Family Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for Friends Like You — Thanksgiving Ecard · Warm · Romantic · for Family Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-congratulations-card-celebrate-their-big-win-celebratory-romantic-on-promotion-10477179.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Card — Celebrate Their Big Win · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-sunday-blessings-custom-greeting-cheerful-romantic-for-grandkids-basket-31485347.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31485347-vertical.webp" alt="Easter Sunday Blessings — Custom Greeting · Cheerful · Romantic · for Grandkids Basket" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Sunday Blessings — Custom Greeting · Cheerful · Romantic · for Grandkids Basket</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">pastel</span><span class="card-tile-tag">cheerful</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-funny-halloween-punny-boo-custom-ecard-spooky-romantic-for-adults-costume-party-12955809.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-12955809-vertical.webp" alt="Funny Halloween — Punny Boo Custom Ecard · Spooky · Romantic · for Adults Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Funny Halloween — Punny Boo Custom Ecard · Spooky · Romantic · for Adults Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">pumpkin-carving</span><span class="card-tile-tag">scary-movies</span><span class="card-tile-tag">neighbor</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-romantic-from-son-12956060.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12956060-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-joy-peace-blessings-custom-ecard-cheerful-romantic-for-grandkids-basket-31497497.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31497497-vertical.webp" alt="Easter Joy, Peace & Blessings — Custom Ecard · Cheerful · Romantic · for Grandkids Basket" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Joy, Peace & Blessings — Custom Ecard · Cheerful · Romantic · for Grandkids Basket</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">godchild</span><span class="card-tile-tag">grandkids</span><span class="card-tile-tag">spring</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-warm-cozy-christmas-wishes-custom-card-festive-romantic-for-family-10634513.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10634513-vertical.webp" alt="Warm & Cozy Christmas Wishes — Custom Card · Festive · Romantic · for Family" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm & Cozy Christmas Wishes — Custom Card · Festive · Romantic · for Family</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-basket-of-wishes-personalized-card-cheerful-romantic-for-grandkids-basket-31280776.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31280776-vertical.webp" alt="Easter Basket of Wishes — Personalized Card · Cheerful · Romantic · for Grandkids Basket" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Basket of Wishes — Personalized Card · Cheerful · Romantic · for Grandkids Basket</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter</span><span class="card-tile-tag">easter-bunny</span><span class="card-tile-tag">egg-hunt</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-happy-easter-floral-spring-custom-ecard-cheerful-romantic-for-family-easter-brunch-11931743.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-11931743-vertical.webp" alt="Happy Easter — Floral Spring Custom Ecard · Cheerful · Romantic · for Family Easter Brunch" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Easter — Floral Spring Custom Ecard · Cheerful · Romantic · for Family Easter Brunch</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-my-heart-is-yours-custom-valentine-ecard-romantic-for-him-11049228.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11049228-vertical.webp" alt="My Heart is Yours — Custom Valentine Ecard · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Heart is Yours — Custom Valentine Ecard · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-he-has-risen-easter-religious-ecard-custom-cheerful-romantic-for-family-easter-brunch-16057457.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-16057457-vertical.webp" alt="He Has Risen — Easter Religious Ecard Custom · Cheerful · Romantic · for Family Easter Brunch" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">He Has Risen — Easter Religious Ecard Custom · Cheerful · Romantic · for Family Easter Brunch</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-spooky-cute-happy-halloween-custom-ecard-spooky-romantic-for-neighbor-trick-or-treat-14125726.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-14125726-vertical.webp" alt="Spooky Cute — Happy Halloween Custom Ecard · Spooky · Romantic · for Neighbor Trick or Treat" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Spooky Cute — Happy Halloween Custom Ecard · Spooky · Romantic · for Neighbor Trick or Treat</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">pumpkin-carving</span><span class="card-tile-tag">scary-movies</span><span class="card-tile-tag">neighbor</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-what-a-win-personalized-congrats-card-celebratory-romantic-on-wedding-27726876.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-27726876-vertical.webp" alt="What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">What a Win! — Personalized Congrats Card · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-mother-s-day-thank-you-custom-ecard-online-warm-romantic-from-kids-15610767.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-15610767-vertical.webp" alt="Mother's Day Thank You — Custom Ecard Online · Warm · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mother's Day Thank You — Custom Ecard Online · Warm · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-halloween-costume-party-invite-wishes-card-spooky-romantic-for-adults-costume-party-10113127.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10113127-vertical.webp" alt="Halloween Costume Party Invite / Wishes — Card · Spooky · Romantic · for Adults Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Halloween Costume Party Invite / Wishes — Card · Spooky · Romantic · for Adults Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">halloween</span><span class="card-tile-tag">boo</span><span class="card-tile-tag">trick-or-treat</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-woohoo-personalized-congratulations-card-celebratory-romantic-on-new-job-19046912.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19046912-vertical.webp" alt="Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Woohoo! — Personalized Congratulations Card · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-trick-or-treat-smell-my-feet-halloween-fun-spooky-romantic-for-scary-movie-night-14225981.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-14225981-vertical.webp" alt="Trick or Treat, Smell My Feet — Halloween Fun · Spooky · Romantic · for Scary Movie Night" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Trick or Treat, Smell My Feet — Halloween Fun · Spooky · Romantic · for Scary Movie Night</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">pumpkin-carving</span><span class="card-tile-tag">scary-movies</span><span class="card-tile-tag">neighbor</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-heart-thanksgiving-custom-ecard-warm-romantic-for-hostess-10057797.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10057797-vertical.webp" alt="Grateful Heart — Thanksgiving Custom Ecard · Warm · Romantic · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful Heart — Thanksgiving Custom Ecard · Warm · Romantic · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-cheers-to-your-success-congrats-card-celebratory-romantic-on-new-job-17842579.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-17842579-vertical.webp" alt="Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Your Success — Congrats Card · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-christmas-magic-custom-greeting-card-festive-romantic-for-teacher-12932419.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932419-vertical.webp" alt="Christmas Magic — Custom Greeting Card · Festive · Romantic · for Teacher" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Christmas Magic — Custom Greeting Card · Festive · Romantic · for Teacher</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warm-congratulations-on-your-achievement-celebratory-romantic-on-new-job-17665411.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-17665411-vertical.webp" alt="Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Congratulations on Your Achievement · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-may-your-days-be-merry-bright-christmas-card-festive-romantic-for-kids-10899609.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10899609-vertical.webp" alt="May Your Days Be Merry & Bright — Christmas Card · Festive · Romantic · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Days Be Merry & Bright — Christmas Card · Festive · Romantic · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-my-one-and-only-valentine-ecard-online-romantic-for-husband-15028912.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-15028912-vertical.webp" alt="My One and Only Valentine — Ecard Online · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My One and Only Valentine — Ecard Online · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-you-from-our-family-to-yours-warm-romantic-for-neighbor-13885792.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-13885792-vertical.webp" alt="Thankful for You — From Our Family to Yours · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for You — From Our Family to Yours · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-mother-s-day-card-heartfelt-wishes-for-mom-warm-romantic-from-daughter-10565672.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-10565672-vertical.webp" alt="Happy Mother's Day Card — Heartfelt Wishes for Mom · Warm · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Mother's Day Card — Heartfelt Wishes for Mom · Warm · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mothers-day</span><span class="card-tile-tag">mom</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-egg-hunt-cheerful-kids-easter-ecard-cheerful-romantic-for-kids-egg-hunt-10972836.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10972836-vertical.webp" alt="Easter Egg Hunt — Cheerful Kids Easter Ecard · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Egg Hunt — Cheerful Kids Easter Ecard · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-romantic-from-kids-13051943.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13051943-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-wishes-heartfelt-custom-card-warm-romantic-for-friends-thanksgiving-12932547.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12932547-vertical.webp" alt="Thanksgiving Wishes — Heartfelt Custom Card · Warm · Romantic · for Friends Thanksgiving" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Wishes — Heartfelt Custom Card · Warm · Romantic · for Friends Thanksgiving</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-to-my-forever-valentine-greeting-card-romantic-for-wife-12944648.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-12944648-vertical.webp" alt="To My Forever Valentine — Greeting Card · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Forever Valentine — Greeting Card · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-well-done-you-custom-congratulations-ecard-celebratory-romantic-on-new-job-1627935.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-1627935-vertical.webp" alt="Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Done You — Custom Congratulations Ecard · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-tis-the-season-warm-christmas-wishes-card-festive-romantic-for-neighbor-12932340.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932340-vertical.webp" alt="Tis the Season — Warm Christmas Wishes Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tis the Season — Warm Christmas Wishes Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thank-you-thanksgiving-warmth-custom-card-warm-romantic-for-hostess-10065068.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10065068-vertical.webp" alt="Thank You — Thanksgiving Warmth — Custom Card · Warm · Romantic · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You — Thanksgiving Warmth — Custom Card · Warm · Romantic · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-happy-halloween-2026-personalized-spooky-card-spooky-romantic-for-neighbor-trick-or-treat-13620529.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-13620529-vertical.webp" alt="Happy Halloween 2026 — Personalized Spooky Card · Spooky · Romantic · for Neighbor Trick or Treat" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Halloween 2026 — Personalized Spooky Card · Spooky · Romantic · for Neighbor Trick or Treat</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">halloween</span><span class="card-tile-tag">boo</span><span class="card-tile-tag">trick-or-treat</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-mother-s-day-classic-elegant-card-warm-romantic-from-husband-16791479.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-16791479-vertical.webp" alt="Happy Mother's Day — Classic & Elegant Card · Warm · Romantic · from Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Mother's Day — Classic & Elegant Card · Warm · Romantic · from Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-you-me-happy-valentine-s-day-card-romantic-for-him-11049227.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11049227-vertical.webp" alt="You + Me = Happy Valentine's Day — Card · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You + Me = Happy Valentine's Day — Card · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hearts-day</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">cupid</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-be-mine-personalized-valentine-s-ecard-romantic-for-wife-11716935.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11716935-vertical.webp" alt="Be Mine — Personalized Valentine's Ecard · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Mine — Personalized Valentine's Ecard · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-from-daughter-12932337.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12932337-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-joy-to-the-world-christmas-greeting-ecard-festive-romantic-for-family-10634511.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10634511-vertical.webp" alt="Joy to the World — Christmas Greeting Ecard · Festive · Romantic · for Family" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joy to the World — Christmas Greeting Ecard · Festive · Romantic · for Family</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-elegant-congratulations-card-to-send-online-celebratory-romantic-on-new-job-16131307.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-16131307-vertical.webp" alt="Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Job" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Congratulations Card to Send Online · Celebratory · Romantic · on New Job</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-may-your-christmas-be-merry-personalized-ecard-festive-romantic-for-teacher-12932421.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932421-vertical.webp" alt="May Your Christmas Be Merry — Personalized Ecard · Festive · Romantic · for Teacher" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">May Your Christmas Be Merry — Personalized Ecard · Festive · Romantic · for Teacher</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-pumpkin-carving-night-fun-halloween-card-spooky-romantic-for-adults-costume-party-10182651.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10182651-vertical.webp" alt="Pumpkin Carving Night — Fun Halloween Card · Spooky · Romantic · for Adults Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Pumpkin Carving Night — Fun Halloween Card · Spooky · Romantic · for Adults Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">witch</span><span class="card-tile-tag">ghost</span><span class="card-tile-tag">candy</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-first-mother-s-day-personalized-card-warm-romantic-from-son-12932630.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-12932630-vertical.webp" alt="Happy First Mother's Day — Personalized Card · Warm · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Mother's Day — Personalized Card · Warm · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mothers-day</span><span class="card-tile-tag">mom</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-romantic-from-kids-16460600.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460600-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-all-my-love-on-valentine-s-custom-card-romantic-for-wife-11308356.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11308356-vertical.webp" alt="All My Love on Valentine's — Custom Card · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">All My Love on Valentine's — Custom Card · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hearts-day</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">cupid</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-brand-new-year-personalized-custom-ecard-celebratory-romantic-for-friends-nye-18270663.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-18270663-vertical.webp" alt="Brand New Year — Personalized Custom Ecard · Celebratory · Romantic · for Friends NYE" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Brand New Year — Personalized Custom Ecard · Celebratory · Romantic · for Friends NYE</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-romantic-from-wife-16460604.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460604-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-be-my-valentine-sweet-greeting-ecard-online-romantic-for-her-10977972.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-10977972-vertical.webp" alt="Be My Valentine — Sweet Greeting Ecard Online · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be My Valentine — Sweet Greeting Ecard Online · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-cheers-to-a-fresh-start-happy-new-year-card-celebratory-romantic-for-new-year-s-eve-party-12745596.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-12745596-vertical.webp" alt="Cheers to a Fresh Start — Happy New Year Card · Celebratory · Romantic · for New Year's Eve Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to a Fresh Start — Happy New Year Card · Celebratory · Romantic · for New Year's Eve Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fireworks</span><span class="card-tile-tag">party</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-from-daughter-to-mom-heartfelt-mother-s-day-card-warm-romantic-from-son-13461809.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-13461809-vertical.webp" alt="From Daughter to Mom — Heartfelt Mother's Day Card · Warm · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Mom — Heartfelt Mother's Day Card · Warm · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-a-year-of-possibilities-new-year-card-celebratory-romantic-for-friends-nye-19709737.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-19709737-vertical.webp" alt="A Year of Possibilities — New Year Card · Celebratory · Romantic · for Friends NYE" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Year of Possibilities — New Year Card · Celebratory · Romantic · for Friends NYE</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">2026</span><span class="card-tile-tag">fresh-start</span><span class="card-tile-tag">cheers</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-best-wishes-for-the-new-year-personalized-celebratory-romantic-for-new-year-s-resolution-12745599.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-12745599-vertical.webp" alt="Best Wishes for the New Year — Personalized · Celebratory · Romantic · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Wishes for the New Year — Personalized · Celebratory · Romantic · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-year</span><span class="card-tile-tag">celebration</span><span class="card-tile-tag">hope</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-happy-thanksgiving-rustic-warm-design-warm-romantic-for-friends-thanksgiving-12932379.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12932379-vertical.webp" alt="Happy Thanksgiving — Rustic Warm Design · Warm · Romantic · for Friends Thanksgiving" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Thanksgiving — Rustic Warm Design · Warm · Romantic · for Friends Thanksgiving</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holiday-hugs-personalized-christmas-ecard-festive-romantic-for-neighbor-12932360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932360-vertical.webp" alt="Holiday Hugs — Personalized Christmas Ecard · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holiday Hugs — Personalized Christmas Ecard · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-you-earned-it-personalized-congratulations-celebratory-romantic-on-engagement-20432237.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-20432237-vertical.webp" alt="You Earned It — Personalized Congratulations · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You Earned It — Personalized Congratulations · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-mothers-day-card-send-love-instantly-online-warm-romantic-from-son-13247048.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-13247048-vertical.webp" alt="Mothers Day Card — Send Love Instantly Online · Warm · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mothers Day Card — Send Love Instantly Online · Warm · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-love-you-more-valentine-s-day-custom-card-romantic-for-husband-14916713.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-14916713-vertical.webp" alt="Love You More — Valentine's Day Custom Card · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You More — Valentine's Day Custom Card · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-merry-christmas-card-warm-holiday-wishes-festive-romantic-for-family-10520454.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10520454-vertical.webp" alt="Merry Christmas Card — Warm Holiday Wishes · Festive · Romantic · for Family" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Merry Christmas Card — Warm Holiday Wishes · Festive · Romantic · for Family</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-personalized-new-year-wishes-ecard-online-celebratory-romantic-for-new-year-s-eve-party-10710895.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-10710895-vertical.webp" alt="Personalized New Year Wishes Ecard Online · Celebratory · Romantic · for New Year's Eve Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized New Year Wishes Ecard Online · Celebratory · Romantic · for New Year's Eve Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-boo-playful-halloween-custom-greeting-card-spooky-romantic-for-kids-costume-party-10011935.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011935-vertical.webp" alt="Boo! — Playful Halloween Custom Greeting Card · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Boo! — Playful Halloween Custom Greeting Card · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">vintage</span><span class="card-tile-tag">scary</span><span class="card-tile-tag">playful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-romantic-from-son-12960354.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12960354-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-wishing-you-a-white-christmas-custom-ecard-festive-romantic-for-teacher-12932529.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932529-vertical.webp" alt="Wishing You a White Christmas — Custom Ecard · Festive · Romantic · for Teacher" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Wishing You a White Christmas — Custom Ecard · Festive · Romantic · for Teacher</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-best-mom-in-the-world-mother-s-day-greeting-warm-romantic-from-son-12944815.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-12944815-vertical.webp" alt="Best Mom in the World — Mother's Day Greeting · Warm · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Mom in the World — Mother's Day Greeting · Warm · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-my-whole-heart-custom-valentine-ecard-romantic-for-husband-12969198.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-12969198-vertical.webp" alt="My Whole Heart — Custom Valentine Ecard · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">My Whole Heart — Custom Valentine Ecard · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">valentine</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-mother-s-day-love-beautiful-greeting-for-her-warm-romantic-from-daughter-11591911.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-11591911-vertical.webp" alt="Mother's Day Love — Beautiful Greeting for Her · Warm · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mother's Day Love — Beautiful Greeting for Her · Warm · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-romantic-from-son-12969212.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12969212-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-happy-turkey-day-personalized-thanksgiving-card-warm-romantic-for-family-dinner-10288946.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10288946-vertical.webp" alt="Happy Turkey Day — Personalized Thanksgiving Card · Warm · Romantic · for Family Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Turkey Day — Personalized Thanksgiving Card · Warm · Romantic · for Family Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-romantic-from-son-13020486.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13020486-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-new-year-new-adventures-custom-ecard-celebratory-romantic-for-new-year-s-eve-party-12571648.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-12571648-vertical.webp" alt="New Year, New Adventures — Custom Ecard · Celebratory · Romantic · for New Year's Eve Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Year, New Adventures — Custom Ecard · Celebratory · Romantic · for New Year's Eve Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">2026</span><span class="card-tile-tag">fresh-start</span><span class="card-tile-tag">cheers</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-love-letter-for-valentine-s-personalized-ecard-romantic-for-him-11049234.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11049234-vertical.webp" alt="Love Letter for Valentine's — Personalized Ecard · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love Letter for Valentine's — Personalized Ecard · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-happy-easter-bunny-personalized-kids-card-cheerful-romantic-for-kids-egg-hunt-11477551.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-11477551-vertical.webp" alt="Happy Easter Bunny — Personalized Kids Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Easter Bunny — Personalized Kids Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">godchild</span><span class="card-tile-tag">grandkids</span><span class="card-tile-tag">spring</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-from-daughter-12932847.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12932847-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-wishes-for-grandkids-custom-ecard-cheerful-romantic-for-church-service-20805084.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-20805084-vertical.webp" alt="Easter Wishes for Grandkids — Custom Ecard · Cheerful · Romantic · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Wishes for Grandkids — Custom Ecard · Cheerful · Romantic · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">pastel</span><span class="card-tile-tag">cheerful</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-all-i-want-for-christmas-is-you-custom-card-festive-romantic-for-neighbor-12932346.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932346-vertical.webp" alt="All I Want for Christmas Is You — Custom Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">All I Want for Christmas Is You — Custom Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-365-new-chances-new-year-custom-greeting-celebratory-romantic-for-new-year-s-resolution-12745603.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-12745603-vertical.webp" alt="365 New Chances — New Year Custom Greeting · Celebratory · Romantic · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">365 New Chances — New Year Custom Greeting · Celebratory · Romantic · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-from-me-to-you-on-valentine-s-day-card-romantic-for-him-11049229.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11049229-vertical.webp" alt="From Me to You on Valentine's Day — Card · Romantic · for Him" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Me to You on Valentine's Day — Card · Romantic · for Him</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">be-mine</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">heart</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-valentine-s-day-card-be-mine-forever-romantic-for-her-1028710.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-1028710-vertical.webp" alt="Valentine's Day Card — Be Mine Forever · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Valentine's Day Card — Be Mine Forever · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">valentine</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-scary-movie-night-happy-halloween-custom-ecard-spooky-romantic-for-adults-costume-party-10113131.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10113131-vertical.webp" alt="Scary Movie Night — Happy Halloween Custom Ecard · Spooky · Romantic · for Adults Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Scary Movie Night — Happy Halloween Custom Ecard · Spooky · Romantic · for Adults Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">vintage</span><span class="card-tile-tag">scary</span><span class="card-tile-tag">playful</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-happy-halloween-best-friends-forever-spooky-spooky-romantic-for-scary-movie-night-14216413.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-14216413-vertical.webp" alt="Happy Halloween — Best Friends Forever Spooky · Spooky · Romantic · for Scary Movie Night" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Halloween — Best Friends Forever Spooky · Spooky · Romantic · for Scary Movie Night</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">costume-party</span><span class="card-tile-tag">spooky</span><span class="card-tile-tag">pumpkin</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-midnight-kisses-new-year-wishes-card-celebratory-romantic-for-family-new-year-14225998.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-14225998-vertical.webp" alt="Midnight Kisses & New Year Wishes — Card · Celebratory · Romantic · for Family New Year" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Midnight Kisses & New Year Wishes — Card · Celebratory · Romantic · for Family New Year</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fireworks</span><span class="card-tile-tag">party</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-way-to-go-custom-congratulations-ecard-celebratory-romantic-on-wedding-30682918.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30682918-vertical.webp" alt="Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Way to Go! — Custom Congratulations Ecard · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">success</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-out-with-the-old-in-with-the-new-card-celebratory-romantic-for-new-year-s-resolution-12766903.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-12766903-vertical.webp" alt="Out With the Old, In With the New — Card · Celebratory · Romantic · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Out With the Old, In With the New — Card · Celebratory · Romantic · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-you-re-my-person-valentine-s-day-card-romantic-for-wife-11133247.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11133247-vertical.webp" alt="You're My Person — Valentine's Day Card · Romantic · for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're My Person — Valentine's Day Card · Romantic · for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">valentine</span><span class="card-tile-tag">romantic</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-you-re-the-best-mom-personalized-greeting-card-warm-romantic-from-kids-15055945.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-15055945-vertical.webp" alt="You're the Best Mom — Personalized Greeting Card · Warm · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Mom — Personalized Greeting Card · Warm · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holly-jolly-christmas-custom-holiday-ecard-festive-romantic-for-neighbor-12932267.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932267-vertical.webp" alt="Holly Jolly Christmas — Custom Holiday Ecard · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holly Jolly Christmas — Custom Holiday Ecard · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-thank-you-mom-personalized-mother-s-day-ecard-warm-romantic-from-daughter-11287866.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-11287866-vertical.webp" alt="Thank You Mom — Personalized Mother's Day Ecard · Warm · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Mom — Personalized Mother's Day Ecard · Warm · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-spring-easter-blessings-custom-card-online-cheerful-romantic-for-church-service-31080716.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31080716-vertical.webp" alt="Spring & Easter Blessings — Custom Card Online · Cheerful · Romantic · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Spring & Easter Blessings — Custom Card Online · Cheerful · Romantic · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-bright-new-year-ahead-personalized-card-celebratory-romantic-for-new-year-s-resolution-13521418.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-13521418-vertical.webp" alt="Bright New Year Ahead — Personalized Card · Celebratory · Romantic · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bright New Year Ahead — Personalized Card · Celebratory · Romantic · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fireworks</span><span class="card-tile-tag">party</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-happy-new-year-card-cheers-to-new-beginnings-celebratory-romantic-for-new-year-s-eve-party-10710894.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-10710894-vertical.webp" alt="Happy New Year Card — Cheers to New Beginnings · Celebratory · Romantic · for New Year's Eve Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy New Year Card — Cheers to New Beginnings · Celebratory · Romantic · for New Year's Eve Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-year</span><span class="card-tile-tag">celebration</span><span class="card-tile-tag">hope</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-jingle-all-the-way-christmas-ecard-online-festive-romantic-for-kids-11713002.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-11713002-vertical.webp" alt="Jingle All the Way — Christmas Ecard Online · Festive · Romantic · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Jingle All the Way — Christmas Ecard Online · Festive · Romantic · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-with-love-at-christmas-personalized-card-festive-romantic-for-neighbor-12932207.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932207-vertical.webp" alt="With Love at Christmas — Personalized Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">With Love at Christmas — Personalized Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-mother-s-day-blessings-custom-greeting-card-warm-romantic-from-husband-16791402.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-16791402-vertical.webp" alt="Mother's Day Blessings — Custom Greeting Card · Warm · Romantic · from Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Mother's Day Blessings — Custom Greeting Card · Warm · Romantic · from Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-be-proud-you-deserve-this-congratulations-card-celebratory-romantic-on-wedding-30184618.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-30184618-vertical.webp" alt="Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Be Proud — You Deserve This Congratulations Card · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-love-gratitude-custom-card-warm-romantic-for-neighbor-14061698.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-14061698-vertical.webp" alt="Thanksgiving Love & Gratitude — Custom Card · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Love & Gratitude — Custom Card · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-for-mom-with-all-my-love-custom-ecard-online-warm-romantic-from-daughter-12553175.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-12553175-vertical.webp" alt="For Mom With All My Love — Custom Ecard Online · Warm · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Mom With All My Love — Custom Ecard Online · Warm · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">first-mothers-day</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-happy-halloween-from-our-family-to-yours-spooky-romantic-for-scary-movie-night-14145602.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-14145602-vertical.webp" alt="Happy Halloween — From Our Family to Yours · Spooky · Romantic · for Scary Movie Night" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Halloween — From Our Family to Yours · Spooky · Romantic · for Scary Movie Night</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">halloween</span><span class="card-tile-tag">boo</span><span class="card-tile-tag">trick-or-treat</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-new-year-magic-personalized-greeting-ecard-celebratory-romantic-for-family-new-year-14123878.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-14123878-vertical.webp" alt="New Year Magic — Personalized Greeting Ecard · Celebratory · Romantic · for Family New Year" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Year Magic — Personalized Greeting Ecard · Celebratory · Romantic · for Family New Year</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-world-s-best-mom-mother-s-day-celebration-warm-romantic-from-kids-15626328.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-15626328-vertical.webp" alt="World's Best Mom — Mother's Day Celebration · Warm · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Mom — Mother's Day Celebration · Warm · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">first-mothers-day</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-happy-holidays-custom-christmas-card-online-festive-romantic-for-family-10591543.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10591543-vertical.webp" alt="Happy Holidays — Custom Christmas Card Online · Festive · Romantic · for Family" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Holidays — Custom Christmas Card Online · Festive · Romantic · for Family</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-today-always-custom-thanksgiving-warm-romantic-for-friends-thanksgiving-12932354.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12932354-vertical.webp" alt="Thankful Today & Always — Custom Thanksgiving · Warm · Romantic · for Friends Thanksgiving" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful Today & Always — Custom Thanksgiving · Warm · Romantic · for Friends Thanksgiving</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-for-every-moment-thanksgiving-ecard-warm-romantic-for-neighbor-12955686.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12955686-vertical.webp" alt="Grateful for Every Moment — Thanksgiving Ecard · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful for Every Moment — Thanksgiving Ecard · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-warmest-congratulations-custom-greeting-celebratory-romantic-on-wedding-28951415.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-28951415-vertical.webp" alt="Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Congratulations — Custom Greeting · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-blessings-abound-happy-thanksgiving-card-warm-romantic-for-neighbor-14097863.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-14097863-vertical.webp" alt="Blessings Abound — Happy Thanksgiving Card · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Blessings Abound — Happy Thanksgiving Card · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-personalized-congrats-ecard-for-any-achievement-celebratory-romantic-on-promotion-10549490.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549490-vertical.webp" alt="Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Congrats Ecard for Any Achievement · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-so-proud-of-you-custom-congrats-ecard-celebratory-romantic-on-engagement-19046915.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19046915-vertical.webp" alt="So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Proud of You — Custom Congrats Ecard · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-romantic-from-kids-16460602.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460602-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-to-the-best-mom-ever-custom-mother-s-day-card-warm-romantic-from-daughter-11369238.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-11369238-vertical.webp" alt="To the Best Mom Ever — Custom Mother's Day Card · Warm · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To the Best Mom Ever — Custom Mother's Day Card · Warm · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-mom</span><span class="card-tile-tag">best-mom</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-for-our-family-thanksgiving-card-warm-romantic-for-family-dinner-10288947.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10288947-vertical.webp" alt="Grateful for Our Family — Thanksgiving Card · Warm · Romantic · for Family Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful for Our Family — Thanksgiving Card · Warm · Romantic · for Family Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-mothers-day-for-grandma-too-custom-warm-romantic-from-kids-14742403.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-14742403-vertical.webp" alt="Happy Mothers Day — For Grandma Too — Custom · Warm · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Mothers Day — For Grandma Too — Custom · Warm · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mothers-day</span><span class="card-tile-tag">mom</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-happy-easter-for-friends-family-custom-cheerful-romantic-for-church-service-31155558.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31155558-vertical.webp" alt="Happy Easter — For Friends & Family — Custom · Cheerful · Romantic · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Easter — For Friends & Family — Custom · Cheerful · Romantic · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-scary-fun-halloween-custom-ecard-online-spooky-romantic-for-scary-movie-night-14147161.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-14147161-vertical.webp" alt="Scary Fun Halloween — Custom Ecard Online · Spooky · Romantic · for Scary Movie Night" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Scary Fun Halloween — Custom Ecard Online · Spooky · Romantic · for Scary Movie Night</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">vintage</span><span class="card-tile-tag">scary</span><span class="card-tile-tag">playful</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-for-godchild-on-easter-custom-blessing-card-cheerful-romantic-for-family-easter-brunch-11804432.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-11804432-vertical.webp" alt="For Godchild on Easter — Custom Blessing Card · Cheerful · Romantic · for Family Easter Brunch" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Godchild on Easter — Custom Blessing Card · Cheerful · Romantic · for Family Easter Brunch</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">pastel</span><span class="card-tile-tag">cheerful</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-spooky-scary-halloween-costume-party-card-spooky-romantic-for-kids-costume-party-10011944.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011944-vertical.webp" alt="Spooky Scary Halloween — Costume Party Card · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Spooky Scary Halloween — Costume Party Card · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">costume-party</span><span class="card-tile-tag">spooky</span><span class="card-tile-tag">pumpkin</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-personalized-holiday-ecard-for-loved-ones-festive-romantic-for-family-10591541.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10591541-vertical.webp" alt="Personalized Holiday Ecard for Loved Ones · Festive · Romantic · for Family" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Holiday Ecard for Loved Ones · Festive · Romantic · for Family</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-happy-valentine-s-day-to-my-favorite-person-romantic-for-her-11049222.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-11049222-vertical.webp" alt="Happy Valentine's Day to My Favorite Person · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Valentine's Day to My Favorite Person · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-blessings-custom-family-greeting-warm-romantic-for-family-dinner-10288921.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10288921-vertical.webp" alt="Thanksgiving Blessings — Custom Family Greeting · Warm · Romantic · for Family Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Blessings — Custom Family Greeting · Warm · Romantic · for Family Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-for-an-amazing-mom-personalized-ecard-warm-romantic-from-husband-1660234.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-1660234-vertical.webp" alt="For an Amazing Mom — Personalized Ecard · Warm · Romantic · from Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For an Amazing Mom — Personalized Ecard · Warm · Romantic · from Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-happy-halloween-card-spooky-custom-ecard-online-spooky-romantic-for-kids-costume-party-10011516.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011516-vertical.webp" alt="Happy Halloween Card — Spooky Custom Ecard Online · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Halloween Card — Spooky Custom Ecard Online · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">halloween</span><span class="card-tile-tag">boo</span><span class="card-tile-tag">trick-or-treat</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-from-our-home-to-yours-christmas-card-festive-romantic-for-teacher-12932472.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932472-vertical.webp" alt="From Our Home to Yours — Christmas Card · Festive · Romantic · for Teacher" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Our Home to Yours — Christmas Card · Festive · Romantic · for Teacher</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-blessings-custom-family-greeting-card-cheerful-romantic-for-kids-egg-hunt-10902210.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10902210-vertical.webp" alt="Easter Blessings — Custom Family Greeting Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Blessings — Custom Family Greeting Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">floral</span><span class="card-tile-tag">pastel</span><span class="card-tile-tag">cheerful</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-proud-of-you-custom-congratulations-card-celebratory-romantic-on-promotion-10549494.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10549494-vertical.webp" alt="Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Proud of You — Custom Congratulations Card · Celebratory · Romantic · on Promotion</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">cheers</span><span class="card-tile-tag">celebratory</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-bravo-custom-congrats-ecard-to-send-celebratory-romantic-on-engagement-25956371.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-25956371-vertical.webp" alt="Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bravo! — Custom Congrats Ecard to Send · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-cheers-to-everything-ahead-new-year-card-celebratory-romantic-for-friends-nye-14957415.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-14957415-vertical.webp" alt="Cheers to Everything Ahead — New Year Card · Celebratory · Romantic · for Friends NYE" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Everything Ahead — New Year Card · Celebratory · Romantic · for Friends NYE</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-love-from-our-family-to-yours-card-cheerful-romantic-for-grandkids-basket-31496994.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31496994-vertical.webp" alt="Easter Love From Our Family to Yours — Card · Cheerful · Romantic · for Grandkids Basket" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Love From Our Family to Yours — Card · Cheerful · Romantic · for Grandkids Basket</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-happy-easter-soft-pastel-floral-card-cheerful-romantic-for-grandkids-basket-31485357.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-31485357-vertical.webp" alt="Happy Easter — Soft Pastel Floral Card · Cheerful · Romantic · for Grandkids Basket" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Easter — Soft Pastel Floral Card · Cheerful · Romantic · for Grandkids Basket</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-dear-mom-your-words-mean-the-world-card-warm-romantic-from-husband-16791481.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-16791481-vertical.webp" alt="Dear Mom — Your Words Mean the World — Card · Warm · Romantic · from Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dear Mom — Your Words Mean the World — Card · Warm · Romantic · from Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">first-mothers-day</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-romantic-from-kids-16460601.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460601-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-peace-love-joy-personalized-christmas-ecard-festive-romantic-for-kids-10706253.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10706253-vertical.webp" alt="Peace, Love & Joy — Personalized Christmas Ecard · Festive · Romantic · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Peace, Love & Joy — Personalized Christmas Ecard · Festive · Romantic · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-make-this-year-count-happy-new-year-card-celebratory-romantic-for-family-new-year-13521432.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-13521432-vertical.webp" alt="Make This Year Count — Happy New Year Card · Celebratory · Romantic · for Family New Year" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Make This Year Count — Happy New Year Card · Celebratory · Romantic · for Family New Year</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">happy</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">resolutions</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-new-year-resolutions-love-custom-ecard-celebratory-romantic-for-new-year-s-resolution-13086748.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-13086748-vertical.webp" alt="New Year Resolutions & Love — Custom Ecard · Celebratory · Romantic · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Year Resolutions & Love — Custom Ecard · Celebratory · Romantic · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">2026</span><span class="card-tile-tag">fresh-start</span><span class="card-tile-tag">cheers</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-happy-halloween-vintage-pumpkin-custom-card-spooky-romantic-for-kids-costume-party-10011968.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011968-vertical.webp" alt="Happy Halloween — Vintage Pumpkin Custom Card · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Halloween — Vintage Pumpkin Custom Card · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">pumpkin-carving</span><span class="card-tile-tag">scary-movies</span><span class="card-tile-tag">neighbor</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-big-news-big-congrats-greeting-card-online-celebratory-romantic-on-engagement-19796665.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-19796665-vertical.webp" alt="Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Engagement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Big News, Big Congrats — Greeting Card Online · Celebratory · Romantic · on Engagement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">milestone</span><span class="card-tile-tag">joyful</span><span class="card-tile-tag">congrats</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-dinner-hostess-thank-you-card-warm-romantic-for-family-dinner-12932219.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12932219-vertical.webp" alt="Thanksgiving Dinner Hostess Thank You — Card · Warm · Romantic · for Family Dinner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Dinner Hostess Thank You — Card · Warm · Romantic · for Family Dinner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-i-love-you-custom-valentine-s-day-card-romantic-for-her-10977907.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-10977907-vertical.webp" alt="I Love You — Custom Valentine's Day Card · Romantic · for Her" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">I Love You — Custom Valentine's Day Card · Romantic · for Her</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-season-s-greetings-personalized-holiday-card-festive-romantic-for-teacher-12932598.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932598-vertical.webp" alt="Season's Greetings — Personalized Holiday Card · Festive · Romantic · for Teacher" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Season's Greetings — Personalized Holiday Card · Festive · Romantic · for Teacher</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-give-thanks-beautiful-custom-ecard-online-warm-romantic-for-friends-thanksgiving-12932525.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12932525-vertical.webp" alt="Give Thanks — Beautiful Custom Ecard Online · Warm · Romantic · for Friends Thanksgiving" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Give Thanks — Beautiful Custom Ecard Online · Warm · Romantic · for Friends Thanksgiving</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-boo-tiful-halloween-custom-greeting-card-spooky-romantic-for-neighbor-trick-or-treat-13865060.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-13865060-vertical.webp" alt="Boo-tiful Halloween — Custom Greeting Card · Spooky · Romantic · for Neighbor Trick or Treat" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Boo-tiful Halloween — Custom Greeting Card · Spooky · Romantic · for Neighbor Trick or Treat</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">costume-party</span><span class="card-tile-tag">spooky</span><span class="card-tile-tag">pumpkin</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-valentine-every-day-personalized-card-romantic-for-husband-15028916.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-15028916-vertical.webp" alt="Valentine Every Day — Personalized Card · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Valentine Every Day — Personalized Card · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romance</span><span class="card-tile-tag">passion</span><span class="card-tile-tag">tender</span></div>
+    </div>
+  </a>
+      <a href="/card/congratulations-hats-off-to-you-congratulations-ecard-celebratory-romantic-on-wedding-25956377.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-25956377-vertical.webp" alt="Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Wedding" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hats Off to You — Congratulations Ecard · Celebratory · Romantic · on Wedding</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">celebration</span><span class="card-tile-tag">success</span><span class="card-tile-tag">proud</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-from-son-to-mom-loving-mother-s-day-ecard-warm-romantic-from-son-13517354.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-13517354-vertical.webp" alt="From Son to Mom — Loving Mother's Day Ecard · Warm · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Mom — Loving Mother's Day Ecard · Warm · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">first-mothers-day</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-he-is-risen-religious-easter-custom-card-cheerful-romantic-for-kids-egg-hunt-10902213.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-10902213-vertical.webp" alt="He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">He is Risen — Religious Easter Custom Card · Cheerful · Romantic · for Kids Egg Hunt</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter-brunch</span><span class="card-tile-tag">joy</span><span class="card-tile-tag">chocolate</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-new-year-hope-personalized-ecard-celebratory-romantic-for-friends-nye-14957412.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-14957412-vertical.webp" alt="New Year Hope — Personalized Ecard · Celebratory · Romantic · for Friends NYE" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Year Hope — Personalized Ecard · Celebratory · Romantic · for Friends NYE</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-year</span><span class="card-tile-tag">celebration</span><span class="card-tile-tag">hope</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-romantic-from-son-13020479.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13020479-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-xo-xo-happy-valentine-s-day-personalized-romantic-for-husband-14681933.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-14681933-vertical.webp" alt="XO XO — Happy Valentine's Day Personalized · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">XO XO — Happy Valentine's Day Personalized · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">hearts-day</span><span class="card-tile-tag">loving</span><span class="card-tile-tag">cupid</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-you-custom-thanksgiving-greeting-warm-romantic-for-hostess-10057792.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-10057792-vertical.webp" alt="Thankful for You — Custom Thanksgiving Greeting · Warm · Romantic · for Hostess" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for You — Custom Thanksgiving Greeting · Warm · Romantic · for Hostess</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-trick-or-treat-kids-halloween-custom-ecard-spooky-romantic-for-kids-costume-party-10011937.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-10011937-vertical.webp" alt="Trick or Treat — Kids Halloween Custom Ecard · Spooky · Romantic · for Kids Costume Party" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Trick or Treat — Kids Halloween Custom Ecard · Spooky · Romantic · for Kids Costume Party</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">witch</span><span class="card-tile-tag">ghost</span><span class="card-tile-tag">candy</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-romantic-from-kids-15291660.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-15291660-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/halloween-for-kids-costume-party-happy-halloween-ecard-spooky-romantic-for-neighbor-trick-or-treat-13864868.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/halloween/halloween-pexels-13864868-vertical.webp" alt="For Kids Costume Party — Happy Halloween Ecard · Spooky · Romantic · for Neighbor Trick or Treat" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Kids Costume Party — Happy Halloween Ecard · Spooky · Romantic · for Neighbor Trick or Treat</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">witch</span><span class="card-tile-tag">ghost</span><span class="card-tile-tag">candy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-christmas-blessings-personalized-greeting-festive-romantic-for-kids-10899595.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10899595-vertical.webp" alt="Christmas Blessings — Personalized Greeting · Festive · Romantic · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Christmas Blessings — Personalized Greeting · Festive · Romantic · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-new-year-better-us-custom-ecard-celebratory-romantic-for-friends-nye-19720550.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-19720550-vertical.webp" alt="New Year, Better Us — Custom Ecard · Celebratory · Romantic · for Friends NYE" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Year, Better Us — Custom Ecard · Celebratory · Romantic · for Friends NYE</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fireworks</span><span class="card-tile-tag">party</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-love-you-mom-beautiful-custom-card-warm-romantic-from-kids-15621855.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-15621855-vertical.webp" alt="Love You Mom — Beautiful Custom Card · Warm · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Mom — Beautiful Custom Card · Warm · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">heartfelt</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-happy-easter-2026-personalized-family-card-cheerful-romantic-for-church-service-20370884.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-20370884-vertical.webp" alt="Happy Easter 2026 — Personalized Family Card · Cheerful · Romantic · for Church Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Easter 2026 — Personalized Family Card · Cheerful · Romantic · for Church Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter</span><span class="card-tile-tag">easter-bunny</span><span class="card-tile-tag">egg-hunt</span></div>
+    </div>
+  </a>
+      <a href="/card/mothers-day-happy-mother-s-day-custom-floral-design-card-warm-romantic-from-husband-15641416.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/mothers-day/mothers-day-pexels-15641416-vertical.webp" alt="Happy Mother's Day — Custom Floral Design Card · Warm · Romantic · from Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Mother's Day — Custom Floral Design Card · Warm · Romantic · from Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mothers-day</span><span class="card-tile-tag">mom</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-ho-ho-ho-custom-holiday-card-to-send-festive-romantic-for-kids-10820216.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-10820216-vertical.webp" alt="Ho Ho Ho! — Custom Holiday Card to Send · Festive · Romantic · for Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Ho Ho Ho! — Custom Holiday Card to Send · Festive · Romantic · for Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-from-daughter-12891967.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12891967-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-joy-beautiful-custom-greeting-online-cheerful-romantic-for-family-easter-brunch-11804430.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-11804430-vertical.webp" alt="Easter Joy — Beautiful Custom Greeting Online · Cheerful · Romantic · for Family Easter Brunch" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Joy — Beautiful Custom Greeting Online · Cheerful · Romantic · for Family Easter Brunch</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">easter</span><span class="card-tile-tag">easter-bunny</span><span class="card-tile-tag">egg-hunt</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/congratulations-celebrate-with-a-cheers-congrats-ecard-online-celebratory-elegant-on-new-baby-6184925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-6184925-vertical.webp" alt="Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Baby" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Celebrate With a Cheers — Congrats Ecard Online · Celebratory · Elegant · on New Baby</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">win</span><span class="card-tile-tag">achievement</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-friends-like-you-thanksgiving-ecard-warm-elegant-for-coworker-team-34421593.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-34421593-vertical.webp" alt="Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Coworker Team" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Coworker Team</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/easter-easter-love-from-our-family-to-yours-card-cheerful-warm-for-family-easter-brunch-6773039.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/easter/easter-pexels-6773039-vertical.webp" alt="Easter Love From Our Family to Yours — Card · Cheerful · Warm · for Family Easter Brunch" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Easter Love From Our Family to Yours — Card · Cheerful · Warm · for Family Easter Brunch</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">religious</span><span class="card-tile-tag">he-is-risen</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/thinking-of-you-thinking-of-you-during-tough-times-card-soft-romantic-for-hugs-32832330.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-32832330-vertical.webp" alt="Thinking of You During Tough Times — Card · Soft · Romantic · for Hugs" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thinking of You During Tough Times — Card · Soft · Romantic · for Hugs</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">soft</span><span class="card-tile-tag">dreamy</span><span class="card-tile-tag">gentle</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-elegant-birthday-ecard-customize-send-warm-elegant-for-1st-birthday-7048667.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-7048667-vertical.webp" alt="Elegant Birthday Ecard — Customize & Send · Warm · Elegant · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Birthday Ecard — Customize & Send · Warm · Elegant · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-new-chapter-ahead-retirement-greeting-card-classic-elegant-for-coworker-retirement-7938724.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-7938724-vertical.webp" alt="New Chapter Ahead — Retirement Greeting Card · Classic · Elegant · for Coworker Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Chapter Ahead — Retirement Greeting Card · Classic · Elegant · for Coworker Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-team</span><span class="card-tile-tag">teacher</span><span class="card-tile-tag">nurse-retirement</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-hello-new-year-custom-celebration-card-celebratory-romantic-for-year-of-the-snake-2025-29440437.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-29440437-vertical.webp" alt="Hello New Year — Custom Celebration Card · Celebratory · Romantic · for Year of the Snake (2025)" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Hello New Year — Custom Celebration Card · Celebratory · Romantic · for Year of the Snake (2025)</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a>
+      <a href="/card/sympathy-with-sympathy-love-custom-ecard-online-calm-romantic-for-memorial-service-2508702.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-2508702-vertical.webp" alt="With Sympathy & Love — Custom Ecard Online · Calm · Romantic · for Memorial Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">With Sympathy & Love — Custom Ecard Online · Calm · Romantic · for Memorial Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">love</span><span class="card-tile-tag">support</span><span class="card-tile-tag">grief</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="theme-color" content="#2d6a4f">
+<meta name="description" content="SendAFun — Create and send personalised e-cards for any occasion. Free, beautiful, instant.">
+<meta property="og:title" content="SendAFun — Free Personalised E-Cards">
+<meta property="og:description" content="Create beautiful personalised e-cards for any occasion. Free, instant, and made with love.">
+<meta property="og:image" content="https://sendafun.com/og/sendafun-og.jpg">
+<meta property="og:type" content="website">
+<title>SendAFun — Free Personalised E-Cards for Every Occasion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+/* ── Carousel ── */
+.carousel { position: relative; width: 100%; height: 70vh; min-height: 400px; max-height: 600px; overflow: hidden; }
+.carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; }
+.carousel-slide.active { opacity: 1; pointer-events: auto; }
+.carousel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.carousel-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, transparent 70%); }
+.carousel-content { position: absolute; bottom: 3rem; left: 3rem; max-width: 500px; color: #fff; }
+.carousel-category { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.8; margin-bottom: 0.5rem; }
+.carousel-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+.carousel-desc { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.5; }
+.carousel-cta { display: inline-block; background: #48bb78; color: #fff; padding: 0.7rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+.carousel-cta:hover { background: #38a169; }
+.carousel-dots { position: absolute; bottom: 1.5rem; right: 2rem; display: flex; gap: 0.5rem; }
+.carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background 0.2s; }
+.carousel-dot.active { background: #fff; }
+/* ── Categories ── */
+.categories { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 0; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #1a202c; margin-bottom: 0.5rem; }
+.section-subtitle { color: #718096; margin-bottom: 1.5rem; font-size: 1rem; }
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.cat-btn { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 1.5rem 1rem; background: #fff; border-radius: 16px; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+.cat-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.cat-icon { font-size: 2rem; }
+.cat-label { font-weight: 600; font-size: 0.95rem; color: #2d3748; }
+.cat-count { font-size: 0.8rem; color: #a0aec0; }
+/* ── Quick Entry ── */
+.quick-entry { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem 2rem; background: #edf2f7; border-radius: 20px; margin-bottom: 3rem; }
+.quick-entry h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1rem; color: #2d3748; }
+.quick-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.quick-chip { text-decoration: none; background: #fff; color: #2d3748; padding: 0.6rem 1.2rem; border-radius: 30px; font-size: 0.9rem; font-weight: 500; box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: all 0.2s; }
+.quick-chip:hover { background: #48bb78; color: #fff; box-shadow: 0 2px 8px rgba(72,187,120,0.3); }
+/* ── Masonry Grid ── */
+.masonry-section { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+.card-grid--style { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; display: block; overflow: hidden; }
+.card-tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-tile-info { padding: 1rem; }
+.card-tile-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; color: #2d3748; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.7rem; background: #edf2f7; color: #4a5568; padding: 0.15rem 0.5rem; border-radius: 10px; }
+.see-all { display: inline-block; color: #48bb78; font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 0.5rem; margin-bottom: 2rem; }
+.see-all:hover { text-decoration: underline; }
+.style-section { margin-bottom: 2rem; }
+@media (max-width: 768px) {
+  .carousel { height: 50vh; min-height: 300px; }
+  .carousel-content { bottom: 1.5rem; left: 1.5rem; }
+  .section-title { font-size: 1.5rem; }
+  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .card-grid--style { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
+  .quick-entry { margin-left: 1rem; margin-right: 1rem; }
+  .masonry-section { padding: 0 1rem 2rem; }
+  .categories { padding: 1.5rem 1rem 0; }
+}
+</style>
+</head>
+<body>
+<header class="carousel">
+  <div class="carousel-slide active">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Birthday</span>
+        <h2 class="carousel-title">Happy Birthday Card for Dad</h2>
+        <p class="carousel-desc">Dad, thank you for everything. Happy birthday! 🎉</p>
+        <a href="/card/happy-birthday-dad.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+        <div class="carousel-slide">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Congratulations</span>
+        <h2 class="carousel-title">Congratulations Graduation Card</h2>
+        <p class="carousel-desc">Your hard work paid off. Congratulations graduate! 🎓🎉</p>
+        <a href="/card/congrats-graduation.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+        <div class="carousel-slide">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Encouragement</span>
+        <h2 class="carousel-title">Cheer Up Card for Best Friend</h2>
+        <p class="carousel-desc">Tough day? You've got this! Always here for you. 💪✨</p>
+        <a href="/card/cheer-up-bestie.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+        <div class="carousel-slide">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Love & Romance</span>
+        <h2 class="carousel-title">Romantic Love Card for Partner</h2>
+        <p class="carousel-desc">Every love story is beautiful, but ours is my favorite. 💕</p>
+        <a href="/card/love-you-honey.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+        <div class="carousel-slide">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Thank You</span>
+        <h2 class="carousel-title">Thank You Card for a Friend</h2>
+        <p class="carousel-desc">Just wanted to say thank you for being you! 🌟</p>
+        <a href="/card/thank-you-friend.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+        <div class="carousel-slide">
+      <div class="carousel-bg" style="background:url('https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp') center/cover"></div>
+      <div class="carousel-overlay"></div>
+      <div class="carousel-content">
+        <span class="carousel-category">Get Well</span>
+        <h2 class="carousel-title">Get Well Soon Card</h2>
+        <p class="carousel-desc">Sending healing thoughts your way. Get well soon! 🌸</p>
+        <a href="/card/get-well-soon.html" class="carousel-cta">Customise This Card →</a>
+      </div>
+    </div>
+  <div class="carousel-dots">
+    <div class="carousel-dot active" onclick="showSlide(0)"></div>
+        <div class="carousel-dot" onclick="showSlide(1)"></div>
+        <div class="carousel-dot" onclick="showSlide(2)"></div>
+        <div class="carousel-dot" onclick="showSlide(3)"></div>
+        <div class="carousel-dot" onclick="showSlide(4)"></div>
+        <div class="carousel-dot" onclick="showSlide(5)"></div>
+  </div>
+</header>
+
+<section class="categories">
+  <h2 class="section-title">Browse by Category</h2>
+  <p class="section-subtitle">Find the perfect card for any occasion</p>
+  <div class="cat-grid">
+    <a href="/category/birthday.html" class="cat-btn">
+      <span class="cat-icon">🎂</span>
+      <span class="cat-label">Birthday</span>
+      <span class="cat-count">2 cards</span>
+    </a>
+        <a href="/category/love.html" class="cat-btn">
+      <span class="cat-icon">💕</span>
+      <span class="cat-label">Love & Romance</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/thanks.html" class="cat-btn">
+      <span class="cat-icon">🙏</span>
+      <span class="cat-label">Thank You</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/wellness.html" class="cat-btn">
+      <span class="cat-icon">🌿</span>
+      <span class="cat-label">Get Well</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/congratulations.html" class="cat-btn">
+      <span class="cat-icon">🎉</span>
+      <span class="cat-label">Congratulations</span>
+      <span class="cat-count">2 cards</span>
+    </a>
+        <a href="/category/miss-you.html" class="cat-btn">
+      <span class="cat-icon">💌</span>
+      <span class="cat-label">Miss You</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/sympathy.html" class="cat-btn">
+      <span class="cat-icon">🕊️</span>
+      <span class="cat-label">Sympathy</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/anniversary.html" class="cat-btn">
+      <span class="cat-icon">💍</span>
+      <span class="cat-label">Anniversary</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/new-baby.html" class="cat-btn">
+      <span class="cat-icon">👶</span>
+      <span class="cat-label">New Baby</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+        <a href="/category/encouragement.html" class="cat-btn">
+      <span class="cat-icon">💪</span>
+      <span class="cat-label">Encouragement</span>
+      <span class="cat-count">1 cards</span>
+    </a>
+  </div>
+</section>
+
+<div class="quick-entry" id="quick-entry">
+  <h2>I need a card for…</h2>
+  <div class="quick-chips">
+    <a href="/category/birthday.html" class="quick-chip">👩 my Mom</a>
+          <a href="/category/birthday.html" class="quick-chip">👨 my Dad</a>
+          <a href="/category/love.html" class="quick-chip">💑 my Partner</a>
+          <a href="/category/encouragement.html" class="quick-chip">👯 my Best Friend</a>
+          <a href="/category/miss-you.html" class="quick-chip">👵 my Grandma</a>
+          <a href="/category/congratulations.html" class="quick-chip">🎓 a Graduate</a>
+          <a href="/category/new-baby.html" class="quick-chip">👶 a Newborn</a>
+          <a href="/category/wellness.html" class="quick-chip">🤒 Someone Sick</a>
+  </div>
+</div>
+
+<section class="masonry-section">
+  <h2 class="section-title">Explore All Cards</h2>
+  <p class="section-subtitle">Hand-picked designs for every message</p>
+  <div class="card-grid">
+    <a href="/card/thank-you-friend.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp" alt="Thank You Card for a Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Card for a Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friend</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">casual</span></div>
+    </div>
+  </a>
+        <a href="/card/cheer-up-bestie.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+    </div>
+  </a>
+        <a href="/card/get-well-soon.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp" alt="Get Well Soon Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Get Well Soon Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">health</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">encouragement</span></div>
+    </div>
+  </a>
+        <a href="/card/happy-birthday-dad.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card for Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Birthday Card for Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">dad</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">masculine</span></div>
+    </div>
+  </a>
+        <a href="/card/congrats-graduation.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Graduation Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Graduation Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+        <a href="/card/miss-you-grandma.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-10272505-vertical.webp" alt="Thinking of You Card for Grandma" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thinking of You Card for Grandma</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">family</span><span class="card-tile-tag">thinking-of-you</span></div>
+    </div>
+  </a>
+        <a href="/card/retirement-boss.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Retirement Card for Boss</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+    </div>
+  </a>
+        <a href="/card/happy-anniversary-wife.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span></div>
+    </div>
+  </a>
+        <a href="/card/new-baby-boy.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Boy Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Boy Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">boy</span></div>
+    </div>
+  </a>
+        <a href="/card/sympathy-condolences.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-1025981-vertical.webp" alt="Sympathy & Condolences Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sympathy & Condolences Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">condolences</span><span class="card-tile-tag">sympathy</span><span class="card-tile-tag">loss</span></div>
+    </div>
+  </a>
+        <a href="/card/love-you-honey.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Love Card for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+    </div>
+  </a>
+        <a href="/card/beautiful-birthday-mom.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Beautiful Birthday Card for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Birthday Card for Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mom</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">elegant</span></div>
+    </div>
+  </a>
+  </div>
+</section>
+
+<section class="categories" style="padding-top:0;">
+  <h2 class="section-title">Shop by Style</h2>
+  <p class="section-subtitle">Find a look that matches your mood</p>
+  <section class="style-section">
+      <h2 class="section-title">Warm & Cozy</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/beautiful-birthday-mom.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Beautiful Birthday Card for Mom" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Birthday Card for Mom</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">mom</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">elegant</span></div>
+    </div>
+  </a>
+          <a href="/card/miss-you-grandma.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-10272505-vertical.webp" alt="Thinking of You Card for Grandma" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thinking of You Card for Grandma</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandma</span><span class="card-tile-tag">family</span><span class="card-tile-tag">thinking-of-you</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('warm');return false;" class="see-all">See all Warm & Cozy →</a>
+    </section>
+      <section class="style-section">
+      <h2 class="section-title">Romantic</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/love-you-honey.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/love/love-pixabay-10067260-vertical.webp" alt="Romantic Love Card for Partner" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Romantic Love Card for Partner</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">romantic</span><span class="card-tile-tag">partner</span><span class="card-tile-tag">valentine</span></div>
+    </div>
+  </a>
+          <a href="/card/happy-anniversary-wife.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/anniversary/anniversary-pexels-11368673-vertical.webp" alt="Happy Anniversary Card for Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Anniversary Card for Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">wife</span><span class="card-tile-tag">anniversary</span><span class="card-tile-tag">romantic</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('romantic');return false;" class="see-all">See all Romantic →</a>
+    </section>
+      <section class="style-section">
+      <h2 class="section-title">Cheerful</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/thank-you-friend.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-10287392-vertical.webp" alt="Thank You Card for a Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Card for a Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friend</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">casual</span></div>
+    </div>
+  </a>
+          <a href="/card/new-baby-boy.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-10225006-vertical.webp" alt="Welcome Baby Boy Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Boy Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">boy</span></div>
+    </div>
+  </a>
+          <a href="/card/cheer-up-bestie.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-11561039-vertical.webp" alt="Cheer Up Card for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheer Up Card for Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bestie</span><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">funny</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('cheerful');return false;" class="see-all">See all Cheerful →</a>
+    </section>
+      <section class="style-section">
+      <h2 class="section-title">Classic</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/happy-birthday-dad.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-10165858-vertical.webp" alt="Happy Birthday Card for Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Birthday Card for Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">dad</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">masculine</span></div>
+    </div>
+  </a>
+          <a href="/card/retirement-boss.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Retirement Card for Boss" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Retirement Card for Boss</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">boss</span><span class="card-tile-tag">career</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('classic');return false;" class="see-all">See all Classic →</a>
+    </section>
+      <section class="style-section">
+      <h2 class="section-title">Calm & Serene</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/get-well-soon.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/get-well/get-well-pexels-10521321-vertical.webp" alt="Get Well Soon Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Get Well Soon Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">health</span><span class="card-tile-tag">healing</span><span class="card-tile-tag">encouragement</span></div>
+    </div>
+  </a>
+          <a href="/card/sympathy-condolences.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-1025981-vertical.webp" alt="Sympathy & Condolences Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Sympathy & Condolences Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">condolences</span><span class="card-tile-tag">sympathy</span><span class="card-tile-tag">loss</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('calm');return false;" class="see-all">See all Calm & Serene →</a>
+    </section>
+      <section class="style-section">
+      <h2 class="section-title">Celebratory</h2>
+      <div class="card-grid card-grid--style">
+        <a href="/card/congrats-graduation.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/congratulations/congratulations-pexels-10477179-vertical.webp" alt="Congratulations Graduation Card" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations Graduation Card</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">graduation</span><span class="card-tile-tag">proud</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      </div>
+      <a href="#" onclick="filterByStyle('celebratory');return false;" class="see-all">See all Celebratory →</a>
+    </section>
+</section>
+
+<footer style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:3rem 2rem;color:#718096;font-size:0.85rem;">
+  <p style="font-size:1.5rem;font-weight:700;color:#2d6a4f;margin-bottom:0.5rem;">Send<span style="color:#48bb78;">A</span>Fun</p>
+  <p>Free personalised e-cards for every occasion</p>
+  <p style="margin-top:1rem;">© 2026 SendAFun. Made with ❤️.</p>
+</footer>
+
+<script>
+// ── Carousel auto-play ──
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+function showSlide(idx) {
+  slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  currentSlide = idx;
+}
+function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
+if (slides.length > 1) setInterval(nextSlide, 5000);
+
+// ── Style filter ──
+function filterByStyle(style) {
+  document.querySelector('.masonry-section').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"3a74592d06db467c9b10b0441ea0a84e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+🏷️  生成 pexels-tags.json...
+✅  已为 12 张卡片生成标签 → E:\网站项目\sendafun\source\pexels-tags.json
+
+============================================================
+🎨 SendAFun 增强素材处理 (5层去重流水线) [增量模式] [6进程并行]
+源目录: E:\网站项目\素材\source
+输出目录: E:\网站项目\sendafun\source\images
+============================================================
+
+📂 anniversary → anniversary (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 0 | 跳过: 100 | 错误: 0
+  进度: 150/150 | 已处理: 0 | 跳过: 150 | 错误: 0
+
+📂 birthday → birthday (264 图片) [并行 6 进程]
+  进度: 100/264 | 已处理: 0 | 跳过: 250 | 错误: 0
+  进度: 200/264 | 已处理: 0 | 跳过: 350 | 错误: 0
+  进度: 264/264 | 已处理: 0 | 跳过: 414 | 错误: 0
+
+📂 christmas → christmas (197 图片) [并行 6 进程]
+  进度: 100/197 | 已处理: 0 | 跳过: 514 | 错误: 0
+  进度: 197/197 | 已处理: 0 | 跳过: 611 | 错误: 0
+
+📂 congratulations → congratulations (168 图片) [并行 6 进程]
+  进度: 100/168 | 已处理: 77 | 跳过: 634 | 错误: 0
+  进度: 168/168 | 已处理: 145 | 跳过: 634 | 错误: 0
+
+📂 easter → easter (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 245 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 295 | 跳过: 634 | 错误: 0
+
+📂 encouragement → encouragement (87 图片) [并行 6 进程]
+  进度: 87/87 | 已处理: 382 | 跳过: 634 | 错误: 0
+
+📂 fathers_day → fathers-day (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 482 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 532 | 跳过: 634 | 错误: 0
+
+📂 friendship → friendship (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 632 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 682 | 跳过: 634 | 错误: 0
+
+📂 get_well → get-well (150 图片) [并行 6 进程]
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 100/150 | 已处理: 782 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 832 | 跳过: 634 | 错误: 0
+
+📂 good_luck → good-luck (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 932 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 982 | 跳过: 634 | 错误: 0
+
+📂 graduation → graduation (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 1082 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 1132 | 跳过: 634 | 错误: 0
+
+📂 halloween → halloween (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 1232 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 1282 | 跳过: 634 | 错误: 0
+
+📂 love → love (130 图片) [并行 6 进程]
+  进度: 100/130 | 已处理: 1382 | 跳过: 634 | 错误: 0
+  进度: 130/130 | 已处理: 1412 | 跳过: 634 | 错误: 0
+
+📂 missing_you → missing-you (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 1512 | 跳过: 634 | 错误: 0
+  进度: 150/150 | 已处理: 1562 | 跳过: 634 | 错误: 0
+
+📂 mothers_day → mothers-day (183 图片) [并行 6 进程]
+  进度: 100/183 | 已处理: 1662 | 跳过: 634 | 错误: 0
+  进度: 183/183 | 已处理: 1745 | 跳过: 634 | 错误: 0
+
+📂 new_baby → new-baby (150 图片) [并行 6 进程]
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (158270976 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 100/150 | 已处理: 1845 | 跳过: 634 | 错误: 0
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (105513984 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (133541136 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 150/150 | 已处理: 1893 | 跳过: 634 | 错误: 2
+
+📂 new_year → new-year (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 1993 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2043 | 跳过: 634 | 错误: 2
+
+📂 retirement → retirement (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 2143 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2193 | 跳过: 634 | 错误: 2
+
+📂 sorry → sorry (150 图片) [并行 6 进程]
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 100/150 | 已处理: 2293 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2343 | 跳过: 634 | 错误: 2
+
+📂 sympathy → sympathy (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 2443 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2493 | 跳过: 634 | 错误: 2
+
+📂 thank_you → thank-you (150 图片) [并行 6 进程]
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 100/150 | 已处理: 2593 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2643 | 跳过: 634 | 错误: 2
+
+📂 thanksgiving → thanksgiving (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 2743 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2793 | 跳过: 634 | 错误: 2
+
+📂 thinking_of_you → thinking-of-you (150 图片) [并行 6 进程]
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+C:\Users\dell\AppData\Roaming\Python\Python312\site-packages\PIL\Image.py:3574: DecompressionBombWarning: Image size (101756928 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  进度: 100/150 | 已处理: 2893 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 2943 | 跳过: 634 | 错误: 2
+
+📂 valentine → valentine (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 3043 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 3093 | 跳过: 634 | 错误: 2
+
+📂 wedding → wedding (150 图片) [并行 6 进程]
+  进度: 100/150 | 已处理: 3193 | 跳过: 634 | 错误: 2
+  进度: 150/150 | 已处理: 3243 | 跳过: 634 | 错误: 2
+
+============================================================
+✅ 处理完成!
+   总源图: 3879
+   新增处理: 3243 (9729 文件)
+   跳过已存在: 634 (1902 文件)
+   错误: 2
+   总耗时: 5704 秒 (95.1 分钟)
+============================================================

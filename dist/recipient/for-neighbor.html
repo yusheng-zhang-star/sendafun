@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Friendly cards for neighbors — holiday greetings, thank-yous & hellos.">
+<meta property="og:title" content="For Neighbor Cards — SendAFun">
+<meta property="og:description" content="Friendly cards for neighbors — holiday greetings, thank-yous & hellos.">
+<link rel="canonical" href="https://sendafun.com/recipient/for-neighbor.html">
+<title>For Neighbor Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Recipients / <strong>For Neighbor</strong></div>
+  <h1 class="page-title">For Neighbor Cards<span class="count-chip">45 cards</span></h1>
+  <p class="page-subtitle">Friendly cards for neighbors — holiday greetings, thank-yous & hellos.</p>
+  <div class="chip-row"><a href="/recipient/for-best-friend.html" class="chip">For Best Friend</a>
+      <a href="/recipient/for-her.html" class="chip">For Her</a>
+      <a href="/recipient/for-him.html" class="chip">For Him</a>
+      <a href="/recipient/for-teacher.html" class="chip">For Teacher</a>
+      <a href="/recipient/for-family.html" class="chip">For Family</a>
+      <a href="/recipient/for-neighbor.html" class="chip active">For Neighbor</a>
+      <a href="/recipient/for-wife.html" class="chip">For Wife</a>
+      <a href="/recipient/for-coworker.html" class="chip">For Coworker</a>
+      <a href="/recipient/for-girlfriend.html" class="chip">For Girlfriend</a>
+      <a href="/recipient/for-long-distance.html" class="chip">For Long Distance</a>
+      <a href="/recipient/for-husband.html" class="chip">For Husband</a>
+      <a href="/recipient/for-partner.html" class="chip">For Partner</a>
+      <a href="/recipient/for-godchild.html" class="chip">For Godchild</a>
+      <a href="/recipient/for-boyfriend.html" class="chip">For Boyfriend</a>
+      <a href="/recipient/for-hostess.html" class="chip">For Hostess</a>
+      <a href="/recipient/for-mom.html" class="chip">For Mom</a>
+      <a href="/recipient/for-dad.html" class="chip">For Dad</a>
+      <a href="/recipient/for-fiancee.html" class="chip">For Fiancée</a>
+      <a href="/recipient/for-brother.html" class="chip">For Brother</a>
+      <a href="/recipient/for-sister.html" class="chip">For Sister</a></div>
+  <div class="card-grid">
+    <a href="/card/birthday-happy-birthday-card-personalized-wishes-warm-romantic-for-neighbor-5729381.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-5729381-vertical.webp" alt="Happy Birthday Card — Personalized Wishes · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Birthday Card — Personalized Wishes · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">love</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-beautiful-birthday-greeting-card-online-warm-romantic-for-neighbor-5781057.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-5781057-vertical.webp" alt="Beautiful Birthday Greeting Card Online · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Birthday Greeting Card Online · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fun</span><span class="card-tile-tag">playful</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-send-a-birthday-card-with-your-custom-message-warm-romantic-for-neighbor-5823847.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-5823847-vertical.webp" alt="Send a Birthday Card With Your Custom Message · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Send a Birthday Card With Your Custom Message · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">modern</span><span class="card-tile-tag">stylish</span><span class="card-tile-tag">vibrant</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-warm-birthday-wish-card-for-someone-special-warm-romantic-for-neighbor-5838034.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-5838034-vertical.webp" alt="Warm Birthday Wish Card for Someone Special · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Birthday Wish Card for Someone Special · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">elegant</span></div>
+    </div>
+  </a>
+      <a href="/card/birthday-elegant-birthday-ecard-customize-send-warm-romantic-for-neighbor-5971126.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pixabay-5971126-vertical.webp" alt="Elegant Birthday Ecard — Customize & Send · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Birthday Ecard — Customize & Send · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">sweet</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-with-love-at-christmas-personalized-card-festive-romantic-for-neighbor-12932207.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932207-vertical.webp" alt="With Love at Christmas — Personalized Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">With Love at Christmas — Personalized Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holly-jolly-christmas-custom-holiday-ecard-festive-romantic-for-neighbor-12932267.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932267-vertical.webp" alt="Holly Jolly Christmas — Custom Holiday Ecard · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holly Jolly Christmas — Custom Holiday Ecard · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-tis-the-season-warm-christmas-wishes-card-festive-romantic-for-neighbor-12932340.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932340-vertical.webp" alt="Tis the Season — Warm Christmas Wishes Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tis the Season — Warm Christmas Wishes Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-all-i-want-for-christmas-is-you-custom-card-festive-romantic-for-neighbor-12932346.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932346-vertical.webp" alt="All I Want for Christmas Is You — Custom Card · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">All I Want for Christmas Is You — Custom Card · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holiday-hugs-personalized-christmas-ecard-festive-romantic-for-neighbor-12932360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-12932360-vertical.webp" alt="Holiday Hugs — Personalized Christmas Ecard · Festive · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holiday Hugs — Personalized Christmas Ecard · Festive · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-merry-christmas-card-warm-holiday-wishes-festive-elegant-for-neighbor-19618156.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-19618156-vertical.webp" alt="Merry Christmas Card — Warm Holiday Wishes · Festive · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Merry Christmas Card — Warm Holiday Wishes · Festive · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-personalized-holiday-ecard-for-loved-ones-festive-elegant-for-neighbor-19630204.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-19630204-vertical.webp" alt="Personalized Holiday Ecard for Loved Ones · Festive · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Personalized Holiday Ecard for Loved Ones · Festive · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-happy-holidays-custom-christmas-card-online-festive-elegant-for-neighbor-250177.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-250177-vertical.webp" alt="Happy Holidays — Custom Christmas Card Online · Festive · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Holidays — Custom Christmas Card Online · Festive · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-joy-to-the-world-christmas-greeting-ecard-festive-elegant-for-neighbor-255380.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-255380-vertical.webp" alt="Joy to the World — Christmas Greeting Ecard · Festive · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Joy to the World — Christmas Greeting Ecard · Festive · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-warm-cozy-christmas-wishes-custom-card-festive-elegant-for-neighbor-261084.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-261084-vertical.webp" alt="Warm & Cozy Christmas Wishes — Custom Card · Festive · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm & Cozy Christmas Wishes — Custom Card · Festive · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-with-love-at-christmas-personalized-card-festive-warm-for-neighbor-5715241.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-5715241-vertical.webp" alt="With Love at Christmas — Personalized Card · Festive · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">With Love at Christmas — Personalized Card · Festive · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holly-jolly-christmas-custom-holiday-ecard-festive-warm-for-neighbor-5723936.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-5723936-vertical.webp" alt="Holly Jolly Christmas — Custom Holiday Ecard · Festive · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holly Jolly Christmas — Custom Holiday Ecard · Festive · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cozy</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-tis-the-season-warm-christmas-wishes-card-festive-warm-for-neighbor-5725826.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-5725826-vertical.webp" alt="Tis the Season — Warm Christmas Wishes Card · Festive · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Tis the Season — Warm Christmas Wishes Card · Festive · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">winter</span><span class="card-tile-tag">snow</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-all-i-want-for-christmas-is-you-custom-card-festive-warm-for-neighbor-5725828.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-5725828-vertical.webp" alt="All I Want for Christmas Is You — Custom Card · Festive · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">All I Want for Christmas Is You — Custom Card · Festive · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">merry</span><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">joy</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-holiday-hugs-personalized-christmas-ecard-festive-warm-for-neighbor-5725832.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-5725832-vertical.webp" alt="Holiday Hugs — Personalized Christmas Ecard · Festive · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Holiday Hugs — Personalized Christmas Ecard · Festive · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">xmas</span><span class="card-tile-tag">seasonal</span><span class="card-tile-tag">blessings</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-warmest-thanks-custom-thank-you-ecard-grateful-romantic-for-neighbor-25016128.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-25016128-vertical.webp" alt="Warmest Thanks — Custom Thank You Ecard · Grateful · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warmest Thanks — Custom Thank You Ecard · Grateful · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grateful</span><span class="card-tile-tag">thankful</span><span class="card-tile-tag">appreciation</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-simple-thank-you-personalized-greeting-card-grateful-romantic-for-neighbor-25016139.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-25016139-vertical.webp" alt="Simple Thank You — Personalized Greeting Card · Grateful · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Simple Thank You — Personalized Greeting Card · Grateful · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sincere</span><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">genuine</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-meaningful-thank-you-your-own-words-grateful-romantic-for-neighbor-267360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-267360-vertical.webp" alt="Meaningful Thank You — Your Own Words · Grateful · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Meaningful Thank You — Your Own Words · Grateful · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friendly</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-a-big-thank-you-custom-ecard-online-grateful-romantic-for-neighbor-28613095.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-28613095-vertical.webp" alt="A Big Thank You — Custom Ecard Online · Grateful · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">A Big Thank You — Custom Ecard Online · Grateful · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">kindness</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-so-very-thankful-gratitude-ecard-grateful-romantic-for-neighbor-28613097.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-28613097-vertical.webp" alt="So Very Thankful — Gratitude Ecard · Grateful · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">So Very Thankful — Gratitude Ecard · Grateful · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-elegant-thank-you-note-customize-send-grateful-elegant-for-neighbor-8933367.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-8933367-vertical.webp" alt="Elegant Thank You Note — Customize & Send · Grateful · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Elegant Thank You Note — Customize & Send · Grateful · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grateful</span><span class="card-tile-tag">thankful</span><span class="card-tile-tag">appreciation</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-heartfelt-thank-you-ecard-for-friends-family-grateful-elegant-for-neighbor-8933370.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-8933370-vertical.webp" alt="Heartfelt Thank You Ecard for Friends & Family · Grateful · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Heartfelt Thank You Ecard for Friends & Family · Grateful · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">sincere</span><span class="card-tile-tag">heartfelt</span><span class="card-tile-tag">genuine</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-cheerful-thank-you-card-online-free-preview-grateful-elegant-for-neighbor-935039.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-935039-vertical.webp" alt="Cheerful Thank You Card Online — Free Preview · Grateful · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheerful Thank You Card Online — Free Preview · Grateful · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">friendly</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">caring</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-grateful-for-you-personalized-thanks-card-grateful-elegant-for-neighbor-9742015.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-9742015-vertical.webp" alt="Grateful For You — Personalized Thanks Card · Grateful · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful For You — Personalized Thanks Card · Grateful · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">cheerful</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">kindness</span></div>
+    </div>
+  </a>
+      <a href="/card/thank-you-beautiful-thank-you-note-ecard-grateful-elegant-for-neighbor-9988768.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thank-you/thank-you-pexels-9988768-vertical.webp" alt="Beautiful Thank You Note Ecard · Grateful · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Beautiful Thank You Note Ecard · Grateful · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">elegant</span><span class="card-tile-tag">classic</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-for-every-moment-thanksgiving-ecard-warm-romantic-for-neighbor-12955686.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-12955686-vertical.webp" alt="Grateful for Every Moment — Thanksgiving Ecard · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful for Every Moment — Thanksgiving Ecard · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-happy-thanksgiving-2026-personalized-card-warm-romantic-for-neighbor-13885791.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-13885791-vertical.webp" alt="Happy Thanksgiving 2026 — Personalized Card · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Thanksgiving 2026 — Personalized Card · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-you-from-our-family-to-yours-warm-romantic-for-neighbor-13885792.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-13885792-vertical.webp" alt="Thankful for You — From Our Family to Yours · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for You — From Our Family to Yours · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-love-gratitude-custom-card-warm-romantic-for-neighbor-14061698.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-14061698-vertical.webp" alt="Thanksgiving Love & Gratitude — Custom Card · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Love & Gratitude — Custom Card · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-blessings-abound-happy-thanksgiving-card-warm-romantic-for-neighbor-14097863.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-14097863-vertical.webp" alt="Blessings Abound — Happy Thanksgiving Card · Warm · Romantic · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Blessings Abound — Happy Thanksgiving Card · Warm · Romantic · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-blessings-custom-family-greeting-warm-elegant-for-neighbor-29122889.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29122889-vertical.webp" alt="Thanksgiving Blessings — Custom Family Greeting · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Blessings — Custom Family Greeting · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-happy-turkey-day-personalized-thanksgiving-card-warm-elegant-for-neighbor-29122893.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29122893-vertical.webp" alt="Happy Turkey Day — Personalized Thanksgiving Card · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Turkey Day — Personalized Thanksgiving Card · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-for-our-family-thanksgiving-card-warm-elegant-for-neighbor-29122913.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29122913-vertical.webp" alt="Grateful for Our Family — Thanksgiving Card · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful for Our Family — Thanksgiving Card · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-friends-like-you-thanksgiving-ecard-warm-elegant-for-neighbor-29124515.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29124515-vertical.webp" alt="Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for Friends Like You — Thanksgiving Ecard · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-dinner-hostess-thank-you-card-warm-elegant-for-neighbor-29229494.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-29229494-vertical.webp" alt="Thanksgiving Dinner Hostess Thank You — Card · Warm · Elegant · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Dinner Hostess Thank You — Card · Warm · Elegant · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-grateful-for-every-moment-thanksgiving-ecard-warm-for-neighbor-5429890.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5429890-vertical.webp" alt="Grateful for Every Moment — Thanksgiving Ecard · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Grateful for Every Moment — Thanksgiving Ecard · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thanksgiving</span><span class="card-tile-tag">grateful</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-happy-thanksgiving-2026-personalized-card-warm-for-neighbor-5429910.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5429910-vertical.webp" alt="Happy Thanksgiving 2026 — Personalized Card · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Thanksgiving 2026 — Personalized Card · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">rustic</span><span class="card-tile-tag">cozy</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thankful-for-you-from-our-family-to-yours-warm-for-neighbor-5429917.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5429917-vertical.webp" alt="Thankful for You — From Our Family to Yours · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thankful for You — From Our Family to Yours · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">give-thanks</span><span class="card-tile-tag">autumn</span><span class="card-tile-tag">gratitude</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-thanksgiving-love-gratitude-custom-card-warm-for-neighbor-5429918.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5429918-vertical.webp" alt="Thanksgiving Love & Gratitude — Custom Card · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thanksgiving Love & Gratitude — Custom Card · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">turkey-day</span><span class="card-tile-tag">pie</span><span class="card-tile-tag">hostess</span></div>
+    </div>
+  </a>
+      <a href="/card/thanksgiving-blessings-abound-happy-thanksgiving-card-warm-for-neighbor-5439709.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thanksgiving/thanksgiving-pexels-5439709-vertical.webp" alt="Blessings Abound — Happy Thanksgiving Card · Warm · for Neighbor" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Blessings Abound — Happy Thanksgiving Card · Warm · for Neighbor</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">blessings</span><span class="card-tile-tag">long-distance-thanksgiving</span><span class="card-tile-tag">friends</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/birthday-send-a-birthday-card-with-your-custom-message-warm-romantic-for-1st-birthday-13142788.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/birthday/birthday-pexels-13142788-vertical.webp" alt="Send a Birthday Card With Your Custom Message · Warm · Romantic · for 1st Birthday" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Send a Birthday Card With Your Custom Message · Warm · Romantic · for 1st Birthday</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">modern</span><span class="card-tile-tag">stylish</span><span class="card-tile-tag">vibrant</span></div>
+    </div>
+  </a>
+      <a href="/card/valentine-love-you-more-valentine-s-day-custom-card-romantic-for-husband-14916713.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/valentine/valentine-pexels-14916713-vertical.webp" alt="Love You More — Valentine's Day Custom Card · Romantic · for Husband" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You More — Valentine's Day Custom Card · Romantic · for Husband</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">chocolate</span><span class="card-tile-tag">roses</span><span class="card-tile-tag">together</span></div>
+    </div>
+  </a>
+      <a href="/card/new-year-out-with-the-old-in-with-the-new-card-celebratory-warm-for-new-year-s-resolution-36726891.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-year/new-year-pexels-36726891-vertical.webp" alt="Out With the Old, In With the New — Card · Celebratory · Warm · for New Year's Resolution" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Out With the Old, In With the New — Card · Celebratory · Warm · for New Year's Resolution</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">bright</span><span class="card-tile-tag">festive</span><span class="card-tile-tag">future</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-elegant-from-son-4939809.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4939809-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-for-son-on-graduation-proud-custom-card-celebratory-romantic-for-middle-school-graduation-7713365.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7713365-vertical.webp" alt="For Son on Graduation — Proud Custom Card · Celebratory · Romantic · for Middle School Graduation" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Son on Graduation — Proud Custom Card · Celebratory · Romantic · for Middle School Graduation</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">high-school</span><span class="card-tile-tag">college</span><span class="card-tile-tag">masters-phd</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-welcome-baby-card-celebrate-the-new-arrival-cheerful-romantic-for-baby-naming-ceremony-29442180.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-29442180-vertical.webp" alt="Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Naming Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Welcome Baby Card — Celebrate the New Arrival · Cheerful · Romantic · for Baby Naming Ceremony</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">new-baby</span><span class="card-tile-tag">newborn</span><span class="card-tile-tag">congratulations</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-next-adventure-begins-retirement-greeting-classic-elegant-for-best-friend-retirement-7935820.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-7935820-vertical.webp" alt="Next Adventure Begins — Retirement Greeting · Classic · Elegant · for Best Friend Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Next Adventure Begins — Retirement Greeting · Classic · Elegant · for Best Friend Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">congrats</span><span class="card-tile-tag">adventure</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/graduation-college-graduation-congrats-custom-card-celebratory-romantic-for-best-friend-7842474.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/graduation/graduation-pexels-7842474-vertical.webp" alt="College Graduation — Congrats Custom Card · Celebratory · Romantic · for Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">College Graduation — Congrats Custom Card · Celebratory · Romantic · for Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-teacher</span><span class="card-tile-tag">from-classmate</span><span class="card-tile-tag">for-son-for-daughter</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

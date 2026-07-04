@@ -1,0 +1,17 @@
+# SendAFun robots.txt — last generated 2026-06-30
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /checkout/
+
+# Policy pages required for search engine trust
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /cookies.html
+
+# Sitemaps
+Sitemap: https://sendafun.com/sitemap.xml

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Classic cards — timeless designs, traditional fonts. For weddings, graduations & milestones.">
+<meta property="og:title" content="Classic Cards — SendAFun">
+<meta property="og:description" content="Classic cards — timeless designs, traditional fonts. For weddings, graduations & milestones.">
+<link rel="canonical" href="https://sendafun.com/style/classic.html">
+<title>Classic Cards — SendAFun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f7f5f0; color: #1a202c; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0.9rem 2rem; position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.logo { text-decoration: none; color: #2d6a4f; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+.logo span { color: #48bb78; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-link { text-decoration: none; color: #4a5568; font-size: 0.82rem; padding: 0.35rem 0.75rem; border-radius: 20px; transition: all 0.2s; white-space: nowrap; }
+.nav-link:hover { background: #edf2f7; }
+.nav-link.active { background: #2d6a4f; color: #fff; }
+.cat-row { max-width: 1240px; margin: 0 auto; padding: 0.5rem 2rem 0; border-top: 1px solid #f0f2f5; }
+.main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+.breadcrumb { font-size: 0.8rem; color: #718096; margin-bottom: 0.75rem; }
+.breadcrumb a { color: #2d6a4f; text-decoration: none; }
+.page-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; color: #1a202c; letter-spacing: -0.01em; }
+.page-subtitle { font-size: 1.05rem; color: #718096; margin-bottom: 1.75rem; max-width: 720px; }
+.count-chip { display: inline-block; font-size: 0.78rem; background: #e6f6ee; color: #2d6a4f; padding: 0.18rem 0.7rem; border-radius: 999px; margin-left: 0.6rem; font-weight: 500; vertical-align: middle; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.card-tile { text-decoration: none; color: inherit; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+.card-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-tile-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #e2e8f0; }
+.card-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-tile-info { padding: 0.9rem 1rem 1.05rem; }
+.card-tile-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: #2d3748; line-height: 1.35; }
+.card-tile-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.card-tile-tag { font-size: 0.68rem; background: #edf2f7; color: #4a5568; padding: 0.12rem 0.5rem; border-radius: 10px; }
+/* Filter chips for recipient/style sub-nav */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+.chip { padding: 0.4rem 0.9rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; font-size: 0.82rem; color: #4a5568; text-decoration: none; transition: all 0.15s; }
+.chip:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.chip.active { background: #2d6a4f; color: #fff; border-color: #2d6a4f; }
+/* Holiday calendar grid */
+.holiday-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+.holiday-card { background: #fff; border-radius: 10px; padding: 1rem 1.1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border-left: 4px solid #48bb78; }
+.holiday-date { font-size: 0.78rem; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+.holiday-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.55rem; color: #2d3748; }
+.holiday-btn { display: inline-block; text-decoration: none; font-size: 0.82rem; color: #2d6a4f; font-weight: 500; }
+.extra-section { margin: 0 0 2.2rem; }
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cat-row { padding: 0.5rem 1rem 0; }
+  .main { padding: 1.2rem 1rem 2.5rem; }
+  .page-title { font-size: 1.6rem; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">Send<span>A</span>Fun</a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+        <a href="/trending.html" class="nav-link">🔥 Trending</a>
+        <a href="/latest.html" class="nav-link">✨ Latest</a>
+        <a href="/holidays.html" class="nav-link">📅 Holidays</a>
+        <a href="/message-generator.html" class="nav-link">✍️ Messages</a>
+        <a href="/pricing.html" class="nav-link">💳 Pricing</a>
+        <a href="/blog.html" class="nav-link">📖 Blog</a>
+        <a href="/faq.html" class="nav-link">❓ FAQ</a>
+    </nav>
+  </div>
+  <div class="cat-row"><nav class="nav-links" style="padding:0.5rem 0;"><a href="/category/anniversary.html" class="nav-link">Anniversary</a>
+        <a href="/category/birthday.html" class="nav-link">Birthday</a>
+        <a href="/category/christmas.html" class="nav-link">Christmas</a>
+        <a href="/category/congratulations.html" class="nav-link">Congratulations</a>
+        <a href="/category/easter.html" class="nav-link">Easter</a>
+        <a href="/category/encouragement.html" class="nav-link">Encouragement</a>
+        <a href="/category/fathers-day.html" class="nav-link">Father's Day</a>
+        <a href="/category/friendship.html" class="nav-link">Friendship</a>
+        <a href="/category/get-well.html" class="nav-link">Get Well</a>
+        <a href="/category/good-luck.html" class="nav-link">Good Luck</a>
+        <a href="/category/graduation.html" class="nav-link">Graduation</a>
+        <a href="/category/halloween.html" class="nav-link">Halloween</a>
+        <a href="/category/love.html" class="nav-link">Love & Romance</a>
+        <a href="/category/missing-you.html" class="nav-link">Missing You</a>
+        <a href="/category/mothers-day.html" class="nav-link">Mother's Day</a>
+        <a href="/category/new-baby.html" class="nav-link">New Baby</a>
+        <a href="/category/new-year.html" class="nav-link">New Year</a>
+        <a href="/category/retirement.html" class="nav-link">Retirement</a>
+        <a href="/category/sorry.html" class="nav-link">Apology</a>
+        <a href="/category/sympathy.html" class="nav-link">Sympathy</a>
+        <a href="/category/thank-you.html" class="nav-link">Thank You</a>
+        <a href="/category/thanksgiving.html" class="nav-link">Thanksgiving</a>
+        <a href="/category/thinking-of-you.html" class="nav-link">Thinking of You</a>
+        <a href="/category/valentine.html" class="nav-link">Valentine</a>
+        <a href="/category/wedding.html" class="nav-link">Wedding</a></nav></div>
+</header>
+<main class="main">
+  <div class="breadcrumb"><a href="/">Home</a> / <a href="/">Home</a> / Styles / <strong>Classic</strong></div>
+  <h1 class="page-title">Classic Cards<span class="count-chip">300 cards</span></h1>
+  <p class="page-subtitle">Classic cards — timeless designs, traditional fonts. For weddings, graduations & milestones.</p>
+  <div class="chip-row"><a href="/style/romantic.html" class="chip">Romantic</a>
+      <a href="/style/elegant.html" class="chip">Elegant</a>
+      <a href="/style/cheerful.html" class="chip">Cheerful</a>
+      <a href="/style/warm.html" class="chip">Warm</a>
+      <a href="/style/classic.html" class="chip active">Classic</a></div>
+  <div class="card-grid">
+    <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-from-daughter-10281132.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-10281132-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-from-daughter-10903147.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-10903147-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-from-daughter-12891967.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12891967-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-from-daughter-12932337.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12932337-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-from-daughter-12932847.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12932847-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-romantic-from-son-12956060.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12956060-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-romantic-from-son-12960354.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12960354-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-romantic-from-son-12969212.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-12969212-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-romantic-from-son-13020479.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13020479-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-romantic-from-son-13020486.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13020486-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-romantic-from-kids-13051943.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-13051943-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-romantic-from-kids-15291660.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-15291660-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-romantic-from-kids-16460600.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460600-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-romantic-from-kids-16460601.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460601-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-romantic-from-kids-16460602.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460602-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Romantic · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Romantic · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-romantic-from-wife-16460604.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16460604-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-romantic-from-wife-16958795.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-16958795-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-romantic-from-wife-17040653.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-17040653-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-romantic-from-wife-17508612.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-17508612-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-romantic-from-wife-19317957.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-19317957-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Romantic · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Romantic · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-for-grandpa-19323677.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-19323677-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-for-grandpa-21642976.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-21642976-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-for-grandpa-2274162.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-2274162-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-for-grandpa-26798925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-26798925-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-for-grandpa-27788134.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-27788134-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-romantic-for-great-grandpa-27873528.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-27873528-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Romantic · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Romantic · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-romantic-for-great-grandpa-2815694.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-2815694-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-romantic-for-great-grandpa-28237363.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-28237363-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-romantic-for-great-grandpa-28310081.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-28310081-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-romantic-for-great-grandpa-28800247.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-28800247-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-romantic-for-new-dad-31187790.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-31187790-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-romantic-for-new-dad-31392009.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-31392009-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Romantic · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Romantic · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-romantic-for-new-dad-32188527.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-32188527-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Romantic · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Romantic · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-romantic-for-new-dad-32201328.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-32201328-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-romantic-for-new-dad-32710686.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-32710686-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Romantic · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Romantic · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-romantic-for-expecting-dad-33029021.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-33029021-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-romantic-for-expecting-dad-33433746.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-33433746-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-romantic-for-expecting-dad-34133892.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34133892-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-romantic-for-expecting-dad-34133903.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34133903-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Romantic · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Romantic · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-romantic-for-expecting-dad-34146084.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34146084-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-from-best-friend-34155017.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34155017-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-from-best-friend-34399403.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34399403-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-from-best-friend-34399466.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34399466-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-from-best-friend-34399551.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34399551-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-from-best-friend-34399552.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34399552-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-romantic-for-adoptive-dad-34572610.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-34572610-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Romantic · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Romantic · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-romantic-for-adoptive-dad-35688948.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-35688948-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-romantic-for-adoptive-dad-35875037.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-35875037-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-romantic-for-adoptive-dad-35875041.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-35875041-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-romantic-for-adoptive-dad-36026432.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-36026432-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-romantic-for-foster-dad-36026434.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-36026434-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-romantic-for-foster-dad-36026436.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-36026436-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Romantic · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Romantic · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-romantic-for-foster-dad-36026437.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-36026437-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Romantic · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Romantic · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-romantic-for-foster-dad-36026438.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-36026438-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-romantic-for-foster-dad-37049848.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-37049848-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Romantic · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Romantic · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-romantic-for-dad-in-heaven-37049863.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-37049863-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-romantic-for-dad-in-heaven-37680736.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-37680736-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-romantic-for-dad-in-heaven-4148835.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148835-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-romantic-for-dad-in-heaven-4148836.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148836-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Romantic · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Romantic · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-romantic-for-dad-in-heaven-4148840.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148840-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-for-step-dad-4148841.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148841-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-for-step-dad-4148842.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148842-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-for-step-dad-4148844.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148844-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-for-step-dad-4148845.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148845-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-for-step-dad-4148847.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148847-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-romantic-for-dog-dad-4148850.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148850-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Romantic · for Dog Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Romantic · for Dog Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-romantic-for-dog-dad-4148852.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4148852-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Dog Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Romantic · for Dog Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-romantic-for-dog-dad-4669016.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4669016-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Dog Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Romantic · for Dog Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-romantic-for-dog-dad-4767028.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4767028-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Dog Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Romantic · for Dog Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-romantic-for-dog-dad-4894854.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4894854-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Dog Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Romantic · for Dog Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-romantic-for-cat-dad-4894855.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4894855-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for Cat Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Romantic · for Cat Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-romantic-for-cat-dad-4894884.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4894884-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Romantic · for Cat Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Romantic · for Cat Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-romantic-for-cat-dad-4933605.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933605-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Romantic · for Cat Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Romantic · for Cat Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-romantic-for-cat-dad-4933610.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933610-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for Cat Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Romantic · for Cat Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-romantic-for-cat-dad-4933633.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933633-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Romantic · for Cat Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Romantic · for Cat Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-romantic-for-grandpa-from-grandkids-4933793.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933793-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Grandpa from Grandkids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Romantic · for Grandpa from Grandkids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-romantic-for-grandpa-from-grandkids-4933797.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933797-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Grandpa from Grandkids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Romantic · for Grandpa from Grandkids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-romantic-for-grandpa-from-grandkids-4933798.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933798-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Grandpa from Grandkids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Romantic · for Grandpa from Grandkids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-romantic-for-grandpa-from-grandkids-4933812.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933812-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Romantic · for Grandpa from Grandkids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Romantic · for Grandpa from Grandkids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-romantic-for-grandpa-from-grandkids-4933815.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933815-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Grandpa from Grandkids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Romantic · for Grandpa from Grandkids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-romantic-for-bonus-dad-4933822.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933822-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Bonus Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Romantic · for Bonus Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-romantic-for-bonus-dad-4933824.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933824-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Bonus Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Romantic · for Bonus Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-romantic-for-bonus-dad-4933825.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933825-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Bonus Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Romantic · for Bonus Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-romantic-for-bonus-dad-4933826.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933826-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Bonus Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Romantic · for Bonus Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-romantic-for-bonus-dad-4933829.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933829-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Bonus Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Romantic · for Bonus Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-elegant-from-daughter-4933831.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933831-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Elegant · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Elegant · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-elegant-from-daughter-4933847.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4933847-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-elegant-from-daughter-4934400.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4934400-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Elegant · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Elegant · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-elegant-from-daughter-4934411.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4934411-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Elegant · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Elegant · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-elegant-from-daughter-4934412.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4934412-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · from Daughter" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · from Daughter</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-elegant-from-son-4934416.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4934416-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-elegant-from-son-4934735.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4934735-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-elegant-from-son-4939809.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4939809-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-elegant-from-son-4990351.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4990351-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-elegant-from-son-4990442.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-4990442-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Elegant · from Son" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Elegant · from Son</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-elegant-from-kids-5027402.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5027402-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-elegant-from-kids-5029627.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5029627-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-elegant-from-kids-5029630.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5029630-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-elegant-from-kids-5035590.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5035590-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Elegant · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Elegant · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-elegant-from-kids-5035925.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5035925-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Elegant · from Kids" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Elegant · from Kids</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-elegant-from-wife-5036174.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036174-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Elegant · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Elegant · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-elegant-from-wife-5036324.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036324-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-elegant-from-wife-5036337.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036337-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Elegant · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Elegant · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-elegant-from-wife-5036389.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036389-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Elegant · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Elegant · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-elegant-from-wife-5036447.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036447-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Elegant · from Wife" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Elegant · from Wife</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-elegant-for-grandpa-5036495.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5036495-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Elegant · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Elegant · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-elegant-for-grandpa-5082952.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5082952-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-elegant-for-grandpa-5239964.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5239964-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Elegant · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Elegant · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-elegant-for-grandpa-5240500.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5240500-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Elegant · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Elegant · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-elegant-for-grandpa-5368732.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5368732-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · for Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · for Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-elegant-for-great-grandpa-5727765.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5727765-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Elegant · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Elegant · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-elegant-for-great-grandpa-5728305.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5728305-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Elegant · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Elegant · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-elegant-for-great-grandpa-5789115.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5789115-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Elegant · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Elegant · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-elegant-for-great-grandpa-5789118.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5789118-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-elegant-for-great-grandpa-5789121.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5789121-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Elegant · for Great Grandpa" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Elegant · for Great Grandpa</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-elegant-for-new-dad-5789125.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-5789125-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-elegant-for-new-dad-6219944.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-6219944-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-elegant-for-new-dad-6219946.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-6219946-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-elegant-for-new-dad-6849360.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-6849360-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Elegant · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Elegant · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-elegant-for-new-dad-7669108.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-7669108-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Elegant · for New Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Elegant · for New Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-elegant-for-expecting-dad-7743564.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-7743564-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-elegant-for-expecting-dad-7957535.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-7957535-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-elegant-for-expecting-dad-7978516.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-7978516-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-elegant-for-expecting-dad-8341859.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8341859-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-elegant-for-expecting-dad-8346143.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8346143-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Elegant · for Expecting Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Elegant · for Expecting Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-elegant-from-best-friend-8365014.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8365014-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Elegant · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Elegant · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-elegant-from-best-friend-8576294.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8576294-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-elegant-from-best-friend-8841349.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8841349-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Elegant · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Elegant · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-elegant-from-best-friend-8841351.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8841351-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Elegant · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Elegant · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-elegant-from-best-friend-8841582.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8841582-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · from Best Friend" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · from Best Friend</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-bold-classic-design-classic-elegant-for-adoptive-dad-8913973.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913973-vertical.webp" alt="Happy Fathers Day — Bold & Classic Design · Classic · Elegant · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Bold & Classic Design · Classic · Elegant · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-for-everything-dad-custom-card-classic-elegant-for-adoptive-dad-8913974.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913974-vertical.webp" alt="Thank You for Everything Dad — Custom Card · Classic · Elegant · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You for Everything Dad — Custom Card · Classic · Elegant · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-an-amazing-dad-personalized-ecard-classic-elegant-for-adoptive-dad-8913982.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913982-vertical.webp" alt="To an Amazing Dad — Personalized Ecard · Classic · Elegant · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To an Amazing Dad — Personalized Ecard · Classic · Elegant · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-you-re-my-hero-custom-fathers-day-card-classic-elegant-for-adoptive-dad-8913986.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913986-vertical.webp" alt="Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, You're My Hero — Custom Fathers Day Card · Classic · Elegant · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-best-dad-ever-father-s-day-celebration-classic-elegant-for-adoptive-dad-8913987.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913987-vertical.webp" alt="Best Dad Ever — Father's Day Celebration · Classic · Elegant · for Adoptive Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Best Dad Ever — Father's Day Celebration · Classic · Elegant · for Adoptive Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-love-you-dad-heartfelt-custom-card-online-classic-elegant-for-foster-dad-8913988.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8913988-vertical.webp" alt="Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Love You Dad — Heartfelt Custom Card Online · Classic · Elegant · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-a-great-dad-even-better-grandpa-card-classic-elegant-for-foster-dad-8914020.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8914020-vertical.webp" alt="For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For a Great Dad & Even Better Grandpa — Card · Classic · Elegant · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-fathers-day-warm-rugged-design-classic-elegant-for-foster-dad-8943601.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8943601-vertical.webp" alt="Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Fathers Day — Warm & Rugged Design · Classic · Elegant · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-dad-thank-you-for-always-being-there-card-classic-elegant-for-foster-dad-8944020.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8944020-vertical.webp" alt="Dad, Thank You for Always Being There — Card · Classic · Elegant · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Dad, Thank You for Always Being There — Card · Classic · Elegant · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-a-legend-dad-happy-father-s-day-classic-elegant-for-foster-dad-8944032.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8944032-vertical.webp" alt="You're a Legend Dad — Happy Father's Day · Classic · Elegant · for Foster Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're a Legend Dad — Happy Father's Day · Classic · Elegant · for Foster Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-father-s-day-card-for-the-best-dad-classic-elegant-for-dad-in-heaven-8944035.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8944035-vertical.webp" alt="Happy Father's Day Card — For the Best Dad · Classic · Elegant · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Father's Day Card — For the Best Dad · Classic · Elegant · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-thank-you-dad-personalized-father-s-day-ecard-classic-elegant-for-dad-in-heaven-8944247.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8944247-vertical.webp" alt="Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Thank You Dad — Personalized Father's Day Ecard · Classic · Elegant · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-world-s-best-dad-custom-father-s-day-card-classic-elegant-for-dad-in-heaven-8945211.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8945211-vertical.webp" alt="World's Best Dad — Custom Father's Day Card · Classic · Elegant · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">World's Best Dad — Custom Father's Day Card · Classic · Elegant · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-to-my-hero-dad-custom-greeting-online-classic-elegant-for-dad-in-heaven-8945214.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8945214-vertical.webp" alt="To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">To My Hero Dad — Custom Greeting Online · Classic · Elegant · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-for-dad-with-gratitude-father-s-day-card-classic-elegant-for-dad-in-heaven-8945224.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8945224-vertical.webp" alt="For Dad With Gratitude — Father's Day Card · Classic · Elegant · for Dad in Heaven" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Dad With Gratitude — Father's Day Card · Classic · Elegant · for Dad in Heaven</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-happy-first-father-s-day-personalized-card-classic-elegant-for-step-dad-8945225.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-8945225-vertical.webp" alt="Happy First Father's Day — Personalized Card · Classic · Elegant · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy First Father's Day — Personalized Card · Classic · Elegant · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">fathers-day</span><span class="card-tile-tag">dad</span><span class="card-tile-tag">hero</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-daughter-to-dad-loving-father-s-day-ecard-classic-elegant-for-step-dad-9275225.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-9275225-vertical.webp" alt="From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Daughter to Dad — Loving Father's Day Ecard · Classic · Elegant · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">bold</span><span class="card-tile-tag">rugged</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-from-son-to-dad-happy-fathers-day-card-classic-elegant-for-step-dad-9300272.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-9300272-vertical.webp" alt="From Son to Dad — Happy Fathers Day Card · Classic · Elegant · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">From Son to Dad — Happy Fathers Day Card · Classic · Elegant · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">thank-you-dad</span><span class="card-tile-tag">best-dad</span><span class="card-tile-tag">love</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-you-re-the-best-dad-custom-ecard-online-classic-elegant-for-step-dad-9705773.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-9705773-vertical.webp" alt="You're the Best Dad — Custom Ecard Online · Classic · Elegant · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You're the Best Dad — Custom Ecard Online · Classic · Elegant · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-daughter</span><span class="card-tile-tag">from-son</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/fathers-day-fathers-day-card-grandpa-too-custom-classic-elegant-for-step-dad-9908139.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/fathers-day/fathers-day-pexels-9908139-vertical.webp" alt="Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · for Step Dad" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Fathers Day Card — Grandpa Too — Custom · Classic · Elegant · for Step Dad</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">grandpa</span><span class="card-tile-tag">first-fathers-day</span><span class="card-tile-tag">legend</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-happy-retirement-card-next-chapter-begins-classic-romantic-for-teacher-retirement-10422410.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-10422410-vertical.webp" alt="Happy Retirement Card — Next Chapter Begins · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Retirement Card — Next Chapter Begins · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">next-chapter</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-congratulations-on-your-retirement-custom-ecard-classic-romantic-for-teacher-retirement-12905031.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-12905031-vertical.webp" alt="Congratulations on Your Retirement — Custom Ecard · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Congratulations on Your Retirement — Custom Ecard · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-well-deserved-retirement-celebratory-card-classic-romantic-for-teacher-retirement-14012234.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14012234-vertical.webp" alt="Well Deserved Retirement — Celebratory Card · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Well Deserved Retirement — Celebratory Card · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">congrats</span><span class="card-tile-tag">adventure</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-retirement-celebration-you-earned-this-custom-classic-romantic-for-teacher-retirement-14012235.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14012235-vertical.webp" alt="Retirement Celebration — You Earned This — Custom · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Retirement Celebration — You Earned This — Custom · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">well-deserved</span><span class="card-tile-tag">career</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-new-chapter-ahead-retirement-greeting-card-classic-romantic-for-teacher-retirement-14025894.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14025894-vertical.webp" alt="New Chapter Ahead — Retirement Greeting Card · Classic · Romantic · for Teacher Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">New Chapter Ahead — Retirement Greeting Card · Classic · Romantic · for Teacher Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-team</span><span class="card-tile-tag">teacher</span><span class="card-tile-tag">nurse-retirement</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-cheers-to-retirement-personalized-ecard-online-classic-romantic-for-nurse-retirement-14025895.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14025895-vertical.webp" alt="Cheers to Retirement — Personalized Ecard Online · Classic · Romantic · for Nurse Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Cheers to Retirement — Personalized Ecard Online · Classic · Romantic · for Nurse Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">retirement</span><span class="card-tile-tag">next-chapter</span><span class="card-tile-tag">celebration</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-happy-retirement-time-to-relax-enjoy-classic-romantic-for-nurse-retirement-14025897.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14025897-vertical.webp" alt="Happy Retirement — Time to Relax & Enjoy · Classic · Romantic · for Nurse Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Happy Retirement — Time to Relax & Enjoy · Classic · Romantic · for Nurse Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">classic</span><span class="card-tile-tag">elegant</span><span class="card-tile-tag">warm</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-retirement-wishes-classic-custom-card-classic-romantic-for-nurse-retirement-14236923.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14236923-vertical.webp" alt="Retirement Wishes — Classic Custom Card · Classic · Romantic · for Nurse Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Retirement Wishes — Classic Custom Card · Classic · Romantic · for Nurse Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">congrats</span><span class="card-tile-tag">adventure</span><span class="card-tile-tag">new-beginnings</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-for-teacher-retirement-custom-thank-you-card-classic-romantic-for-nurse-retirement-14238635.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14238635-vertical.webp" alt="For Teacher Retirement — Custom Thank You Card · Classic · Romantic · for Nurse Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Teacher Retirement — Custom Thank You Card · Classic · Romantic · for Nurse Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">well-deserved</span><span class="card-tile-tag">career</span><span class="card-tile-tag">grateful</span></div>
+    </div>
+  </a>
+      <a href="/card/retirement-for-nurse-retirement-celebratory-custom-ecard-classic-romantic-for-nurse-retirement-14270108.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/retirement/retirement-pexels-14270108-vertical.webp" alt="For Nurse Retirement — Celebratory Custom Ecard · Classic · Romantic · for Nurse Retirement" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Nurse Retirement — Celebratory Custom Ecard · Classic · Romantic · for Nurse Retirement</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">from-team</span><span class="card-tile-tag">teacher</span><span class="card-tile-tag">nurse-retirement</span></div>
+    </div>
+  </a>
+  </div>
+  <h2 class="page-title" style="font-size:1.4rem;margin-top:1rem;">You might also like</h2>
+  <p class="page-subtitle">Explore more cards across SendAFun.</p>
+  <div class="card-grid"><a href="/card/good-luck-good-luck-surgery-recovery-warm-custom-cheerful-romantic-for-lottery-31125591.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/good-luck/good-luck-pexels-31125591-vertical.webp" alt="Good Luck Surgery & Recovery — Warm Custom · Cheerful · Romantic · for Lottery" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Good Luck Surgery & Recovery — Warm Custom · Cheerful · Romantic · for Lottery</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">good-luck</span><span class="card-tile-tag">best-wishes</span><span class="card-tile-tag">fingers-crossed</span></div>
+    </div>
+  </a>
+      <a href="/card/christmas-peace-love-joy-personalized-christmas-ecard-festive-romantic-for-charity-14899027.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/christmas/christmas-pexels-14899027-vertical.webp" alt="Peace, Love & Joy — Personalized Christmas Ecard · Festive · Romantic · for Charity" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Peace, Love & Joy — Personalized Christmas Ecard · Festive · Romantic · for Charity</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">christmas</span><span class="card-tile-tag">holiday</span><span class="card-tile-tag">festive</span></div>
+    </div>
+  </a>
+      <a href="/card/encouragement-bright-days-are-ahead-encouragement-ecard-uplifting-romantic-for-weight-loss-journey-17767041.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-17767041-vertical.webp" alt="Bright Days Are Ahead — Encouragement Ecard · Uplifting · Romantic · for Weight Loss Journey" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Bright Days Are Ahead — Encouragement Ecard · Uplifting · Romantic · for Weight Loss Journey</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warm</span><span class="card-tile-tag">strength</span><span class="card-tile-tag">kindness</span></div>
+    </div>
+  </a>
+      <a href="/card/thinking-of-you-for-someone-special-you-re-on-my-mind-soft-warm-for-going-through-a-lot-8450531.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/thinking-of-you/thinking-of-you-pexels-8450531-vertical.webp" alt="For Someone Special — You're On My Mind · Soft · Warm · for Going Through a Lot" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">For Someone Special — You're On My Mind · Soft · Warm · for Going Through a Lot</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">warmth</span><span class="card-tile-tag">missing</span><span class="card-tile-tag">grateful-for-you</span></div>
+    </div>
+  </a>
+      <a href="/card/new-baby-the-family-just-got-better-new-baby-card-cheerful-romantic-for-first-time-parents-19773994.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/new-baby/new-baby-pexels-19773994-vertical.webp" alt="The Family Just Got Better — New Baby Card · Cheerful · Romantic · for First Time Parents" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">The Family Just Got Better — New Baby Card · Cheerful · Romantic · for First Time Parents</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">baby-boy</span><span class="card-tile-tag">baby-girl</span><span class="card-tile-tag">joyful</span></div>
+    </div>
+  </a>
+      <a href="/card/encouragement-you-ve-got-this-encouragement-card-online-uplifting-romantic-for-first-steps-31477972.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/encouragement/encouragement-pexels-31477972-vertical.webp" alt="You've Got This — Encouragement Card Online · Uplifting · Romantic · for First Steps" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">You've Got This — Encouragement Card Online · Uplifting · Romantic · for First Steps</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">encouragement</span><span class="card-tile-tag">motivation</span><span class="card-tile-tag">strong</span></div>
+    </div>
+  </a>
+      <a href="/card/sympathy-respectful-sympathy-card-to-send-online-calm-elegant-for-memorial-service-4019143.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/sympathy/sympathy-pexels-4019143-vertical.webp" alt="Respectful Sympathy Card to Send Online · Calm · Elegant · for Memorial Service" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Respectful Sympathy Card to Send Online · Calm · Elegant · for Memorial Service</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">love</span><span class="card-tile-tag">support</span><span class="card-tile-tag">grief</span></div>
+    </div>
+  </a>
+      <a href="/card/missing-you-warm-thinking-of-you-miss-you-ecard-warm-elegant-for-deployed-spouse-6250375.html" class="card-tile">
+    <div class="card-tile-img"><img src="https://pub-1ac39f23ca77406495146e7a2f4183b3.r2.dev/missing-you/missing-you-pexels-6250375-vertical.webp" alt="Warm Thinking of You — Miss You Ecard · Warm · Elegant · for Deployed Spouse" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="card-tile-info">
+      <div class="card-tile-title">Warm Thinking of You — Miss You Ecard · Warm · Elegant · for Deployed Spouse</div>
+      <div class="card-tile-tags"><span class="card-tile-tag">tender</span><span class="card-tile-tag">warm</span><span class="card-tile-tag">family</span></div>
+    </div>
+  </a></div>
+</main>
+
+  <div style="background:#fff;border-top:1px solid #e2e8f0;text-align:center;padding:28px 20px 32px;color:#a0aec0;font-size:0.85rem;margin-top:32px;">
+    <div style="margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;">
+      <a href="/privacy.html" style="color:#718096;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="color:#718096;text-decoration:none;">Terms of Service</a>
+        <a href="/pricing.html" style="color:#718096;text-decoration:none;">Pricing</a>
+        <a href="/about.html" style="color:#718096;text-decoration:none;">About</a>
+        <a href="/contact.html" style="color:#718096;text-decoration:none;">Contact</a>
+        <a href="/cookies.html" style="color:#718096;text-decoration:none;">Cookies</a>
+        <a href="/faq.html" style="color:#718096;text-decoration:none;">FAQ</a>
+        <a href="/blog.html" style="color:#718096;text-decoration:none;">Blog</a>
+    </div>
+    <div style="font-size:0.82rem;">&copy; 2026 sendafun.com &nbsp;|&nbsp; <a href="/privacy.html" style="color:#a0aec0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html" style="color:#a0aec0;text-decoration:none;">Terms of Service</a> &nbsp;|&nbsp; Contact: <a href="mailto:support@sendafun.com" style="color:#a0aec0;text-decoration:none;">support@sendafun.com</a></div>
+  </div>
+
+<!-- GDPR Cookie Consent (Creem + Adsense compliance) -->
+<div id="saf-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:16px;z-index:9999;padding:0 12px;">
+  <div style="max-width:880px;margin:0 auto;background:#1a202c;color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 36px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-weight:600;font-size:0.92rem;margin-bottom:2px;">🍪 We use cookies</div>
+      <div style="font-size:0.8rem;line-height:1.5;color:#cbd5e0;">
+        Essential cookies keep the card editor working. Analytics and advertising cookies help us improve the site and show relevant ads, and are only set <strong>after you accept</strong>. Read the <a href="/privacy.html" style="color:#68d391;">Privacy Policy</a> or <a href="/cookies.html" style="color:#68d391;">Cookie Policy</a> for details.
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="saf-cookie-reject" style="background:transparent;color:#e2e8f0;border:1px solid #4a5568;padding:7px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-family:inherit;">Reject non-essential</button>
+      <button id="saf-cookie-accept" style="background:#2f855a;color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;font-family:inherit;">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='saf_cookie_v1';
+  var now=Math.floor(Date.now()/1000);
+  try {
+    var saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+  } catch(e){ var saved={}; }
+  // Show banner if no saved decision OR decision older than 180 days
+  if(!saved.d || (saved.t && now - saved.t > 15552000)) {
+    document.getElementById('saf-cookie-banner').style.display='block';
+  }
+  function decide(choice){
+    try { localStorage.setItem(KEY, JSON.stringify({d:choice,t:now})); } catch(e){}
+    document.getElementById('saf-cookie-banner').style.display='none';
+    // Dispatch event so future GA4 / Ads can branch on consent
+    document.dispatchEvent(new CustomEvent('saf:cookie-consent',{detail:{choice:choice}}));
+  }
+  document.getElementById('saf-cookie-accept').addEventListener('click', function(){ decide('accept'); });
+  document.getElementById('saf-cookie-reject').addEventListener('click', function(){ decide('reject'); });
+})();
+</script>
+</body>
+</html>

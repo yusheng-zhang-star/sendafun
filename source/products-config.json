@@ -1,0 +1,75 @@
+{
+  "creem_store_id": "sto_5CSCNwFCgLO6F2XAZ8ZJlD",
+  "creem_api_key": "creem_test_7deQTeY7iE1fapgeaiLQ1u",
+  "products": [
+    {
+      "id": "sendafun_pay_per_send",
+      "name": "Pay Per Send",
+      "name_en": "Pay Per Send",
+      "price": 1.99,
+      "currency": "USD",
+      "billing_cycle": "one_time",
+      "creem_product_id": "prod_7GGx4Gh5yvKLOb0OCzYFoq",
+      "features": [
+        "One single e-card scheduled & delivered",
+        "Basic delivery scheduling (up to 7 days out)",
+        "Standard branded email template",
+        "Watermarked preview image"
+      ],
+      "creem_fee_estimate": 0.36,
+      "net_revenue_estimate": 1.63
+    },
+    {
+      "id": "sendafun_monthly_subscription",
+      "name": "Monthly Unlimited",
+      "name_en": "Monthly Unlimited",
+      "price": 6.99,
+      "currency": "USD",
+      "billing_cycle": "monthly",
+      "creem_product_id": "prod_3xVdtK0wdzqLlaCz4H7lzQ",
+      "features": [
+        "Unlimited scheduled e-card deliveries",
+        "Watermark-free high-resolution previews",
+        "Advanced scheduling (up to 30 days out)",
+        "Customisable email delivery templates",
+        "Send history (recover drafts up to 30 days old)",
+        "Priority customer support (24h reply window)"
+      ],
+      "auto_renew": true,
+      "cancel_anytime": true,
+      "creem_fee_estimate": 0.50,
+      "net_revenue_estimate": 6.49
+    },
+    {
+      "id": "sendafun_annual_subscription",
+      "name": "Annual Unlimited",
+      "name_en": "Annual Unlimited",
+      "price": 69,
+      "currency": "USD",
+      "billing_cycle": "yearly",
+      "creem_product_id": "prod_73aCoww3uhNMevKi8NVwNv",
+      "features": [
+        "Everything included in Monthly Unlimited",
+        "Best value — pays for itself around the 35th card",
+        "Priority support + dedicated email line",
+        "Send history (recover drafts up to 90 days old)",
+        "Early access to new card templates"
+      ],
+      "auto_renew": true,
+      "cancel_anytime": true,
+      "creem_fee_estimate": 2.30,
+      "net_revenue_estimate": 66.70
+    }
+  ],
+  "creem_fee_structure": {
+    "domestic_card": "2.9% + $0.30",
+    "international_card": "3.9% + $0.30",
+    "platform_fee": "0%"
+  },
+  "subscription_policy": {
+    "auto_renew": "Subscriptions auto-renew at the end of each billing cycle unless cancelled",
+    "cancel_anytime": "Subscribers can cancel auto-renewal at any time",
+    "cancel_immediate": "Immediate cancellation is available; no partial-period refund is issued for the current cycle",
+    "cancel_at_period_end": "Recommended — cancellation takes effect at the end of the current billing period"
+  }
+}
