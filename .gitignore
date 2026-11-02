@@ -38,3 +38,7 @@ _material-library/progress-checkpoint.json
 _deploy_clean/
 .dbg/
 
+
+# 本地素材缓存（原图 2.6GB + 抓取缓存，只存本地）
+source/images/
+.cards-cache.json
