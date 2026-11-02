@@ -2,18 +2,23 @@
 # -*- coding: utf-8 -*-
 """Set R2 bucket CORS via Cloudflare REST API (not S3 API)"""
 
-import json, ssl
+import json, os, ssl
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
 ACCOUNT_ID = "dbacad9daf4c611ca4143f74fc33c2d3"
 BUCKET = "sendafun-preview"
 
-# 尝试用现有的 API tokens
-TOKENS = [
-    "cfut_yOiZJyHtnQ6hXBrnyix0LOm2skHziYCowEpZdDXp8ae6da8b",  # 全权限
-    "cfat_4ss29WGmdQdBES4hGgF0DKtRxrpCsvmS9tL5OggY9ce3556d",  # Email Routing (account级)
-]
+# 令牌不写进仓库（本仓库是公开的）。运行前：
+#   Windows : set CF_API_TOKEN=cfut_xxx && python fix-r2-cors-v2.py
+#   bash    : CF_API_TOKEN=cfut_xxx python fix-r2-cors-v2.py
+TOKENS = [t for t in [
+    os.environ.get("CF_API_TOKEN", ""),          # Cloudflare 主 token（R2 需要 Account 级权限）
+    os.environ.get("CF_EMAIL_ROUTING_TOKEN", ""),  # 备用：Email Routing account 级 token
+] if t]
+
+if not TOKENS:
+    raise SystemExit("缺少环境变量 CF_API_TOKEN，请先 export/ set 后再运行")
 
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
